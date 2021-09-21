@@ -1,0 +1,7 @@
+{
+    "statusResponse": 500,
+    "HttpCode": 0,
+    "error": {
+        "fail": "test"
+    }
+}

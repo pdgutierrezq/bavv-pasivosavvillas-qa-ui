@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-07-26T17:51:08.205Z",
+    "end": "2020-07-26T17:51:18.283Z",
+    "duration": 10078,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a96459de-96b8-4f76-8507-d934c80f16d0",
+      "title": "",
+      "fullFile": "cypress/integration/QAM/TC06_aliases.spec.js",
+      "file": "cypress/integration/QAM/TC06_aliases.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c64243d8-b2e2-4cd0-9bcb-d2c4448b10bd",
+          "title": "Create and mark-unmark as favorite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create a post",
+              "fullTitle": "Create and mark-unmark as favorite Create a post",
+              "timedOut": null,
+              "duration": 3963,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('ul.navbar-nav').children().as('menu');\ncy.get('@menu').contains('New Post').click();\ncy.hash().should('include', '#/editor');\ncy.get('form').within(function ($form) {\n  cy.get('input').first().type('Test');\n  cy.get('input').eq(1).type('Test 1');\n  cy.get('textarea').last().type('Test 2');\n  cy.contains('Publish Article').click();\n});\ncy.url().should('include', 'article');",
+              "err": {},
+              "uuid": "f997c10f-8fb6-4462-a32d-8f9c45cc5671",
+              "parentUUID": "c64243d8-b2e2-4cd0-9bcb-d2c4448b10bd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Mark-unmark as favorite",
+              "fullTitle": "Create and mark-unmark as favorite Mark-unmark as favorite",
+              "timedOut": null,
+              "duration": 6045,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('ul.navbar-nav').children().contains('TestingCypress').click();\ncy.contains('My Articles').should('be.visible');\ncy.get('.ion-heart').first().click();\ncy.contains('Favorited Articles').click();\ncy.url().should('include', 'favorites');\ncy.get('.btn-primary').first().then(function ($fav) {\n  return $fav.text();\n}).as('favCount');\ncy.get('@favCount').then(function ($cnt) {\n  expect(parseInt($cnt)).to.eq(1);\n});\ncy.get('.btn-primary').first().click();\ncy.reload();\ncy.contains('No articles are here... yet.').should('be.visible');\ncy.go('back');",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find content: 'No articles are here... yet.' but never did.",
+                "estack": "CypressError: Timed out retrying: Expected to find content: 'No articles are here... yet.' but never did.\n    at Object.cypressErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86207:11)\n    at Object.throwErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86162:18)\n    at Object.throwErrByPath (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86194:17)\n    at retry (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:76849:16)\n    at onFailFn (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:65634:16)\n    at tryCatcher (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromise0 (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118241:10)\n    at Promise._settlePromises (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118316:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114928:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": null
+              },
+              "uuid": "07f8de21-08a2-4a40-b266-ad56cb624d52",
+              "parentUUID": "c64243d8-b2e2-4cd0-9bcb-d2c4448b10bd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f997c10f-8fb6-4462-a32d-8f9c45cc5671"
+          ],
+          "failures": [
+            "07f8de21-08a2-4a40-b266-ad56cb624d52"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10008,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "statusResponse": 206,
+    "RqUID": "29102199",
+    "Status": {
+        "StatusCode": "1607",
+        "StatusDesc": "CLAVE TEMPORAL EN ESTADO UTILIZADA"
+    },
+    "HttpCode": 0
+}

@@ -1,0 +1,183 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-08-05T15:24:53.833Z",
+    "end": "2020-08-05T15:27:11.509Z",
+    "duration": 137676,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4019a7a9-aca8-41a8-8291-10ae05fdd30b",
+      "title": "",
+      "fullFile": "cypress/integration/test/sprints/sprint34.js",
+      "file": "cypress/integration/test/sprints/sprint34.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0eacb61b-b111-4363-96c7-f2e236637dd7",
+          "title": "test pasivo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PBA-1288 Integrar redux a la aplicación",
+              "fullTitle": "test pasivo PBA-1288 Integrar redux a la aplicación",
+              "timedOut": null,
+              "duration": 56378,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: false,\n  cat: true,\n  channles: true,\n  docs: 'Empleado',\n  sqs: 'success',\n  generateUrl: 'two docs',\n  loadPresigned: 'any'\n};\ncy.MockWs(userConditions);\ncy.FillForm('stg');\ncy.AcceptPep();\ncy.SelectAccount('PRO');\ncy.AcceptInsurance('Si');\nfor (var i = 0; i < 3; i++) {\n  cy.OtpAuthentication();\n  cy.get('.error > .ng-star-inserted').should('be.visible');\n  cy.get('#OtpButton', {\n    timeout: 20000\n  }).click();\n  cy.WaitLoader();\n  cy.get('.error').should('contain', 'La clave que ingresaste no corresponde a la enviada');\n  cy.get('#OtpButton', {\n    timeout: 20000\n  }).click();\n  cy.WaitLoader();\n  cy.get('.mat-input-element', {\n    timeout: 20000\n  }).first().should('be.disabled');\n  cy.get('.error', {\n    timeout: 20000\n  }).should('contain', 'Excediste el número de intentos, solicita un nuevo código');\n  cy.get('#GenerateNewOtpButton', {\n    timeout: 20000\n  }).click();\n  cy.WaitLoader();\n}\ncy.get('#GenerateNewOtpButton').should('not.exist');\ncy.OtpAuthentication();\ncy.get('#OtpButton', {\n  timeout: 20000\n}).click();\ncy.WaitLoader();\ncy.get('.error').should('contain', 'La clave que ingresaste no corresponde a la enviada');\ncy.get('#OtpButton', {\n  timeout: 20000\n}).click();\ncy.WaitLoader();\ncy.url().should('include', 'general-error');",
+              "err": {},
+              "uuid": "2e2d484d-4fc7-4049-9a03-9f094ecc3c3e",
+              "parentUUID": "0eacb61b-b111-4363-96c7-f2e236637dd7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1233 Redireccion actualizado a PEP",
+              "fullTitle": "test pasivo PBA-1233 Redireccion actualizado a PEP",
+              "timedOut": null,
+              "duration": 4861,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: true,\n  cat: false,\n  channles: false,\n  docs: 'Empleado',\n  sqs: 'success'\n};\ncy.MockWs(userConditions);\ncy.FillForm();\ncy.get('#SubmitFormPEP', {\n  timeout: 120000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "4b5867d8-41d0-4a54-a9bd-c72db681591a",
+              "parentUUID": "0eacb61b-b111-4363-96c7-f2e236637dd7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1262 POP UP para cargue de solo cédula",
+              "fullTitle": "test pasivo PBA-1262 POP UP para cargue de solo cédula",
+              "timedOut": null,
+              "duration": 32653,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: false,\n  cat: false,\n  channles: true,\n  docs: 'cc',\n  sqs: 'success'\n};\nvar flowConditions = {\n  accountType: 'SIMPLE',\n  insurance: 'Si',\n  gmf: false,\n  declaring: true\n};\ncy.MockWs(userConditions);\ncy.FillForm();\ncy.AcceptPep();\ncy.SelectAccount('SIMPLE');\ncy.AcceptInsurance('Si');\ncy.OtpAuthentication();\ncy.SelectActivity('Empleado');\ncy.WaitLoader();\ncy.FillContactForm('Empleado');\ncy.FillSendAddress();\ncy.DeclaringOption(true);\ncy.WaitLoader();\ncy.get('#SubmitUploadDocumentsForm').should('be.disabled');\ncy.get('.btn-card').click();\ncy.get('#mat-dialog-0').as('popup');\nvar titulo = 'Coloca el documento en posición vertical sobre un fondo blanco, apaga el flash y toma la foto con tu celular';\nvar descr1 = '- La cédula puedes subirla en formato JPG o PNG y el resto de documentos en PDF, JPG o PNG.';\nvar descr2 = ' - Sube archivos con formato  JPG o PNG que no tengan un peso mayor a 3 MB. ';\nvar descr3 = ' - Ten en cuenta que no se vean brillos o sombras y que la información sea legible. ';\ncy.get('@popup').should('contain', titulo).and('not.contain', descr1).and('contain', descr2).and('contain', descr3);\ncy.get('ul > .ng-star-inserted').scrollIntoView();\ncy.get('ul > :nth-child(2)').scrollIntoView();",
+              "err": {},
+              "uuid": "80c40a16-3994-4eed-bc39-945f4cdf47ab",
+              "parentUUID": "0eacb61b-b111-4363-96c7-f2e236637dd7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1262 POP UP para cargue de documento diferente a la cédula",
+              "fullTitle": "test pasivo PBA-1262 POP UP para cargue de documento diferente a la cédula",
+              "timedOut": null,
+              "duration": 16685,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: false,\n  cat: true,\n  channles: true,\n  docs: 'no cc',\n  sqs: 'success',\n  generateUrl: 'two docs',\n  loadPresigned: 'any'\n};\ncy.MockWs(userConditions);\ncy.FillForm();\ncy.AcceptPep();\ncy.SelectAccount('PRO');\ncy.AcceptInsurance('Si');\ncy.OtpAuthentication();\ncy.SelectActivity('Empleado');\ncy.WaitLoader();\ncy.FillContactForm('Empleado');\ncy.SelectForeignData();\ncy.SelectFinancialInformation(false);\ncy.FillSendAddress();\ncy.DeclaringOption(true);\ncy.WaitLoader();\ncy.get('#SubmitUploadDocumentsForm').should('be.disabled');\ncy.get('.btn-card').click();\ncy.get('#mat-dialog-0').as('popup');\nvar titulo = 'Coloca el documento en posición vertical sobre un fondo blanco, apaga el flash y toma la foto con tu celular';\nvar descr1 = '- La cédula puedes subirla en formato JPG o PNG y el resto de documentos en PDF, JPG o PNG.';\nvar descr2 = '- Sube archivos con formato PDF, JPG o PNG que no tengan un peso mayor a 3 MB.';\nvar descr3 = ' - Ten en cuenta que no se vean brillos o sombras y que la información sea legible.';\ncy.get('ul > :nth-child(1)').scrollIntoView();\ncy.get('ul > :nth-child(2)').scrollIntoView();\ncy.get('@popup').should('contain', titulo).and('not.contain', descr1).and('contain', descr2).and('contain', descr3);",
+              "err": {},
+              "uuid": "4fec70f4-2ca3-4e40-9a79-0e2936b2b2b2",
+              "parentUUID": "0eacb61b-b111-4363-96c7-f2e236637dd7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1262 POP UP para cargue de cédula y otro documento",
+              "fullTitle": "test pasivo PBA-1262 POP UP para cargue de cédula y otro documento",
+              "timedOut": null,
+              "duration": 26882,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: false,\n  cat: true,\n  channles: true,\n  docs: 'Empleado',\n  sqs: 'success',\n  generateUrl: 'two docs',\n  loadPresigned: 'any'\n};\ncy.MockWs(userConditions);\ncy.FillForm();\ncy.AcceptPep();\ncy.SelectAccount('PRO');\ncy.AcceptInsurance('Si');\ncy.OtpAuthentication();\ncy.SelectActivity('Empleado');\ncy.WaitLoader();\ncy.FillContactForm('Empleado');\ncy.SelectForeignData();\ncy.SelectFinancialInformation(false);\ncy.FillSendAddress();\ncy.DeclaringOption(true);\ncy.WaitLoader();\ncy.get('#SubmitUploadDocumentsForm').should('be.disabled');\ncy.get('.btn-card').click();\ncy.get('#mat-dialog-0').as('popup');\nvar titulo = 'Coloca el documento en posición vertical sobre un fondo blanco, apaga el flash y toma la foto con tu celular';\nvar descr1 = '- La cédula puedes subirla en formato JPG o PNG y el resto de documentos en PDF, JPG o PNG.';\nvar descr2 = 'Los archivos no pueden tener un peso mayor a 3 MB.';\nvar descr3 = ' - Ten en cuenta que no se vean brillos o sombras y que la información sea legible. ';\ncy.get('ul > :nth-child(1)').scrollIntoView();\ncy.get('ul > :nth-child(2)').scrollIntoView();\ncy.get('ul > :nth-child(3)').scrollIntoView();\ncy.get('@popup').should('contain', titulo).and('contain', descr1).and('contain', descr2).and('contain', descr3);",
+              "err": {},
+              "uuid": "9c34df86-bd78-4e0b-b08a-0acac3f21153",
+              "parentUUID": "0eacb61b-b111-4363-96c7-f2e236637dd7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2e2d484d-4fc7-4049-9a03-9f094ecc3c3e",
+            "4b5867d8-41d0-4a54-a9bd-c72db681591a",
+            "80c40a16-3994-4eed-bc39-945f4cdf47ab",
+            "4fec70f4-2ca3-4e40-9a79-0e2936b2b2b2",
+            "9c34df86-bd78-4e0b-b08a-0acac3f21153"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 137459,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

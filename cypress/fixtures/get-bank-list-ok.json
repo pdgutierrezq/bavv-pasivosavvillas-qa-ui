@@ -1,0 +1,19 @@
+[
+    {
+        "bankId":"0",
+        "name":"A continuación seleccione su banco"
+    },
+    {
+        "bankId":"1552",
+        "name":"Latorre Bank"
+    },
+    {
+        "bankId":"1040",
+        "name":"Bank Davis"
+    },
+    {
+        "bankId":"1081",
+        "name":"BankPasivo"
+    }
+    
+]

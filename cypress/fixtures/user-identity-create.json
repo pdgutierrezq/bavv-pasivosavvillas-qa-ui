@@ -1,0 +1,8 @@
+{
+    "statusResponse": 201,
+    "Validity": {
+        "ValidityPeriod": "Minuto",
+        "ValidityTime": 8
+    },
+    "httpCode": 0
+}

@@ -1,0 +1,14 @@
+{
+    "SendMessageResponse": {
+        "ResponseMetadata": {
+            "RequestId": "993b496f-c5f9-5152-b678-1ef59065ae2c"
+        },
+        "SendMessageResult": {
+            "MD5OfMessageAttributes": null,
+            "MD5OfMessageBody": "a77fd3d7427b375cbd49f000b4e73f79",
+            "MD5OfMessageSystemAttributes": null,
+            "MessageId": "049008f9-d173-4b1e-baf1-5544c0d72ab3",
+            "SequenceNumber": null
+        }
+    }
+}

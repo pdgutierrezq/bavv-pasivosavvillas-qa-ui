@@ -1,0 +1,16 @@
+{
+    "hasChannels": true,
+    "information": {
+        "pswdStatus": "A",
+        "channel": [
+            {
+                "channel": "MB",
+                "pswdType": " U"
+            },
+            {
+                "channel": "PB",
+                "pswdType": " U"
+            }
+        ]
+    }
+}

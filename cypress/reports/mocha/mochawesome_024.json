@@ -1,0 +1,221 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-09-05T20:42:50.785Z",
+    "end": "2020-09-05T20:43:28.402Z",
+    "duration": 37617,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f208c334-b541-4d80-9f7f-8ecbd9d28b19",
+      "title": "",
+      "fullFile": "cypress/integration/test/sprints/sprint39.js",
+      "file": "cypress/integration/test/sprints/sprint39.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+          "title": "Sprint 39",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos 500K 9.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos 500K 9.9M",
+              "timedOut": null,
+              "duration": 7003,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('500000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.4%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.4%');\ncy.get('#Amount').clear().type('9999999');\ncy.get('.rate').should('have.text', '2.4%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.6%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.6%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '2.9%');",
+              "err": {},
+              "uuid": "deafc5ec-596a-41dd-a811-5a9316e302ad",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos 10M 19.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos 10M 19.9M",
+              "timedOut": null,
+              "duration": 6366,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('10000000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.5%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.5%');\ncy.get('#Amount').clear().type('19999999');\ncy.get('.rate').should('have.text', '2.5%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '2.85%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '2.85%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3%');",
+              "err": {},
+              "uuid": "8f86b5b0-69ee-4dda-a76c-9753b7acae70",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos 20M 49.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos 20M 49.9M",
+              "timedOut": null,
+              "duration": 4020,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('20000000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.55%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.55%');\ncy.get('#Amount').clear().type('49999999');\ncy.get('.rate').should('have.text', '2.55%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3.05%');",
+              "err": {},
+              "uuid": "59961632-b6d3-40ad-b2a7-c55fccacf5f0",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos 50M 99.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos 50M 99.9M",
+              "timedOut": null,
+              "duration": 4050,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('50000000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.55%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.55%');\ncy.get('#Amount').clear().type('99999999');\ncy.get('.rate').should('have.text', '2.55%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3.05%');",
+              "err": {},
+              "uuid": "77e78dcb-65d2-4cb7-a993-afe54f5d0125",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos 100M 249.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos 100M 249.9M",
+              "timedOut": null,
+              "duration": 4041,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('100000000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.6%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.6%');\ncy.get('#Amount').clear().type('249999999');\ncy.get('.rate').should('have.text', '2.6%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.8%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.8%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '2.95%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '2.95%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3.1%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3.1%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3.1%');",
+              "err": {},
+              "uuid": "c78d0c2b-c9ee-4ecd-a5bf-aabd065876c9",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos 250M 499.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos 250M 499.9M",
+              "timedOut": null,
+              "duration": 4174,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('250000000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.65%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.65%');\ncy.get('#Amount').clear().type('499999999');\ncy.get('.rate').should('have.text', '2.65%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.85%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.85%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '3%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '3%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3.15%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3.15%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3.15%');",
+              "err": {},
+              "uuid": "61ec7528-120c-4f82-88f0-fe9d9176c491",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1148 calculo tasa y rendimientos > 499.9M",
+              "fullTitle": "Sprint 39 PBA-1148 calculo tasa y rendimientos > 499.9M",
+              "timedOut": null,
+              "duration": 7834,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/');\ncy.get('#Amount').type('500000000');\ncy.get('#Term').type('90');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('119');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('120');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3.2%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3.2%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3.2%');\ncy.get('#Amount').clear().type('1000000000');\ncy.get('#Term').clear().type('90');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('119');\ncy.get('.rate').should('have.text', '2.7%');\ncy.get('#Term').clear().type('120');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('179');\ncy.get('.rate').should('have.text', '2.75%');\ncy.get('#Term').clear().type('180');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('359');\ncy.get('.rate').should('have.text', '2.9%');\ncy.get('#Term').clear().type('360');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('539');\ncy.get('.rate').should('have.text', '3.05%');\ncy.get('#Term').clear().type('540');\ncy.get('.rate').should('have.text', '3.2%');\ncy.get('#Term').clear().type('541');\ncy.get('.rate').should('have.text', '3.2%');\ncy.get('#Term').clear().type('999');\ncy.get('.rate').should('have.text', '3.2%');",
+              "err": {},
+              "uuid": "4fee57be-7a55-4a1f-b0af-5914473e73f5",
+              "parentUUID": "869c75dc-3ca3-4f77-88a0-d4bd3e1dde44",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "deafc5ec-596a-41dd-a811-5a9316e302ad",
+            "8f86b5b0-69ee-4dda-a76c-9753b7acae70",
+            "59961632-b6d3-40ad-b2a7-c55fccacf5f0",
+            "77e78dcb-65d2-4cb7-a993-afe54f5d0125",
+            "c78d0c2b-c9ee-4ecd-a5bf-aabd065876c9",
+            "61ec7528-120c-4f82-88f0-fe9d9176c491",
+            "4fee57be-7a55-4a1f-b0af-5914473e73f5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 37488,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

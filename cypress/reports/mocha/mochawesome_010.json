@@ -1,0 +1,154 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2020-07-26T17:51:31.658Z",
+    "end": "2020-07-26T17:51:37.482Z",
+    "duration": 5824,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "86ebb110-725a-44f6-be56-ca4d6d95c0df",
+      "title": "",
+      "fullFile": "cypress/integration/QAM/TC08_api.spec.js",
+      "file": "cypress/integration/QAM/TC08_api.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6808cba6-cea7-4d1c-aa15-4cef7f64c7e6",
+          "title": "API Testing",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "GET - read",
+              "fullTitle": "API Testing GET - read",
+              "timedOut": null,
+              "duration": 535,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('/employees').then(function (response) {\n  expect(response).to.have.property('status', 200);\n  expect(response.body).to.not.be[\"null\"];\n  expect(response.body.data).to.have.length(24);\n});",
+              "err": {},
+              "uuid": "4f311f32-8111-47c5-aa75-48b5d210387a",
+              "parentUUID": "6808cba6-cea7-4d1c-aa15-4cef7f64c7e6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "POST - create",
+              "fullTitle": "API Testing POST - create",
+              "timedOut": null,
+              "duration": 675,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "var item = {\n  \"name\": \"test\",\n  \"salary\": \"123\",\n  \"age\": \"23\"\n};\ncy.request('POST', '/create', item).its('body').its('data') // .should('deep.eq', item)\n.should('include', {\n  name: 'test'\n});",
+              "err": {
+                "message": "CypressError: cy.request() failed on:\n\nhttp://dummy.restapiexample.com/api/v1/create\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not '2xx' or '3xx'.\n\nIf you do not want status codes to cause failures pass the option: 'failOnStatusCode: false'\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://dummy.restapiexample.com/api/v1/create\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/3.8.3 Chrome/78.0.3904.130 Electron/7.1.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 41\n}\nBody: {\"name\":\"test\",\"salary\":\"123\",\"age\":\"23\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"content-encoding\": \"gzip\",\n  \"content-type\": \"text/html; charset=iso-8859-1\",\n  \"date\": \"Sun, 26 Jul 2020 17:51:32 GMT\",\n  \"display\": \"staticcontent_sol\",\n  \"expires\": \"Sat, 25 Jul 2020 17:51:32 GMT\",\n  \"pagespeed\": \"off\",\n  \"response\": \"404\",\n  \"server\": \"nginx/1.16.0\",\n  \"vary\": \"Accept-Encoding, Origin,Accept-Encoding\",\n  \"x-ezoic-cdn\": \"Miss\",\n  \"x-middleton-display\": \"staticcontent_sol\",\n  \"x-middleton-response\": \"404\",\n  \"x-sol\": \"pub_site\",\n  \"transfer-encoding\": \"chunked\"\n}\nBody: <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log(\"... func = \"+name);self.isInitialized=true;self.isComplete=true;log(\"... func.apply: \"+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}\nif(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}\nif(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log(\"----- F'D: \"+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log(\"... file = \"+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log(\"----- ERR'D: \"+self.name);self.isError=true;if(self.isBlock===true){p...\n",
+                "estack": "CypressError: cy.request() failed on:\n\nhttp://dummy.restapiexample.com/api/v1/create\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not '2xx' or '3xx'.\n\nIf you do not want status codes to cause failures pass the option: 'failOnStatusCode: false'\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: http://dummy.restapiexample.com/api/v1/create\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/3.8.3 Chrome/78.0.3904.130 Electron/7.1.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 41\n}\nBody: {\"name\":\"test\",\"salary\":\"123\",\"age\":\"23\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 404 - Not Found\nHeaders: {\n  \"content-encoding\": \"gzip\",\n  \"content-type\": \"text/html; charset=iso-8859-1\",\n  \"date\": \"Sun, 26 Jul 2020 17:51:32 GMT\",\n  \"display\": \"staticcontent_sol\",\n  \"expires\": \"Sat, 25 Jul 2020 17:51:32 GMT\",\n  \"pagespeed\": \"off\",\n  \"response\": \"404\",\n  \"server\": \"nginx/1.16.0\",\n  \"vary\": \"Accept-Encoding, Origin,Accept-Encoding\",\n  \"x-ezoic-cdn\": \"Miss\",\n  \"x-middleton-display\": \"staticcontent_sol\",\n  \"x-middleton-response\": \"404\",\n  \"x-sol\": \"pub_site\",\n  \"transfer-encoding\": \"chunked\"\n}\nBody: <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head><script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer>var __ez=__ez||{};__ez.stms=Date.now();__ez.evt={};__ez.script={};__ez.ck=__ez.ck||{};__ez.template={};__ez.template.isOrig=false;__ez.queue=(function(){var count=0,incr=0,items=[],timeDelayFired=false,hpItems=[],lpItems=[],allowLoad=true;var obj={func:function(name,funcName,parameters,isBlock,blockedBy,deleteWhenComplete,proceedIfError){var self=this;this.name=name;this.funcName=funcName;this.parameters=parameters===null?null:(parameters instanceof Array)?parameters:[parameters];this.isBlock=isBlock;this.blockedBy=blockedBy;this.deleteWhenComplete=deleteWhenComplete;this.isError=false;this.isComplete=false;this.isInitialized=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){log(\"... func = \"+name);self.isInitialized=true;self.isComplete=true;log(\"... func.apply: \"+name);var funcs=self.funcName.split('.');var func=null;if(funcs.length>3){}else if(funcs.length===3){func=window[funcs[0]][funcs[1]][funcs[2]];}else if(funcs.length===2){func=window[funcs[0]][funcs[1]];}else{func=window[self.funcName];}\nif(typeof func!=='undefined'&&func!==null){func.apply(null,this.parameters);}\nif(self.deleteWhenComplete===true)delete items[name];if(self.isBlock===true){log(\"----- F'D: \"+self.name);processAll();}}},file:function(name,path,isBlock,blockedBy,async,defer,proceedIfError){var self=this;this.name=name;this.path=path;this.async=async;this.defer=defer;this.isBlock=isBlock;this.blockedBy=blockedBy;this.isInitialized=false;this.isError=false;this.isComplete=false;this.proceedIfError=proceedIfError;this.isTimeDelay=false;this.process=function(){self.isInitialized=true;log(\"... file = \"+name);var scr=document.createElement('script');scr.src=path;if(async===true)scr.async=true;else if(defer===true)scr.defer=true;scr.onerror=function(){log(\"----- ERR'D: \"+self.name);self.isError=true;if(self.isBlock===true){p...\n\n    at Object.cypressErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86207:11)\n    at Object.throwErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86162:18)\n    at Object.throwErrByPath (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86194:17)\n    at https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:72496:18\n    at tryCatcher (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromise0 (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118241:10)\n    at Promise._settlePromises (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118320:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114928:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": null
+              },
+              "uuid": "0cc3028d-3b36-4e97-8759-d71fdcfc8417",
+              "parentUUID": "6808cba6-cea7-4d1c-aa15-4cef7f64c7e6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PUT - update",
+              "fullTitle": "API Testing PUT - update",
+              "timedOut": null,
+              "duration": 4587,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "var item = {\n  \"name\": \"test1\"\n};\ncy.request({\n  method: 'PUT',\n  url: '/update/1',\n  body: item,\n  failOnStatusCode: false\n}).its('status').should('eq', 401);",
+              "err": {
+                "message": "CypressError: Timed out retrying: expected 404 to equal 401",
+                "estack": "CypressError: Timed out retrying: expected 404 to equal 401\n    at Object.cypressErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86207:11)\n    at Object.throwErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86162:18)\n    at Object.throwErrByPath (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86194:17)\n    at retry (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:76849:16)\n    at onFailFn (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:65634:16)\n    at tryCatcher (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromise0 (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118241:10)\n    at Promise._settlePromises (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118316:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114928:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": null
+              },
+              "uuid": "514fea92-b151-4795-a2aa-94b063601fe8",
+              "parentUUID": "6808cba6-cea7-4d1c-aa15-4cef7f64c7e6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4f311f32-8111-47c5-aa75-48b5d210387a"
+          ],
+          "failures": [
+            "0cc3028d-3b36-4e97-8759-d71fdcfc8417",
+            "514fea92-b151-4795-a2aa-94b063601fe8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5797,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

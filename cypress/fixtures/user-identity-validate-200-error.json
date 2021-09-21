@@ -1,0 +1,9 @@
+{
+    "statusResponse": 206,
+    "RqUID": "29102199",
+    "Status": {
+        "StatusCode": "1609",
+        "StatusDesc": "NO REGISTRA CLAVE"
+    },
+    "HttpCode": 0
+}

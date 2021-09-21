@@ -1,0 +1,150 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-07-26T17:50:27.097Z",
+    "end": "2020-07-26T17:50:35.635Z",
+    "duration": 8538,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "86f95be1-87cf-4ae1-bc77-7d23b5a551b2",
+      "title": "",
+      "fullFile": "cypress/integration/QAM/TC02_url.spec.js",
+      "file": "cypress/integration/QAM/TC02_url.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c32dd31d-44d4-4ac7-9cd3-0e9de357aa1e",
+          "title": "Create and mark-unmark as favorite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sign in",
+              "fullTitle": "Create and mark-unmark as favorite Sign in",
+              "timedOut": null,
+              "duration": 2743,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://react-redux.realworld.io/#/login');\ncy.title().should('eq', 'Conduit');\ncy.location('protocol').should('eq', 'https:');\ncy.get('input[type=\"email\"]').type('qamilestone.academy@gmail.com');\ncy.get('input[type=\"password\"]').type('admin123');\ncy.get('.btn').contains('Sign in').should('be.visible').click();\ncy.contains('Your Feed', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "c4496aae-bdc9-41ac-b94f-3bf2bb08acde",
+              "parentUUID": "c32dd31d-44d4-4ac7-9cd3-0e9de357aa1e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create a post",
+              "fullTitle": "Create and mark-unmark as favorite Create a post",
+              "timedOut": null,
+              "duration": 1337,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('New Post').click();\ncy.hash().should('include', '#/editor'); //cy.location('hash').should('include','#/editor')\ncy.get('input[placeholder=\"Article Title\"]').type('Test');\ncy.get('input[placeholder=\"What\\'s this article about?\"]').type('Test 1');\ncy.get('textarea[placeholder=\"Write your article (in markdown)\"]').type('Test 2');\ncy.contains('Publish Article').click();\ncy.url().should('include', 'article');",
+              "err": {},
+              "uuid": "442dd1db-a819-49f2-af59-b25cc0b23191",
+              "parentUUID": "c32dd31d-44d4-4ac7-9cd3-0e9de357aa1e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Mark-unmark as favorite",
+              "fullTitle": "Create and mark-unmark as favorite Mark-unmark as favorite",
+              "timedOut": null,
+              "duration": 4421,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.nav-link').contains('QAMs').click();\ncy.contains('My Articles').should('be.visible');\ncy.get('.ion-heart').click();\ncy.contains('Favorited Articles').click();\ncy.url().should('include', 'favorites');\ncy.get('.ion-heart').click();\ncy.reload();\ncy.contains('No articles are here... yet.').should('be.visible');\ncy.go('back'); //cy.go(-1)\n//cy.go('forward')\n//cy.go(1)",
+              "err": {
+                "message": "CypressError: Timed out retrying: Expected to find content: 'QAMs' within the element: [ <a.nav-link>, 3 more... ] but never did.",
+                "estack": "CypressError: Timed out retrying: Expected to find content: 'QAMs' within the element: [ <a.nav-link>, 3 more... ] but never did.\n    at Object.cypressErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86207:11)\n    at Object.throwErr (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86162:18)\n    at Object.throwErrByPath (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:86194:17)\n    at retry (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:76849:16)\n    at onFailFn (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:65634:16)\n    at tryCatcher (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:120203:23)\n    at Promise._settlePromiseFromHandler (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118139:31)\n    at Promise._settlePromise (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118196:18)\n    at Promise._settlePromise0 (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118241:10)\n    at Promise._settlePromises (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:118316:18)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueue (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114928:16)\n    at Async../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114938:10)\n    at Async.drainQueues (https://react-redux.realworld.io/__cypress/runner/cypress_runner.js:114812:14)",
+                "diff": null
+              },
+              "uuid": "6c7e4aa8-f8e4-4b3c-bbcd-32bd4bf3f10a",
+              "parentUUID": "c32dd31d-44d4-4ac7-9cd3-0e9de357aa1e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c4496aae-bdc9-41ac-b94f-3bf2bb08acde",
+            "442dd1db-a819-49f2-af59-b25cc0b23191"
+          ],
+          "failures": [
+            "6c7e4aa8-f8e4-4b3c-bbcd-32bd4bf3f10a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 8501,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

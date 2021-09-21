@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://rb-pasivo-dev-front.avaldigitallabs.com",
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "mochawesome",
+    "mochawesomeReporterOptions": {
+      "reportDir": "cypress/reports/mocha",
+      "quite": true,
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  },
+  "projectId": "fqvc7y",
+  "env": {
+    "CAPCTHA_LOW_SCORE": "lowscore",
+    "CAPCTHA_TIME_OUT": "timeout",
+    "CAPCTHA_OK": "ok",
+    "CAPCTHA_500": "500"
+  },
+  
+  "failOnStatusCode": false,
+  "supportFile": "./cypress/support/index.js",
+  "chromeWebSecurity": false,
+  "modifyObstructiveCode":false
+
+}
+

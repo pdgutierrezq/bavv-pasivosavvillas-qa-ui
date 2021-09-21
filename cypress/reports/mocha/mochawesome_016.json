@@ -1,0 +1,184 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 1,
+    "pending": 4,
+    "failures": 0,
+    "start": "2020-08-04T18:41:28.353Z",
+    "end": "2020-08-04T18:41:33.338Z",
+    "duration": 4985,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 80,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fdd0f675-a612-4bea-ab8a-fecaa2e0e570",
+      "title": "",
+      "fullFile": "cypress/integration/pasivoTest.js/sprint34.js",
+      "file": "cypress/integration/pasivoTest.js/sprint34.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dcc0ba39-f160-4c2c-b28b-dae6c8ed5459",
+          "title": "test pasivo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PBA-1288 Integrar redux a la aplicación",
+              "fullTitle": "test pasivo PBA-1288 Integrar redux a la aplicación",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "45b88ac9-968f-4718-9e0f-e62c068a32b5",
+              "parentUUID": "dcc0ba39-f160-4c2c-b28b-dae6c8ed5459",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1233 Redireccion actualizado a PEP",
+              "fullTitle": "test pasivo PBA-1233 Redireccion actualizado a PEP",
+              "timedOut": null,
+              "duration": 4950,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: true,\n  cat: false,\n  channles: false,\n  docs: 'Empleado',\n  sqs: 'success'\n};\ncy.MockWs(userConditions);\ncy.FillForm();\ncy.get('#SubmitFormPEP', {\n  timeout: 120000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "2bff7863-a0e5-4ffe-a85a-b1f4941a0c43",
+              "parentUUID": "dcc0ba39-f160-4c2c-b28b-dae6c8ed5459",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1262 POP UP para cargue de solo cédula",
+              "fullTitle": "test pasivo PBA-1262 POP UP para cargue de solo cédula",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "dd6052a5-9b4c-4564-89de-844d6c3aede1",
+              "parentUUID": "dcc0ba39-f160-4c2c-b28b-dae6c8ed5459",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1262 POP UP para cargue de documento diferente a la cédula",
+              "fullTitle": "test pasivo PBA-1262 POP UP para cargue de documento diferente a la cédula",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "ef83bcb3-99eb-4ab6-afd6-6af93fdc35c7",
+              "parentUUID": "dcc0ba39-f160-4c2c-b28b-dae6c8ed5459",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "PBA-1262 POP UP para cargue de cédula y otro documento",
+              "fullTitle": "test pasivo PBA-1262 POP UP para cargue de cédula y otro documento",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "c2cf3ec4-68c9-43de-beb3-3e0be14af26f",
+              "parentUUID": "dcc0ba39-f160-4c2c-b28b-dae6c8ed5459",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2bff7863-a0e5-4ffe-a85a-b1f4941a0c43"
+          ],
+          "failures": [],
+          "pending": [
+            "45b88ac9-968f-4718-9e0f-e62c068a32b5",
+            "dd6052a5-9b4c-4564-89de-844d6c3aede1",
+            "ef83bcb3-99eb-4ab6-afd6-6af93fdc35c7",
+            "c2cf3ec4-68c9-43de-beb3-3e0be14af26f"
+          ],
+          "skipped": [],
+          "duration": 4950,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

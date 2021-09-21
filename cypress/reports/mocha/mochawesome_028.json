@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-11-23T22:11:54.733Z",
+    "end": "2020-11-23T22:12:08.728Z",
+    "duration": 13995,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "04be438e-dc80-4eca-83f2-25e26ef4ed5d",
+      "title": "",
+      "fullFile": "cypress/integration/test/sprints/sprint40.js",
+      "file": "cypress/integration/test/sprints/sprint40.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c31acf8b-d5fb-4ff7-a25c-5155afd1a75f",
+          "title": "Sprint 40",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "PBA-1294 calculo 500K 9.9M",
+              "fullTitle": "Sprint 40 PBA-1294 calculo 500K 9.9M",
+              "timedOut": null,
+              "duration": 13976,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "var userConditions = {\n  client: true,\n  updated: true\n};\ncy.MockWs(userConditions); //Dado que el usuario esta en la pantalla de configuración de CDT\nvar amount = 500000;\nvar term = 90;\ncy.FillInfoOnLanding();\ncy.FillFormCDTStep();\ncy.AcceptPep();\ncy.ValidateCalc(amount, term);\namount = 9999999;\nterm = 90;\ncy.ValidateCalc(amount, term);",
+              "err": {
+                "message": "TypeError: $elem.text(...).replace(...).replaceAll is not a function",
+                "estack": "TypeError: $elem.text(...).replace(...).replaceAll is not a function\n    at Context.<anonymous> (https://rb-pasivo-dev-front.avaldigitallabs.com/__cypress/tests?p=cypress/support/index.js-482:451:45)",
+                "diff": null
+              },
+              "uuid": "6deabf54-ce13-4a75-91bb-e78a4a1d3d46",
+              "parentUUID": "c31acf8b-d5fb-4ff7-a25c-5155afd1a75f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6deabf54-ce13-4a75-91bb-e78a4a1d3d46"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 13976,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

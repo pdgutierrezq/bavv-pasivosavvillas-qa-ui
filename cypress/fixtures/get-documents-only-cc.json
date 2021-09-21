@@ -1,0 +1,21 @@
+{
+    "idSession": "00d57022-e536-4130-839f-f1d0238cbbbd",
+    "allowedDocumentExtensions": [
+        "TIFF",
+        "PDF",
+        "TIF",
+        "JPG",
+        "JPEG",
+        "PNG"
+    ],
+    "clientDocuments": [
+        {
+            "documentaryCode": 254,
+            "documentDescription": "Documento Identificacisn (CC,CE,TI,RC)",
+            "requiredIndicator": true,
+            "filesDocumentNumber": 5,
+            "fileSize": 3
+        }
+    ],
+    "responseCode": 0
+}
