@@ -7,10 +7,10 @@ describe('Sprint 77', function () {
     var flowConditions = {
       scr: false,
       accountType: 'DIGITAL',
-      insurance: 'No',
+      insurance: 'Si',
       gmf: false,
       declaring: false,
-      environment: 'stg'
+      environment: 'dev'
     };
     var userConditions = {
       captcha: 'ok',

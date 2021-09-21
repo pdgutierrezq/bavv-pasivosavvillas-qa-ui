@@ -122,9 +122,9 @@ Cypress.Commands.add("SelectAccount", (accountType, gmf, scr, pause) => {
     cy.Pause(pause)
     //  cy.get('.mat-radio-label').contains(accountType).click()
     cy.get('#SelectAccountTypeButton').click()
-    if (accountType == 'DIGITAL') {
-        cy.SelectGmf(gmf, pause)
-    }
+    // if (accountType == 'DIGITAL') {
+    //     cy.SelectGmf(gmf, pause)
+    // }
 })
 
 Cypress.Commands.add("SelectActivity", (activity, scr, pause) => {
