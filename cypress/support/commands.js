@@ -1,6 +1,6 @@
 import 'cypress-file-upload';
 import ContactDataForm from '../integration/pageObjects/ContactDataForm'
-
+import ENUM from './enums'
 Cypress.Commands.add("Pause", (option) => {
 
     if (option) {
@@ -244,8 +244,8 @@ Cypress.Commands.add("SelectForeignData", (scr, pause) => {
     cy.get('#SuplementaryDataQuestionFormSubmitButton').click()
 })
 
-Cypress.Commands.add("SelectFinancialInformation", (option, scr, pause) => {
-    cy.get('#monthlyIncomeInput').type('8765477')
+Cypress.Commands.add("SelectFinancialInformation", (option, scr, pause,income='8765477') => {
+    cy.get('#monthlyIncomeInput').clear().type(income)
 
     cy.get('#OperationType').click()
     cy.get('mat-option[role="option"]').contains('Ninguna').click()
@@ -281,21 +281,44 @@ Cypress.Commands.add("ElectronicSignature", (scr) => {
     cy.get('#DigitalSignatureButton').click()
 })
 
-Cypress.Commands.add("PersonalInformation", (scr) => {
-    // cy.get('#CheckProductConditions').click()
-    cy.get('.mat-input-element').eq(0).type('14')
-    cy.get('.mat-select').eq(0).type('F')
-    cy.get('.mat-option').eq(0).click()
-    cy.get('.mat-input-element').eq(1).type('1965')
-    cy.get('#BirthCity').type('Bogota')
-    cy.get('.mat-input-element').last().type('Bogota')
-    cy.get('.mat-radio-button:contains("Masculino")').click()
-    cy.get('.mat-input-element').eq(3).type('11')
-    cy.get('.mat-select').eq(1).type('F')
-    cy.get('.mat-option').eq(5).click()
-    cy.get('.mat-input-element').eq(4).type('2020')
-
-
+Cypress.Commands.add("PersonalInformation", (app) => {
+    switch (app){
+        case ENUM.APP.CDA:
+            cy.get('#PersonalInformationForm > div:nth-child(1) > span').click()
+            cy.get('#mat-datepicker-0 > mat-calendar-header > div > div > button.mat-focus-indicator.mat-calendar-period-button.mat-button.mat-button-base').click()
+            cy.get('#mat-datepicker-0 > mat-calendar-header > div > div > button.mat-focus-indicator.mat-calendar-previous-button.mat-icon-button.mat-button-base').click()
+            cy.get('#mat-datepicker-0 > div > mat-multi-year-view > table > tbody > tr:nth-child(1) > td:nth-child(1) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+            cy.get('#mat-datepicker-0 > div > mat-year-view > table > tbody > tr:nth-child(2) > td:nth-child(1) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+            cy.get('#mat-datepicker-0 > div > mat-month-view > table > tbody > tr:nth-child(1) > td:nth-child(2) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+            cy.get('#PersonalInformationForm > div:nth-child(5) > span').click()
+            cy.get('#mat-datepicker-1 > div > mat-month-view > table > tbody > tr:nth-child(1) > td:nth-child(2) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+            // cy.get('#mat-datepicker-0 > mat-calendar-header > div > div').then((dtp) => {
+            // cy.wrap(dtp).click()
+            // .get('.mat-button-base').get(0).click()
+            // .get('.mat-button-base').get(1).click()
+            // .get('.years').contains('2000').click()
+            // .get('.months').contains('January').click()
+            // .get('.days').contains('1').click() //.invoke('text')
+            // .then((item) => {
+            //     cy.wrap(item).click(); // Click on the option
+            // });
+        // });
+            break;
+        default:
+            // cy.get('#CheckProductConditions').click()
+            cy.get('.mat-input-element').eq(0).type('14')
+            cy.get('.mat-select').eq(0).type('F')
+            cy.get('.mat-option').eq(0).click()
+            cy.get('.mat-input-element').eq(1).type('1965')
+            cy.get('#BirthCity').type('Bogota')
+            cy.get('.mat-input-element').last().type('Bogota')
+            cy.get('.mat-radio-button:contains("Masculino")').click()
+            cy.get('.mat-input-element').eq(3).type('11')
+            cy.get('.mat-select').eq(1).type('F')
+            cy.get('.mat-option').eq(5).click()
+            cy.get('.mat-input-element').eq(4).type('2020')
+            break;
+    }
     cy.get('#PersonalInformationSubmitButton').click()
 })
 

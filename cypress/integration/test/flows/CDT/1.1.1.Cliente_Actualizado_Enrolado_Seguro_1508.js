@@ -17,6 +17,7 @@ describe('Sprint 77', function () {
     cy.FillCDTConfigurationPage(flowConditions.environment)
     cy.WaitLoader()
     cy.AcceptPep()
+    cy.pause(true)
     cy.ConfigCdt()
     cy.OtpAuthentication()
     cy.Pause(true)

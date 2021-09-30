@@ -15,6 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commandsCDT'
+import './enums'
 import './commands'
 import './mocks'
 

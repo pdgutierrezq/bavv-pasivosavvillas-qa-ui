@@ -2,7 +2,7 @@ describe('Sprint 77', function () {
   beforeEach(function () {
     cy.server()
   })
-  it('PBA-3354 - CDA NO Cliente NO Actualizado NO Enrolado', function () {
+  it('PBA-3354 - CDA NO Cliente Actualizado NO Enrolado', function () {
     var pause = false;
     var flowConditions = {
       scr: false,
@@ -21,7 +21,6 @@ describe('Sprint 77', function () {
 
     cy.MockWs(userConditions)
     cy.FillForm(flowConditions.environment, userConditions.scr, pause)
-    cy.pause(true)
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
