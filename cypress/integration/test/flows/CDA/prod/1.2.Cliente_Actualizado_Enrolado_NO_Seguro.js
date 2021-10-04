@@ -10,13 +10,14 @@ describe('Sprint 77', function () {
       insurance: 'Si',
       gmf: false,
       declaring: false,
-      environment: 'dev'
+      environment: 'prod'
     };
     var userConditions = {
       captcha: 'ok',
-      channels: 'FALSE',
+      channels: 'TRUE',
       client: true,
-      updated: true
+      updated: true,
+      insurance:'false'
     };
 
     cy.MockWs(userConditions)
@@ -25,15 +26,15 @@ describe('Sprint 77', function () {
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
-
+    cy.pause(true)
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,
         userConditions.scr)
 
     cy.Pause(userConditions.pause)
-
+    cy.pause(true)
     cy.AcceptInsurance(flowConditions.insurance, userConditions.scr)
     cy.WaitLoader()
-    cy.pause(true)
+
     cy.OtpAuthentication(userConditions.scr)
 
     // cy.SelectActivity('Empleado', userConditions.scr)

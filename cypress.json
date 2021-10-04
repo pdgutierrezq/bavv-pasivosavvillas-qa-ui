@@ -22,7 +22,8 @@
   "failOnStatusCode": false,
   "supportFile": "./cypress/support/index.js",
   "chromeWebSecurity": false,
-  "modifyObstructiveCode":false
-
+  "modifyObstructiveCode":false,
+  "viewportWidth": 1100,
+  "viewportHeight": 1000
 }
 

@@ -323,6 +323,31 @@ Cypress.Commands.add("FillInfoOnLanding", () => {
     cy.get('.avv-btn-primary').click()
 })
 
+Cypress.Commands.add("FillHomePage", (env) => {
+    cy.GoMainPage(env)
+    cy.WaitLoader()
+    cy.get('.avv-btn-primary').click()
+})
+
+Cypress.Commands.add("FillCDTConfigurationPage", (env, userType) => {
+    var dataType = 'datosPasivo';
+    if (userType == 'sin cuentas') {
+        dataType = userType;
+    }
+    cy.fixture(dataType).then((user) => {
+        cy.get('#DNINumber').type(user.numdoc)
+        cy.get('#MobileNumber').type(user.phone)
+        cy.get('#MobileConfirmNumber').type(user.phone)
+        cy.get('#FirstName').type(user.firstname)
+        cy.get('#LastName').type(user.lastname)
+        cy.get('.mat-checkbox-inner-container').click()
+        cy.wait(2000)
+        cy.get('#SubmitFormUserIdentification').click()
+    })
+    cy.WaitLoader()
+
+})
+
 Cypress.Commands.add("FillFormCDT", (env, pause, userType) => {
     cy.GoMainPage(env)
     cy.Pause(pause)
@@ -380,12 +405,14 @@ Cypress.Commands.add("GoMainPage", (env) => {
 })
 
 Cypress.Commands.add("AccountConfiguration", (pause) => {
-    cy.get('[formcontrolname="accountSettingFirstGroup"]>.mat-radio-button').first().click()
-    cy.get('#mat-radio-10 > .mat-radio-label').click()
-    // cy.get('[formcontrolname="accountSettingSecondGroup"]>.mat-radio-button').first().click()
+    // cy.get('[formcontrolname="accountSettingFirstGroup"]>.mat-radio-button').first().click()
+    // // cy.get('#mat-radio-10 > .mat-radio-label').click()
+    // cy.get('[formcontrolname="accountSettingSecondGroup"]:contains("Desde otro banco")').first().click()
+    cy.get('.mat-radio-button:contains("Abrir una Cuenta Digital")').click()
+    cy.get('.mat-radio-button:contains("Desde otro banco")').click()
     cy.Pause(pause)
     cy.get('#SubmitAccountSettingsForm').click()
-    cy.get('.avv-btn-primary').click()
+    // cy.get('.avv-btn-primary').click()
 })
 
 Cypress.Commands.add("ValidateEmptyFieldsCDT", () => {

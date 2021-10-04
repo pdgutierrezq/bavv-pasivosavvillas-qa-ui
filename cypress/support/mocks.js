@@ -41,7 +41,7 @@ Cypress.Commands.add("GetBankList", (option) => {
             url: '**/pse-get-bank-list',
             status: 200,
             response: 'fixture:get-bank-list-ok.json'
-        })   
+        })
 })
 
 Cypress.Commands.add("CreatePasiveProduct", (option) => {
@@ -196,9 +196,9 @@ Cypress.Commands.add("UserIdentityValidate", (option) => {
 })
 
 Cypress.Commands.add("RecaptchaLanding", () => {
- 
+
         cy.route('POST', '**/recaptchaV3?exclude-interceptor=true', 'fixture:recaptcha_ok.json')
-   
+
 })
 
 Cypress.Commands.add("Recaptcha", (option) => {
@@ -250,7 +250,7 @@ Cypress.Commands.add("UploadCc", () => {
     //     fileName = 'pasivodocs/cc1.jpg';
 
     // }else{
-    //     fileName = 'pasivodocs/cc2.jpg'; 
+    //     fileName = 'pasivodocs/cc2.jpg';
     // }
     cy.get('[type="file"]').attachFile(fileName, { force: true });
     cy.get('#FrontIDPic').attachFile(fileName, { force: true });
@@ -290,7 +290,12 @@ Cypress.Commands.add("CustomerConditions", (conditions) => {
             status: 500,
             response: 'fixture:generate-presigned-url-fail.json'
         })
-    } else if (conditions.restrictList) {
+    }
+    else if (conditions.pep) {
+        cy.route('POST', '**/customer-conditions',
+            'fixture:cust-cond-client-pep.json')
+    }
+    else if (conditions.restrictList) {
         cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-restlist.json')
     } else if (conditions.client && conditions.updated && !conditions.return) {
         cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-client-updated-no-return.json')
@@ -301,7 +306,6 @@ Cypress.Commands.add("CustomerConditions", (conditions) => {
     } else if (!conditions.client && conditions.updated) {
         cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-not-client-updated.json')
     }
-
 })
 
 Cypress.Commands.add("LoadDocsPresigned", (success) => {

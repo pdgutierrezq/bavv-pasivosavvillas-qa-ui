@@ -273,7 +273,7 @@ Cypress.Commands.add("DeclaringOption", (option, scr, pause) => {
 
 Cypress.Commands.add("ElectronicSignature", (scr) => {
     cy.WaitLoader()
-    // cy.get('#CheckProductConditions').click()
+    cy.get('#CheckProductConditions').click()
     cy.get('#DigitalSignatureCheck').click()
     cy.get('#CheckUnderConsent').click()
     cy.ScreenShot(scr)
@@ -283,9 +283,18 @@ Cypress.Commands.add("ElectronicSignature", (scr) => {
 
 Cypress.Commands.add("PersonalInformation", (scr) => {
     // cy.get('#CheckProductConditions').click()
-    cy.get('.mat-input-element', { timeout: 20000 }).first().type('14/02/1993')
-    // cy.get('#DigitalSignatureCheck').click()
-    // cy.get('#CheckUnderConsent').click()
+    cy.get('.mat-input-element').eq(0).type('14')
+    cy.get('.mat-select').eq(0).type('F')
+    cy.get('.mat-option').eq(0).click()
+    cy.get('.mat-input-element').eq(1).type('1965')
+    cy.get('#BirthCity').type('Bogota')
+    cy.get('.mat-input-element').last().type('Bogota')
+    cy.get('.mat-radio-button:contains("Masculino")').click()
+    cy.get('.mat-input-element').eq(3).type('11')
+    cy.get('.mat-select').eq(1).type('F')
+    cy.get('.mat-option').eq(5).click()
+    cy.get('.mat-input-element').eq(4).type('2020')
+
 
     cy.get('#PersonalInformationSubmitButton').click()
 })
