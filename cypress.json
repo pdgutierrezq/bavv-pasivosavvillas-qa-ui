@@ -18,7 +18,7 @@
     "CAPCTHA_OK": "ok",
     "CAPCTHA_500": "500"
   },
-  
+  "video": true,
   "failOnStatusCode": false,
   "supportFile": "./cypress/support/index.js",
   "chromeWebSecurity": false,

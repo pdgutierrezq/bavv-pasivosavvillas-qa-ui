@@ -12,7 +12,8 @@ Cypress.Commands.add("PseFlow", (flowConditions, pause) => {
     cy.ElectronicSignature()
     cy.WaitLoader()
     cy.fillPseForm(pause)
-    cy.PseAction(flowConditions.status, pause)
+    cy.pause(true)
+    cy.PseAction(flowConditions.status, true)
 })
 
 Cypress.Commands.add("PseAction", (status, pause) => {

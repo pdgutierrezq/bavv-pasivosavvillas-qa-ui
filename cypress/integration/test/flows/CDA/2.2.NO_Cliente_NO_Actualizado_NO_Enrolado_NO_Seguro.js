@@ -41,8 +41,7 @@ describe('Sprint 77', function () {
 
     cy.OtpAuthentication(userConditions.scr)
     cy.PersonalInformation(app)
-    cy.pause(true)
-    cy.SelectActivity(flowConditions.activity, userConditions.scr)
+    cy.SelectActivity(flowConditions.activity, userConditions.scr,true)
     cy.WaitLoader()
 
     cy.FillContactForm(flowConditions.activity, userConditions.scr)
@@ -51,12 +50,10 @@ describe('Sprint 77', function () {
        cy.get('#activeExpensesInput').type('2000000')
        cy.get('#passiveExpensesInput').type('2000000')
        cy.get('#monthlyExpensesInput').type('2000000')
-       // cy.get('#monthlyIncomeInput').clear().type(flowConditions.income)
-      cy.SelectFinancialInformation(false, userConditions.scr,false,flowConditions.income)
+      cy.SelectFinancialInformation(false, userConditions.scr,true,flowConditions.income)
     }
     cy.FillSendAddress(userConditions.scr)
-    cy.pause(true)
-    cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
+    cy.DeclaringOption(flowConditions.declaring, userConditions.scr,true)
     cy.pause(true)
   })
 
