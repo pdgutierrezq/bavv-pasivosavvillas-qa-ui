@@ -57,7 +57,6 @@ Cypress.Commands.add("FillForm", (environment, scr, pause) => {
     }
 
     cy.fixture('datosPasivo').then((user) => {
-        cy.Pause(pause)
         cy.get('.btn').click()
         cy.get('#DNINumber').type(user.numdoc)
         cy.get('#MobileNumber').type(user.phone)
@@ -117,8 +116,7 @@ Cypress.Commands.add("ValidateCard", (cardType, visible) => {
     }
 })
 
-Cypress.Commands.add("SelectAccount", (accountType, gmf, scr, pause) => {
-    cy.ScreenShot(scr)
+Cypress.Commands.add("SelectAccount", (accountType, gmf, pause) => {
     cy.Pause(pause)
     //  cy.get('.mat-radio-label').contains(accountType).click()
     cy.get('#SelectAccountTypeButton').click()
@@ -273,7 +271,7 @@ Cypress.Commands.add("DeclaringOption", (option, scr, pause) => {
 
 Cypress.Commands.add("ElectronicSignature", (scr) => {
     cy.WaitLoader()
-    cy.get('#CheckProductConditions').click()
+    // cy.get('#CheckProductConditions').click()
     cy.get('#DigitalSignatureCheck').click()
     cy.get('#CheckUnderConsent').click()
     cy.ScreenShot(scr)

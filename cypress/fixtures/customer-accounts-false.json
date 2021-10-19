@@ -1,6 +1,6 @@
 {
-    "responseCode": 0,
-    "responseDescription": "TRANSACCION CORRECTA",
-    "authorizationNumber": 5294140469,
-    "hasCAT": false
+    "var1": 0,
+    "var2": "TRANSACCION CORRECTA",
+    "var3": 5253279853,
+    "var4": false
 }

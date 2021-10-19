@@ -2,7 +2,7 @@ describe('Sprint 77', function () {
   beforeEach(function () {
     cy.server()
   })
-  it('PBA-3433 - CDA - Cliente Actualizado NO Enrolado', function () {
+  it('PBA-3433 - CDA - Cliente Actualizado Enrolado Con Seguro Y Cuenta CAT', function () {
     var pause = false;
     var flowConditions = {
       scr: false,
@@ -18,7 +18,7 @@ describe('Sprint 77', function () {
       client: true,
       updated: true,
       insurance:'true',
-      cat: false
+      cat: true
     };
 
     cy.MockWs(userConditions)
@@ -28,8 +28,11 @@ describe('Sprint 77', function () {
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf, true)
+
     cy.Pause(userConditions.pause)
-    cy.OtpAuthentication(userConditions.scr,true)
+
+    cy.pause(true)
+    cy.OtpAuthentication(userConditions.scr)
 
     // cy.SelectActivity('Empleado', userConditions.scr)
     cy.WaitLoader()
@@ -38,7 +41,8 @@ describe('Sprint 77', function () {
     //   cy.SelectForeignData(userConditions.scr)
     //   cy.SelectFinancialInformation(false, userConditions.scr)
     // }
-    cy.FillSendAddress(true)
+    cy.pause(true)
+    cy.FillSendAddress(userConditions.scr)
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
     cy.WaitLoader()

@@ -26,9 +26,7 @@ describe('Sprint 77', function () {
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
-    cy.pause(true)
-    cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,
-        userConditions.scr)
+    cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,true)
 
     cy.Pause(userConditions.pause)
     cy.pause(true)
