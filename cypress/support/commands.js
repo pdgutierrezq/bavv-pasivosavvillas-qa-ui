@@ -47,15 +47,8 @@ Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
 })
 
 Cypress.Commands.add("FillForm", (environment, scr, pause) => {
-
-    if (environment == 'stg') {
-        cy.visit('https://rb-pasivo-stg-front.avaldigitallabs.com/abrir-cuenta-ahorro/index.html')
-    } else if (environment == 'prod') {
-        cy.visit('https://www.avvillas.com.co/abrir-cuenta-ahorro/')
-    } else {
-        cy.visit('https://rb-pasivo-dev-front.avaldigitallabs.com/abrir-cuenta-ahorro/index.html')
-    }
-
+    var homePage=Cypress.config().baseUrl
+    cy.visit(homePage)
     cy.fixture('datosPasivo').then((user) => {
         cy.get('.btn').click()
         cy.get('#DNINumber').type(user.numdoc)

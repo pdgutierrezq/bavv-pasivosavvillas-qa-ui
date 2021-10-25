@@ -1,5 +1,4 @@
 {
-  "baseUrl": "https://rb-pasivo-dev-front.avaldigitallabs.com",
   "reporter": "cypress-multi-reporters",
   "reporterOptions": {
     "reporterEnabled": "mochawesome",
