@@ -4,12 +4,12 @@ describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
-  it('NO Cliente NO Actualizado NO Enrolado', function () {
+  it('NO Cliente,NO Actualizado,NO Enrolado,No Seguro,Deposito', function () {
     var pause = false;
     var app = ENUM.APP.CDA
     var flowConditions = {
       scr: false,
-      accountType: 'DIGITAL',
+      accountType: ENUM.ACCOUNT_TYPE.DEPOSIT,
       insurance: 'Si',
       gmf: false,
       activity:ENUM.ECONOMIC_ACTIVITY.EMPLEADO,

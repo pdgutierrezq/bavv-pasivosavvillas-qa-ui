@@ -2,7 +2,7 @@ describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
-  it('Cliente Actualizado,Enrolado,CON Seguro', function () {
+  it('Cliente Actualizado,Enrolado,CON Seguro,CON Cuenta CAT', function () {
     var pause = false;
     var flowConditions = {
       scr: false,
@@ -18,7 +18,7 @@ describe('CDA', function () {
       client: true,
       updated: true,
       insurance:'true',
-      cat: false
+      cat: true
     };
 
     cy.MockWs(userConditions)

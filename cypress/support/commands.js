@@ -47,6 +47,22 @@ Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
   cy.ValidateResume(flowConditions.accountType, flowConditions.insurance)
 })
 
+Cypress.Commands.add("enroll", (pause) => {
+  cy.WaitLoader()
+  cy.get('input').eq(0).type('1')
+  cy.get('input').eq(1).type('3')
+  cy.get('input').eq(2).type('2')
+  cy.get('input').eq(3).type('4')
+  cy.get('input').eq(4).type('1')
+  cy.get('input').eq(5).type('3')
+  cy.get('input').eq(6).type('2')
+  cy.get('input').eq(7).type('4')
+  cy.Pause(pause)
+  cy.get('#ChannelEnrollmentButton').click()
+  cy.WaitLoader()
+  cy.get('button').eq(1).click()
+})
+
 Cypress.Commands.add("FillForm", (environment, scr, pause) => {
   var homePage = Cypress.config().baseUrl
   cy.visit(homePage)
@@ -113,8 +129,9 @@ Cypress.Commands.add("ValidateCard", (cardType, visible) => {
 })
 
 Cypress.Commands.add("SelectAccount", (accountType, gmf, pause) => {
+  if (accountType == ENUM.ACCOUNT_TYPE.DEPOSIT)
+    cy.get('.mat-radio-label').contains(accountType).click()
   cy.Pause(pause)
-  //  cy.get('.mat-radio-label').contains(accountType).click()
   cy.get('#SelectAccountTypeButton').click()
   // if (accountType == 'DIGITAL') {
   //     cy.SelectGmf(gmf, pause)
@@ -180,10 +197,10 @@ Cypress.Commands.add("FillSendAddress", (pause) => {
   cy.get('#DeliveryCity', {timeout: 30000}).as('ciudad')
   cy.get('#DeliveryAddress').as('direccion')
 
-  cy.get('@ciudad').type("bogo{downarrow}{enter}")
+  cy.get('@ciudad').clear().type("bogo{downarrow}{enter}")
 
-  cy.get('@direccion').type('Cll 156 # 24 -36')
-  cy.get('#DeliveryNeighborhood').type('Colina')
+  cy.get('@direccion').clear().type('Cll 156 # 24 -36')
+  cy.get('#DeliveryNeighborhood').clear().type('Colina')
   cy.Pause(pause)
   cy.get('#DeliveryAddressButton').click()
   cy.get('#AcceptChangeDeliveryAddressButton').click()

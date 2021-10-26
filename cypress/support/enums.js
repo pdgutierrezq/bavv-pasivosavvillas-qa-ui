@@ -10,7 +10,13 @@ const ECONOMIC_ACTIVITY = {
   INDEPENDIENTE: 'Independiente',
   INDEPENDIENTE_CON_NEGOCIO: 'Independiente con negocio'
 }
+
+const ACCOUNT_TYPE = {
+  ACCOUNT: 'Cuenta',
+  DEPOSIT: 'Depósito'
+}
 module.exports = {
   APP,
-  ECONOMIC_ACTIVITY
+  ECONOMIC_ACTIVITY,
+  ACCOUNT_TYPE
 };

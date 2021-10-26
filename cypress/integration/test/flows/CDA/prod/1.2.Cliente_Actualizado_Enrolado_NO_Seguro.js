@@ -1,4 +1,4 @@
-describe('Sprint 77', function () {
+describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })

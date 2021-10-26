@@ -1,8 +1,8 @@
-describe('Sprint 77', function () {
+describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
-  it('PBA-3433 - CDA - Cliente Actualizado Enrolado Con Seguro Y Cuenta CAT', function () {
+  it('Cliente Actualizado,NO Enrolado,SIN Seguro', function () {
     var pause = false;
     var flowConditions = {
       scr: false,
@@ -14,11 +14,9 @@ describe('Sprint 77', function () {
     };
     var userConditions = {
       captcha: 'ok',
-      channels: 'TRUE',
+      channels: 'FALSE',
       client: true,
-      updated: true,
-      insurance:'true',
-      cat: true
+      updated: true
     };
 
     cy.MockWs(userConditions)
@@ -28,25 +26,16 @@ describe('Sprint 77', function () {
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf, true)
-
-    cy.Pause(userConditions.pause)
-
-    cy.pause(true)
-    cy.OtpAuthentication(userConditions.scr)
-
-    // cy.SelectActivity('Empleado', userConditions.scr)
+    cy.AcceptInsurance(flowConditions.insurance, true)
     cy.WaitLoader()
-    // cy.FillContactForm('Empleado', userConditions.scr)
-    // if (flowConditions.accountType == 'DIGITAL') {
-    //   cy.SelectForeignData(userConditions.scr)
-    //   cy.SelectFinancialInformation(false, userConditions.scr)
-    // }
-    cy.pause(true)
-    cy.FillSendAddress(userConditions.scr)
+    cy.OtpAuthentication(userConditions.scr)
+    cy.WaitLoader()
+    cy.FillSendAddress(true)
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
+    cy.enroll(false)
     cy.WaitLoader()
-    cy.pause(true)
+    cy.SavingTips()
   })
 
 })
