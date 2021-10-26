@@ -13,7 +13,7 @@ describe('Sprint 77', function () {
       insurance: 'Si',
       gmf: false,
       environment: 'dev',
-      activity:ENUM.ECONOMIC_ACTIVITY.PESIONADO,
+      activity:ENUM.ECONOMIC_ACTIVITY.EMPLEADO,
       declaring: false,
       income:'1817057'
     };
@@ -32,7 +32,7 @@ describe('Sprint 77', function () {
     cy.WaitLoader()
 
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,
-        userConditions.scr)
+        true)
 
     cy.Pause(userConditions.pause)
 
@@ -41,7 +41,7 @@ describe('Sprint 77', function () {
 
     cy.OtpAuthentication(userConditions.scr)
     cy.PersonalInformation(app)
-    cy.SelectActivity(flowConditions.activity, userConditions.scr,true)
+    cy.SelectActivity(flowConditions.activity, userConditions.scr,false)
     cy.WaitLoader()
 
     cy.FillContactForm(flowConditions.activity, userConditions.scr)
@@ -52,7 +52,7 @@ describe('Sprint 77', function () {
        cy.get('#monthlyExpensesInput').type('2000000')
       cy.SelectFinancialInformation(false, userConditions.scr,true,flowConditions.income)
     }
-    cy.FillSendAddress(userConditions.scr)
+    cy.FillSendAddress(true)
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr,true)
     cy.pause(true)
   })

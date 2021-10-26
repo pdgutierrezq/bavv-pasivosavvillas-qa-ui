@@ -28,8 +28,7 @@ describe('Sprint 77', function () {
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf, true)
-    cy.Pause(userConditions.pause)
-    cy.OtpAuthentication(userConditions.scr,true)
+    cy.OtpAuthentication(userConditions.scr,false)
 
     // cy.SelectActivity('Empleado', userConditions.scr)
     cy.WaitLoader()
@@ -42,7 +41,7 @@ describe('Sprint 77', function () {
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
     cy.WaitLoader()
-    cy.pause(true)
+    cy.SavingTips()
   })
 
 })
