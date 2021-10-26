@@ -20,7 +20,7 @@ describe('CDA', function () {
     };
 
     cy.MockWs(userConditions)
-    cy.FillForm(flowConditions.environment, userConditions.scr, true)
+    cy.FillForm(flowConditions.environment, userConditions.scr)
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)

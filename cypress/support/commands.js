@@ -63,8 +63,9 @@ Cypress.Commands.add("enroll", (pause) => {
   cy.get('button').eq(1).click()
 })
 
-Cypress.Commands.add("FillForm", (environment, scr, pause) => {
+Cypress.Commands.add("FillForm", (environment, scr, pause=Cypress.env().screen.information.basic.pause) => {
   var homePage = Cypress.config().baseUrl
+  cy.Pause(Cypress.env().screen.home.pause)
   cy.visit(homePage)
   cy.fixture('datosPasivo').then((user) => {
     cy.get('.btn').click()

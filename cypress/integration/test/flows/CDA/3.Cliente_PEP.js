@@ -18,7 +18,7 @@ describe('CDA', function () {
     };
 
     cy.MockWs(userConditions)
-    cy.FillForm(flowConditions.environment, userConditions.scr, pause)
+    cy.FillForm(flowConditions.environment, userConditions.scr)
   })
 
 })
