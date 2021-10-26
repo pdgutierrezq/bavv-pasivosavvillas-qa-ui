@@ -28,7 +28,7 @@ describe('CDA', function () {
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
-    cy.AcceptInsurance(flowConditions.insurance, true)
+    cy.AcceptInsurance(flowConditions.insurance)
     cy.WaitLoader()
     cy.OtpAuthentication(userConditions.scr)
     cy.WaitLoader()
@@ -38,5 +38,4 @@ describe('CDA', function () {
     cy.WaitLoader()
     cy.SavingTips()
   })
-
 })

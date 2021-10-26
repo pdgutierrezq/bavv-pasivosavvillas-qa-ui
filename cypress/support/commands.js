@@ -47,7 +47,7 @@ Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
   cy.ValidateResume(flowConditions.accountType, flowConditions.insurance)
 })
 
-Cypress.Commands.add("enroll", (pause=Cypress.env().screen.card.pause) => {
+Cypress.Commands.add("enroll", (pause=Cypress.env().screen.enroll.pause) => {
   cy.WaitLoader()
   cy.get('input').eq(0).type('1')
   cy.get('input').eq(1).type('3')
@@ -139,7 +139,7 @@ Cypress.Commands.add("SelectAccount", (accountType, gmf, pause=Cypress.env().scr
   // }
 })
 
-Cypress.Commands.add("SelectActivity", (activity, scr, pause=Cypress.env().screen.card.pause) => {
+Cypress.Commands.add("SelectActivity", (activity, scr, pause=Cypress.env().screen.activity.pause) => {
   cy.get('.mat-radio-label').contains(activity).click()
   if (activity == 'Independiente con negocio' || activity == 'Independiente') {
     cy.get('#CIIUCode').click().type('{downarrow}').type('{enter}')
@@ -157,7 +157,7 @@ Cypress.Commands.add("SelectGmf", (acceptGmf, pause=Cypress.env().screen.card.pa
   cy.get('#ProfessionalAccountPackage').click()
 })
 
-Cypress.Commands.add("AcceptInsurance", (accept, pause=Cypress.env().screen.card.pause) => {
+Cypress.Commands.add("AcceptInsurance", (accept, pause=Cypress.env().screen.insurance.pause) => {
   cy.get('.mat-radio-label').contains(accept).click()
   cy.Pause(pause)
   cy.get('#InsuranceOfferButton').click()
@@ -208,7 +208,7 @@ Cypress.Commands.add("FillSendAddress", (pause=Cypress.env().screen.card.pause) 
 
 })
 
-Cypress.Commands.add("FillContactForm", (activity, scr, pause=Cypress.env().screen.card.pause) => {
+Cypress.Commands.add("FillContactForm", (activity, scr, pause=Cypress.env().screen.contactInfo.pause) => {
   const contactForm = new ContactDataForm()
   contactForm.fillEmail()
   contactForm.fillPhone()
@@ -243,7 +243,7 @@ Cypress.Commands.add("FillContactFormOnly", (activity) => {
   }
 })
 
-Cypress.Commands.add("SelectForeignData", (scr, pause=Cypress.env().screen.card.pause) => {
+Cypress.Commands.add("SelectForeignData", (scr, pause=Cypress.env().screen.foreignInfo.pause) => {
 
   cy.get('mat-radio-button')
   .each(($el) => {
@@ -256,7 +256,7 @@ Cypress.Commands.add("SelectForeignData", (scr, pause=Cypress.env().screen.card.
 })
 
 Cypress.Commands.add("SelectFinancialInformation",
-    (option, scr, pause, income = '8765477') => {
+    (option, scr, pause=Cypress.env().screen.financialInfo.pause, income = '8765477') => {
       cy.get('#monthlyIncomeInput').clear().type(income)
 
       cy.get('#OperationType').click()
@@ -293,7 +293,7 @@ Cypress.Commands.add("ElectronicSignature", (scr,pause=Cypress.env().screen.docu
   cy.get('#DigitalSignatureButton').click()
 })
 
-Cypress.Commands.add("PersonalInformation", (app) => {
+Cypress.Commands.add("PersonalInformation", (app,pause=Cypress.env().screen.personalInfo.pause) => {
   cy.get('#BirthCity').type('Bogota')
   cy.get('.mat-input-element').last().type('Bogota')
   cy.get('.mat-radio-button:contains("Masculino")').click()
@@ -337,6 +337,7 @@ Cypress.Commands.add("PersonalInformation", (app) => {
       cy.get('.mat-input-element').eq(4).type('2020')
       break;
   }
+  cy.Pause(pause)
   cy.get('#PersonalInformationSubmitButton').click()
 })
 
