@@ -45,7 +45,7 @@ describe('CDA', function () {
     //   cy.SelectFinancialInformation(false, userConditions.scr)
     // }
     cy.pause(true)
-    cy.FillSendAddress(userConditions.scr)
+    cy.FillSendAddress()
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
     cy.WaitLoader()
