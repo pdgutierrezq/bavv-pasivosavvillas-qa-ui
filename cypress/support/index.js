@@ -18,6 +18,7 @@ import './commandsCDT'
 import './enums'
 import './commands'
 import './mocks'
+import addContext from "mochawesome/addContext";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
@@ -27,3 +28,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 // Alternatively you can use CommonJS syntax:
 require('cypress-plugin-tab')
 require('cypress-xpath')
+
+Cypress.on("test:after:run", (test, runnable) => {
+  if (test.state === "failed") {
+    const screenshot       =`../screenshots/${Cypress.spec.name}/${runnable.parent.title} -- ${test.title} (failed).png`;
+    addContext({ test }, screenshot);
+  }
+});
