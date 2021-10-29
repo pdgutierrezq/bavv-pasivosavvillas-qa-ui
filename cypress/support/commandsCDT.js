@@ -324,8 +324,8 @@ Cypress.Commands.add("FillInfoOnLanding", () => {
     cy.get('.avv-btn-primary').click()
 })
 
-Cypress.Commands.add("FillHomePage", (env) => {
-    cy.GoMainPage(env)
+Cypress.Commands.add("FillHomePage", () => {
+    cy.GoMainPage()
     cy.WaitLoader()
     cy.get('.avv-btn-primary').click()
 })
@@ -350,7 +350,7 @@ Cypress.Commands.add("FillCDTConfigurationPage", (env, userType) => {
 })
 
 Cypress.Commands.add("FillFormCDT", (env, pause, userType) => {
-    cy.GoMainPage(env)
+    cy.GoMainPage()
     cy.Pause(pause)
     cy.WaitLoader()
     cy.get('.avv-btn-primary').click()
@@ -389,17 +389,9 @@ Cypress.Commands.add("FillFormCDTStep", () => {
     })
 })
 
-Cypress.Commands.add("GoMainPage", (env) => {
-    if (env == 'stg') {
-        cy.visit('https://rb-pasivo-stg-cdt-front.avaldigitallabs.com/')
-
-    } else if (env == 'dev') {
-        cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/')
-    } else if (env == 'prod') {
-        cy.visit('https://www.avvillas.com.co/abrir-cdt-avvillas/')
-    } else if (env == 'loc') {
-        cy.visit('http://localhost:4200/abrir-cdt-avvillas/')
-    }
+Cypress.Commands.add("GoMainPage", () => {
+    var homePage = Cypress.env().list[0].cdt.baseUrl
+    cy.visit(homePage)
     cy.get('#Amount').type(500000)
     cy.get('#Term').type(365)
 

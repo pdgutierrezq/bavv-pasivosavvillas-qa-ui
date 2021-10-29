@@ -1,4 +1,9 @@
 {
-  "baseUrl": "https://rb-pasivo-stg-front.avaldigitallabs.com/abrir-cuenta-ahorro/index.html"
+  "cda": {
+    "baseUrl": "https://rb-pasivo-stg-front.avaldigitallabs.com/abrir-cuenta-ahorro/index.html"
+  },
+  "cdt": {
+    "baseUrl": "https://rb-pasivo-stg-cdt-front.avaldigitallabs.com/"
+  }
 }
 

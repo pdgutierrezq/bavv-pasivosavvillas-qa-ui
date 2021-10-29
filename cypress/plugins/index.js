@@ -15,13 +15,11 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-async function getConfigurationByFile(file) {
-  const pathBaseConfigFile = path.resolve(`cypress.json`)
+async function getConfigurationByFile(config,file) {
   const pathEnvConfigFile = path.resolve('env', `${file}.json`)
-  var baseJson = await fs.readJson(pathBaseConfigFile)
   var envJson = await fs.readJson(pathEnvConfigFile)
-  var configJson = Object.assign(baseJson, envJson)
-  return configJson
+  config.env.list = await Object.assign([envJson])
+  return config
 }
 
 // plugins file
@@ -29,7 +27,7 @@ module.exports = (on, config) => {
   // accept a configFile value or use development by default
   const file = config.env.configFile || 'dev'
 
-  return getConfigurationByFile(file)
+  return getConfigurationByFile(config,file)
 }
 //
 // const cucumber = require('cypress-cucumber-preprocessor').default

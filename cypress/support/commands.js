@@ -64,9 +64,9 @@ Cypress.Commands.add("enroll", (pause=Cypress.env().screen.enroll.pause) => {
 })
 
 Cypress.Commands.add("FillForm", (environment, scr, pause=Cypress.env().screen.information.basic.pause) => {
-  var homePage = Cypress.config().baseUrl
-  cy.Pause(Cypress.env().screen.home.pause)
+  var homePage = Cypress.env().list[0].cda.baseUrl
   cy.visit(homePage)
+  cy.Pause(Cypress.env().screen.home.pause)
   cy.fixture('datosPasivo').then((user) => {
     cy.get('.btn').click()
     cy.get('#DNINumber').type(user.numdoc)
