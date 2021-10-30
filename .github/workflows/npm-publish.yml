@@ -20,6 +20,11 @@ jobs:
         env:
           environment: 'dev'
           spec: 'cypress/integration/test/flows/CDT/3.Cliente_PEP.js'
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Commit screenshots
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
