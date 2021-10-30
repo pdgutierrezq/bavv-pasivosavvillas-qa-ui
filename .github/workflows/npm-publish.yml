@@ -15,18 +15,16 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 14
-      - run: npm ci
-      - run: npm run cypress:run:spec
+      - name: Installing dependencies
+        run: npm ci
+      - name: Running tests
+        run: npm run cypress:run:spec
         env:
           environment: 'dev'
           spec: 'cypress/integration/test/flows/CDT/3.Cliente_PEP.js'
-
-  publish-results:
-    if: always()
-    needs: running-test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Commit screenshots
+      - name: Publish results
+        if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update Screenshots
+
