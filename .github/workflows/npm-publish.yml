@@ -23,7 +23,7 @@ jobs:
 
   publish-results:
     if: always()
-    needs: build
+    needs: running-test
     runs-on: ubuntu-latest
     steps:
       - name: Commit screenshots
