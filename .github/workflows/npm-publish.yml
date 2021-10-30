@@ -6,7 +6,9 @@ name: Running Cypress Tests
 on:
   release:
     types: [created]
-
+  push:
+    branches:
+      - 'develop'
 jobs:
   running-test:
     runs-on: ubuntu-latest
