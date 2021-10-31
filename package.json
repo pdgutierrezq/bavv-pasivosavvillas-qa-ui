@@ -34,7 +34,6 @@
     "chrome-ext-downloader": "^1.0.4",
     "cypress": "^3.8.3",
     "cypress-cucumber-preprocessor": "^2.5.4",
-    "cypress-dashboard": "^3.1.4",
     "cypress-file-upload": "^4.0.7",
     "cypress-multi-reporters": "^1.2.4",
     "cypress-plugin-tab": "^1.0.5",
