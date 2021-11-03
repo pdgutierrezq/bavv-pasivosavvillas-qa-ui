@@ -32,7 +32,7 @@
     "@serenity-js/serenity-bdd": "^2.32.2",
     "@types/assert": "^1.5.6",
     "chrome-ext-downloader": "^1.0.4",
-    "cypress": "^3.8.3",
+    "cypress": "5.4.0",
     "cypress-cucumber-preprocessor": "^2.5.4",
     "cypress-file-upload": "^4.0.7",
     "cypress-multi-reporters": "^1.2.4",
