@@ -27,7 +27,7 @@ jobs:
         env:
           environment: 'dev'
           spec: 'cypress/integration/test/flows/CDT/3.Cliente_PEP.js'
-      - name: Publish results
+      - name: Publishing results
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
