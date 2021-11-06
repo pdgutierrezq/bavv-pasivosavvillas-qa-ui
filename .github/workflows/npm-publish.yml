@@ -13,6 +13,9 @@ jobs:
   running-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M')"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -28,6 +31,7 @@ jobs:
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          branch: build_${{ steps.date.outputs.date }}
           commit_message: Update Screenshots
           file_pattern: reports/*
 
