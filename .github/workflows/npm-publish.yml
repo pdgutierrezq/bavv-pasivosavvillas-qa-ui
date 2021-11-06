@@ -34,7 +34,7 @@ jobs:
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          branch: build_${{ steps.environment.outputs.environment }}_${{ steps.date.outputs.date }}
+          branch: build
           commit_message: ":chart_with_upwards_trend: Report - ${{ steps.date.outputs.date }}"
           file_pattern: reports/*
 
