@@ -32,6 +32,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: build_${{ steps.date.outputs.date }}
-          commit_message: Update Screenshots
+          commit_message: ":chart_with_upwards_trend: Report - ${{ steps.date.outputs.date }}"
           file_pattern: reports/*
 
