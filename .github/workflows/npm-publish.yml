@@ -18,7 +18,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M')"
       - name: Environment
         id: environment
-        run: echo "::set-output name=environment::'dev'"
+        run: echo "::set-output name=environment::dev"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
