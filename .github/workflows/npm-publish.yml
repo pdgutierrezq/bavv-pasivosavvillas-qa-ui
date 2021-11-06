@@ -26,8 +26,7 @@ jobs:
       - name: Installing dependencies
         run: npm ci
       - name: Running tests
-        id: tests
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M')"
+        run: npm run cypress:run:spec
         env:
           environment: ${{ steps.environment.outputs.environment }}
           spec: 'cypress/integration/test/flows/CDT/3.Cliente_PEP.js'
