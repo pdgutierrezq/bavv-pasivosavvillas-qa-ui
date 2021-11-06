@@ -13,9 +13,12 @@ jobs:
   running-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
+      - name: Current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M')"
+      - name: Environment
+        id: environment
+        run: echo "::set-output name=environment::'dev'"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
@@ -23,15 +26,16 @@ jobs:
       - name: Installing dependencies
         run: npm ci
       - name: Running tests
-        run: npm run cypress:run:spec
+        id: tests
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M')"
         env:
-          environment: 'dev'
+          environment: ${{ steps.environment.outputs.environment }}
           spec: 'cypress/integration/test/flows/CDT/3.Cliente_PEP.js'
       - name: Publishing results
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          branch: build_${{ environment }}_${{ steps.date.outputs.date }}
+          branch: build_${{ steps.environment.outputs.environment }}_${{ steps.date.outputs.date }}
           commit_message: ":chart_with_upwards_trend: Report - ${{ steps.date.outputs.date }}"
           file_pattern: reports/*
 
