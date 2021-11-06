@@ -8,7 +8,7 @@
     "clean:serenity": "rimraf target",
     "pretest": "npm run clean:reports || npm run clean:serenity",
     "cypress:open": "cypress open --env configFile=${environment}",
-    "cypress:run:spec": "cypress run --headless -b chrome --reporter-options configFile=cypress.json -s ${spec} -- --record ",
+    "cypress:run:spec": "cypress run --headless --reporter-options configFile=${environment} -s ${spec} -- --record ",
     "cypress:run": "cypress run --headless",
     "combine-reports": "mochawesome-merge './reports/wesome/*.json' -o './reports/wesome/reports.json'",
     "generate-report": "marge reports/wesome/reports.json -f report -o reports/html",
