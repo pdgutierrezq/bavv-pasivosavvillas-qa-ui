@@ -311,19 +311,7 @@ Cypress.Commands.add("PersonalInformation", (app,pause=Cypress.env().screen.pers
       cy.get(
           '#mat-datepicker-0 > div > mat-month-view > table > tbody > tr:nth-child(1) > td:nth-child(2) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
       cy.get('#PersonalInformationForm > div:nth-child(5) > span').click()
-      cy.get(
-          '#mat-datepicker-1 > div > mat-month-view > table > tbody > tr:nth-child(1) > td:nth-child(2) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
-      // cy.get('#mat-datepicker-0 > mat-calendar-header > div > div').then((dtp) => {
-      // cy.wrap(dtp).click()
-      // .get('.mat-button-base').get(0).click()
-      // .get('.mat-button-base').get(1).click()
-      // .get('.years').contains('2000').click()
-      // .get('.months').contains('January').click()
-      // .get('.days').contains('1').click() //.invoke('text')
-      // .then((item) => {
-      //     cy.wrap(item).click(); // Click on the option
-      // });
-      // });
+      cy.get('.mat-focus-indicator').eq(7).click()
       break;
     default:
       // cy.get('#CheckProductConditions').click()

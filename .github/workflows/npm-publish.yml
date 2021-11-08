@@ -29,12 +29,14 @@ jobs:
         run: npm run cypress:run:spec
         env:
           environment: ${{ steps.environment.outputs.environment }}
-          spec: 'cypress/integration/test/flows/CDT/3.Cliente_PEP.js'
+          spec: 'cypress/integration/test/flows/CDA/*'
       - name: Publishing results
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: build
-          commit_message: ":chart_with_upwards_trend: Report - ${{ steps.date.outputs.date }}"
+          commit_message: ":chart_with_upwards_trend:Automated Change:Report - ${{ steps.date.outputs.date }}"
           file_pattern: reports/*
+          tagging_message: 'build_${{ steps.date.outputs.date }}'
+
 
