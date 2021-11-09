@@ -5,7 +5,6 @@ describe('CDA', function () {
     cy.server()
   })
   it('NO Cliente,NO Actualizado,NO Enrolado,No Seguro,Deposito', function () {
-    var pause = false;
     var app = ENUM.APP.CDA
     var flowConditions = {
       scr: false,
