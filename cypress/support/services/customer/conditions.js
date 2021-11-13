@@ -4,7 +4,7 @@ const CUSTOMER_CONDITION_SERVICE = {
   RESPONSE: {
     KO: {
       STATUS: 500,
-      BODY: 'fixtures:mock/customer-conditions/cust-cond-ko.json'
+      BODY: 'fixtures:mock/error/ko.json'
     },
     OK: {
       STATUS: 200

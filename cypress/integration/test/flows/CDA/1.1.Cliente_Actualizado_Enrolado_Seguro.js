@@ -1,12 +1,13 @@
-import {CONDITION} from "../../../../support/entities/properties/customer-condition";
+import {CONDITION} from "../../../../support/entities/properties/customer/conditions";
 import {User} from "../../../../support/entities/user";
+import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
 
 describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
   it('Cliente Actualizado,Enrolado,CON Seguro', function () {
-    let user = new User(CONDITION.CLIENT.UPDATED)
+    let user = new User(CONDITION.CLIENT.UPDATED,ACCOUNTS.CAT.NO)
     cy.log("User condition:" + user.condition)
     var flowConditions = {
       scr: false,

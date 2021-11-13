@@ -18,8 +18,7 @@ import './commandsCDT'
 import './enums'
 import './commands'
 import './commands/index'
-import './commands/mocks/customer-conditions'
-import './mocks'
+import './commands/mocks'
 import addContext from "mochawesome/addContext";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
