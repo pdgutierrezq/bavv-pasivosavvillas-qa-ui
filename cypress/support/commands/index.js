@@ -4,10 +4,8 @@ Cypress.Commands.add("mockService", (service, response) => {
     status = response.STATUS
     response = response.BODY
   }
-  cy.route({
+  cy.route2({
     method: service.METHOD,
-    url: service.URL,
-    status: status,
-    response: response
-  })
+    url: service.URL
+  }, {status: status, fixture: response})
 })

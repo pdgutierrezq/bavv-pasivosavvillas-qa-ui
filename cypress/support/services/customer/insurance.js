@@ -4,7 +4,7 @@ const CUSTOMER_INSURANCE_SERVICE = {
   RESPONSE: {
     KO: {
       STATUS: 500,
-      BODY: 'fixture:mock/customer/insurance/ko.json'
+      BODY: 'mock/customer/insurance/ko.json'
     },
     OK: {
       STATUS: 200

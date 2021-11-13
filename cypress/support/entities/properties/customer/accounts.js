@@ -1,7 +1,7 @@
 const ACCOUNTS = {
   CAT: {
-    YES: 'fixture:mock/customer/accounts/cat.json',
-    NO: 'fixture:mock/customer/accounts/no-cat.json'
+    YES: 'mock/customer/accounts/cat.json',
+    NO: 'mock/customer/accounts/no-cat.json'
   }
 }
 

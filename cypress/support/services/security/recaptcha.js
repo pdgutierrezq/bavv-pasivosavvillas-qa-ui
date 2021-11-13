@@ -4,7 +4,7 @@ const RECAPTCHA_SERVICE = {
   RESPONSE: {
     KO: {
       STATUS: 500,
-      BODY: 'fixtures:mock/security/recaptcha/recaptcha_ko.json'
+      BODY: 'mock/security/recaptcha/ko.json'
     },
     OK: {
       STATUS: 200

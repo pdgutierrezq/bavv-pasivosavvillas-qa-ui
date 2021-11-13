@@ -1,0 +1,9 @@
+{
+  "errorCode": "005",
+  "errorMessage": "OTP_CONTROL_ERROR_403",
+  "additionalInformation": "Ocurrió una excepción",
+  "statusResponse": 206,
+  "Status": {
+    "StatusCode": "1005"
+  }
+}

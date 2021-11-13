@@ -32,6 +32,7 @@
   "chromeWebSecurity": false,
   "modifyObstructiveCode": false,
   "viewportWidth": 1100,
-  "viewportHeight": 1000
+  "viewportHeight": 1000,
+  "experimentalNetworkStubbing": true
 }
 

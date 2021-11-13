@@ -4,7 +4,7 @@ const CUSTOMER_ACCOUNTS_SERVICE = {
   RESPONSE: {
     KO: {
       STATUS: 500,
-      BODY: 'fixtures:mock/error/ko.json'
+      BODY: 'mock/error/ko.json'
     },
     OK: {
       STATUS: 200

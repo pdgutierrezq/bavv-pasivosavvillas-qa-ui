@@ -3,9 +3,9 @@ import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 import {RECAPTCHA_SERVICE} from "../services/security/recaptcha";
-import {RECAPTCHA} from "../entities/properties/security/recaptcha";
+import {USER_IDENTITY_CREATE_SERVICE} from "../services/security/user/identity/create";
 
-Cypress.Commands.add("MockWs", (userConditions, user,recaptcha=RECAPTCHA.OK) => {
+Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
     before(() => {
       cy.visit('', {
@@ -18,17 +18,18 @@ Cypress.Commands.add("MockWs", (userConditions, user,recaptcha=RECAPTCHA.OK) => 
     });
   }
 
-  cy.mockService(RECAPTCHA_SERVICE,recaptcha)
-  cy.mockService(CUSTOMER_CONDITION_SERVICE,user.condition)
-  cy.mockService(CUSTOMER_ACCOUNTS_SERVICE,user.accounts)
-  cy.mockService(CUSTOMER_INSURANCE_SERVICE,user.insurance)
+  cy.mockService(RECAPTCHA_SERVICE, flow.recaptcha)
+  cy.mockService(CUSTOMER_CONDITION_SERVICE, user.condition)
+  cy.mockService(CUSTOMER_ACCOUNTS_SERVICE, user.accounts)
+  cy.mockService(CUSTOMER_INSURANCE_SERVICE, user.insurance)
+  cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
 
   cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
 
   // cy.GetPdf(userConditions.getpdf)
-  //  cy.UserIdentityGenerate(userConditions.otp)
+  // cy.UserIdentityGenerate(userConditions.otp)
   // cy.UpdateCrm(userConditions.updateCrm)
   // cy.CreateSdsUser(userConditions.sds)
   // cy.PseCreateTransaction(userConditions.pseCreate)
@@ -135,16 +136,6 @@ Cypress.Commands.add("Summary", (option) => {
   }
 })
 
-Cypress.Commands.add("UserIdentityGenerate", (option) => {
-  if (option == 'PASS') {
-    cy.route({
-      method: 'POST',
-      url: '**/user-identity',
-      status: 201,
-      response: 'fixture:user-identity-create.json'
-    })
-  }
-})
 
 Cypress.Commands.add("UserIdentityValidate", (option) => {
   if (option == 'PASS') {
@@ -189,30 +180,6 @@ Cypress.Commands.add("UserIdentityValidate", (option) => {
     })
   }
 
-})
-
-Cypress.Commands.add("RecaptchaLanding", () => {
-
-  cy.route('POST', '**/recaptchaV3?exclude-interceptor=true',
-      'fixture:recaptcha_ok.json')
-
-})
-
-Cypress.Commands.add("Recaptcha", (option) => {
-  if (option == 'timeout') {
-    cy.route('POST', '**/recaptchaV3', 'fixture:recaptcha-timeout.json')
-  } else if (option == 'lowscore') {
-    cy.route('POST', '**/recaptchaV3', 'fixture:recaptcha_low_score.json')
-  } else if (option == 'ok') {
-    cy.route('POST', '**/recaptchaV3', 'fixture:recaptcha_ok.json')
-  } else if (option == '500') {
-    cy.route({
-      method: 'POST',
-      url: '**/recaptchaV3',
-      status: 500,
-      response: 'fixture:recaptcha_500.json'
-    })
-  }
 })
 
 Cypress.Commands.add("UpdateCrm", (pass) => {
