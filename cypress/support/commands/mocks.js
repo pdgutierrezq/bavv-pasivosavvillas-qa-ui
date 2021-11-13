@@ -4,6 +4,7 @@ import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 import {RECAPTCHA_SERVICE} from "../services/security/recaptcha";
 import {USER_IDENTITY_CREATE_SERVICE} from "../services/security/user/identity/create";
+import {USER_IDENTITY_VALIDATE_SERVICE} from "../services/security/user/identity/validate";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -23,6 +24,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(CUSTOMER_ACCOUNTS_SERVICE, user.accounts)
   cy.mockService(CUSTOMER_INSURANCE_SERVICE, user.insurance)
   cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
+  cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
 
   cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)

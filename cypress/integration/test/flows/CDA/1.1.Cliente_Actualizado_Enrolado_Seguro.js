@@ -4,6 +4,8 @@ import {Flow} from "../../../../support/entities/flow";
 import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
 import {INSURANCE} from "../../../../support/entities/properties/customer/insurance";
 import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
+import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
+
 
 describe('CDA', function () {
   beforeEach(function () {
@@ -12,7 +14,7 @@ describe('CDA', function () {
   it('Cliente Actualizado,Enrolado,CON Seguro', function () {
     let user = new User(CONDITION.CLIENT.UPDATED, ACCOUNTS.CAT.NO,
         INSURANCE.YES)
-    let flow = new Flow(RECAPTCHA.OK, ACCOUNTS.CAT.NO, INSURANCE.YES)
+    let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK)
     cy.log("User condition:" + user.condition)
     var flowConditions = {
       scr: false,
