@@ -1,7 +1,8 @@
 import 'cypress-file-upload';
 import ContactDataForm from '../integration/pageObjects/ContactDataForm'
+import {CUSTOMER_CONDITION_SERVICE} from "./services/customer-condition";
 
-Cypress.Commands.add("MockWs", (userConditions) => {
+Cypress.Commands.add("MockWs", (userConditions, user) => {
     if (userConditions.captcha == 'lowscore') {
         before(() => {
             cy.visit('', {
@@ -13,9 +14,10 @@ Cypress.Commands.add("MockWs", (userConditions) => {
             });
         });
     }
+
     cy.Summary(userConditions.summary)
     cy.InsuranceValidation(userConditions.insurance)
-    cy.CustomerConditions(userConditions)
+    cy.CustomerConditions(user.condition)
     cy.CustomerAccount(userConditions.cat)
      cy.ReadChannels(userConditions.channels)
      cy.GetDocs(userConditions.docs)
@@ -279,32 +281,6 @@ Cypress.Commands.add("CustomerAccount", (cat) => {
         cy.route('POST', '**/customer-accounts', 'fixture:customer-accounts-true.json')
     } else {
         cy.route('POST', '**/customer-accounts', 'fixture:customer-accounts-false.json')
-    }
-})
-
-Cypress.Commands.add("CustomerConditions", (conditions) => {
-    if (conditions.client == 'error') {
-        cy.route({
-            method: 'POST',
-            url: '**/customer-conditions',
-            status: 500,
-            response: 'fixture:generate-presigned-url-fail.json'
-        })
-    }
-    else if (conditions.pep) {
-        cy.route('POST', '**/customer-conditions',
-            'fixture:cust-cond-client-pep.json')
-    }
-    else if (conditions.restrictList) {
-        cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-restlist.json')
-    } else if (conditions.client && conditions.updated && !conditions.return) {
-        cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-client-updated-no-return.json')
-    } else if (conditions.client && !conditions.updated) {
-        cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-client-not-updated.json')
-    } else if (!conditions.client && !conditions.updated) {
-        cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-not-client-not-updated.json')
-    } else if (!conditions.client && conditions.updated) {
-        cy.route('POST', '**/customer-conditions', 'fixture:cust-cond-not-client-updated.json')
     }
 })
 

@@ -1,9 +1,13 @@
+import {CONDITION} from "../../../../support/entities/properties/customer-condition";
+import {User} from "../../../../support/entities/user";
+
 describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
   it('Cliente Actualizado,Enrolado,CON Seguro', function () {
-    var pause = false;
+    let user = new User(CONDITION.CLIENT.UPDATED)
+    cy.log("User condition:" + user.condition)
     var flowConditions = {
       scr: false,
       accountType: 'DIGITAL',
@@ -17,11 +21,11 @@ describe('CDA', function () {
       channels: 'TRUE',
       client: true,
       updated: true,
-      insurance:'true',
+      insurance: 'true',
       cat: false
     };
 
-    cy.MockWs(userConditions)
+    cy.MockWs(userConditions,user)
     cy.FillForm(flowConditions.environment, userConditions.scr)
     cy.WaitLoader()
     cy.AcceptPep()
