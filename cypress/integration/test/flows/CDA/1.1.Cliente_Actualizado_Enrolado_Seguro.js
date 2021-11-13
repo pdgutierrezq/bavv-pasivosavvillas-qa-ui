@@ -2,6 +2,8 @@ import {CONDITION} from "../../../../support/entities/properties/customer/condit
 import {User} from "../../../../support/entities/user";
 import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
 import {INSURANCE} from "../../../../support/entities/properties/customer/insurance";
+import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
+import {RECAPTCHA_SERVICE} from "../../../../support/services/security/recaptcha";
 
 describe('CDA', function () {
   beforeEach(function () {
@@ -27,7 +29,7 @@ describe('CDA', function () {
       cat: false
     };
 
-    cy.MockWs(userConditions,user)
+    cy.MockWs(userConditions,user,RECAPTCHA.OK)
     cy.FillForm(flowConditions.environment, userConditions.scr)
     cy.WaitLoader()
     cy.AcceptPep()

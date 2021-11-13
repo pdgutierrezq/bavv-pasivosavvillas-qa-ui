@@ -2,8 +2,10 @@ import 'cypress-file-upload';
 import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
+import {RECAPTCHA_SERVICE} from "../services/security/recaptcha";
+import {RECAPTCHA} from "../entities/properties/security/recaptcha";
 
-Cypress.Commands.add("MockWs", (userConditions, user) => {
+Cypress.Commands.add("MockWs", (userConditions, user,recaptcha=RECAPTCHA.OK) => {
   if (userConditions.captcha == 'lowscore') {
     before(() => {
       cy.visit('', {
@@ -16,6 +18,7 @@ Cypress.Commands.add("MockWs", (userConditions, user) => {
     });
   }
 
+  cy.mockService(RECAPTCHA_SERVICE,recaptcha)
   cy.mockService(CUSTOMER_CONDITION_SERVICE,user.condition)
   cy.mockService(CUSTOMER_ACCOUNTS_SERVICE,user.accounts)
   cy.mockService(CUSTOMER_INSURANCE_SERVICE,user.insurance)
@@ -23,8 +26,7 @@ Cypress.Commands.add("MockWs", (userConditions, user) => {
   cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
-  cy.Recaptcha(userConditions.captcha)
-  cy.RecaptchaLanding()
+
   // cy.GetPdf(userConditions.getpdf)
   //  cy.UserIdentityGenerate(userConditions.otp)
   // cy.UpdateCrm(userConditions.updateCrm)
