@@ -1,6 +1,7 @@
 import 'cypress-file-upload';
 import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
+import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 
 Cypress.Commands.add("MockWs", (userConditions, user) => {
   if (userConditions.captcha == 'lowscore') {
@@ -15,10 +16,11 @@ Cypress.Commands.add("MockWs", (userConditions, user) => {
     });
   }
 
-  cy.Summary(userConditions.summary)
-  cy.InsuranceValidation(userConditions.insurance)
   cy.mockService(CUSTOMER_CONDITION_SERVICE,user.condition)
   cy.mockService(CUSTOMER_ACCOUNTS_SERVICE,user.accounts)
+  cy.mockService(CUSTOMER_INSURANCE_SERVICE,user.insurance)
+
+  cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
   cy.Recaptcha(userConditions.captcha)
@@ -126,23 +128,6 @@ Cypress.Commands.add("Summary", (option) => {
       url: '**/read-summary-transaction-cdt',
       status: 500,
       response: 'fixture:read-summary-transaction-cdt-fail.json'
-    })
-    // cy.route('POST', '**/insurance-validation', 'fixture:insurance-validation-fail.json')
-  }
-})
-Cypress.Commands.add("InsuranceValidation", (option) => {
-  if (option == 'true') {
-    cy.route('POST', '**/insurance-validation',
-        'fixture:insurance-validation-true.json')
-  } else if (option == 'false') {
-    cy.route('POST', '**/insurance-validation',
-        'fixture:insurance-validation-false.json')
-  } else if (option == 'fail') {
-    cy.route({
-      method: 'POST',
-      url: '**/insurance-validation',
-      status: 500,
-      response: 'fixture:insurance-validation-fail.json'
     })
     // cy.route('POST', '**/insurance-validation', 'fixture:insurance-validation-fail.json')
   }
