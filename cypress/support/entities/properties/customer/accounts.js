@@ -1,7 +1,13 @@
 const ACCOUNTS = {
   CAT: {
-    YES: 'mock/customer/accounts/cat.json',
-    NO: 'mock/customer/accounts/no-cat.json'
+    YES: {
+      STATUS: 200,
+      BODY: 'mock/customer/accounts/cat.json'
+    },
+    NO: {
+      STATUS: 200,
+      BODY: 'mock/customer/accounts/no-cat.json'
+    }
   }
 }
 

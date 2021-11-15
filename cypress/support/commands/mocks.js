@@ -1,10 +1,8 @@
 import 'cypress-file-upload';
-import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
-import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
-import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 import {RECAPTCHA_SERVICE} from "../services/security/recaptcha";
-import {USER_IDENTITY_CREATE_SERVICE} from "../services/security/user/identity/create";
-import {USER_IDENTITY_VALIDATE_SERVICE} from "../services/security/user/identity/validate";
+import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
+import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
+import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -23,8 +21,8 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(CUSTOMER_CONDITION_SERVICE, user.condition)
   cy.mockService(CUSTOMER_ACCOUNTS_SERVICE, user.accounts)
   cy.mockService(CUSTOMER_INSURANCE_SERVICE, user.insurance)
-  cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
-  cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
+  // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
+  // cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
 
   cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)
@@ -137,7 +135,6 @@ Cypress.Commands.add("Summary", (option) => {
     // cy.route('POST', '**/insurance-validation', 'fixture:insurance-validation-fail.json')
   }
 })
-
 
 Cypress.Commands.add("UserIdentityValidate", (option) => {
   if (option == 'PASS') {

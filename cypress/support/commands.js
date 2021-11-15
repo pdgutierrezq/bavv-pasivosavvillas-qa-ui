@@ -172,14 +172,13 @@ Cypress.Commands.add("AcceptInsurance",
     })
 
 Cypress.Commands.add("OtpAuthentication",
-    (scr, pause = Cypress.env().screen.otp.pause) => {
-
+    (scr, flow, pause = Cypress.env().screen.otp.pause) => {
       cy.get('.mat-input-element', {timeout: 20000}).first().type('12345678')
       cy.ScreenShot(scr)
       cy.Pause(pause)
+      // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
       cy.get('#OtpButton', {timeout: 20000}).click()
       cy.WaitLoader()
-
     })
 
 Cypress.Commands.add("WaitLoader", () => {

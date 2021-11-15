@@ -5,9 +5,6 @@ const CUSTOMER_ACCOUNTS_SERVICE = {
     KO: {
       STATUS: 500,
       BODY: 'mock/error/ko.json'
-    },
-    OK: {
-      STATUS: 200
     }
   }
 }

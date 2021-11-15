@@ -5,9 +5,6 @@ const RECAPTCHA_SERVICE = {
     KO: {
       STATUS: 500,
       BODY: 'mock/security/recaptcha/ko.json'
-    },
-    OK: {
-      STATUS: 200
     }
   }
 }

@@ -1,26 +1,61 @@
-import {OTP} from "../entities/properties/security/user/identity/otp";
-import {USER_IDENTITY_VALIDATE_SERVICE} from "../services/security/user/identity/validate";
-
 Cypress.Commands.add("mockService", (service, response) => {
-  let status = service.RESPONSE.OK.STATUS
-  let endpoint = {
+  // let endpoint = {
+  //   method: service.METHOD,
+  //   url: service.URL
+  // }
+  // cy.route2(
+  //     endpoint, (req) => {
+  //       if (req.body.includes(USER_IDENTITY_VALIDATE_SERVICE.MATCHER)) {
+  //         req.reply({
+  //           statusCode: USER_IDENTITY_VALIDATE_SERVICE.RESPONSE.OK.STATUS,
+  //           fixture: OTP.VALIDATE.OK
+  //         })
+  //       } else {
+  //         req.reply({statusCode: status, fixture: response})
+  //       }
+  //     }).as(service.URL)
+  cy.route({
     method: service.METHOD,
-    url: service.URL
-  }
-  if (!(typeof response === 'string')) {
-    status = response.STATUS
-    response = response.BODY
-  }
-  cy.route2(
-      endpoint, (req) => {
-        if (req.body.includes(USER_IDENTITY_VALIDATE_SERVICE.MATCHER)) {
-          req.reply({
-            statusCode: USER_IDENTITY_VALIDATE_SERVICE.RESPONSE.OK.STATUS,
-            fixture: OTP.VALIDATE.OK
-          })
-        } else {
-          req.reply({statusCode: status, fixture: response})
-        }
-      }).as(service.URL)
+    url: service.URL,
+    response: 'fixture:' + response.BODY,
+    status: response.STATUS,
+  }).as(getAlias(service))
 })
+
+function getAlias(service) {
+  let alias = service.URL
+  if (service.hasOwnProperty('NAME')) {
+    alias = service.NAME
+  }
+  return alias
+}
+
+Cypress.Commands.add("mockServiceByMatcher",
+    (service, matcher, ...responses) => {
+      let reqBody = {}
+      let response = responses[0]
+      matcherData = matcher
+      responsesData = responses
+      cy.route({
+        method: service.METHOD,
+        url: service.URL,
+        onRequest(xhr) {
+          reqBody = xhr.request.body
+          response = getResponseForService(reqBody, matcherData, responsesData)
+        },
+        // onResponse(xhr) {
+        //   xhr.response.body = response.BODY
+        // },
+        response: 'fixture:' + response.BODY,
+        status: response.STATUS
+      }).as(getAlias(service))
+    })
+
+function getResponseForService(reqBody, matcher, responses) {
+  let response = responses[0]
+  if (reqBody.hasOwnProperty(matcher)) {
+    response = responses[1]
+  }
+  return response
+}
 

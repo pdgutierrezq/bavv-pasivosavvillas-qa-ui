@@ -5,9 +5,6 @@ const CUSTOMER_INSURANCE_SERVICE = {
     KO: {
       STATUS: 500,
       BODY: 'mock/customer/insurance/ko.json'
-    },
-    OK: {
-      STATUS: 200
     }
   }
 }

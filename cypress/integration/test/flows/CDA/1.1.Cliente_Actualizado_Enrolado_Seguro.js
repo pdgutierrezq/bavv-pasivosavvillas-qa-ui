@@ -6,7 +6,6 @@ import {INSURANCE} from "../../../../support/entities/properties/customer/insura
 import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
 import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
 
-
 describe('CDA', function () {
   beforeEach(function () {
     cy.server()
@@ -40,7 +39,7 @@ describe('CDA', function () {
     //cy.ScreenShot(userConditions.scr)
     cy.WaitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
-    cy.OtpAuthentication(userConditions.scr)
+    cy.OtpAuthentication(userConditions.scr,flow)
     cy.WaitLoader()
     cy.FillSendAddress()
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)

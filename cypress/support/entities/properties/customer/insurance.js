@@ -1,6 +1,12 @@
 const INSURANCE = {
-  YES: 'mock/customer/insurance/true.json',
-  NO: 'mock/customer/insurance/false.json',
+  YES: {
+    STATUS: 200,
+    BODY: 'mock/customer/insurance/true.json'
+  },
+  NO: {
+    STATUS: 200,
+    BODY: 'mock/customer/insurance/false.json'
+  },
 }
 
 module.exports = {
