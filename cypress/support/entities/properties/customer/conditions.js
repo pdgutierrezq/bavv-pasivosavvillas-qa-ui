@@ -3,6 +3,10 @@ const CONDITION = {
     STATUS: 200,
     BODY: 'mock/customer/conditions/cust-cond-client-pep.json'
   },
+  CODE_99: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/99-error.json'
+  },
   RESTRICTED: {
     STATUS: 200,
     BODY: 'mock/customer/conditions/cust-cond-restlist.json'

@@ -1,11 +1,18 @@
 import ENUM from '../../../../support/enums'
+import {User} from "../../../../support/entities/user";
+import {CONDITION} from "../../../../support/entities/properties/customer/conditions";
+import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
+import {INSURANCE} from "../../../../support/entities/properties/customer/insurance";
+import {Flow} from "../../../../support/entities/flow";
+import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
+import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
+import {CRM} from "../../../../support/entities/properties/customer/crm/update";
 
 describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
   it('NO Cliente Actualizado,NO Enrolado,SIN Seguro', function () {
-    var pause = false;
     var app = ENUM.APP.CDA
     var flowConditions = {
       scr: false,
@@ -22,9 +29,12 @@ describe('CDA', function () {
       client: false,
       updated: true
     };
+    let user = new User(CONDITION.NO_CLIENT.UPDATED, ACCOUNTS.CAT.NO,
+        INSURANCE.NO)
+    let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK, CRM.OK)
 
-    cy.MockWs(userConditions)
-    cy.FillForm(flowConditions.environment, userConditions.scr)
+    cy.MockWs(userConditions, user, flow)
+    cy.FillForm()
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
