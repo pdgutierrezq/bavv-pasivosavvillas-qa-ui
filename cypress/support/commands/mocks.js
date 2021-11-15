@@ -3,6 +3,7 @@ import {RECAPTCHA_SERVICE} from "../services/security/recaptcha";
 import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
+import {UPDATE_DATA_CRM_SERVICE} from "../services/customer/crm/update";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -23,14 +24,13 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(CUSTOMER_INSURANCE_SERVICE, user.insurance)
   // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
   // cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
+  cy.mockService(UPDATE_DATA_CRM_SERVICE, flow.crm)
 
   cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
 
   // cy.GetPdf(userConditions.getpdf)
-  // cy.UserIdentityGenerate(userConditions.otp)
-  // cy.UpdateCrm(userConditions.updateCrm)
   // cy.CreateSdsUser(userConditions.sds)
   // cy.PseCreateTransaction(userConditions.pseCreate)
   // cy.CreatePasiveProduct(userConditions.cpp)
@@ -177,26 +177,6 @@ Cypress.Commands.add("UserIdentityValidate", (option) => {
       status: 206,
       response: 'fixture:user-identity-vencida.json'
     })
-  }
-
-})
-
-Cypress.Commands.add("UpdateCrm", (pass) => {
-  if (pass == 'fail') {
-    cy.route({
-      method: 'POST',
-      url: '**/update-data-crm',
-      status: 500,
-      response: 'fixture:update-data-crm-fail.json'
-    })
-  } else if (pass == 'pass') {
-    cy.route('POST', '**/update-data-crm', 'fixture:update-data-crm-ok.json')
-  } else if (pass == '125') {
-    cy.route('POST', '**/update-data-crm', 'fixture:update-data-crm-125.json')
-  } else if (pass == '126') {
-    cy.route('POST', '**/update-data-crm', 'fixture:update-data-crm-126.json')
-  } else if (pass == '127') {
-    cy.route('POST', '**/update-data-crm', 'fixture:update-data-crm-127.json')
   }
 
 })
