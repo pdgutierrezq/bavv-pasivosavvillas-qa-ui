@@ -63,29 +63,40 @@ Cypress.Commands.add("enroll", (pause = Cypress.env().screen.enroll.pause) => {
   cy.get('button').eq(1).click()
 })
 
-Cypress.Commands.add("FillForm", (environment, scr,
-    pause = Cypress.env().screen.information.basic.pause) => {
-  var homePage = Cypress.env().list[0].cda.baseUrl
-  cy.visit(homePage)
-  cy.Pause(Cypress.env().screen.home.pause)
-  cy.fixture('datosPasivo').then((user) => {
-    cy.get('.btn').click()
-    cy.get('#DNINumber').type(user.numdoc)
-    cy.get('#MobileNumber').type(user.phone)
-    cy.get('#MobileConfirmNumber').type(user.phone)
-    cy.get('#FirstName').type(user.firstname)
-    cy.get('#SecondName').type(user.secondname)
-    cy.get('#LastName').type(user.lastname)
-    cy.get('#SecondLastName').type(user.secondlastname)
-    cy.get('#MonthlyIncomeInput').type(user.salary)
-    cy.get('.mat-checkbox-inner-container').click()
-    cy.wait(2000)
-    cy.Pause(pause)
-    cy.ScreenShot(scr)
-    cy.get('#SubmitFormUserIdentification').click()
-  })
+Cypress.Commands.add("pauseAndScreenshot",
+    (page = Cypress.env().screen.home) => {
+      cy.Pause(page.pause)
+      if (page.screenshot) {
+        cy.screenshot()
+      }
+    })
 
-})
+Cypress.Commands.add("homePage",
+    (flags = Cypress.env().screen.home) => {
+      var homePage = Cypress.env().list[0].cda.baseUrl
+      cy.visit(homePage)
+      cy.pauseAndScreenshot(flags)
+    })
+
+Cypress.Commands.add("FillForm",
+    (flags = Cypress.env().screen.information.basic) => {
+      cy.homePage()
+      cy.fixture('datosPasivo').then((user) => {
+        cy.get('.btn').click()
+        cy.get('#DNINumber').type(user.numdoc)
+        cy.get('#MobileNumber').type(user.phone)
+        cy.get('#MobileConfirmNumber').type(user.phone)
+        cy.get('#FirstName').type(user.firstname)
+        cy.get('#SecondName').type(user.secondname)
+        cy.get('#LastName').type(user.lastname)
+        cy.get('#SecondLastName').type(user.secondlastname)
+        cy.get('#MonthlyIncomeInput').type(user.salary)
+        cy.get('.mat-checkbox-inner-container').click()
+        cy.wait(2000)
+        cy.pauseAndScreenshot(flags)
+        cy.get('#SubmitFormUserIdentification').click()
+      })
+    })
 
 Cypress.Commands.add("ScreenShot", (option) => {
   if (option) {
@@ -106,10 +117,10 @@ Cypress.Commands.add("ValidateErrorPage", (errorType) => {
   }
 })
 
-Cypress.Commands.add("AcceptPep", (pause = Cypress.env().screen.pep.pause) => {
+Cypress.Commands.add("AcceptPep", (flags = Cypress.env().screen.pep) => {
   cy.get('#mat-radio-2 > .mat-radio-label', {timeout: 10000}).click()
   cy.get('#mat-radio-5 > .mat-radio-label').click()
-  cy.Pause(pause)
+  cy.pauseAndScreenshot(flags)
   cy.get('#SubmitFormPEP').click()
 
 })

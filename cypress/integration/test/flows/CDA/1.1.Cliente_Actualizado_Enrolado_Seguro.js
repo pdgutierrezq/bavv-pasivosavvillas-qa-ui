@@ -15,7 +15,6 @@ describe('CDA', function () {
     let user = new User(CONDITION.CLIENT.UPDATED, ACCOUNTS.CAT.NO,
         INSURANCE.YES)
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
-    cy.log("User condition:" + user.condition)
     var flowConditions = {
       scr: false,
       accountType: 'DIGITAL',

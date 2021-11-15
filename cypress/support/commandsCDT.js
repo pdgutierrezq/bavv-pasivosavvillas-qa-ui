@@ -328,15 +328,15 @@ Cypress.Commands.add("FillInfoOnLanding", () => {
 })
 
 Cypress.Commands.add("FillHomePage",
-    (pause = Cypress.env().screen.home.pause) => {
+    (flags = Cypress.env().screen.home) => {
       cy.GoMainPage()
       cy.WaitLoader()
-      cy.Pause(pause)
+      cy.pauseAndScreenshot(flags)
       cy.get('.avv-btn-primary').click()
     })
 
 Cypress.Commands.add("FillCDTConfigurationPage",
-    (env, userType, pause = Cypress.env().screen.information.basic.pause) => {
+    (env, userType, flags = Cypress.env().screen.information.basic) => {
       var dataType = 'datosPasivo';
       if (userType == 'sin cuentas') {
         dataType = userType;
@@ -349,7 +349,7 @@ Cypress.Commands.add("FillCDTConfigurationPage",
         cy.get('#LastName').type(user.lastname)
         cy.get('.mat-checkbox-inner-container').click()
         cy.wait(2000)
-        cy.Pause(pause)
+        cy.pauseAndScreenshot(flags)
         cy.get('#SubmitFormUserIdentification').click()
       })
       cy.WaitLoader()

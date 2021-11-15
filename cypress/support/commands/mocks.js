@@ -26,7 +26,6 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
   cy.mockService(UPDATE_DATA_CRM_SERVICE, flow.crm)
 
-  cy.Summary(userConditions.summary)
   cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
 
@@ -115,24 +114,6 @@ Cypress.Commands.add("GetPdf", (option) => {
     })
   } else if (option == 'PASS') {
     cy.route('POST', '**/get-pdf', 'fixture:get-pdf-pass.json')
-  }
-})
-
-Cypress.Commands.add("Summary", (option) => {
-  if (option == 'true') {
-    cy.route('GET', '**/insurance-validation',
-        'fixture:insurance-validation-true.json')
-  } else if (option == 'false') {
-    cy.route('GET', '**/insurance-validation',
-        'fixture:insurance-validation-false.json')
-  } else if (option == 'fail') {
-    cy.route({
-      method: 'GET',
-      url: '**/read-summary-transaction-cdt',
-      status: 500,
-      response: 'fixture:read-summary-transaction-cdt-fail.json'
-    })
-    // cy.route('POST', '**/insurance-validation', 'fixture:insurance-validation-fail.json')
   }
 })
 
