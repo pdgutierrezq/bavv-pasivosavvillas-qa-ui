@@ -4,6 +4,10 @@ import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 import {UPDATE_DATA_CRM_SERVICE} from "../services/customer/crm/update";
+import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
+import {CREATE_SDS_USER_SERVICE} from "../services/customer/sds/create";
+import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/save";
+import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -25,8 +29,12 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
   // cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
   cy.mockService(UPDATE_DATA_CRM_SERVICE, flow.crm)
+  cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
+  // cy.mockService(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
+  // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
+  cy.mockService(READE_ACTIVE_CHANNELS_SERVICE,user.channels)
 
-  cy.ReadChannels(userConditions.channels)
+  // cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
 
   // cy.GetPdf(userConditions.getpdf)

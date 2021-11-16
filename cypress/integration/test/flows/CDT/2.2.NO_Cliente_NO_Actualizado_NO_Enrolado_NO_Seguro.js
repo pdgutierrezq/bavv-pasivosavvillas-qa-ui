@@ -1,3 +1,12 @@
+import {User} from "../../../../support/entities/user";
+import {CONDITION} from "../../../../support/entities/properties/customer/conditions";
+import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
+import {INSURANCE} from "../../../../support/entities/properties/customer/insurance";
+import {Flow} from "../../../../support/entities/flow";
+import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
+import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
+import {CRM} from "../../../../support/entities/properties/customer/crm/update";
+
 describe('Sprint 77', function () {
   beforeEach(function () {
     cy.server()
@@ -18,21 +27,24 @@ describe('Sprint 77', function () {
       client: false,
       updated: false
     };
+    let user = new User(CONDITION.NO_CLIENT.NO_UPDATED, ACCOUNTS.CAT.NO,
+        INSURANCE.NO)
+    let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
 
-    cy.MockWs(userConditions)
+    cy.MockWs(userConditions, user, flow)
     cy.FillHomePage(flowConditions.environment)
-    cy.pause(true)
+    // cy.pause(true)
     cy.FillCDTConfigurationPage(flowConditions.environment)
     cy.WaitLoader()
     cy.AcceptPep()
-    cy.pause(true)
+    // cy.pause(true)
     cy.ConfigCdt()
     cy.OtpAuthentication()
     cy.PersonalInformation(userConditions.scr)
     cy.SelectActivity('Empleado', userConditions.scr)
     cy.WaitLoader()
     cy.FillContactForm('Empleado', userConditions.scr)
-    cy.pause(true)
+    // cy.pause(true)
     if (flowConditions.accountType == 'DIGITAL') {
       cy.SelectForeignData(userConditions.scr)
        cy.get('#activeExpensesInput').type('2000000')
@@ -43,10 +55,10 @@ describe('Sprint 77', function () {
     }
     cy.AccountConfiguration(pause)
     cy.WaitLoader()
-    cy.pause(true)
+    // cy.pause(true)
     cy.FillSendAddress(userConditions.scr)
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
-    cy.pause(true)
+    // cy.pause(true)
   })
 
 })
