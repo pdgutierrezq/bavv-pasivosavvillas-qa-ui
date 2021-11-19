@@ -29,7 +29,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
   // cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
   cy.mockService(UPDATE_DATA_CRM_SERVICE, flow.crm)
-  cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
+  // cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
   // cy.mockService(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
   // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
   cy.mockService(READE_ACTIVE_CHANNELS_SERVICE,user.channels)

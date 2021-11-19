@@ -325,7 +325,7 @@ Cypress.Commands.add("ElectronicSignature",
 Cypress.Commands.add("PersonalInformation",
     (app, pause = Cypress.env().screen.personalInfo.pause) => {
       cy.get('#BirthCity').type('Bogota')
-      cy.get('.mat-input-element').last().type('Bogota')
+      cy.get('.mat-input-element').last().clear().type('Bogota')
       cy.get('.mat-radio-button:contains("Masculino")').click()
       switch (app) {
         case ENUM.APP.CDA:

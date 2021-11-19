@@ -19,5 +19,5 @@ let User = class User {
 }
 
 module.exports = {
-  User: User
+  User
 };

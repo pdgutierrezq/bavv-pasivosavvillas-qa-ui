@@ -1,3 +1,13 @@
+import {User} from "../../../../support/entities/user";
+import {CONDITION} from "../../../../support/entities/properties/customer/conditions";
+import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
+import {INSURANCE} from "../../../../support/entities/properties/customer/insurance";
+import {Flow} from "../../../../support/entities/flow";
+import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
+import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
+import {CRM} from "../../../../support/entities/properties/customer/crm/update";
+import {READE_ACTIVE_CHANNELS_SERVICE} from "../../../../support/services/customer/channels/read";
+
 describe('CDA', function () {
   beforeEach(function () {
     cy.server()
@@ -18,8 +28,10 @@ describe('CDA', function () {
       client: true,
       updated: true
     };
-
-    cy.MockWs(userConditions)
+    let user = new User(CONDITION.CLIENT.UPDATED, ACCOUNTS.CAT.NO,
+        INSURANCE.NO,READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.FALSE)
+    let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
+    cy.MockWs(userConditions, user, flow)
     cy.FillForm(flowConditions.environment, userConditions.scr)
     cy.WaitLoader()
     cy.AcceptPep()
