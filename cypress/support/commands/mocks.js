@@ -34,14 +34,12 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
   cy.mockService(READE_ACTIVE_CHANNELS_SERVICE,user.channels)
 
-  // cy.ReadChannels(userConditions.channels)
   cy.GetDocs(userConditions.docs)
 
   // cy.GetPdf(userConditions.getpdf)
   // cy.CreateSdsUser(userConditions.sds)
   // cy.PseCreateTransaction(userConditions.pseCreate)
   // cy.CreatePasiveProduct(userConditions.cpp)
-  // cy.GetBankList()
   // //cy.Sqs(userConditions.sqs)
   //cy.GenerateUrl(userConditions.generateUrl)
   //cy.LoadDocsPresigned(userConditions.loadPresigned)
