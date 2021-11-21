@@ -9,7 +9,7 @@ let Flow = class Flow {
       otpCreate = OTP.CREATE.OK,
       otpValidate = OTP.VALIDATE.OK,
       crm = CRM.OK,
-      pdf = GET_PDF_SERVICE.RESPONSE.KO
+      pdf = GET_PDF_SERVICE.RESPONSE.OK
   ) {
     this.recaptcha = recaptcha;
     this.otpCreate = otpCreate;
