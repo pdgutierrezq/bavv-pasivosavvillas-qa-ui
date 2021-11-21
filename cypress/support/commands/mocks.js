@@ -9,6 +9,7 @@ import {CREATE_SDS_USER_SERVICE} from "../services/customer/sds/create";
 import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/save";
 import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
 import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
+import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -35,6 +36,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
   cy.mockService(READE_ACTIVE_CHANNELS_SERVICE,user.channels)
   cy.mockService(GET_PDF_SERVICE,flow.pdf)
+  // cy.mockService(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
 
   cy.GetDocs(userConditions.docs)
 
@@ -45,33 +47,6 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   //cy.LoadDocsPresigned(userConditions.loadPresigned)
   //cy.SaveDocs()
 
-})
-
-Cypress.Commands.add("GetBankList", (option) => {
-  cy.route({
-    method: 'GET',
-    url: '**/pse-get-bank-list',
-    status: 200,
-    response: 'fixture:get-bank-list-ok.json'
-  })
-})
-
-Cypress.Commands.add("CreatePasiveProduct", (option) => {
-  if (option == 'FAIL') {
-    cy.route({
-      method: 'POST',
-      url: '**/create-passive-product',
-      status: 500,
-      response: 'fixture:create-passive-product-fail.json'
-    })
-  } else if (option == 'PASS') {
-    cy.route({
-      method: 'POST',
-      url: '**/create-passive-product',
-      status: 201,
-      response: 'fixture:create-passive-product.json'
-    })
-  }
 })
 
 Cypress.Commands.add("PseCreateTransaction", (option) => {
