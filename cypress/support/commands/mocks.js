@@ -38,8 +38,6 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
 
   cy.GetDocs(userConditions.docs)
 
-  // cy.GetPdf(userConditions.getpdf)
-  // cy.CreateSdsUser(userConditions.sds)
   // cy.PseCreateTransaction(userConditions.pseCreate)
   // cy.CreatePasiveProduct(userConditions.cpp)
   // //cy.Sqs(userConditions.sqs)

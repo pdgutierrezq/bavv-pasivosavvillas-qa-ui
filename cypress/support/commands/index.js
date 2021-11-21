@@ -14,12 +14,14 @@ Cypress.Commands.add("mockService", (service, response) => {
   //         req.reply({statusCode: status, fixture: response})
   //       }
   //     }).as(service.URL)
-  cy.route({
-    method: service.METHOD,
-    url: service.URL,
-    response: 'fixture:' + response.BODY,
-    status: response.STATUS,
-  }).as(getAlias(service))
+  if (response !== false) {
+    cy.route({
+      method: service.METHOD,
+      url: service.URL,
+      response: 'fixture:' + response.BODY,
+      status: response.STATUS,
+    }).as(getAlias(service))
+  }
 })
 
 function getAlias(service) {
