@@ -8,6 +8,7 @@ import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {CREATE_SDS_USER_SERVICE} from "../services/customer/sds/create";
 import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/save";
 import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
+import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -33,6 +34,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
   // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
   cy.mockService(READE_ACTIVE_CHANNELS_SERVICE,user.channels)
+  cy.mockService(GET_PDF_SERVICE,flow.pdf)
 
   cy.GetDocs(userConditions.docs)
 
@@ -110,19 +112,6 @@ Cypress.Commands.add("CreateSdsUser", (option) => {
   }
 })
 
-Cypress.Commands.add("GetPdf", (option) => {
-  if (option == 'FAIL') {
-    cy.route({
-      method: 'POST',
-      url: '**/get-pdf',
-      status: 500,
-      response: 'fixture:get-pdf-fail.json'
-    })
-  } else if (option == 'PASS') {
-    cy.route('POST', '**/get-pdf', 'fixture:get-pdf-pass.json')
-  }
-})
-
 Cypress.Commands.add("UserIdentityValidate", (option) => {
   if (option == 'PASS') {
     cy.route('POST', '**/user-identity', 'fixture:user-identity-validate.json')
@@ -187,22 +176,6 @@ Cypress.Commands.add("UploadCc", () => {
 
 })
 
-Cypress.Commands.add("ReadChannels", (channels) => {
-  if (channels == 'TRUE') {
-    cy.route('GET', '**/read-active-channels',
-        'fixture:read-active-channels-true.json')
-  } else if (channels == 'FALSE') {
-    cy.route('GET', '**/read-active-channels',
-        'fixture:read-active-channels-false.json')
-  } else if (channels == 500) {
-    cy.route({
-      method: 'GET',
-      url: '**/read-active-channels',
-      status: 500,
-      response: 'fixture:user-identity-validate-fail.json'
-    })
-  }
-})
 
 Cypress.Commands.add("LoadDocsPresigned", (success) => {
   if (success == 'success') {
