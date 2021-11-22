@@ -48,7 +48,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("formOperation", (operation, selectors, data) => {
   const types = ["input", "select", "textarea", "inputRaw", "selectRaw", "div",
-    "checkbox",'nextPage'];
+    "checkbox",'nextPage','radio'];
   if (data != undefined) {
     if (`${selectors.tab}` != "undefined") {
       cy.get(`${selectors.tab}`).click();
@@ -90,6 +90,7 @@ Cypress.Commands.add("fillForm",
         case 'select':
           cy.get(automationId).select(setValue);
           break;
+        case 'radio':
         case 'checkbox':
           if (setValue === 'true') {
             cy.get(automationId).click();

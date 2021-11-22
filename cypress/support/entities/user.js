@@ -3,7 +3,7 @@ const {CONDITION} = require("./properties/customer/conditions");
 const {INSURANCE} = require("./properties/customer/insurance");
 const {READE_ACTIVE_CHANNELS_SERVICE} = require(
     "../services/customer/channels/read");
-const {Fixtures} = require("./fixtures");
+const {Fixtures} = require("../data/fixtures");
 
 
 const BASIC_INFORMATION_FIXTURE = 'flow/pages/information_basic'

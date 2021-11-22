@@ -6,7 +6,7 @@ import {INSURANCE} from "../../../../support/entities/properties/customer/insura
 import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
 import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
 import {CRM} from "../../../../support/entities/properties/customer/crm/update";
-import {Fixtures} from "../../../../support/entities/fixtures";
+import {Fixtures} from "../../../../support/data/fixtures";
 
 describe('CDA', function () {
   let data
@@ -42,9 +42,7 @@ describe('CDA', function () {
     cy.log("Singleton-Fixture:" + Fixtures.getInstance().homePage.continue)
     cy.fillHomePage(data.homePage)
     cy.fillBasicInformationPage(data.basicInformationPage)
-    cy.AcceptPep()
-    //cy.ScreenShot(userConditions.scr)
-    cy.waitLoader()
+    cy.fillPEPPage(data.pepPage)
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
     cy.OtpAuthentication(userConditions.scr, flow)
     cy.waitLoader()

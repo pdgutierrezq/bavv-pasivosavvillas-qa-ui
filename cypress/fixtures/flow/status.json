@@ -15,88 +15,15 @@
         "pause": false,
         "screenshot": false
       }
+    },
+    {
+      "key": "#SubmitFormPEP",
+      "name": "pep",
+      "status": {
+        "pause": false,
+        "screenshot": false
+      }
     }
-  ],
-  "screens": {
-    "home": {
-      "pause": false,
-      "screenshot": false
-    },
-    "information": {
-      "basic": {
-        "pause": false,
-        "screenshot": false
-      }
-    },
-    "pep": {
-      "pause": true,
-      "screenshot": false
-    },
-    "account": {
-      "pause": false,
-      "screenshot": false
-    },
-    "config": {
-      "cdt": {
-        "pause": false,
-        "screenshot": false
-      }
-    },
-    "insurance": {
-      "pause": false,
-      "screenshot": false
-    },
-    "otp": {
-      "pause": false,
-      "screenshot": false
-    },
-    "cdt": {
-      "account": {
-        "pause": true,
-        "screenshot": false
-      }
-    },
-    "personalInfo": {
-      "pause": false,
-      "screenshot": false
-    },
-    "activity": {
-      "pause": false,
-      "screenshot": false
-    },
-    "contactInfo": {
-      "pause": false,
-      "screenshot": false
-    },
-    "foreignInfo": {
-      "pause": false
-    },
-    "financialInfo": {
-      "pause": true,
-      "screenshot": false
-    },
-    "card": {
-      "pause": false,
-      "screenshot": false
-    },
-    "declaring": {
-      "pause": false,
-      "screenshot": false
-    },
-    "documents": {
-      "signature": {
-        "pause": false,
-        "screenshot": false
-      }
-    },
-    "enroll": {
-      "pause": true,
-      "screenshot": false
-    },
-    "tips": {
-      "pause": true,
-      "screenshot": false
-    }
-  }
+  ]
 }
 

@@ -1,4 +1,3 @@
-import 'cypress-file-upload';
 import {homeSelectors} from "../../../../selectors/pages/home";
 
 Cypress.Commands.add("fillHomePage",
