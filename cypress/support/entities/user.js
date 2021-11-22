@@ -3,8 +3,8 @@ const {CONDITION} = require("./properties/customer/conditions");
 const {INSURANCE} = require("./properties/customer/insurance");
 const {READE_ACTIVE_CHANNELS_SERVICE} = require(
     "../services/customer/channels/read");
-const {Data} = require("./data");
-const Fixtures = require("./data");
+const {Fixtures} = require("./fixtures");
+
 
 const BASIC_INFORMATION_FIXTURE = 'flow/pages/information_basic'
 const HOME_FIXTURE = 'flow/pages/home'
@@ -16,20 +16,14 @@ let User = class User {
       insurance = INSURANCE.YES,
       channels = READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
   ) {
-    this.condition = condition;
-    this.accounts = accounts;
-    this.insurance = insurance;
-    this.channels = channels;
-    this.loadData()
+    this.condition = condition
+    this.accounts = accounts
+    this.insurance = insurance
+    this.channels = channels
+    this.fixtures = new Fixtures()
   }
-
-  loadData(){
-    cy.fixture(BASIC_INFORMATION_FIXTURE).then((data) => {
-      this.basicInformationPage = data
-    })
-    cy.fixture(HOME_FIXTURE).then((data) => {
-      this.homePage = data
-    })
+  static fixtures(){
+    return this.fixtures()
   }
 }
 

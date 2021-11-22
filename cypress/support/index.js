@@ -23,7 +23,6 @@ import './commands/actions/common/forms.js'
 import './commands/actions/pages/informationBasic.js'
 import './commands/actions/pages/home'
 import './commands/actions/common/flow.js'
-import './entities/data.js'
 import addContext from "mochawesome/addContext";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
