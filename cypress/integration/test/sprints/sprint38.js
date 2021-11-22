@@ -184,7 +184,7 @@ describe('Sprint 38', function () {
          cy.MockWs(userConditions)
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
-        cy.FillForm()
+        cy.FillBasicInformationPage()
         cy.WaitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -208,7 +208,7 @@ describe('Sprint 38', function () {
          cy.MockWs(userConditions)
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
-        cy.FillForm()
+        cy.FillBasicInformationPage()
         cy.WaitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -233,7 +233,7 @@ describe('Sprint 38', function () {
          
         //Dado que el usuario esta la pantalla de autenticación
 
-        cy.FillForm()
+        cy.FillBasicInformationPage()
         cy.WaitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -259,7 +259,7 @@ describe('Sprint 38', function () {
          cy.MockWs(userConditions)
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
-        cy.FillForm()
+        cy.FillBasicInformationPage()
         cy.WaitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)

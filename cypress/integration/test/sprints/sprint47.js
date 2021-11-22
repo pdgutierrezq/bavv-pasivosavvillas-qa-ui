@@ -69,7 +69,7 @@ describe('Sprint 47', function () {
         var flowConditions = { accountType: 'PRO', insurance: 'false', gmf: false, declaring: false, environment: 'stg' };
         cy.MockWs(userConditions)
 
-        cy.FillForm('dev')
+        cy.FillBasicInformationPage('dev')
         cy.WaitLoader()
         cy.wait(time)
 

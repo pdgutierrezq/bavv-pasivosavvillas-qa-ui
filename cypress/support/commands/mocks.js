@@ -41,7 +41,6 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.GetDocs(userConditions.docs)
 
   // cy.PseCreateTransaction(userConditions.pseCreate)
-  // cy.CreatePasiveProduct(userConditions.cpp)
   // //cy.Sqs(userConditions.sqs)
   //cy.GenerateUrl(userConditions.generateUrl)
   //cy.LoadDocsPresigned(userConditions.loadPresigned)

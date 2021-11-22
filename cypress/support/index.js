@@ -19,6 +19,9 @@ import './enums'
 import './commands'
 import './commands/index'
 import './commands/mocks'
+import './commands/actions/common/forms.js'
+import './commands/actions/pages/informationBasic.js'
+import './commands/actions/common/flow.js'
 import addContext from "mochawesome/addContext";
 
 Cypress.on('uncaught:exception', (err, runnable) => {

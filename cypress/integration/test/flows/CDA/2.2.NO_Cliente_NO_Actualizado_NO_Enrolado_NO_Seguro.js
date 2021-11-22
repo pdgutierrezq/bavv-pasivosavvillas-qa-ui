@@ -36,7 +36,7 @@ describe('CDA', function () {
         INSURANCE.NO,READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.FALSE)
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
     cy.MockWs(userConditions, user, flow)
-    cy.FillForm(flowConditions.environment, userConditions.scr)
+    cy.FillBasicInformationPage(flowConditions.environment, userConditions.scr)
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)

@@ -4,6 +4,8 @@ const {INSURANCE} = require("./properties/customer/insurance");
 const {READE_ACTIVE_CHANNELS_SERVICE} = require(
     "../services/customer/channels/read");
 
+const USER_DATA = 'flow/pages/information_basic'
+
 let User = class User {
   constructor(
       condition = CONDITION.CLIENT.UPDATED,
@@ -15,6 +17,9 @@ let User = class User {
     this.accounts = accounts;
     this.insurance = insurance;
     this.channels = channels;
+    cy.fixture(USER_DATA).then((data) => {
+      this.data = data
+    })
   }
 }
 

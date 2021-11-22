@@ -11,7 +11,7 @@ describe('Sprint 74', function () {
         var userConditions = { restrictList: true, captcha: 'ok', client: true, updated: true, return: false };
 
         cy.MockWs(userConditions)
-        cy.FillForm(flowConditions.environment,userConditions.scr,pause)
+        cy.FillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.WaitLoader()
       
     

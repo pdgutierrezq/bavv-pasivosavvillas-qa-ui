@@ -1,6 +1,8 @@
 import 'cypress-file-upload';
 import ContactDataForm from '../integration/pageObjects/ContactDataForm'
 import ENUM from './enums'
+import {registerSelectors} from "../../a.cypress.ll/selectors/pos/maintenance/register";
+import {basicInformationSelectors} from "../selectors/cda/information/basic/page";
 
 Cypress.Commands.add("Pause", (option) => {
 
@@ -10,7 +12,7 @@ Cypress.Commands.add("Pause", (option) => {
 })
 
 Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
-  cy.FillForm(flowConditions.environment)
+  cy.FillBasicInformationPage(flowConditions.environment)
   cy.WaitLoader()
   cy.AcceptPep()
 
@@ -63,39 +65,12 @@ Cypress.Commands.add("enroll", (pause = Cypress.env().screen.enroll.pause) => {
   cy.get('button').eq(1).click()
 })
 
-Cypress.Commands.add("pauseAndScreenshot",
-    (page = Cypress.env().screen.home) => {
-      cy.Pause(page.pause)
-      if (page.screenshot) {
-        cy.screenshot()
-      }
-    })
-
 Cypress.Commands.add("homePage",
     (flags = Cypress.env().screen.home) => {
       var homePage = Cypress.env().list[0].cda.baseUrl
       cy.visit(homePage)
       cy.pauseAndScreenshot(flags)
-    })
-
-Cypress.Commands.add("FillForm",
-    (flags = Cypress.env().screen.information.basic) => {
-      cy.homePage()
-      cy.fixture('datosPasivo').then((user) => {
-        cy.get('.btn').click()
-        cy.get('#DNINumber').type(user.numdoc)
-        cy.get('#MobileNumber').type(user.phone)
-        cy.get('#MobileConfirmNumber').type(user.phone)
-        cy.get('#FirstName').type(user.firstname)
-        cy.get('#SecondName').type(user.secondname)
-        cy.get('#LastName').type(user.lastname)
-        cy.get('#SecondLastName').type(user.secondlastname)
-        cy.get('#MonthlyIncomeInput').type(user.salary)
-        cy.get('.mat-checkbox-inner-container').click()
-        cy.wait(2000)
-        cy.pauseAndScreenshot(flags)
-        cy.get('#SubmitFormUserIdentification').click()
-      })
+      cy.get('.btn').click()
     })
 
 Cypress.Commands.add("ScreenShot", (option) => {

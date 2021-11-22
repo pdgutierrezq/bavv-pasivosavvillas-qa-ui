@@ -25,7 +25,7 @@ describe('Sprint 61', function () {
         var flowConditions = { scr:true,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         
         cy.MockWs(userConditions)
-        cy.FillForm(flowConditions.environment,userConditions.scr,pause)
+        cy.FillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.WaitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)

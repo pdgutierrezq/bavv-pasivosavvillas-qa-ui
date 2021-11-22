@@ -11,7 +11,7 @@ describe('Sprint 37', function () {
         var userConditions = { captcha: 'lowscore' }
         cy.MockWs(userConditions)
 
-        cy.FillForm(userConditions.environment)
+        cy.FillBasicInformationPage(userConditions.environment)
         cy.ValidateEmptyFieldsCDA()
     })
 
@@ -21,7 +21,7 @@ describe('Sprint 37', function () {
         cy.MockWs(userConditions)
         cy.wait(2000)
 
-        cy.FillForm()
+        cy.FillBasicInformationPage()
 
         cy.fixture('datosPasivo').then((user) => {
             cy.get('#FirstName').should('have.value', user.firstname)

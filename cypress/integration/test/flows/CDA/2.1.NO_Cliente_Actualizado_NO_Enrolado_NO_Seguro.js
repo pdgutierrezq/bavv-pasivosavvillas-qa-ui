@@ -34,7 +34,7 @@ describe('CDA', function () {
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK, CRM.OK)
 
     cy.MockWs(userConditions, user, flow)
-    cy.FillForm()
+    cy.FillBasicInformationPage()
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)

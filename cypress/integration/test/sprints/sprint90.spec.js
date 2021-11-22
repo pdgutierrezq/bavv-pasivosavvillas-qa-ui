@@ -20,7 +20,7 @@ describe('Sprint 77', function () {
     };
 
     cy.MockWs(userConditions)
-    cy.FillForm(flowConditions.environment, userConditions.scr, pause)
+    cy.FillBasicInformationPage(flowConditions.environment, userConditions.scr, pause)
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
@@ -67,7 +67,7 @@ describe('Sprint 77', function () {
     };
 
     cy.MockWs(userConditions)
-    cy.FillForm(flowConditions.environment, userConditions.scr, pause)
+    cy.FillBasicInformationPage(flowConditions.environment, userConditions.scr, pause)
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)

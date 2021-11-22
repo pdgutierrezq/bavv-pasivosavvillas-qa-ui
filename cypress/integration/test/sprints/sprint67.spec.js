@@ -56,7 +56,7 @@ describe('Sprint 67', function () {
         var userConditions = { captcha:'ok',client: true, updated: false };
 
         cy.MockWs(userConditions)
-        cy.FillForm(flowConditions.environment,userConditions.scr,pause)
+        cy.FillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.WaitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)

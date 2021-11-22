@@ -90,7 +90,7 @@ describe('Sprint 51', function () {
         var time = 0;
         cy.MockWs(userConditions)
 
-        cy.FillForm('dev')
+        cy.FillBasicInformationPage('dev')
         cy.WaitLoader()
         cy.wait(time)
 
@@ -117,7 +117,7 @@ describe('Sprint 51', function () {
         var time = 0;
         cy.MockWs(userConditions)
 
-        cy.FillForm('dev')
+        cy.FillBasicInformationPage('dev')
         cy.WaitLoader()
         cy.wait(time)
 

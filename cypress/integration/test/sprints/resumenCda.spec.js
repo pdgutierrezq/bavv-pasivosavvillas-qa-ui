@@ -9,7 +9,7 @@ describe('Cargue de documentos CDA', function () {
         var userConditions = { captcha:'ok',client: true, updated: true };
 
         cy.MockWs(userConditions)
-        cy.FillForm(flowConditions.environment,userConditions.scr,pause)
+        cy.FillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.WaitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)

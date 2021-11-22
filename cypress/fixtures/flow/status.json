@@ -1,5 +1,23 @@
 {
-  "screen": {
+  "screen": [
+    {
+      "key": "#SubmitFormUserIdentification",
+      "name": "home",
+      "status": {
+        "pause": false,
+        "screenshot": false
+      }
+    },
+    {
+      "key": "#SubmitFormUserIdentificationX",
+      "name": "home",
+      "status": {
+        "pause": false,
+        "screenshot": false
+      }
+    }
+  ],
+  "screens": {
     "home": {
       "pause": false,
       "screenshot": false
