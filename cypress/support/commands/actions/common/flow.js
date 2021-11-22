@@ -1,4 +1,4 @@
-const PAGE_STATUS = 'flow/status'
+import {PAGES} from "../../../data/pages";
 
 Cypress.Commands.add("pauseAndScreenshot",
     (page) => {
@@ -10,13 +10,14 @@ Cypress.Commands.add("pauseAndScreenshot",
 
 Cypress.Commands.add("nextPage",
     (automationId) => {
-      cy.fixture(PAGE_STATUS).then((data) => {
-        let page = data.screen.find(function (item) {
-          return item.key === automationId
-        })
-        cy.pauseAndScreenshot(page.status)
-        cy.get(automationId).click()
-      })
+      for (let page in PAGES) {
+        let selector = PAGES[page].selector
+        if (selector === automationId) {
+          console.log("page:" + PAGES[page].status)
+          cy.pauseAndScreenshot(PAGES[page].status)
+          cy.get(automationId).click()
+        }
+      }
     })
 
 Cypress.Commands.add("waitLoader", () => {
