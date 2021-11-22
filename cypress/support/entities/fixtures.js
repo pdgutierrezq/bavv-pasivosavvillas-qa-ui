@@ -14,6 +14,13 @@ let Fixtures = class Fixtures {
       this.homePage = data
     })
   }
+
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new Fixtures();
+    }
+    return this.instance;
+  }
 }
 
 module.exports = {

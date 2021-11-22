@@ -6,18 +6,21 @@ import {INSURANCE} from "../../../../support/entities/properties/customer/insura
 import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
 import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
 import {CRM} from "../../../../support/entities/properties/customer/crm/update";
-import {Fixtures} from "../../../../support/entities/data";
+import {Fixtures} from "../../../../support/entities/fixtures";
 
 describe('CDA', function () {
+  let data
+  before(() => {
+    data = Fixtures.getInstance()
+  });
+
   beforeEach(function () {
     cy.server()
   })
   it('Cliente Actualizado,Enrolado,CON Seguro', function () {
     let user = new User(CONDITION.CLIENT.UPDATED, ACCOUNTS.CAT.NO,
         INSURANCE.YES)
-    let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
-    let fixtures = new Fixtures()
-    cy.log("HomePage:" +new Fixtures().homePage)
+    let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK, CRM.OK)
     var flowConditions = {
       scr: false,
       accountType: 'DIGITAL',
@@ -36,18 +39,19 @@ describe('CDA', function () {
     };
 
     cy.MockWs(userConditions, user, flow)
-    cy.fillBasicInformationPage(user)
-    cy.WaitLoader()
+    cy.log("Singleton-Fixture:" + Fixtures.getInstance().homePage.continue)
+    cy.fillHomePage(data.homePage)
+    cy.fillBasicInformationPage(data.basicInformationPage)
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
-    cy.OtpAuthentication(userConditions.scr,flow)
-    cy.WaitLoader()
+    cy.OtpAuthentication(userConditions.scr, flow)
+    cy.waitLoader()
     cy.FillSendAddress()
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.SavingTips()
   })
 })

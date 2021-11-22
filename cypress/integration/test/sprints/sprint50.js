@@ -16,7 +16,7 @@ describe('Sprint 48', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -25,7 +25,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.OtpAuthentication()
@@ -59,7 +59,7 @@ describe('Sprint 48', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -68,7 +68,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
         cy.get('#mat-radio-6 > .mat-radio-label').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.OtpAuthentication()
@@ -96,7 +96,7 @@ describe('Sprint 48', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -105,7 +105,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.OtpAuthentication()
@@ -131,7 +131,7 @@ describe('Sprint 48', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)

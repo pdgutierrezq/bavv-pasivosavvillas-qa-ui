@@ -35,17 +35,17 @@ describe('CDA', function () {
 
     cy.MockWs(userConditions, user, flow)
     cy.fillBasicInformationPage()
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
     cy.AcceptInsurance(flowConditions.insurance)
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.OtpAuthentication(userConditions.scr)
     cy.PersonalInformation(app)
     cy.SelectActivity(flowConditions.activity, userConditions.scr)
-    cy.WaitLoader()
+    cy.waitLoader()
 
     cy.FillContactForm(flowConditions.activity, userConditions.scr)
     if (flowConditions.accountType == 'DIGITAL') {
@@ -59,7 +59,7 @@ describe('CDA', function () {
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
     cy.enroll()
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.SavingTips()
   })
 

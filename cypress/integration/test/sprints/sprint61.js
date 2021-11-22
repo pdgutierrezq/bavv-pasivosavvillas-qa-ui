@@ -26,18 +26,18 @@ describe('Sprint 61', function () {
         
         cy.MockWs(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,userConditions.scr)
         cy.Pause(userConditions.pause)
 
         cy.AcceptInsurance(flowConditions.insurance,userConditions.scr)
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.OtpAuthentication(userConditions.scr)
 
         // cy.SelectActivity('Empleado',userConditions.scr)
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.FillContactForm('Empleado',userConditions.scr)
         // if (flowConditions.accountType == 'DIGITAL') {
         //     cy.SelectForeignData(userConditions.scr)
@@ -55,7 +55,7 @@ describe('Sprint 61', function () {
         //     cy.ScreenShot(userConditions.scr)
         //     cy.get('#ChannelEnrollmentButton').click()
         // }
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.ScreenShot(userConditions.scr)
 
 
@@ -68,7 +68,7 @@ describe('Sprint 61', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT(pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -77,14 +77,14 @@ describe('Sprint 61', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
 
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.FillContactForm('Empleado')
         cy.Pause(pause)

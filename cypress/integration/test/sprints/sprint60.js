@@ -14,7 +14,7 @@ describe('Sprint 59', function () {
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false,environment:'stg'};
         cy.MockWs(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
     
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -23,11 +23,11 @@ describe('Sprint 59', function () {
         cy.AcceptInsurance(flowConditions.insurance)
         
     
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.OtpAuthentication()
     
             cy.SelectActivity('Empleado')
-            cy.WaitLoader()
+            cy.waitLoader()
             cy.FillContactForm('Empleado')
             if (flowConditions.accountType == 'DIGITAL') {
                 cy.SelectForeignData()
@@ -44,7 +44,7 @@ describe('Sprint 59', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT('dev',pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.Pause(pause)
         // cy.AcceptPep()
         // cy.get('#Amount').type('90000').tab()
@@ -53,14 +53,14 @@ describe('Sprint 59', function () {
 
         // cy.get('#mat-radio-5').click()
         // cy.get('.avv-btn-primary').click()
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.Pause(pause)
    
         // cy.OtpAuthentication()
         // cy.Pause(pause)
 
         // cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.Pause(pause)
         // cy.FillContactForm('Empleado')
         // cy.Pause(pause)

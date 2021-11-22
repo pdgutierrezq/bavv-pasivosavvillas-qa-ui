@@ -14,7 +14,7 @@ describe('Sprint 48', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -23,7 +23,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         // cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -34,7 +34,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
 
         // cy.SelectActivity('Empleado')
-        // // cy.WaitLoader()
+        // // cy.waitLoader()
         // cy.wait(time)
 
         // cy.FillContactForm('Empleado')
@@ -75,7 +75,7 @@ describe('Sprint 48', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -84,7 +84,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         // cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -95,7 +95,7 @@ describe('Sprint 48', function () {
         cy.wait(time)
 
         cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         cy.wait(time)
 
         cy.FillContactForm('Empleado')
@@ -131,11 +131,11 @@ describe('Sprint 48', function () {
         cy.MockWs(userConditions)
 
         cy.fillBasicInformationPage('dev')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.AcceptPep()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -145,7 +145,7 @@ describe('Sprint 48', function () {
         cy.AcceptInsurance('Si')
         }
 
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
          cy.OtpAuthentication()
@@ -154,7 +154,7 @@ describe('Sprint 48', function () {
             cy.wait(time)
 
             cy.SelectActivity('Empleado')
-            cy.WaitLoader()
+            cy.waitLoader()
             cy.wait(time)
 
             cy.FillContactForm('Empleado')

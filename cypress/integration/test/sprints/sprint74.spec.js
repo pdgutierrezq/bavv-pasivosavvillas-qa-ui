@@ -12,7 +12,7 @@ describe('Sprint 74', function () {
 
         cy.MockWs(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
-        cy.WaitLoader()
+        cy.waitLoader()
       
     
     })

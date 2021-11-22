@@ -9,7 +9,7 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -27,7 +27,7 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -45,11 +45,11 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('#OtpButton').should('be.disabled')
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
     //     cy.get('#OtpButton').should('be.enabled')
 
@@ -59,7 +59,7 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -81,7 +81,7 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     // cuando el cliente seleccione la opción de “solicitar nuevo código” por tercera vez
@@ -99,7 +99,7 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     // Dado que el usuario esta la pantalla de autenticación 
@@ -122,7 +122,7 @@ describe('Sprint 39', function () {
     //     var userConditions = { client: true, updated: true }
     //     cy.MockWs(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     // Dado que el usuario esta la pantalla de autenticación 

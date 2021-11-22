@@ -13,11 +13,11 @@ describe('Sprint 52', function () {
         cy.MockWs(userConditions)
 
         cy.fillBasicInformationPage('stg')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.AcceptPep()
-        //cy.WaitLoader()
+        //cy.waitLoader()
 
         cy.SelectAccount('Digital',true)
        
@@ -31,7 +31,7 @@ describe('Sprint 52', function () {
         cy.MockWs(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -39,7 +39,7 @@ describe('Sprint 52', function () {
         cy.get('#Term').type('365')
         cy.get('.mat-radio-label').contains('Si').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.OtpAuthentication()
@@ -62,7 +62,7 @@ describe('Sprint 52', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -72,7 +72,7 @@ describe('Sprint 52', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
           cy.OtpAuthentication()
@@ -102,7 +102,7 @@ describe('Sprint 52', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT(time)
-        cy.WaitLoader()
+        cy.waitLoader()
 cy.Pause(pause)
         // cy.wait(time)
         cy.AcceptPep()
@@ -119,7 +119,7 @@ cy.Pause(pause)
          cy.pause()
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.wait(time)
         cy.pause()
 

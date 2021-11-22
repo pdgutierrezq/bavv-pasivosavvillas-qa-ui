@@ -10,19 +10,19 @@ describe('Sprint 77', function () {
 
         cy.MockWs(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
          cy.SelectActivity('Empleado')
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.FillContactForm('Empleado')
          cy.SelectForeignData()
          cy.SelectFinancialInformation(false)
@@ -35,7 +35,7 @@ describe('Sprint 77', function () {
         cy.get('#SubmitAccountSettingsForm').click()
         //cy.FillSendAddress()
                  cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#CdtFeaturesButton').click()
 
 
@@ -43,7 +43,7 @@ describe('Sprint 77', function () {
         cy.pause()
 
          cy.ElectronicSignature()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         //cy.SavingTips()
         // cy.get('[formcontrolname="bank"]').click()

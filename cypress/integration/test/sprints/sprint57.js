@@ -25,7 +25,7 @@ describe('Sprint 57', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT(pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('10000')
@@ -34,14 +34,14 @@ describe('Sprint 57', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
 
         // cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.Pause(pause)
         // cy.FillContactForm('Empleado')
         // cy.Pause(pause)
@@ -95,7 +95,7 @@ describe('Sprint 57', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT(pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         // cy.wait(time)
         cy.AcceptPep()
@@ -111,7 +111,7 @@ describe('Sprint 57', function () {
         cy.Pause(pause)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.wait(time)
         cy.Pause(pause)
         cy.OtpAuthentication()
@@ -136,7 +136,7 @@ describe('Sprint 57', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT(pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         // cy.wait(time)
         cy.AcceptPep()
@@ -152,7 +152,7 @@ describe('Sprint 57', function () {
         cy.Pause(pause)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.wait(time)
         cy.Pause(pause)
         cy.OtpAuthentication()

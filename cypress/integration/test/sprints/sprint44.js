@@ -33,7 +33,7 @@ describe('Sprint 44', function () {
         //     cy.wait(2000)
         //     cy.get('#SubmitFormUserIdentification').click()
         // })
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.AcceptPep()
     
         // cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -41,7 +41,7 @@ describe('Sprint 44', function () {
         // if (userConditions.insurance == 'false') {
         //     cy.AcceptInsurance(flowConditions.insurance)
         // }
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.OtpAuthentication()
         // cy.FillSendAddress()
 
@@ -74,7 +74,7 @@ describe('Sprint 44', function () {
         //     cy.wait(2000)
         //     cy.get('#SubmitFormUserIdentification').click()
         // })
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.AcceptPep()
     
         // cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -82,7 +82,7 @@ describe('Sprint 44', function () {
         // if (userConditions.insurance == 'false') {
         //     cy.AcceptInsurance(flowConditions.insurance)
         // }
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.OtpAuthentication()
         // cy.FillSendAddress()
 

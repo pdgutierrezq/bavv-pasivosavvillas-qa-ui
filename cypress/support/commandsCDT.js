@@ -4,11 +4,11 @@ Cypress.Commands.add("PseFlow", (flowConditions, pause) => {
   cy.ConfigCdt(pause)
   cy.OtpAuthentication()
   cy.FundingCdt(flowConditions.funding, flowConditions.rend, pause)
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.DeclaringOption(flowConditions.declaring)
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.ElectronicSignature()
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.fillPseForm(pause)
   cy.pause(true)
   cy.PseAction(flowConditions.status, true)
@@ -60,7 +60,7 @@ Cypress.Commands.add("ConfigCdt",
       cy.get('#mat-radio-8 > .mat-radio-label').click()
       cy.Pause(pause)
       cy.get('#SubmitCDTForm').click()
-      cy.WaitLoader()
+      cy.waitLoader()
     })
 
 Cypress.Commands.add("ValidateCalc", (amount, term) => {
@@ -330,7 +330,7 @@ Cypress.Commands.add("FillInfoOnLanding", () => {
 Cypress.Commands.add("FillHomePage",
     (flags = Cypress.env().screen.home) => {
       cy.GoMainPage()
-      cy.WaitLoader()
+      cy.waitLoader()
       cy.pauseAndScreenshot(flags)
       cy.get('.avv-btn-primary').click()
     })
@@ -352,14 +352,14 @@ Cypress.Commands.add("FillCDTConfigurationPage",
         cy.pauseAndScreenshot(flags)
         cy.get('#SubmitFormUserIdentification').click()
       })
-      cy.WaitLoader()
+      cy.waitLoader()
 
     })
 
 Cypress.Commands.add("FillFormCDT", (env, pause, userType) => {
   cy.GoMainPage()
   cy.Pause(pause)
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.get('.avv-btn-primary').click()
 
   var dataType = 'datosPasivo';
@@ -379,7 +379,7 @@ Cypress.Commands.add("FillFormCDT", (env, pause, userType) => {
     cy.wait(2000)
     cy.get('#SubmitFormUserIdentification').click()
   })
-  cy.WaitLoader()
+  cy.waitLoader()
 
 })
 

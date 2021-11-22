@@ -10,18 +10,18 @@ describe('Sprint 79', function () {
 
         cy.MockWs(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.AcceptPep()
          cy.get('#Term').type('365')
          cy.get('#mat-radio-8 > .mat-radio-label').click()
          cy.get('#SubmitCDTForm').click()
-         cy.WaitLoader()
+         cy.waitLoader()
  
          cy.OtpAuthentication()
          cy.Pause(pause)
 
          cy.SelectActivity('Empleado')
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.Pause(pause)
          cy.FillContactForm('Empleado')
          cy.Pause(pause)
@@ -66,18 +66,18 @@ describe('Sprint 79', function () {
 
         cy.MockWs(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.AcceptPep()
          cy.get('#Term').type('365')
          cy.get('#mat-radio-8 > .mat-radio-label').click()
          cy.get('#SubmitCDTForm').click()
-         cy.WaitLoader()
+         cy.waitLoader()
  
          cy.OtpAuthentication()
          cy.Pause(pause)
 
          cy.SelectActivity('Empleado')
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.Pause(pause)
          cy.FillContactForm('Empleado')
          cy.Pause(pause)

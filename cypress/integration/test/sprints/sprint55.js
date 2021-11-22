@@ -25,7 +25,7 @@ describe('Sprint 53', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
@@ -34,7 +34,7 @@ describe('Sprint 53', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
           cy.OtpAuthentication()
@@ -75,7 +75,7 @@ describe('Sprint 53', function () {
 
         cy.MockWs(userConditions)
         cy.FillFormCDT(time)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         // cy.wait(time)
         cy.AcceptPep()
@@ -91,7 +91,7 @@ describe('Sprint 53', function () {
          cy.Pause(pause)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.wait(time)
         cy.Pause(pause)
 

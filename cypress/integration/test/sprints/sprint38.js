@@ -9,13 +9,13 @@ describe('Sprint 38', function () {
         var userConditions = { client: true, updated: true }
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.url().should('include', 'pep')
 
         var userConditions = { client: true, updated: false }
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.url().should('include', 'pep')
     })
 
@@ -24,7 +24,7 @@ describe('Sprint 38', function () {
         var userConditions = { client: false, updated: true }
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.url().should('contain', 'error-usuario')
     })
@@ -34,7 +34,7 @@ describe('Sprint 38', function () {
         var userConditions = { client: false, updated: false }
         cy.MockWs(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.url().should('contain', 'error-usuario')
     })
@@ -185,7 +185,7 @@ describe('Sprint 38', function () {
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
         cy.fillBasicInformationPage()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
         cy.AcceptInsurance(flowConditions.insurance)
@@ -209,7 +209,7 @@ describe('Sprint 38', function () {
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
         cy.fillBasicInformationPage()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
         cy.AcceptInsurance(flowConditions.insurance)
@@ -234,7 +234,7 @@ describe('Sprint 38', function () {
         //Dado que el usuario esta la pantalla de autenticación
 
         cy.fillBasicInformationPage()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
         cy.AcceptInsurance(flowConditions.insurance)
@@ -260,7 +260,7 @@ describe('Sprint 38', function () {
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
         cy.fillBasicInformationPage()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
         cy.AcceptInsurance(flowConditions.insurance)

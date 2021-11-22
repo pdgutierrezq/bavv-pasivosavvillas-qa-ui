@@ -21,11 +21,11 @@ describe('Sprint 77', function () {
     cy.FillHomePage(flowConditions.environment)
     cy.pause(true)
     cy.FillCDTConfigurationPage(flowConditions.environment)
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.AcceptPep()
     cy.pause(true)
     //cy.ScreenShot(userConditions.scr)
-    cy.WaitLoader()
+    cy.waitLoader()
 
     cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,
         userConditions.scr)
@@ -33,12 +33,12 @@ describe('Sprint 77', function () {
     cy.Pause(userConditions.pause)
 
     cy.AcceptInsurance(flowConditions.insurance, userConditions.scr)
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.pause(true)
     cy.OtpAuthentication(userConditions.scr)
 
     // cy.SelectActivity('Empleado', userConditions.scr)
-    cy.WaitLoader()
+    cy.waitLoader()
     // cy.FillContactForm('Empleado', userConditions.scr)
     // if (flowConditions.accountType == 'DIGITAL') {
     //   cy.SelectForeignData(userConditions.scr)
@@ -48,7 +48,7 @@ describe('Sprint 77', function () {
     cy.FillSendAddress(userConditions.scr)
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.pause(true)
   })
 

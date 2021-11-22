@@ -11,7 +11,7 @@ Cypress.Commands.add("Pause", (option) => {
 
 Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
   cy.fillBasicInformationPage(flowConditions.environment)
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.AcceptPep()
 
   cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -20,12 +20,12 @@ Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
     cy.AcceptInsurance(flowConditions.insurance)
   }
 
-  //cy.WaitLoader()
+  //cy.waitLoader()
   cy.OtpAuthentication()
 
   if (userConditions.client && !userConditions.updated) {
     cy.SelectActivity('Empleado')
-    cy.WaitLoader()
+    cy.waitLoader()
     cy.FillContactForm('Empleado')
     if (flowConditions.accountType == 'DIGITAL') {
       cy.SelectForeignData()
@@ -48,7 +48,7 @@ Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
 })
 
 Cypress.Commands.add("enroll", (pause = Cypress.env().screen.enroll.pause) => {
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.get('input').eq(0).type('1')
   cy.get('input').eq(1).type('3')
   cy.get('input').eq(2).type('2')
@@ -59,7 +59,7 @@ Cypress.Commands.add("enroll", (pause = Cypress.env().screen.enroll.pause) => {
   cy.get('input').eq(7).type('4')
   cy.Pause(pause)
   cy.get('#ChannelEnrollmentButton').click()
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.get('button').eq(1).click()
 })
 
@@ -144,7 +144,7 @@ Cypress.Commands.add("AcceptInsurance",
       cy.get('.mat-radio-label').contains(accept).click()
       cy.Pause(pause)
       cy.get('#InsuranceOfferButton').click()
-      // cy.WaitLoader()
+      // cy.waitLoader()
     })
 
 Cypress.Commands.add("OtpAuthentication",
@@ -154,28 +154,8 @@ Cypress.Commands.add("OtpAuthentication",
       cy.Pause(pause)
       // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
       cy.get('#OtpButton', {timeout: 20000}).click()
-      cy.WaitLoader()
+      cy.waitLoader()
     })
-
-Cypress.Commands.add("WaitLoader", () => {
-  // cy.get('.blobs').should('be.visible')
-  // cy.get('.blobs',{timeout:60000}).should('not.exist')
-
-  cy.get("body").then($body => {
-    if ($body.find(".blobs").length > 0) {
-      //evaluates as true if button exists at all
-      cy.get('.blobs').then(($el) => {
-        if (Cypress.dom.isVisible($el)) {
-          cy.get('.blobs', {timeout: 60000}).should('not.exist')
-        }
-      })
-    } else {
-      //you get here if the button DOESN'T EXIST
-      assert.isOk('everything', 'everything is OK');
-    }
-  });
-
-})
 
 Cypress.Commands.add("FillSendAddress",
     (pause = Cypress.env().screen.card.pause) => {
@@ -273,7 +253,7 @@ Cypress.Commands.add("DeclaringOption",
 
 Cypress.Commands.add("ElectronicSignature",
     (app, pause = Cypress.env().screen.documents.signature.pause) => {
-      cy.WaitLoader()
+      cy.waitLoader()
       switch (app) {
         case ENUM.APP.CDT:
           cy.get('#CheckProductConditions').click()
@@ -333,7 +313,7 @@ Cypress.Commands.add("SavingTips",
     })
 
 Cypress.Commands.add("ValidateResume", (accountType, insurance) => {
-  cy.WaitLoader()
+  cy.waitLoader()
   cy.get('#Account', {timeout: 20000}).should('contain', '$ 0,00')
 
   if (accountType == 'PRO') {

@@ -10,21 +10,21 @@ describe('Cargue de documentos CDA', function () {
 
         cy.MockWs(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep(pause)
         //cy.ScreenShot(userConditions.scr)
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,userConditions.scr,pause)
         cy.AcceptInsurance(flowConditions.insurance, pause)
         cy.Pause(userConditions.pause)
     
         //cy.AcceptInsurance(flowConditions.insurance,userConditions.scr)
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.OtpAuthentication(userConditions.scr,pause)
     
          cy.SelectActivity('Empleado',userConditions.scr,pause)
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.FillContactForm('Empleado',userConditions.scr,pause)
 
          if (flowConditions.accountType == 'DIGITAL') {
@@ -42,18 +42,18 @@ describe('Cargue de documentos CDA', function () {
 
         cy.MockWs(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.AcceptPep()
          cy.get('#Term').type('365')
          cy.get('#mat-radio-8 > .mat-radio-label').click()
          cy.get('#SubmitCDTForm').click()
-         cy.WaitLoader()
+         cy.waitLoader()
  
          cy.OtpAuthentication()
          cy.Pause(pause)
 
          cy.SelectActivity('Empleado')
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.Pause(pause)
          cy.FillContactForm('Empleado')
          cy.Pause(pause)
