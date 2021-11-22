@@ -255,7 +255,7 @@ describe('Sprint 73', function () {
         var userConditions = { docs:'Empleado',captcha:'ok',client: true, updated: false };
 
         cy.MockWs(userConditions)
-        cy.FillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
+        cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.WaitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)

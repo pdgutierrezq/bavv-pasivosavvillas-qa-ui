@@ -21,7 +21,7 @@ describe('CDA', function () {
     };
 
     cy.MockWs(userConditions, user, flow)
-    cy.FillBasicInformationPage()
+    cy.fillBasicInformationPage()
   })
 
 })

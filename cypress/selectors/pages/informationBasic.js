@@ -13,11 +13,8 @@ var basicInformationSelectors = {
     checkbox: {
       authorization: '#CheckHabeasData'
     },
-    button: {
-      confirm: '#SubmitFormUserIdentification'
-    },
     nextPage: {
-      confirm: '#SubmitFormUserIdentification'
+      continue: '#SubmitFormUserIdentification'
     }
   }
 }

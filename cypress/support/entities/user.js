@@ -3,8 +3,11 @@ const {CONDITION} = require("./properties/customer/conditions");
 const {INSURANCE} = require("./properties/customer/insurance");
 const {READE_ACTIVE_CHANNELS_SERVICE} = require(
     "../services/customer/channels/read");
+const {Data} = require("./data");
+const Fixtures = require("./data");
 
-const USER_DATA = 'flow/pages/information_basic'
+const BASIC_INFORMATION_FIXTURE = 'flow/pages/information_basic'
+const HOME_FIXTURE = 'flow/pages/home'
 
 let User = class User {
   constructor(
@@ -21,13 +24,14 @@ let User = class User {
   }
 
   loadData(){
-    cy.fixture(USER_DATA).then((data) => {
+    cy.fixture(BASIC_INFORMATION_FIXTURE).then((data) => {
       this.basicInformationPage = data
+    })
+    cy.fixture(HOME_FIXTURE).then((data) => {
+      this.homePage = data
     })
   }
 }
-
-
 
 module.exports = {
   User

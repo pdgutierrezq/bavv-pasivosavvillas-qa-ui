@@ -12,7 +12,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage(flowConditions.environment)
+        cy.fillBasicInformationPage(flowConditions.environment)
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType)
         //cy.SelectGmf(true)
@@ -40,7 +40,7 @@ describe('test pasivo', function () {
         var pause=true
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage(flowConditions.environment)
+        cy.fillBasicInformationPage(flowConditions.environment)
          cy.AcceptPep()
       cy.SelectAccount(flowConditions.accountType)
          cy.AcceptInsurance(flowConditions.insurance)

@@ -12,7 +12,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType)
         //cy.SelectGmf(true)
@@ -40,7 +40,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.get('#SubmitFormPEP', { timeout: 120000 }).should('be.visible')
 
         //cy.AcceptPep()
@@ -91,7 +91,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         //cy.SelectGmf(true)
@@ -129,7 +129,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
@@ -164,7 +164,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
@@ -265,7 +265,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         cy.AcceptInsurance('Si')

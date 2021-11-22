@@ -11,7 +11,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         cy.AcceptInsurance('Si')
@@ -55,7 +55,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
@@ -102,7 +102,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')

@@ -20,7 +20,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.get('.more-info').should('have.text', '¿Qué es?')
 
     })

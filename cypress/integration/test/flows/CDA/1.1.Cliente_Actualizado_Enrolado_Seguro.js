@@ -6,6 +6,7 @@ import {INSURANCE} from "../../../../support/entities/properties/customer/insura
 import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
 import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
 import {CRM} from "../../../../support/entities/properties/customer/crm/update";
+import {Fixtures} from "../../../../support/entities/data";
 
 describe('CDA', function () {
   beforeEach(function () {
@@ -15,6 +16,8 @@ describe('CDA', function () {
     let user = new User(CONDITION.CLIENT.UPDATED, ACCOUNTS.CAT.NO,
         INSURANCE.YES)
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
+    let fixtures = new Fixtures()
+    cy.log("HomePage:" +new Fixtures().homePage)
     var flowConditions = {
       scr: false,
       accountType: 'DIGITAL',
@@ -33,7 +36,7 @@ describe('CDA', function () {
     };
 
     cy.MockWs(userConditions, user, flow)
-    cy.FillBasicInformationPage(user)
+    cy.fillBasicInformationPage(user)
     cy.WaitLoader()
     cy.AcceptPep()
     //cy.ScreenShot(userConditions.scr)

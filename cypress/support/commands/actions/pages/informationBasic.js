@@ -1,9 +1,10 @@
 import 'cypress-file-upload';
-import {basicInformationSelectors} from "../../../../selectors/cda/information/basic/page";
+import {basicInformationSelectors} from "../../../../selectors/pages/informationBasic";
 
-Cypress.Commands.add("FillBasicInformationPage",
+Cypress.Commands.add("fillBasicInformationPage",
     (user) => {
-      cy.homePage()
-      cy.formOperation("fill", basicInformationSelectors.form, user.basicInformationPage)
+      cy.fillHomePage(user)
+      cy.formOperation("fill", basicInformationSelectors.form,
+          user.basicInformationPage)
     })
 

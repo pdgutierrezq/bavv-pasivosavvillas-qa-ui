@@ -1,8 +1,6 @@
 import 'cypress-file-upload';
 import ContactDataForm from '../integration/pageObjects/ContactDataForm'
 import ENUM from './enums'
-import {registerSelectors} from "../../a.cypress.ll/selectors/pos/maintenance/register";
-import {basicInformationSelectors} from "../selectors/cda/information/basic/page";
 
 Cypress.Commands.add("Pause", (option) => {
 
@@ -12,7 +10,7 @@ Cypress.Commands.add("Pause", (option) => {
 })
 
 Cypress.Commands.add("PerformFlow", (userConditions, flowConditions) => {
-  cy.FillBasicInformationPage(flowConditions.environment)
+  cy.fillBasicInformationPage(flowConditions.environment)
   cy.WaitLoader()
   cy.AcceptPep()
 
@@ -64,14 +62,6 @@ Cypress.Commands.add("enroll", (pause = Cypress.env().screen.enroll.pause) => {
   cy.WaitLoader()
   cy.get('button').eq(1).click()
 })
-
-Cypress.Commands.add("homePage",
-    (flags = Cypress.env().screen.home) => {
-      var homePage = Cypress.env().list[0].cda.baseUrl
-      cy.visit(homePage)
-      cy.pauseAndScreenshot(flags)
-      cy.get('.btn').click()
-    })
 
 Cypress.Commands.add("ScreenShot", (option) => {
   if (option) {

@@ -14,7 +14,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage('stg')
+        cy.fillBasicInformationPage('stg')
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
@@ -48,7 +48,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
 
         cy.MockWs(userConditions)
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.get('#SubmitFormPEP', { timeout: 120000 }).should('be.visible')
 
     })
@@ -59,7 +59,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         cy.AcceptInsurance('Si')
@@ -103,7 +103,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
@@ -150,7 +150,7 @@ describe('test pasivo', function () {
 
         cy.MockWs(userConditions)
 
-        cy.FillBasicInformationPage()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
