@@ -17,11 +17,17 @@ let User = class User {
     this.accounts = accounts;
     this.insurance = insurance;
     this.channels = channels;
+    this.loadData()
+  }
+
+  loadData(){
     cy.fixture(USER_DATA).then((data) => {
-      this.data = data
+      this.basicInformationPage = data
     })
   }
 }
+
+
 
 module.exports = {
   User

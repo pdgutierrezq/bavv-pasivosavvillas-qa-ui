@@ -4,6 +4,6 @@ import {basicInformationSelectors} from "../../../../selectors/cda/information/b
 Cypress.Commands.add("FillBasicInformationPage",
     (user) => {
       cy.homePage()
-      cy.formOperation("fill", basicInformationSelectors.form, user.data)
+      cy.formOperation("fill", basicInformationSelectors.form, user.basicInformationPage)
     })
 
