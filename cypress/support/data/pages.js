@@ -4,6 +4,7 @@ const {basicInformationSelectors} = require(
 const {pepSelectors} = require("../../selectors/pages/pep");
 const {accountSelectors} = require("../../selectors/pages/account");
 const {otpSelectors} = require("../../selectors/pages/otp");
+const {cardSelectors, confirmDevileryAddressPopupSelectors} = require("../../selectors/pages/card");
 const PAGES = {
   HOME: {
     name: "homePage",
@@ -45,6 +46,24 @@ const PAGES = {
     name: "otpPage",
     fixture: "flow/pages/otp",
     selector: otpSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  CARD: {
+    name: "cardPage",
+    fixture: "flow/pages/card",
+    selector: cardSelectors.form.nextPage.continue,
+    status: {
+      pause: true,
+      screenshot: true
+    }
+  },
+  CARD_CONFIRM_DELIVERY_ADDRESS_POPUP: {
+    name: "confirmDeliveryAddressPopup",
+    fixture: "flow/pages/card",
+    selector: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     status: {
       pause: true,
       screenshot: true

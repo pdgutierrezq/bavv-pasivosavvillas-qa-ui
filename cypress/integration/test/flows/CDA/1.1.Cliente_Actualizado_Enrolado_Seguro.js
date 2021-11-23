@@ -39,14 +39,12 @@ describe('CDA', function () {
     };
 
     cy.MockWs(userConditions, user, flow)
-    cy.log("Singleton-Fixture:" + Fixtures.getInstance().homePage.continue)
     cy.fillHomePage(data.homePage)
     cy.fillBasicInformationPage(data.basicInformationPage)
     cy.fillPepPage(data.pepPage)
     cy.fillAccountPage(data.accountPage)
     cy.fillOtpPage(data.otpPage)
-    cy.waitLoader()
-    cy.FillSendAddress()
+    cy.fillCardPage(data.cardPage)
     cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
     cy.ElectronicSignature()
     cy.waitLoader()
