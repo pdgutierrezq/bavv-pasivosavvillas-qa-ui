@@ -23,6 +23,7 @@ import './commands/actions/common/forms.js'
 import './commands/actions/pages/informationBasic.js'
 import './commands/actions/pages/home'
 import './commands/actions/pages/pep'
+import './commands/actions/pages/account'
 import './commands/actions/common/flow.js'
 import addContext from "mochawesome/addContext";
 

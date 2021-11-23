@@ -43,7 +43,7 @@ describe('CDA', function () {
     cy.fillHomePage(data.homePage)
     cy.fillBasicInformationPage(data.basicInformationPage)
     cy.fillPEPPage(data.pepPage)
-    cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
+    cy.fillAccountPage(data.accountPage)
     cy.OtpAuthentication(userConditions.scr, flow)
     cy.waitLoader()
     cy.FillSendAddress()
