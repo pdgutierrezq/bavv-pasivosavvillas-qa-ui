@@ -26,6 +26,7 @@ import './commands/actions/pages/pep'
 import './commands/actions/pages/account'
 import './commands/actions/pages/otp'
 import './commands/actions/pages/card'
+import './commands/actions/pages/declaring'
 import './commands/actions/common/flow.js'
 import addContext from "mochawesome/addContext";
 

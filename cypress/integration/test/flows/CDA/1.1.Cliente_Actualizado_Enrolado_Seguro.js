@@ -45,7 +45,7 @@ describe('CDA', function () {
     cy.fillAccountPage(data.accountPage)
     cy.fillOtpPage(data.otpPage)
     cy.fillCardPage(data.cardPage)
-    cy.DeclaringOption(flowConditions.declaring, userConditions.scr)
+    cy.fillDeclaringPage(data.declaringPage)
     cy.ElectronicSignature()
     cy.waitLoader()
     cy.SavingTips()
