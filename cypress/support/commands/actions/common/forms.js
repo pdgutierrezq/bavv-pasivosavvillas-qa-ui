@@ -48,7 +48,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("formOperation", (operation, selectors, data) => {
   const types = ["input", "select", "textarea", "inputRaw", "selectRaw", "div",
-    "checkbox",'nextPage','radio'];
+    "checkbox",'nextPage','radio','inputsContainer'];
   if (data != undefined) {
     if (`${selectors.tab}` != "undefined") {
       cy.get(`${selectors.tab}`).click();
@@ -98,6 +98,9 @@ Cypress.Commands.add("fillForm",
           break;
         case 'nextPage':
             cy.nextPage(automationId)
+          break;
+        case 'inputsContainer':
+          cy.get(automationId).first().type(setValue);
           break;
         default:
           cy.get(automationId).within(() => {

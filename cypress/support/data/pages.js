@@ -3,6 +3,7 @@ const {basicInformationSelectors} = require(
     "../../selectors/pages/informationBasic");
 const {pepSelectors} = require("../../selectors/pages/pep");
 const {accountSelectors} = require("../../selectors/pages/account");
+const {otpSelectors} = require("../../selectors/pages/otp");
 const PAGES = {
   HOME: {
     name: "homePage",
@@ -38,6 +39,15 @@ const PAGES = {
     status: {
       pause: false,
       screenshot: false
+    }
+  },
+  OTP: {
+    name: "otpPage",
+    fixture: "flow/pages/otp",
+    selector: otpSelectors.form.nextPage.continue,
+    status: {
+      pause: true,
+      screenshot: true
     }
   }
 }
