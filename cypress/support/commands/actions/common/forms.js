@@ -97,7 +97,7 @@ Cypress.Commands.add("fillForm",
           }
           break;
         case 'nextPage':
-            cy.nextPage(automationId)
+            cy.nextPage(automationId,setValue)
           break;
         case 'inputsContainer':
           cy.get(automationId).first().type(setValue);

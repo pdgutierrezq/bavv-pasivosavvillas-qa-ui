@@ -28,6 +28,7 @@ import './commands/actions/pages/otp'
 import './commands/actions/pages/card'
 import './commands/actions/pages/declaring'
 import './commands/actions/pages/signature'
+import './commands/actions/pages/tips'
 import './commands/actions/common/flow.js'
 import addContext from "mochawesome/addContext";
 

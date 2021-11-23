@@ -7,7 +7,7 @@ var cardSelectors = {
     },
     checkbox: {
       authTransport: '#CheckMassiveTransport',
-      auth4ByMil: '#ExemptAccountCheck'
+      authFourByMil: '#ExemptAccountCheck'
     },
     nextPage: {
       continue: '#DeliveryAddressButton'

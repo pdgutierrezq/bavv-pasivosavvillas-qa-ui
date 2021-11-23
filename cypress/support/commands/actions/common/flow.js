@@ -9,12 +9,13 @@ Cypress.Commands.add("pauseAndScreenshot",
     })
 
 Cypress.Commands.add("nextPage",
-    (automationId) => {
+    (automationId, timeout) => {
       for (let page in PAGES) {
         let selector = PAGES[page].selector
         if (selector === automationId) {
           console.log("page:" + PAGES[page].status)
           cy.pauseAndScreenshot(PAGES[page].status)
+          cy.get(automationId, {timeout: timeout}).should('be.enabled')
           cy.get(automationId).click()
         }
       }

@@ -7,6 +7,7 @@ const {otpSelectors} = require("../../selectors/pages/otp");
 const {cardSelectors, confirmDevileryAddressPopupSelectors} = require("../../selectors/pages/card");
 const {declaringSelectors} = require("../../selectors/pages/declaring");
 const {signatureSelectors} = require("../../selectors/pages/signature");
+const {tipsSelectors} = require("../../selectors/pages/tips");
 const PAGES = {
   HOME: {
     name: "homePage",
@@ -76,8 +77,8 @@ const PAGES = {
     fixture: "flow/pages/declaring",
     selector: declaringSelectors.form.nextPage.continue,
     status: {
-      pause: true,
-      screenshot: true
+      pause: false,
+      screenshot: false
     }
   },
   SIGNATURE: {
@@ -85,8 +86,17 @@ const PAGES = {
     fixture: "flow/pages/signature",
     selector: signatureSelectors.form.nextPage.continue,
     status: {
-      pause: true,
-      screenshot: true
+      pause: false,
+      screenshot: false
+    }
+  },
+  TIPS: {
+    name: "tipsPage",
+    fixture: "flow/pages/tips",
+    selector: tipsSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
     }
   }
 }

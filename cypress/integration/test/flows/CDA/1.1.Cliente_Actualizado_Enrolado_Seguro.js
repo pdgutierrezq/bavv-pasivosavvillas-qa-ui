@@ -47,6 +47,6 @@ describe('CDA', function () {
     cy.fillCardPage(data.cardPage)
     cy.fillDeclaringPage(data.declaringPage)
     cy.fillSignaturePage(data.signaturePage)
-    cy.SavingTips()
+    cy.fillTipsPage(data.tipsPage)
   })
 })
