@@ -6,6 +6,7 @@ const {accountSelectors} = require("../../selectors/pages/account");
 const {otpSelectors} = require("../../selectors/pages/otp");
 const {cardSelectors, confirmDevileryAddressPopupSelectors} = require("../../selectors/pages/card");
 const {declaringSelectors} = require("../../selectors/pages/declaring");
+const {signatureSelectors} = require("../../selectors/pages/signature");
 const PAGES = {
   HOME: {
     name: "homePage",
@@ -74,6 +75,15 @@ const PAGES = {
     name: "declaringPage",
     fixture: "flow/pages/declaring",
     selector: declaringSelectors.form.nextPage.continue,
+    status: {
+      pause: true,
+      screenshot: true
+    }
+  },
+  SIGNATURE: {
+    name: "signaturePage",
+    fixture: "flow/pages/signature",
+    selector: signatureSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: true
