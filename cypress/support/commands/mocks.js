@@ -13,6 +13,7 @@ import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
 import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
 import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
 import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
+import {UPLOAD_DOCUMENT} from "../services/customer/documents/upload-document";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -44,6 +45,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(GET_DOCUMENTS_TO_CHARGE,GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
   cy.mockService(GENERATE_PRESIGNED_URL,GENERATE_PRESIGNED_URL.RESPONSE.OK)
   cy.mockService(SQS_CDA_DOCUMENTS,SQS_CDA_DOCUMENTS.RESPONSE.OK)
+  cy.mockService(UPLOAD_DOCUMENT,UPLOAD_DOCUMENT.RESPONSE.OK)
 
   // cy.PseCreateTransaction(userConditions.pseCreate)
   //cy.LoadDocsPresigned(userConditions.loadPresigned)
