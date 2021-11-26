@@ -12,6 +12,7 @@ import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
 import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
 import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
 import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
+import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -41,10 +42,10 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
 
   cy.mockService(GET_DOCUMENTS_TO_CHARGE,GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
-  // cy.mockService(GENERATE_PRESIGNED_URL,GENERATE_PRESIGNED_URL.RESPONSE.OK)
+  cy.mockService(GENERATE_PRESIGNED_URL,GENERATE_PRESIGNED_URL.RESPONSE.OK)
+  cy.mockService(SQS_CDA_DOCUMENTS,SQS_CDA_DOCUMENTS.RESPONSE.OK)
 
   // cy.PseCreateTransaction(userConditions.pseCreate)
-  // //cy.Sqs(userConditions.sqs)
   //cy.LoadDocsPresigned(userConditions.loadPresigned)
   //cy.SaveDocs()
 
@@ -57,24 +58,6 @@ Cypress.Commands.add("PseCreateTransaction", (option) => {
       url: '**/pse-create-transaction',
       status: 500,
       response: 'fixture:pse-create-transaction-fail.json'
-    })
-  } else if (option == 'PASS') {
-    cy.route({
-      method: 'POST',
-      url: '**/create-sds-user',
-      status: 201,
-      response: 'fixture:create-sds-user-pass.json'
-    })
-  }
-})
-
-Cypress.Commands.add("CreateSdsUser", (option) => {
-  if (option == 'FAIL') {
-    cy.route({
-      method: 'POST',
-      url: '**/create-sds-user',
-      status: 500,
-      response: 'fixture:create-sds-user-fail.json'
     })
   } else if (option == 'PASS') {
     cy.route({
@@ -181,21 +164,6 @@ Cypress.Commands.add("LoadDocsPresigned", (success) => {
   //         response: 'fixture:sqs-cda-documents-fail.json'
   //     })
   // }
-
-})
-
-Cypress.Commands.add("Sqs", (success) => {
-  if (success == 'success') {
-    cy.route('POST', '**/sqs-cda-documents',
-        'fixture:sqs-cda-documents-success.json')
-  } else {
-    cy.route({
-      method: 'POST',
-      url: '**/sqs-cda-documents',
-      status: 500,
-      response: 'fixture:sqs-cda-documents-fail.json'
-    })
-  }
 
 })
 
