@@ -15,6 +15,7 @@ import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-pr
 import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
 import {UPLOAD_DOCUMENT} from "../services/customer/documents/upload-document";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
+import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -46,8 +47,9 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(GENERATE_PRESIGNED_URL,GENERATE_PRESIGNED_URL.RESPONSE.OK)
   cy.mockService(SQS_CDA_DOCUMENTS,SQS_CDA_DOCUMENTS.RESPONSE.OK)
   cy.mockService(UPLOAD_DOCUMENT,UPLOAD_DOCUMENT.RESPONSE.OK)
-  // cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
+  cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
   cy.mockService(PSE_CREATE_TRANSACTION,PSE_CREATE_TRANSACTION.RESPONSE.OK)
+  cy.mockService(SAVE_RESUMES_CDT,SAVE_RESUMES_CDT.RESPONSE.OK)
 
   //cy.SaveDocs()
 

@@ -1,166 +1,174 @@
 [
   {
-    "BankId": "0",
-    "Name": "A continuación seleccione su banco"
+    "bankId": "0",
+    "name": "A continuaci?n seleccione su banco"
   },
   {
-    "BankId": "1552",
-    "Name": "BAN.CO"
+    "bankId": "1552",
+    "name": "BAN.CO"
   },
   {
-    "BankId": "1040",
-    "Name": "BANCO AGRARIO"
+    "bankId": "1040",
+    "name": "BANCO AGRARIO"
   },
   {
-    "BankId": "1081",
-    "Name": "BANCO AGRARIO DESARROLLO"
+    "bankId": "1081",
+    "name": "BANCO AGRARIO DESARROLLO"
   },
   {
-    "BankId": "1080",
-    "Name": "BANCO AGRARIO QA DEFECTOS"
+    "bankId": "1080",
+    "name": "BANCO AGRARIO QA DEFECTOS"
   },
   {
-    "BankId": "10322",
-    "Name": "BANCO CAJA SOCIAL"
+    "bankId": "10322",
+    "name": "BANCO CAJA SOCIAL"
   },
   {
-    "BankId": "1032",
-    "Name": "BANCO CAJA SOCIAL DESARROLLO"
+    "bankId": "1032",
+    "name": "BANCO CAJA SOCIAL DESARROLLO"
   },
   {
-    "BankId": "1019",
-    "Name": "BANCO COLPATRIA DESARROLLO"
+    "bankId": "1019",
+    "name": "BANCO COLPATRIA DESARROLLO"
   },
   {
-    "BankId": "1078",
-    "Name": "BANCO COLPATRIA UAT"
+    "bankId": "1078",
+    "name": "BANCO COLPATRIA UAT"
   },
   {
-    "BankId": "1052",
-    "Name": "BANCO COMERCIAL AVVILLAS S.A."
+    "bankId": "1052",
+    "name": "BANCO COMERCIAL AVVILLAS S.A."
   },
   {
-    "BankId": "1061",
-    "Name": "BANCO COOMEVA S.A. - BANCOOMEVA"
+    "bankId": "1061",
+    "name": "BANCO COOMEVA S.A. - BANCOOMEVA"
   },
   {
-    "BankId": "1016",
-    "Name": "BANCO COOPERATIVO COOPCENTRAL"
+    "bankId": "1016",
+    "name": "BANCO COOPERATIVO COOPCENTRAL"
   },
   {
-    "BankId": "1051",
-    "Name": "BANCO DAVIVIENDA"
+    "bankId": "1051",
+    "name": "BANCO DAVIVIENDA"
   },
   {
-    "BankId": "10512",
-    "Name": "BANCO DAVIVIENDA Desarrollo"
+    "bankId": "10512",
+    "name": "BANCO DAVIVIENDA Desarrollo"
   },
   {
-    "BankId": "1001",
-    "Name": "BANCO DE BOGOTA DESARROLLO 2013"
+    "bankId": "1039",
+    "name": "BANCO DE BOGOTA"
   },
   {
-    "BankId": "1023",
-    "Name": "BANCO DE OCCIDENTE"
+    "bankId": "1001",
+    "name": "BANCO DE BOGOTA DESARROLLO 2013"
   },
   {
-    "BankId": "1062",
-    "Name": "BANCO FALABELLA"
+    "bankId": "1023",
+    "name": "BANCO DE OCCIDENTE"
   },
   {
-    "BankId": "1010",
-    "Name": "BANCO GNB COLOMBIA (ANTES HSBC)"
+    "bankId": "1062",
+    "name": "BANCO FALABELLA"
   },
   {
-    "BankId": "1012",
-    "Name": "BANCO GNB SUDAMERIS"
+    "bankId": "1010",
+    "name": "BANCO GNB COLOMBIA (ANTES HSBC)"
   },
   {
-    "BankId": "1060",
-    "Name": "BANCO PICHINCHA S.A."
+    "bankId": "1012",
+    "name": "BANCO GNB SUDAMERIS"
   },
   {
-    "BankId": "1002",
-    "Name": "BANCO POPULAR"
+    "bankId": "1060",
+    "name": "BANCO PICHINCHA S.A."
   },
   {
-    "BankId": "1058",
-    "Name": "BANCO PROCREDIT COLOMBIA"
+    "bankId": "1002",
+    "name": "BANCO POPULAR"
   },
   {
-    "BankId": "1203",
-    "Name": "BANCO PRODUCTOS POR SEPARADO"
+    "bankId": "1058",
+    "name": "BANCO PROCREDIT COLOMBIA"
   },
   {
-    "BankId": "1101",
-    "Name": "Banco PSE"
+    "bankId": "1203",
+    "name": "BANCO PRODUCTOS POR SEPARADO"
   },
   {
-    "BankId": "1065",
-    "Name": "BANCO SANTANDER COLOMBIA"
+    "bankId": "1101",
+    "name": "Banco PSE"
   },
   {
-    "BankId": "1035",
-    "Name": "BANCO TEQUENDAMA"
+    "bankId": "1065",
+    "name": "BANCO SANTANDER COLOMBIA"
   },
   {
-    "BankId": "1004",
-    "Name": "Banco union Colombia Credito"
+    "bankId": "1063",
+    "name": "Banco Serfinanza"
   },
   {
-    "BankId": "1005",
-    "Name": "Banco union Colombia credito FD"
+    "bankId": "1035",
+    "name": "BANCO TEQUENDAMA"
   },
   {
-    "BankId": "1022",
-    "Name": "BANCO UNION COLOMBIANO"
+    "bankId": "1004",
+    "name": "Banco union Colombia Credito"
   },
   {
-    "BankId": "1055",
-    "Name": "Banco Web Service ACH"
+    "bankId": "1005",
+    "name": "Banco union Colombia credito FD"
   },
   {
-    "BankId": "1055",
-    "Name": "Banco Web Service ACH WSE 3.0"
+    "bankId": "1022",
+    "name": "BANCO UNION COLOMBIANO"
   },
   {
-    "BankId": "10072",
-    "Name": "BANCOLOMBIA DATAPOWER"
+    "bankId": "1055",
+    "name": "Banco Web Service ACH"
   },
   {
-    "BankId": "10071",
-    "Name": "BANCOLOMBIA DESARROLLO"
+    "bankId": "1055",
+    "name": "Banco Web Service ACH WSE 3.0"
   },
   {
-    "BankId": "1007",
-    "Name": "BANCOLOMBIA QA"
+    "bankId": "10072",
+    "name": "BANCOLOMBIA DATAPOWER"
   },
   {
-    "BankId": "1013",
-    "Name": "BBVA COLOMBIA S.A."
+    "bankId": "10071",
+    "name": "BANCOLOMBIA DESARROLLO"
   },
   {
-    "BankId": "1009",
-    "Name": "CITIBANK COLOMBIA S.A."
+    "bankId": "1007",
+    "name": "BANCOLOMBIA QA"
   },
   {
-    "BankId": "1292",
-    "Name": "CONFIAR COOPERATIVA FINANCIERA"
+    "bankId": "1013",
+    "name": "BBVA COLOMBIA S.A."
   },
   {
-    "BankId": "1551",
-    "Name": "DAVIPLATA"
+    "bankId": "1009",
+    "name": "CITIBANK COLOMBIA S.A."
   },
   {
-    "BankId": "1006",
-    "Name": "ITAU"
+    "bankId": "1292",
+    "name": "CONFIAR COOPERATIVA FINANCIERA"
   },
   {
-    "BankId": "1508",
-    "Name": "NEQUI CERTIFICACION"
+    "bankId": "1551",
+    "name": "DAVIPLATA"
   },
   {
-    "BankId": "121212",
-    "Name": "Prueba Steve"
+    "bankId": "1006",
+    "name": "ITAU"
+  },
+  {
+    "bankId": "1508",
+    "name": "NEQUI CERTIFICACION"
+  },
+  {
+    "bankId": "121212",
+    "name": "Prueba Steve"
   }
 ]
