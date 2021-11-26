@@ -10,6 +10,7 @@ import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/
 import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
 import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
 import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
+import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -38,7 +39,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(GET_PDF_SERVICE,flow.pdf)
   // cy.mockService(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
 
-  cy.GetDocs(userConditions.docs)
+  cy.mockService(GET_DOCUMENTS_TO_CHARGE,GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
 
   // cy.PseCreateTransaction(userConditions.pseCreate)
   // //cy.Sqs(userConditions.sqs)
@@ -230,27 +231,4 @@ Cypress.Commands.add("SaveDocs", () => {
   //     status: 500,
   //     response: 'fixture:get-documents-fail.json'
   // })
-})
-
-Cypress.Commands.add("GetDocs", (docsType) => {
-  if (docsType == 'Empleado') {
-    cy.route('POST', '**/get-documents-to-charge',
-        'fixture:get-documents-all.json')
-  } else if (docsType == 'cc') {
-    cy.route('POST', '**/get-documents-to-charge',
-        'fixture:get-documents-only-cc.json')
-  } else if (docsType == 'no cc') {
-    cy.route('POST', '**/get-documents-to-charge',
-        'fixture:get-documents-no-cc.json')
-  } else if (docsType == 'fail') {
-    cy.route({
-      method: 'POST',
-      url: '**/get-documents-to-charge',
-      status: 500,
-      response: 'fixture:get-documents-fail.json'
-    })
-  }
-  // else {
-  //     cy.route('POST', '**/get-documents-to-charge', 'fixture:get-documents-no-doc.json')
-  // }
 })
