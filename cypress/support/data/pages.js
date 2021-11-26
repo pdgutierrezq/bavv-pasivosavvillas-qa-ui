@@ -14,7 +14,7 @@ const PAGES = {
     fixture: "flow/pages/home",
     selector: homeSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -32,7 +32,7 @@ const PAGES = {
     fixture: "flow/pages/pep",
     selector: pepSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -50,7 +50,7 @@ const PAGES = {
     fixture: "flow/pages/otp",
     selector: otpSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
