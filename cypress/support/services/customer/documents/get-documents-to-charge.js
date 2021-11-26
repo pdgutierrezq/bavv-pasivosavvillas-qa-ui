@@ -1,4 +1,4 @@
-const GET_GET_DOCUMENTS_TO_CHARGE = {
+const GET_DOCUMENTS_TO_CHARGE = {
   METHOD: 'POST',
   URL: '**/get-documents-to-charge',
   RESPONSE: {
@@ -22,5 +22,5 @@ const GET_GET_DOCUMENTS_TO_CHARGE = {
 }
 
 module.exports = {
-  GET_DOCUMENTS_TO_CHARGE: GET_GET_DOCUMENTS_TO_CHARGE
+  GET_DOCUMENTS_TO_CHARGE
 };

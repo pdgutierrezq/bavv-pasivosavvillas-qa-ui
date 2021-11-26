@@ -11,6 +11,7 @@ import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read"
 import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
 import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
 import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
+import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -40,10 +41,10 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   // cy.mockService(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
 
   cy.mockService(GET_DOCUMENTS_TO_CHARGE,GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
+  // cy.mockService(GENERATE_PRESIGNED_URL,GENERATE_PRESIGNED_URL.RESPONSE.OK)
 
   // cy.PseCreateTransaction(userConditions.pseCreate)
   // //cy.Sqs(userConditions.sqs)
-  //cy.GenerateUrl(userConditions.generateUrl)
   //cy.LoadDocsPresigned(userConditions.loadPresigned)
   //cy.SaveDocs()
 
@@ -181,31 +182,6 @@ Cypress.Commands.add("LoadDocsPresigned", (success) => {
   //     })
   // }
 
-})
-
-Cypress.Commands.add("GenerateUrl", (success) => {
-  if (success == 'success') {
-    cy.route({
-      method: 'POST',
-      url: '**/generate-presigned-url',
-      status: 201,
-      response: 'fixture:generate-presigned-url-success.json'
-    })
-  } else if (success == 'fail') {
-    cy.route({
-      method: 'POST',
-      url: '**/generate-presigned-url',
-      status: 500,
-      response: 'fixture:generate-presigned-url-fail.json'
-    })
-  } else if (success == 'two docs') {
-    cy.route({
-      method: 'POST',
-      url: '**/generate-presigned-url',
-      status: 201,
-      response: 'fixture:generate-presigned-url-two-docs.json'
-    })
-  }
 })
 
 Cypress.Commands.add("Sqs", (success) => {
