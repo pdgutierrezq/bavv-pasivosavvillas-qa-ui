@@ -8,13 +8,14 @@ const {cardSelectors, confirmDevileryAddressPopupSelectors} = require("../../sel
 const {declaringSelectors} = require("../../selectors/pages/declaring");
 const {signatureSelectors} = require("../../selectors/pages/signature");
 const {tipsSelectors} = require("../../selectors/pages/tips");
+const {insuranceSelectors} = require("../../selectors/pages/insurance");
 const PAGES = {
   HOME: {
     name: "homePage",
     fixture: "flow/pages/home",
     selector: homeSelectors.form.nextPage.continue,
     status: {
-      pause: true,
+      pause: false,
       screenshot: false
     }
   },
@@ -32,7 +33,7 @@ const PAGES = {
     fixture: "flow/pages/pep",
     selector: pepSelectors.form.nextPage.continue,
     status: {
-      pause: true,
+      pause: false,
       screenshot: false
     }
   },
@@ -45,12 +46,21 @@ const PAGES = {
       screenshot: false
     }
   },
+  INSURANCE: {
+    name: "insurancePage",
+    fixture: "flow/pages/insurance",
+    selector: insuranceSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
   OTP: {
     name: "otpPage",
     fixture: "flow/pages/otp",
     selector: otpSelectors.form.nextPage.continue,
     status: {
-      pause: true,
+      pause: false,
       screenshot: false
     }
   },
