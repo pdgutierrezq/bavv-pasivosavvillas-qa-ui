@@ -16,6 +16,7 @@ import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-document
 import {UPLOAD_DOCUMENT} from "../services/customer/documents/upload-document";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
+import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
 
 Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   if (userConditions.captcha == 'lowscore') {
@@ -50,8 +51,7 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
   cy.mockService(PSE_CREATE_TRANSACTION,PSE_CREATE_TRANSACTION.RESPONSE.OK)
   cy.mockService(SAVE_RESUMES_CDT,SAVE_RESUMES_CDT.RESPONSE.OK)
-
-  //cy.SaveDocs()
+  cy.mockService(PSE_CDT_REFUND_MONEY,PSE_CDT_REFUND_MONEY.RESPONSE.KO)
 
 })
 
@@ -117,14 +117,4 @@ Cypress.Commands.add("UploadCc", () => {
   cy.get('[type="file"]').attachFile(fileName2, {force: true});
   cy.get('#FrontIDPic').attachFile(fileName2, {force: true});
 
-})
-
-Cypress.Commands.add("SaveDocs", () => {
-  cy.route('POST', '**/save-document', 'fixture:save-docs-success.json')
-  // cy.route({
-  //     method: 'POST',
-  //     url: '**/save-document',
-  //     status: 500,
-  //     response: 'fixture:get-documents-fail.json'
-  // })
 })

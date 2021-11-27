@@ -1,0 +1,5 @@
+{
+  "errorCode": "001",
+  "errorMessage": "MISSING_REQUIRED_FIELDS",
+  "additionalInformation": "Ocurrió una excepción"
+}
