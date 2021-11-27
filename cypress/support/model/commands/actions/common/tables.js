@@ -1,4 +1,4 @@
-import {backend} from "../../../../../a.cypress.ll/selectors/common/backend";
+import {backend} from "../../../../../../a.cypress.ll/selectors/common/backend";
 
 Cypress.Commands.add("validateTableEqual", (tableSelector, expected) => {
     cy.get(tableSelector)

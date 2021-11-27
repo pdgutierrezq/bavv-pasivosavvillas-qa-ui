@@ -17,13 +17,13 @@
 import './commandsCDT'
 import './enums'
 import './commands'
-import './commands/mock'
-import './commands/mock'
-import './commands/mocks'
-import './commands/flow'
-import './commands/actions/common/forms.js'
-import './commands/actions/pages/common'
-import './commands/actions/common/flow.js'
+import './model/commands/mock'
+import './model/commands/mock'
+import './model/commands/mocks'
+import './model/commands/flow'
+import './model/commands/actions/common/forms.js'
+import './model/commands/actions/pages/common'
+import './model/commands/actions/common/flow.js'
 import addContext from "mochawesome/addContext";
 
 Cypress.on('uncaught:exception', (err, runnable) => {

@@ -1,12 +1,12 @@
-import {User} from "../../../../support/entities/user";
-import {CONDITION} from "../../../../support/entities/properties/customer/conditions";
-import {ACCOUNTS} from "../../../../support/entities/properties/customer/accounts";
-import {INSURANCE} from "../../../../support/entities/properties/customer/insurance";
-import {Flow} from "../../../../support/entities/flow";
-import {RECAPTCHA} from "../../../../support/entities/properties/security/recaptcha";
-import {OTP} from "../../../../support/entities/properties/security/user/identity/otp";
-import {CRM} from "../../../../support/entities/properties/customer/crm/update";
-import {READE_ACTIVE_CHANNELS_SERVICE} from "../../../../support/services/customer/channels/read";
+import {User} from "../../../../support/model/entities/user";
+import {CONDITION} from "../../../../support/model/entities/properties/customer/conditions";
+import {ACCOUNTS} from "../../../../support/model/entities/properties/customer/accounts";
+import {INSURANCE} from "../../../../support/model/entities/properties/customer/insurance";
+import {Flow} from "../../../../support/model/entities/flow";
+import {RECAPTCHA} from "../../../../support/model/entities/properties/security/recaptcha";
+import {OTP} from "../../../../support/model/entities/properties/security/user/identity/otp";
+import {CRM} from "../../../../support/model/entities/properties/customer/crm/update";
+import {READE_ACTIVE_CHANNELS_SERVICE} from "../../../../support/model/services/customer/channels/read";
 
 describe('CDA', function () {
   beforeEach(function () {

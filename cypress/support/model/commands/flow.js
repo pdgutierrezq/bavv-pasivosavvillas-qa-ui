@@ -1,5 +1,5 @@
-import {Fixtures} from "../base/fixtures";
-import {FLOW} from "../base/flow";
+import {Fixtures} from "../../schema/fixtures";
+import {FLOW} from "../../schema/flow";
 
 let data, homeUrl
 before(() => {

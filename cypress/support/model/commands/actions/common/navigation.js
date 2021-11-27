@@ -1,5 +1,5 @@
-import { backend } from "../../../../../a.cypress.ll/selectors/common/backend";
-import { interceptions } from "../../../../../a.cypress.ll/support/interceptions";
+import { backend } from "../../../../../../a.cypress.ll/selectors/common/backend";
+import { interceptions } from "../../../../../../a.cypress.ll/support/interceptions";
 
 Cypress.Commands.add("navigateTo", (menu, submenu) => {
   cy.get(menu).should("be.visible").click();
