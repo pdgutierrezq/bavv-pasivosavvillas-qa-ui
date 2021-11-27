@@ -1,4 +1,4 @@
-import ENUM from '../../../../support/enums'
+import ENUM from '../../../../support/schema/user'
 
 describe('CDA', function () {
   beforeEach(function () {

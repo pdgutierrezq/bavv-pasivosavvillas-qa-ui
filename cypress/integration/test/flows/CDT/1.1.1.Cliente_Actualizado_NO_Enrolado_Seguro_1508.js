@@ -1,4 +1,4 @@
-import ENUM from "../../../../support/enums";
+import ENUM from "../../../../support/schema/user";
 import {User} from "../../../../support/model/entities/user";
 import {CONDITION} from "../../../../support/model/entities/properties/customer/conditions";
 import {ACCOUNTS} from "../../../../support/model/entities/properties/customer/accounts";
