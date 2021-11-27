@@ -6,7 +6,7 @@ describe('Sprint 88', function () {
         var userConditions = { docs:'no cc',captcha:'ok',client: true, updated: true };
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -19,7 +19,7 @@ describe('Sprint 88', function () {
         var userConditions = { docs:'no cc',captcha:'ok',client: true, updated: true };
         var pause = false;
         var flowConditions = {  environment: 'dev' ,declaring:true};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -32,7 +32,7 @@ describe('Sprint 88', function () {
         var userConditions = { docs:'Empleado',captcha:'ok',client: true, updated: true };
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.Pause(true)
         cy.waitLoader()

@@ -8,7 +8,7 @@ describe('Sprint 82', function () {
         var pause = false;
         var flowConditions = {  environment: 'dev' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
          cy.waitLoader()
          cy.AcceptPep()
@@ -25,7 +25,7 @@ describe('Sprint 82', function () {
         var pause = false;
         var flowConditions = {  environment: 'dev' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
          cy.waitLoader()
          cy.AcceptPep()
@@ -40,7 +40,7 @@ describe('Sprint 82', function () {
         var pause = false;
         var flowConditions = {  environment: 'dev' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
          cy.waitLoader()
          cy.AcceptPep()

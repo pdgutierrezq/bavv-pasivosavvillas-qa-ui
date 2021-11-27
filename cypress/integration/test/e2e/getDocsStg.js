@@ -10,7 +10,7 @@ describe('test pasivo', function () {
         var userConditions = { docs:'x',client: true, updated: false, insurance:'false'};
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: true,environment:'stg'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage(flowConditions.environment)
         cy.AcceptPep()
@@ -38,7 +38,7 @@ describe('test pasivo', function () {
         var userConditions = { insurance:'false',client: true, updated: true, cat: false, channels: false, docs: 'Empleado', sqs: 'success' };
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: true,environment:'dev'};
         var pause=true
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage(flowConditions.environment)
          cy.AcceptPep()

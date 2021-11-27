@@ -14,7 +14,7 @@ describe('Sprint 56 prod', function () {
         var pause = true;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(pause)
         cy.waitLoader()
         cy.Pause(pause)

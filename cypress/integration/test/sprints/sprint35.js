@@ -9,7 +9,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channles: true, docs: 'cc', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -53,7 +53,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -100,7 +100,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()

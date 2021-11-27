@@ -18,7 +18,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.get('.more-info').should('have.text', '¿Qué es?')
@@ -38,7 +38,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.visit('https://d1dfr99ji52n7p.cloudfront.net/')
         cy.get('a').click()

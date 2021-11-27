@@ -5,11 +5,8 @@ import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 import {UPDATE_DATA_CRM_SERVICE} from "../services/customer/crm/update";
 import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
-import {CREATE_SDS_USER_SERVICE} from "../services/customer/sds/create";
-import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/save";
 import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
 import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
-import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
 import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
 import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
 import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
@@ -18,19 +15,7 @@ import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
 
-Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
-  if (userConditions.captcha == 'lowscore') {
-    before(() => {
-      cy.visit('', {
-        onBeforeLoad: win => {
-          Object.defineProperty(win.navigator, 'userAgent', {
-            value: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-          });
-        },
-      });
-    });
-  }
-
+Cypress.Commands.add("setMocks", (user, flow) => {
   cy.mockService(RECAPTCHA_SERVICE, flow.recaptcha)
   cy.mockService(CUSTOMER_CONDITION_SERVICE, user.condition)
   cy.mockService(CUSTOMER_ACCOUNTS_SERVICE, user.accounts)
@@ -40,18 +25,19 @@ Cypress.Commands.add("MockWs", (userConditions, user, flow) => {
   cy.mockService(UPDATE_DATA_CRM_SERVICE, flow.crm)
   // cy.mockService(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
   // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
-  cy.mockService(READE_ACTIVE_CHANNELS_SERVICE,user.channels)
-  cy.mockService(GET_PDF_SERVICE,flow.pdf)
+  cy.mockService(READE_ACTIVE_CHANNELS_SERVICE, user.channels)
+  cy.mockService(GET_PDF_SERVICE, flow.pdf)
   // cy.mockService(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
 
-  cy.mockService(GET_DOCUMENTS_TO_CHARGE,GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
-  cy.mockService(GENERATE_PRESIGNED_URL,GENERATE_PRESIGNED_URL.RESPONSE.OK)
-  cy.mockService(SQS_CDA_DOCUMENTS,SQS_CDA_DOCUMENTS.RESPONSE.OK)
-  cy.mockService(UPLOAD_DOCUMENT,UPLOAD_DOCUMENT.RESPONSE.OK)
+  cy.mockService(GET_DOCUMENTS_TO_CHARGE,
+      GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
+  cy.mockService(GENERATE_PRESIGNED_URL, GENERATE_PRESIGNED_URL.RESPONSE.OK)
+  cy.mockService(SQS_CDA_DOCUMENTS, SQS_CDA_DOCUMENTS.RESPONSE.OK)
+  cy.mockService(UPLOAD_DOCUMENT, UPLOAD_DOCUMENT.RESPONSE.OK)
   cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
-  cy.mockService(PSE_CREATE_TRANSACTION,PSE_CREATE_TRANSACTION.RESPONSE.OK)
-  cy.mockService(SAVE_RESUMES_CDT,SAVE_RESUMES_CDT.RESPONSE.OK)
-  cy.mockService(PSE_CDT_REFUND_MONEY,PSE_CDT_REFUND_MONEY.RESPONSE.KO)
+  cy.mockService(PSE_CREATE_TRANSACTION, PSE_CREATE_TRANSACTION.RESPONSE.OK)
+  cy.mockService(SAVE_RESUMES_CDT, SAVE_RESUMES_CDT.RESPONSE.OK)
+  cy.mockService(PSE_CDT_REFUND_MONEY, PSE_CDT_REFUND_MONEY.RESPONSE.KO)
 
 })
 

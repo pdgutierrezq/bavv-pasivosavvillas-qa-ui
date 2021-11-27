@@ -12,7 +12,7 @@ describe('Sprint 67', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -55,7 +55,7 @@ describe('Sprint 67', function () {
         var flowConditions = { scr:false,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         var userConditions = { captcha:'ok',client: true, updated: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.waitLoader()
         cy.AcceptPep()

@@ -11,7 +11,7 @@ describe('Sprint 44', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true,insurance: 'true',updateCrm:'127'};
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
 
@@ -51,7 +51,7 @@ describe('Sprint 44', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true,insurance: 'true',updateCrm:'127'};
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        //cy.MockWs(userConditions)
+        //cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         //cy.PerformFlow(userConditions,flowConditions)
         cy.FillFormCDT()

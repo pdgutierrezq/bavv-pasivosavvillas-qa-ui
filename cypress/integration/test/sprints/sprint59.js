@@ -12,7 +12,7 @@ describe('Sprint 59', function () {
         var userConditions = { sds: 'PASS', channels: 'TRUE', client: true, updated: true, cat: false, summary: "x", insurance: 'false', getpdf: 'PASS' };
         var pause = true;
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false,environment:'stg'};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment)
         cy.waitLoader()
         cy.AcceptPep()
@@ -42,7 +42,7 @@ describe('Sprint 59', function () {
         var pause = false;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -65,7 +65,7 @@ describe('Sprint 59', function () {
         var pause = false;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(pause)
         cy.waitLoader()
         cy.Pause(pause)

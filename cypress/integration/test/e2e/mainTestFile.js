@@ -10,7 +10,7 @@ describe('test pasivo', function () {
         var userConditions = { client: false, updated: false, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -38,7 +38,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.get('#SubmitFormPEP', { timeout: 120000 }).should('be.visible')
@@ -89,7 +89,7 @@ describe('test pasivo', function () {
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
         cy.Sqs('success')
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -127,7 +127,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -162,7 +162,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -187,7 +187,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success', updateCrm:true };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'No', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -195,7 +195,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: false, docs: 'skip', sqs: 'success', updateCrm:true };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'No', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 /*
@@ -203,7 +203,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -211,7 +211,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: true, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -219,7 +219,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'No', gmf: false, declaring: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -227,7 +227,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'No', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -235,7 +235,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -243,7 +243,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: true, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -251,7 +251,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'No', gmf: false, declaring: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     }) */
 
@@ -263,7 +263,7 @@ describe('test pasivo', function () {
         const fileName = 'cc2.jpeg';
         //const fileName = 'files/cc1.jpeg';
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()

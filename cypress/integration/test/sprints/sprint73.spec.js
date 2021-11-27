@@ -11,7 +11,7 @@ describe('Sprint 73', function () {
         var pause = true;
         var flowConditions = {  environment: 'stg' ,declaring:true,userType:'sin cuentas'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -59,7 +59,7 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true,userType:'sin cuentas'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause,flowConditions.userType)
         cy.waitLoader()
         cy.AcceptPep()
@@ -102,7 +102,7 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -150,7 +150,7 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -203,7 +203,7 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.AcceptPep()
@@ -254,7 +254,7 @@ describe('Sprint 73', function () {
         var flowConditions = { scr:false,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         var userConditions = { docs:'Empleado',captcha:'ok',client: true, updated: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.waitLoader()
         cy.AcceptPep()

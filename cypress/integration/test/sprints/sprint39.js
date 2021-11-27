@@ -7,7 +7,7 @@ describe('Sprint 39', function () {
 
     // it('PBA-1290 otp errada', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 
@@ -25,7 +25,7 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 otp anulada', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 
@@ -43,7 +43,7 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 otp habilitar boton', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 
@@ -57,7 +57,7 @@ describe('Sprint 39', function () {
 
     // it('PBA-1290 limite validacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 
@@ -79,7 +79,7 @@ describe('Sprint 39', function () {
 
     // it('PBA-1290 limite generacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 
@@ -97,7 +97,7 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 limite generacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 
@@ -120,7 +120,7 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 restablecer validacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
     //     cy.waitLoader()
 

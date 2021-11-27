@@ -12,7 +12,7 @@ describe('test pasivo', function () {
     it('PBA-1288 Integrar redux a la aplicación', function () {
         var userConditions = {client: true,updated: false,cat: true,channles: true,docs: 'Empleado',sqs: 'success',generateUrl: 'two docs',loadPresigned: 'any'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage('stg')
         cy.AcceptPep()
@@ -47,7 +47,7 @@ describe('test pasivo', function () {
     it('PBA-1233 Redireccion actualizado a PEP', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage()
         cy.get('#SubmitFormPEP', { timeout: 120000 }).should('be.visible')
 
@@ -57,7 +57,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channles: true, docs: 'cc', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -101,7 +101,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()
@@ -148,7 +148,7 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage()
         cy.AcceptPep()

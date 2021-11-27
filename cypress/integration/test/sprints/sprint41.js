@@ -9,7 +9,7 @@ describe('Sprint 41', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: true,insurance: 'fail'};
         var flowConditions = { accountType: 'SIMPLE', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
     })
@@ -18,7 +18,7 @@ describe('Sprint 41', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: true,insurance: 'true'};
         var flowConditions = { accountType: 'PRO', insurance: 'true', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
     })
@@ -27,7 +27,7 @@ describe('Sprint 41', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: true,insurance: 'false'};
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
     })
@@ -36,7 +36,7 @@ describe('Sprint 41', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: true,insurance: 'false'};
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
     })

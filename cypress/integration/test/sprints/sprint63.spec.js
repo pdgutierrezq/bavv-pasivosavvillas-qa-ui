@@ -19,7 +19,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'prod' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -56,7 +56,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -100,7 +100,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -146,7 +146,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -193,7 +193,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -234,7 +234,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)
@@ -268,7 +268,7 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.waitLoader()
         cy.Pause(pause)

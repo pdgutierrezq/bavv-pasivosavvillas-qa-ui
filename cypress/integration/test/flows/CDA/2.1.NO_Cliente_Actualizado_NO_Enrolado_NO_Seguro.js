@@ -33,7 +33,7 @@ describe('CDA', function () {
         INSURANCE.NO)
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK, CRM.OK)
 
-    cy.MockWs(userConditions, user, flow)
+    cy.setMocks( user, flow)
     cy.fillBasicInformationPage()
     cy.waitLoader()
     cy.AcceptPep()

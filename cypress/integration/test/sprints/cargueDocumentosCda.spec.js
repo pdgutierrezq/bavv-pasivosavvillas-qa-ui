@@ -8,7 +8,7 @@ describe('Cargue de documentos CDA', function () {
         var flowConditions = { scr:false,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         var userConditions = {insurance:'false', captcha:'ok',client: false, updated: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.waitLoader()
         cy.AcceptPep(pause)
@@ -40,7 +40,7 @@ describe('Cargue de documentos CDA', function () {
         var pause = true;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
          cy.waitLoader()
          cy.AcceptPep()

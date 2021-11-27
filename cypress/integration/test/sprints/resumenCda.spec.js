@@ -8,7 +8,7 @@ describe('Cargue de documentos CDA', function () {
         var flowConditions = { scr:false,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         var userConditions = { captcha:'ok',client: true, updated: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.waitLoader()
         cy.AcceptPep()

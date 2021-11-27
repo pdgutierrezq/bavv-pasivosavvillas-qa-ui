@@ -11,7 +11,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, insurance: 'true', updateCrm: '127' };
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions, flowConditions)
 
@@ -51,7 +51,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: true, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(3000)
@@ -73,7 +73,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
 
@@ -120,7 +120,7 @@ describe('Sprint 46', function () {
     it.only('Pantalla cargue documentos CDT Empleado- Sprint 87', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false,environment:'stg'};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
 
@@ -167,7 +167,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'no docs'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -198,7 +198,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'cc'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -230,7 +230,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -261,7 +261,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -292,7 +292,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -324,7 +324,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -356,7 +356,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: true, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -378,7 +378,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -409,7 +409,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'fail'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -440,7 +440,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'no docs'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()
@@ -471,7 +471,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,updateCrm: '127'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.AcceptPep()

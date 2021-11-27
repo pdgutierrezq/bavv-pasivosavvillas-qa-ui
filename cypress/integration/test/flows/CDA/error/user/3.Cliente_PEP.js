@@ -20,7 +20,7 @@ describe('CDA', function () {
       pep: true
     };
 
-    cy.MockWs(userConditions, user, flow)
+    cy.setMocks( user, flow)
     cy.fillBasicInformationPage()
   })
 

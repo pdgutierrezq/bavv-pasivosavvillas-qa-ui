@@ -31,7 +31,7 @@ describe('Sprint 77', function () {
         INSURANCE.NO)
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
 
-    cy.MockWs(userConditions, user, flow)
+    cy.setMocks( user, flow)
     cy.FillHomePage(flowConditions.environment)
     // cy.pause(true)
     cy.FillCDTConfigurationPage(flowConditions.environment)

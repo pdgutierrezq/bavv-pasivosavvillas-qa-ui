@@ -7,7 +7,7 @@ describe('Sprint 77', function () {
     var pause = false;
     var flowConditions = { environment: 'stg', declaring: true, funding:'PSE',rend:'ACCOUNT',status:'APROBAR' };
 
-    cy.MockWs(userConditions)
+    cy.setMocks(userConditions)
     cy.PseFlow(flowConditions,pause)
   })
 

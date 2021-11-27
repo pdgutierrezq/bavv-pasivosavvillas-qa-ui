@@ -24,7 +24,7 @@ describe('CDA', function () {
       updated: false
     };
 
-    cy.MockWs(userConditions)
+    cy.setMocks(userConditions)
     cy.fillBasicInformationPage(flowConditions.environment, userConditions.scr)
     cy.waitLoader()
     cy.AcceptPep()

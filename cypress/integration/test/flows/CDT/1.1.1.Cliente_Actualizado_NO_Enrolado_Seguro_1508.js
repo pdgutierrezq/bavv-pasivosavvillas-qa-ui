@@ -27,7 +27,7 @@ describe('Sprint 77', function () {
     let flow = new Flow(RECAPTCHA.OK, OTP.CREATE.OK, OTP.VALIDATE.OK,CRM.OK)
     var flowConditions = {environment: 'dev', declaring: false,       return: false,
       channels: 'FALSE'};
-    cy.MockWs(userConditions, user, flow)
+    cy.setMocks( user, flow)
     cy.FillHomePage()
     cy.FillCDTConfigurationPage(flowConditions.environment)
     cy.waitLoader()

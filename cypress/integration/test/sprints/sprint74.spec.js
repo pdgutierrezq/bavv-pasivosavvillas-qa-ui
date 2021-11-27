@@ -10,7 +10,7 @@ describe('Sprint 74', function () {
         var flowConditions = { environment: 'stg' };
         var userConditions = { restrictList: true, captcha: 'ok', client: true, updated: true, return: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
         cy.waitLoader()
       
@@ -21,7 +21,7 @@ describe('Sprint 74', function () {
         var pause = false;
         var flowConditions = { environment: 'loc' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
 
 

@@ -10,7 +10,7 @@ describe('Sprint 52', function () {
     it('control  otp cda', function () {
         var userConditions = { client: false, updated: false, cat: false,docs: 'Empleado'};
         var time = 0;
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage('stg')
         cy.waitLoader()
@@ -28,7 +28,7 @@ describe('Sprint 52', function () {
         var flowConditions = { accountType: 'Digital', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
         var time = 0;
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.FillFormCDT()
         cy.waitLoader()
@@ -60,7 +60,7 @@ describe('Sprint 52', function () {
         var time = 0;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(time)
@@ -100,7 +100,7 @@ describe('Sprint 52', function () {
         var pause = true;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(time)
         cy.waitLoader()
 cy.Pause(pause)

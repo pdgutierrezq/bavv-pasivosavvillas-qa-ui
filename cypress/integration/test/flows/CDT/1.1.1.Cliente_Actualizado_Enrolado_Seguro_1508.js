@@ -33,7 +33,7 @@ describe('Sprint 77', function () {
         CRM.OK)
     var flowConditions = {environment: 'dev', declaring: false,       return: false,
       channels: 'FALSE'};
-    cy.MockWs(userConditions, user, flow)
+    cy.setMocks( user, flow)
     cy.FillHomePage()
     cy.FillCDTConfigurationPage(flowConditions.environment)
     cy.waitLoader()

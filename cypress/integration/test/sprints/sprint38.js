@@ -7,13 +7,13 @@ describe('Sprint 38', function () {
 
     it('PBA-1010 Pantalla para definir si es o no PEP', function () {
         var userConditions = { client: true, updated: true }
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.url().should('include', 'pep')
 
         var userConditions = { client: true, updated: false }
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.url().should('include', 'pep')
@@ -22,7 +22,7 @@ describe('Sprint 38', function () {
     it('PBA-1010 Re dirección al no cliente-1-updated', function () {
 
         var userConditions = { client: false, updated: true }
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
 
@@ -32,7 +32,7 @@ describe('Sprint 38', function () {
     it('PBA-1010 Re dirección al no cliente-1-not updated', function () {
 
         var userConditions = { client: false, updated: false }
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
 
@@ -42,7 +42,7 @@ describe('Sprint 38', function () {
     it('PBA-1010 Detalle de lo que es un PEP', function () {
 
         var userConditions = { client: true, updated: false }
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
 
         cy.get('.more-info').click()
@@ -181,7 +181,7 @@ describe('Sprint 38', function () {
     it('PBA-507 Validación no exitosa por código errado y muestra de mensaje.', function () {
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, environment: 'dev' };
         var userConditions = { client: true, updated: false, cat: false };
-         cy.MockWs(userConditions)
+         cy.setMocks(userConditions)
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
         cy.fillBasicInformationPage()
@@ -205,7 +205,7 @@ describe('Sprint 38', function () {
     it('PBA-507 Validación no exitosa por falla distinta a clave errada', function () {
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, environment: 'dev' };
         var userConditions = { client: true, updated: false, cat: false };
-         cy.MockWs(userConditions)
+         cy.setMocks(userConditions)
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
         cy.fillBasicInformationPage()
@@ -229,7 +229,7 @@ describe('Sprint 38', function () {
     it('PBA-507 Limite de validación de OTP', function () {
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, environment: 'dev' };
         var userConditions = { client: true, updated: false, cat: false };
-         cy.MockWs(userConditions)
+         cy.setMocks(userConditions)
          
         //Dado que el usuario esta la pantalla de autenticación
 
@@ -256,7 +256,7 @@ describe('Sprint 38', function () {
     it('PBA-507 error tecnico', function () {
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, environment: 'dev' };
         var userConditions = { client: true, updated: false, cat: false };
-         cy.MockWs(userConditions)
+         cy.setMocks(userConditions)
 
         // Dado que soy un usuario y estoy en la pantalla de validación de OTP
         cy.fillBasicInformationPage()

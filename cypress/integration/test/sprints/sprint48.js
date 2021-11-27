@@ -12,7 +12,7 @@ describe('Sprint 48', function () {
         var time = 5000;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(time)
@@ -73,7 +73,7 @@ describe('Sprint 48', function () {
         var time = 4000;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(time)
@@ -128,7 +128,7 @@ describe('Sprint 48', function () {
         var time = 5000;
 
         var flowConditions = { accountType: 'PRO', insurance: 'false', gmf: false, declaring: false, environment: 'stg' };
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage('dev')
         cy.waitLoader()

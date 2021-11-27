@@ -12,7 +12,7 @@ describe('Sprint 51', function () {
         var time = 0;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(time)
@@ -48,7 +48,7 @@ describe('Sprint 51', function () {
         var userConditions = { channels:'true',client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(time)
@@ -69,7 +69,7 @@ describe('Sprint 51', function () {
         var userConditions = { otp:"PASS",client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
         cy.waitLoader()
         cy.wait(time)
@@ -88,7 +88,7 @@ describe('Sprint 51', function () {
     it('control  otp cda', function () {
         var userConditions = { client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage('dev')
         cy.waitLoader()
@@ -115,7 +115,7 @@ describe('Sprint 51', function () {
     it('contador cda', function () {
         var userConditions = { otp:"PASS",client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
         cy.fillBasicInformationPage('dev')
         cy.waitLoader()

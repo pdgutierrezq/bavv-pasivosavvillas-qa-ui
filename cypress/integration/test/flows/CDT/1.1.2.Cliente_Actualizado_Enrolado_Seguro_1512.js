@@ -11,7 +11,7 @@ describe('Sprint 77', function () {
     };
     var pause = false;
     var flowConditions = {environment: 'dev', declaring: true};
-    cy.MockWs(userConditions)
+    cy.setMocks(userConditions)
     cy.FillHomePage(flowConditions.environment)
     cy.FillCDTConfigurationPage(flowConditions.environment)
     cy.waitLoader()
