@@ -5,7 +5,6 @@ const {READE_ACTIVE_CHANNELS_SERVICE} = require(
     "../services/customer/channels/read");
 const {Fixtures} = require("../data/fixtures");
 
-
 const BASIC_INFORMATION_FIXTURE = 'flow/pages/information_basic'
 const HOME_FIXTURE = 'flow/pages/home'
 
@@ -22,7 +21,8 @@ let User = class User {
     this.channels = channels
     this.fixtures = new Fixtures()
   }
-  static fixtures(){
+
+  static fixtures() {
     return this.fixtures()
   }
 }
