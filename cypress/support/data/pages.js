@@ -4,7 +4,8 @@ const {basicInformationSelectors} = require(
 const {pepSelectors} = require("../../selectors/pages/pep");
 const {accountSelectors} = require("../../selectors/pages/account");
 const {otpSelectors} = require("../../selectors/pages/otp");
-const {cardSelectors, confirmDevileryAddressPopupSelectors} = require("../../selectors/pages/card");
+const {cardSelectors, confirmDevileryAddressPopupSelectors} = require(
+    "../../selectors/pages/card");
 const {declaringSelectors} = require("../../selectors/pages/declaring");
 const {signatureSelectors} = require("../../selectors/pages/signature");
 const {tipsSelectors} = require("../../selectors/pages/tips");
@@ -13,7 +14,10 @@ const PAGES = {
   HOME: {
     name: "home",
     fixture: "flow/pages/home",
-    selectors: homeSelectors.form,
+    flow: {
+      selectors: homeSelectors.form,
+      wait: false
+    },
     selector: homeSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -23,7 +27,10 @@ const PAGES = {
   BASIC_INFORMATION: {
     name: "basicInformation",
     fixture: "flow/pages/information_basic",
-    selectors: basicInformationSelectors.form,
+    flow: {
+      selectors: basicInformationSelectors.form,
+      wait:true
+    },
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -33,7 +40,10 @@ const PAGES = {
   PEP: {
     name: "pep",
     fixture: "flow/pages/pep",
-    selectors: pepSelectors.form,
+    flow: {
+      selectors: pepSelectors.form,
+      wait:true
+    },
     selector: pepSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -43,7 +53,10 @@ const PAGES = {
   ACCOUNT: {
     name: "account",
     fixture: "flow/pages/account",
-    selectors: accountSelectors.form,
+    flow: {
+      selectors: accountSelectors.form,
+      wait:true
+    },
     selector: accountSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -53,7 +66,10 @@ const PAGES = {
   INSURANCE: {
     name: "insurance",
     fixture: "flow/pages/insurance",
-    selectors: insuranceSelectors.form,
+    flow: {
+      selectors: insuranceSelectors.form,
+      wait:true
+    },
     selector: insuranceSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -63,7 +79,10 @@ const PAGES = {
   OTP: {
     name: "otp",
     fixture: "flow/pages/otp",
-    selectors: otpSelectors.form,
+    flow: {
+      selectors: otpSelectors.form,
+      wait:true
+    },
     selector: otpSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -73,7 +92,10 @@ const PAGES = {
   CARD: {
     name: "card",
     fixture: "flow/pages/card",
-    selectors: cardSelectors.form,
+    flow: {
+      selectors: cardSelectors.form,
+      wait:false
+    },
     selector: cardSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -83,7 +105,10 @@ const PAGES = {
   CARD_CONFIRM_DELIVERY_ADDRESS_POPUP: {
     name: "confirmDeliveryAddressPopup",
     fixture: "flow/pages/card",
-    selectors: confirmDevileryAddressPopupSelectors.form,
+    flow: {
+      selectors: confirmDevileryAddressPopupSelectors.form,
+      wait:false
+    },
     selector: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     status: {
       pause: false,
@@ -93,7 +118,10 @@ const PAGES = {
   DECLARING: {
     name: "declaring",
     fixture: "flow/pages/declaring",
-    selectors: declaringSelectors.form,
+    flow: {
+      selectors: declaringSelectors.form,
+      wait:false
+    },
     selector: declaringSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -103,7 +131,10 @@ const PAGES = {
   SIGNATURE: {
     name: "signature",
     fixture: "flow/pages/signature",
-    selectors: signatureSelectors.form,
+    flow: {
+      selectors: signatureSelectors.form,
+      wait:true
+    },
     selector: signatureSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -113,7 +144,10 @@ const PAGES = {
   TIPS: {
     name: "tips",
     fixture: "flow/pages/tips",
-    selectors: tipsSelectors.form,
+    flow: {
+      selectors: tipsSelectors.form,
+      wait:false
+    },
     selector: tipsSelectors.form.nextPage.continue,
     status: {
       pause: false,

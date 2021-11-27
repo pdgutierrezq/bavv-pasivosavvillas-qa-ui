@@ -1,13 +1,7 @@
-Cypress.Commands.add("fillCommonPage",
-    (selectors, data, wait) => {
-      cy.formOperation("fill", selectors, data)
-      if (wait) {
+Cypress.Commands.add("fillPage",
+    (page) => {
+      cy.formOperation("fill", page.flow.selectors, page.data)
+      if (page.flow.wait) {
         cy.waitLoader()
       }
     })
-
-Cypress.Commands.add("fillPage",
-    (page, wait) => {
-      cy.fillCommonPage(page.selectors, page.data, wait)
-    })
-

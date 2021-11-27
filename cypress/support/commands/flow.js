@@ -1,35 +1,25 @@
 import {Fixtures} from "../data/fixtures";
-import {tipsSelectors} from "../../selectors/pages/tips";
-import {insuranceSelectors} from "../../selectors/pages/insurance";
-import {signatureSelectors} from "../../selectors/pages/signature";
-import {declaringSelectors} from "../../selectors/pages/declaring";
-import {
-  cardSelectors,
-  confirmDevileryAddressPopupSelectors
-} from "../../selectors/pages/card";
-import {otpSelectors} from "../../selectors/pages/otp";
-import {accountSelectors} from "../../selectors/pages/account";
-import {pepSelectors} from "../../selectors/pages/pep";
-import {basicInformationSelectors} from "../../selectors/pages/informationBasic";
 
-let data
+let data,homeUrl
 before(() => {
   cy.server()
   data = Fixtures.getInstance()
+  homeUrl = Cypress.env().list[0].cda.baseUrl
 });
 
 Cypress.Commands.add("executeFlow",
     (user, flow) => {
       cy.setMocks(user, flow)
-      cy.fillHomePage(data.home)
-      cy.fillPage(data.basicInformation, true)
-      cy.fillPage(data.pep, true)
-      cy.fillPage(data.account, true)
-      cy.fillPage(data.insurance, true)
-      cy.fillPage(data.otp, true)
-      cy.fillPage(data.card, false)
-      cy.fillPage(data.confirmDeliveryAddressPopup, false)
-      cy.fillPage(data.declaring, false)
-      cy.fillPage(data.signature, true)
-      cy.fillPage(data.tips, false)
+      cy.visit(homeUrl)
+      cy.fillPage(data.home)
+      cy.fillPage(data.basicInformation)
+      cy.fillPage(data.pep)
+      cy.fillPage(data.account)
+      cy.fillPage(data.insurance)
+      cy.fillPage(data.otp)
+      cy.fillPage(data.card)
+      cy.fillPage(data.confirmDeliveryAddressPopup)
+      cy.fillPage(data.declaring)
+      cy.fillPage(data.signature)
+      cy.fillPage(data.tips)
     })

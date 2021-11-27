@@ -17,11 +17,11 @@
 import './commandsCDT'
 import './enums'
 import './commands'
-import './commands/index'
+import './commands/mock'
+import './commands/mock'
 import './commands/mocks'
 import './commands/flow'
 import './commands/actions/common/forms.js'
-import './commands/actions/pages/home'
 import './commands/actions/pages/common'
 import './commands/actions/common/flow.js'
 import addContext from "mochawesome/addContext";
