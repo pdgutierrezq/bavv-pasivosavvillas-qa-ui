@@ -1,6 +1,7 @@
-import {Fixtures} from "../data/fixtures";
+import {Fixtures} from "../base/fixtures";
+import {FLOW} from "../base/flow";
 
-let data,homeUrl
+let data, homeUrl
 before(() => {
   cy.server()
   data = Fixtures.getInstance()
@@ -11,15 +12,18 @@ Cypress.Commands.add("executeFlow",
     (user, flow) => {
       cy.setMocks(user, flow)
       cy.visit(homeUrl)
-      cy.fillPage(data.home)
-      cy.fillPage(data.basicInformation)
-      cy.fillPage(data.pep)
-      cy.fillPage(data.account)
-      cy.fillPage(data.insurance)
-      cy.fillPage(data.otp)
-      cy.fillPage(data.card)
-      cy.fillPage(data.confirmDeliveryAddressPopup)
-      cy.fillPage(data.declaring)
-      cy.fillPage(data.signature)
-      cy.fillPage(data.tips)
+      cy.runPagesList(FLOW.BASIC.INITIAL,FLOW.INSURANCE,FLOW.BASIC.FINAL)
     })
+
+Cypress.Commands.add("runPagesList",
+    (...pagesLists) => {
+      for (let pages of pagesLists) {
+        for (let page of pages) {
+          cy.fillPage(data[page.name])
+        }
+      }
+    })
+
+module.exports = {
+  data
+}

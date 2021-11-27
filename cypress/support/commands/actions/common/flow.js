@@ -1,4 +1,4 @@
-import {PAGES} from "../../../data/pages";
+import {PAGES} from "../../../base/pages";
 
 Cypress.Commands.add("pauseAndScreenshot",
     (page) => {
