@@ -7,11 +7,14 @@ let Fixtures = class Fixtures {
 
   loadData() {
     for (let page in PAGES) {
-      let name =PAGES[page].name
-      let fixture =PAGES[page].fixture
-        cy.fixture(fixture).then((data) => {
-          this[name] = data
-        })
+      let name = PAGES[page].name
+      let selectors = PAGES[page].selectors
+      let fixture = PAGES[page].fixture
+      cy.fixture(fixture).then((data) => {
+        this[name]={}
+        this[name].data = data
+        this[name].selectors = selectors
+      })
     }
   }
 

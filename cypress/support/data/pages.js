@@ -11,8 +11,9 @@ const {tipsSelectors} = require("../../selectors/pages/tips");
 const {insuranceSelectors} = require("../../selectors/pages/insurance");
 const PAGES = {
   HOME: {
-    name: "homePage",
+    name: "home",
     fixture: "flow/pages/home",
+    selectors: homeSelectors.form,
     selector: homeSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -20,8 +21,9 @@ const PAGES = {
     }
   },
   BASIC_INFORMATION: {
-    name: "basicInformationPage",
+    name: "basicInformation",
     fixture: "flow/pages/information_basic",
+    selectors: basicInformationSelectors.form,
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -29,8 +31,9 @@ const PAGES = {
     }
   },
   PEP: {
-    name: "pepPage",
+    name: "pep",
     fixture: "flow/pages/pep",
+    selectors: pepSelectors.form,
     selector: pepSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -38,8 +41,9 @@ const PAGES = {
     }
   },
   ACCOUNT: {
-    name: "accountPage",
+    name: "account",
     fixture: "flow/pages/account",
+    selectors: accountSelectors.form,
     selector: accountSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -47,8 +51,9 @@ const PAGES = {
     }
   },
   INSURANCE: {
-    name: "insurancePage",
+    name: "insurance",
     fixture: "flow/pages/insurance",
+    selectors: insuranceSelectors.form,
     selector: insuranceSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -56,8 +61,9 @@ const PAGES = {
     }
   },
   OTP: {
-    name: "otpPage",
+    name: "otp",
     fixture: "flow/pages/otp",
+    selectors: otpSelectors.form,
     selector: otpSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -65,8 +71,9 @@ const PAGES = {
     }
   },
   CARD: {
-    name: "cardPage",
+    name: "card",
     fixture: "flow/pages/card",
+    selectors: cardSelectors.form,
     selector: cardSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -76,6 +83,7 @@ const PAGES = {
   CARD_CONFIRM_DELIVERY_ADDRESS_POPUP: {
     name: "confirmDeliveryAddressPopup",
     fixture: "flow/pages/card",
+    selectors: confirmDevileryAddressPopupSelectors.form,
     selector: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     status: {
       pause: false,
@@ -83,8 +91,9 @@ const PAGES = {
     }
   },
   DECLARING: {
-    name: "declaringPage",
+    name: "declaring",
     fixture: "flow/pages/declaring",
+    selectors: declaringSelectors.form,
     selector: declaringSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -92,8 +101,9 @@ const PAGES = {
     }
   },
   SIGNATURE: {
-    name: "signaturePage",
+    name: "signature",
     fixture: "flow/pages/signature",
+    selectors: signatureSelectors.form,
     selector: signatureSelectors.form.nextPage.continue,
     status: {
       pause: false,
@@ -101,8 +111,9 @@ const PAGES = {
     }
   },
   TIPS: {
-    name: "tipsPage",
+    name: "tips",
     fixture: "flow/pages/tips",
+    selectors: tipsSelectors.form,
     selector: tipsSelectors.form.nextPage.continue,
     status: {
       pause: false,
