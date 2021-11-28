@@ -14,6 +14,10 @@ import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
+import {CREATE_SDS_USER_SERVICE} from "../services/customer/sds/create";
+import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/save";
+import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
+import {USER_IDENTITY_CREATE_SERVICE} from "../services/security/user/identity/create";
 
 Cypress.Commands.add("setMocks", (mocks) => {
   cy.setMock(RECAPTCHA_SERVICE, mocks.recaptcha)
@@ -21,13 +25,13 @@ Cypress.Commands.add("setMocks", (mocks) => {
   cy.setMock(CUSTOMER_ACCOUNTS_SERVICE, mocks.account)
   cy.setMock(CUSTOMER_INSURANCE_SERVICE, mocks.insurance)
   // cy.setMock(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
-  // cy.setMock(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
+  // cy.setMock(USER_IDENTITY_CREATE_SERVICE, mocks.otpCreate)
   cy.setMock(UPDATE_DATA_CRM_SERVICE, mocks.crm)
-  // cy.setMock(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
-  // cy.setMock(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
+  cy.setMock(CREATE_SDS_USER_SERVICE, mocks.sdsUserService)
+  cy.setMock(SAVE_SUMMARY_TRANSACTION_SERVICE, mocks.saveSummaryTransaction)
   cy.setMock(READE_ACTIVE_CHANNELS_SERVICE, mocks.channels)
   cy.setMock(GET_PDF_SERVICE, mocks.pdf)
-  // cy.setMock(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
+  cy.setMock(CREATE_PRODUCT_PASIVE_SERVICE,mocks.createProductPasive)
   cy.setMock(GET_DOCUMENTS_TO_CHARGE, mocks.getDocumentsToCharge)
   cy.setMock(GENERATE_PRESIGNED_URL, mocks.generatePresignedUrl)
   cy.setMock(SQS_CDA_DOCUMENTS, mocks.sqsCdaDocuments)

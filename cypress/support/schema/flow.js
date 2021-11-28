@@ -24,18 +24,27 @@ const {SAVE_RESUMES_CDT} = require(
     "../model/services/transaction/summary/save-resumes-cdt");
 const {PSE_CDT_REFUND_MONEY} = require(
     "../model/services/pse/transaction/refund");
+const {CREATE_SDS_USER_SERVICE} = require(
+    "../model/services/customer/sds/create");
+const {SAVE_SUMMARY_TRANSACTION_SERVICE} = require(
+    "../model/services/transaction/summary/save");
+const {CREATE_PRODUCT_PASIVE_SERVICE} = require(
+    "../model/services/product/create");
 let FLOW = {
   DEFAULT: {
     mocks: {
+      recaptcha: RECAPTCHA.OK,
       condition: CONDITION.CLIENT.UPDATED,
       account: ACCOUNTS.CAT.YES,
       insurance: INSURANCE.YES,
-      channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
-      recaptcha: RECAPTCHA.OK,
       otpCreate: OTP.CREATE.OK,
       otpValidate: OTP.VALIDATE.OK,
+      channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
       crm: CRM.OK,
+      sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.KO,
+      saveSummaryTransaction: SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK,
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
+      createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,
       getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC,
       generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
       sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
