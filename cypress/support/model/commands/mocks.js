@@ -1,44 +1,47 @@
 import 'cypress-file-upload';
 import {RECAPTCHA_SERVICE} from "../services/security/recaptcha";
-import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
-import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
+import {CUSTOMER_CONDITION_SERVICE} from "../services/customer/conditions";
+import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {UPDATE_DATA_CRM_SERVICE} from "../services/customer/crm/update";
-import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
 import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
 import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
 import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
 import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
 import {UPLOAD_DOCUMENT} from "../services/customer/documents/upload-document";
+import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
 
-Cypress.Commands.add("setMocks", (user, flow) => {
-  cy.mockService(RECAPTCHA_SERVICE, flow.recaptcha)
-  cy.mockService(CUSTOMER_CONDITION_SERVICE, user.condition)
-  cy.mockService(CUSTOMER_ACCOUNTS_SERVICE, user.accounts)
-  cy.mockService(CUSTOMER_INSURANCE_SERVICE, user.insurance)
-  // cy.mockService(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
-  // cy.mockService(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
-  cy.mockService(UPDATE_DATA_CRM_SERVICE, flow.crm)
-  // cy.mockService(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
-  // cy.mockService(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
-  cy.mockService(READE_ACTIVE_CHANNELS_SERVICE, user.channels)
-  cy.mockService(GET_PDF_SERVICE, flow.pdf)
-  // cy.mockService(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
+Cypress.Commands.add("setMocks", (mocks) => {
+  cy.setMock(RECAPTCHA_SERVICE, mocks.recaptcha)
+  cy.setMock(CUSTOMER_CONDITION_SERVICE, mocks.condition)
+  cy.setMock(CUSTOMER_ACCOUNTS_SERVICE, mocks.account)
+  cy.setMock(CUSTOMER_INSURANCE_SERVICE, mocks.insurance)
+  // cy.setMock(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
+  // cy.setMock(USER_IDENTITY_CREATE_SERVICE, flow.otpCreate)
+  cy.setMock(UPDATE_DATA_CRM_SERVICE, mocks.crm)
+  // cy.setMock(CREATE_SDS_USER_SERVICE, CREATE_SDS_USER_SERVICE.RESPONSE.KO)
+  // cy.setMock(SAVE_SUMMARY_TRANSACTION_SERVICE, SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK)
+  cy.setMock(READE_ACTIVE_CHANNELS_SERVICE, mocks.channels)
+  cy.setMock(GET_PDF_SERVICE, mocks.pdf)
+  // cy.setMock(CREATE_PRODUCT_PASIVE_SERVICE,CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK)
+  cy.setMock(GET_DOCUMENTS_TO_CHARGE, mocks.getDocumentsToCharge)
+  cy.setMock(GENERATE_PRESIGNED_URL, mocks.generatePresignedUrl)
+  cy.setMock(SQS_CDA_DOCUMENTS, mocks.sqsCdaDocuments)
+  cy.setMock(UPLOAD_DOCUMENT, mocks.uploadDocument)
+  cy.setMock(PSE_BANK_LIST_SERVICE, mocks.pseBankList)
+  cy.setMock(PSE_CREATE_TRANSACTION, mocks.pseCreateTransaction)
+  cy.setMock(SAVE_RESUMES_CDT, mocks.saveResumesCdt)
+  cy.setMock(PSE_CDT_REFUND_MONEY, mocks.pseCdtRefundMoney)
+})
 
-  cy.mockService(GET_DOCUMENTS_TO_CHARGE,
-      GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC)
-  cy.mockService(GENERATE_PRESIGNED_URL, GENERATE_PRESIGNED_URL.RESPONSE.OK)
-  cy.mockService(SQS_CDA_DOCUMENTS, SQS_CDA_DOCUMENTS.RESPONSE.OK)
-  cy.mockService(UPLOAD_DOCUMENT, UPLOAD_DOCUMENT.RESPONSE.OK)
-  cy.mockService(PSE_BANK_LIST_SERVICE, PSE_BANK_LIST_SERVICE.RESPONSE.OK)
-  cy.mockService(PSE_CREATE_TRANSACTION, PSE_CREATE_TRANSACTION.RESPONSE.OK)
-  cy.mockService(SAVE_RESUMES_CDT, SAVE_RESUMES_CDT.RESPONSE.OK)
-  cy.mockService(PSE_CDT_REFUND_MONEY, PSE_CDT_REFUND_MONEY.RESPONSE.KO)
-
+Cypress.Commands.add("setMock", (service, mock) => {
+  if (typeof mock !== 'undefined') {
+    cy.mockService(service, mock)
+  }
 })
 
 Cypress.Commands.add("UserIdentityValidate", (option) => {

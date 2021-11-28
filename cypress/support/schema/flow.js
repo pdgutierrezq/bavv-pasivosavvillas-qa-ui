@@ -1,28 +1,76 @@
-const {PAGES} = require("./pages");
+const {PHASE} = require("./phase");
+const {RECAPTCHA} = require("../model/entities/properties/security/recaptcha");
+const {CONDITION} = require("../model/entities/properties/customer/conditions");
+const {ACCOUNTS} = require("../model/entities/properties/customer/accounts");
+const {INSURANCE} = require("../model/entities/properties/customer/insurance");
+const {READE_ACTIVE_CHANNELS_SERVICE} = require(
+    "../model/services/customer/channels/read");
+const {OTP} = require(
+    "../model/entities/properties/security/user/identity/otp");
+const {CRM} = require("../model/entities/properties/customer/crm/update");
+const {GET_PDF_SERVICE} = require("../model/services/customer/documents/pdf");
+const {GET_DOCUMENTS_TO_CHARGE} = require(
+    "../model/services/customer/documents/get-documents-to-charge");
+const {GENERATE_PRESIGNED_URL} = require(
+    "../model/services/customer/documents/generate-presigned-url");
+const {SQS_CDA_DOCUMENTS} = require(
+    "../model/services/customer/documents/sqs-cda-documents");
+const {UPLOAD_DOCUMENT} = require(
+    "../model/services/customer/documents/upload-document");
+const {PSE_BANK_LIST_SERVICE} = require("../model/services/pse/bank/list");
+const {PSE_CREATE_TRANSACTION} = require(
+    "../model/services/pse/transaction/create");
+const {SAVE_RESUMES_CDT} = require(
+    "../model/services/transaction/summary/save-resumes-cdt");
+const {PSE_CDT_REFUND_MONEY} = require(
+    "../model/services/pse/transaction/refund");
 let FLOW = {
-  BASIC: {
-    INITIAL: [
-      PAGES.HOME,
-      PAGES.BASIC_INFORMATION,
-      PAGES.PEP,
-      PAGES.ACCOUNT,
-    ],
-    FINAL: [
-      PAGES.OTP,
-      PAGES.CARD,
-      PAGES.CARD_CONFIRM_DELIVERY_ADDRESS_POPUP,
-      PAGES.DECLARING,
-      PAGES.SIGNATURE,
-      PAGES.TIPS,
-    ]
+  DEFAULT: {
+    mocks: {
+      condition: CONDITION.CLIENT.UPDATED,
+      account: ACCOUNTS.CAT.YES,
+      insurance: INSURANCE.YES,
+      channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
+      recaptcha: RECAPTCHA.OK,
+      otpCreate: OTP.CREATE.OK,
+      otpValidate: OTP.VALIDATE.OK,
+      crm: CRM.OK,
+      pdf: GET_PDF_SERVICE.RESPONSE.OK,
+      getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC,
+      generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
+      sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
+      uploadDocument: UPLOAD_DOCUMENT.RESPONSE.OK,
+      pseBankList: PSE_BANK_LIST_SERVICE.RESPONSE.OK,
+      pseCreateTransaction: PSE_CREATE_TRANSACTION.RESPONSE.OK,
+      saveResumesCdt: SAVE_RESUMES_CDT.RESPONSE.OK,
+      pseCdtRefundMoney: PSE_CDT_REFUND_MONEY.RESPONSE.KO
+    }
   },
-  INSURANCE: [
-    PAGES.INSURANCE,
-  ],
-  CUSTOMER: {},
-  UPDATED: {},
-  NO_UPDATED: {},
-  NO_CUSTOMER: {},
+  CLIENT: {
+    UPDATED: {
+      INSURANCE: {
+        YES: {
+          name: 'Cliente actualizado enrolado CON seguro',
+          phases: [
+            PHASE.BASIC.INITIAL,
+            PHASE.BASIC.FINAL
+          ],
+          mocks: {}
+        },
+        NO: {
+          name: 'Cliente actualizado enrolado SIN seguro',
+          phases: [
+            PHASE.BASIC.INITIAL,
+            PHASE.INSURANCE,
+            PHASE.BASIC.FINAL
+          ],
+          mocks: {
+            insurance: INSURANCE.NO,
+          }
+        }
+      }
+    }
+  },
 }
 
 module.exports = {

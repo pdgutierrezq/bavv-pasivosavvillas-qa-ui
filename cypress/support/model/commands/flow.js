@@ -9,14 +9,15 @@ before(() => {
 });
 
 Cypress.Commands.add("executeFlow",
-    (user, flow) => {
-      cy.setMocks(user, flow)
+    (flow) => {
+      cy.setMocks(FLOW.DEFAULT.mocks)
+      cy.setMocks(flow.mocks)
       cy.visit(homeUrl)
-      cy.runPagesList(FLOW.BASIC.INITIAL,FLOW.INSURANCE,FLOW.BASIC.FINAL)
+      cy.runPagesList(flow.phases)
     })
 
 Cypress.Commands.add("runPagesList",
-    (...pagesLists) => {
+    (pagesLists) => {
       for (let pages of pagesLists) {
         for (let page of pages) {
           cy.fillPage(data[page.name])
