@@ -1,11 +1,10 @@
-import {FLOW} from "../../../../../../../../../support/schema/flow";
-import user from "../../../../../../../../../support/schema/user";
+import {CDA} from "../../../../../../../../../support/schema/flow/cda";
 
-let flow = FLOW.CLIENT.UPDATED.INSURANCE.YES
+let flow = CDA.CLIENT.UPDATED.INSURANCE.YES
 
-describe(user.APP.CDA, function () {
+describe(CDA.NAME, function () {
   it(flow.name, function () {
-    cy.executeFlow(flow)
+    cy.executeFlow(CDA,flow)
   })
 })
 

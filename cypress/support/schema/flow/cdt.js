@@ -1,36 +1,43 @@
-const {PHASE} = require("./phase");
-const {RECAPTCHA} = require("../model/entities/properties/security/recaptcha");
-const {CONDITION} = require("../model/entities/properties/customer/conditions");
-const {ACCOUNTS} = require("../model/entities/properties/customer/accounts");
-const {INSURANCE} = require("../model/entities/properties/customer/insurance");
+const {PHASE} = require("../phase");
+const {RECAPTCHA} = require(
+    "../../model/entities/properties/security/recaptcha");
+const {CONDITION} = require(
+    "../../model/entities/properties/customer/conditions");
+const {ACCOUNTS} = require("../../model/entities/properties/customer/accounts");
+const {INSURANCE} = require(
+    "../../model/entities/properties/customer/insurance");
 const {READE_ACTIVE_CHANNELS_SERVICE} = require(
-    "../model/services/customer/channels/read");
+    "../../model/services/customer/channels/read");
 const {OTP} = require(
-    "../model/entities/properties/security/user/identity/otp");
-const {CRM} = require("../model/entities/properties/customer/crm/update");
-const {GET_PDF_SERVICE} = require("../model/services/customer/documents/pdf");
+    "../../model/entities/properties/security/user/identity/otp");
+const {CRM} = require("../../model/entities/properties/customer/crm/update");
+const {GET_PDF_SERVICE} = require(
+    "../../model/services/customer/documents/pdf");
 const {GET_DOCUMENTS_TO_CHARGE} = require(
-    "../model/services/customer/documents/get-documents-to-charge");
+    "../../model/services/customer/documents/get-documents-to-charge");
 const {GENERATE_PRESIGNED_URL} = require(
-    "../model/services/customer/documents/generate-presigned-url");
+    "../../model/services/customer/documents/generate-presigned-url");
 const {SQS_CDA_DOCUMENTS} = require(
-    "../model/services/customer/documents/sqs-cda-documents");
+    "../../model/services/customer/documents/sqs-cda-documents");
 const {UPLOAD_DOCUMENT} = require(
-    "../model/services/customer/documents/upload-document");
-const {PSE_BANK_LIST_SERVICE} = require("../model/services/pse/bank/list");
+    "../../model/services/customer/documents/upload-document");
+const {PSE_BANK_LIST_SERVICE} = require("../../model/services/pse/bank/list");
 const {PSE_CREATE_TRANSACTION} = require(
-    "../model/services/pse/transaction/create");
+    "../../model/services/pse/transaction/create");
 const {SAVE_RESUMES_CDT} = require(
-    "../model/services/transaction/summary/save-resumes-cdt");
+    "../../model/services/transaction/summary/save-resumes-cdt");
 const {PSE_CDT_REFUND_MONEY} = require(
-    "../model/services/pse/transaction/refund");
+    "../../model/services/pse/transaction/refund");
 const {CREATE_SDS_USER_SERVICE} = require(
-    "../model/services/customer/sds/create");
+    "../../model/services/customer/sds/create");
 const {SAVE_SUMMARY_TRANSACTION_SERVICE} = require(
-    "../model/services/transaction/summary/save");
+    "../../model/services/transaction/summary/save");
 const {CREATE_PRODUCT_PASIVE_SERVICE} = require(
-    "../model/services/product/create");
-let FLOW = {
+    "../../model/services/product/create");
+const user = require("../user");
+let CDT = {
+  NAME: user.APP.CDT,
+  URL: Cypress.env().list[0].cdt.baseUrl,
   DEFAULT: {
     mocks: {
       recaptcha: RECAPTCHA.OK,
@@ -61,17 +68,17 @@ let FLOW = {
         YES: {
           name: 'Cliente actualizado enrolado CON seguro',
           phases: [
-            PHASE.BASIC.INITIAL,
-            PHASE.BASIC.FINAL
+            PHASE.CDT.INITIAL,
+            PHASE.CDT.FINAL
           ],
           mocks: {}
         },
         NO: {
           name: 'Cliente actualizado enrolado SIN seguro',
           phases: [
-            PHASE.BASIC.INITIAL,
+            PHASE.CDT.INITIAL,
             PHASE.INSURANCE,
-            PHASE.BASIC.FINAL
+            PHASE.CDT.FINAL
           ],
           mocks: {
             insurance: INSURANCE.NO,
@@ -83,5 +90,5 @@ let FLOW = {
 }
 
 module.exports = {
-  FLOW
+  CDT
 };

@@ -1,10 +1,9 @@
-const {FLOW} = require("../../../../../../../../../support/schema/flow");
-const user = require("../../../../../../../../../support/schema/user");
+const {CDA} = require("../../../../../../../../../support/schema/flow/cda");
 
-let flow = FLOW.CLIENT.UPDATED.INSURANCE.NO
+let flow = CDA.CLIENT.UPDATED.INSURANCE.NO
 
-describe(user.APP.CDA, function () {
+describe(CDA.NAME, function () {
   it(flow.name, function () {
-    cy.executeFlow(flow)
+    cy.executeFlow(CDA,flow)
   })
 })

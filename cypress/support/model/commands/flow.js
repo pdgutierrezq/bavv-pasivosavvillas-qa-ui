@@ -1,18 +1,16 @@
 import {Fixtures} from "../../schema/fixtures";
-import {FLOW} from "../../schema/flow";
 
-let data, homeUrl
+let data
 before(() => {
   cy.server()
   data = Fixtures.getInstance()
-  homeUrl = Cypress.env().list[0].cda.baseUrl
 });
 
 Cypress.Commands.add("executeFlow",
-    (flow) => {
-      cy.setMocks(FLOW.DEFAULT.mocks)
+    (app,flow) => {
+      cy.setMocks(app.DEFAULT.mocks)
       cy.setMocks(flow.mocks)
-      cy.visit(homeUrl)
+      cy.visit(app.URL)
       cy.runPagesList(flow.phases)
     })
 

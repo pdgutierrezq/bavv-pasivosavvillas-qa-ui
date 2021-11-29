@@ -10,6 +10,7 @@ const {declaringSelectors} = require("../../selectors/pages/declaring");
 const {signatureSelectors} = require("../../selectors/pages/signature");
 const {tipsSelectors} = require("../../selectors/pages/tips");
 const {insuranceSelectors} = require("../../selectors/pages/insurance");
+const {cdtHomeSelectors} = require("../../selectors/pages/cdt/home");
 const PAGES = {
   HOME: {
     name: "home",
@@ -29,7 +30,7 @@ const PAGES = {
     fixture: "flow/pages/information_basic",
     flow: {
       selectors: basicInformationSelectors.form,
-      wait:true
+      wait: true
     },
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
@@ -42,7 +43,7 @@ const PAGES = {
     fixture: "flow/pages/pep",
     flow: {
       selectors: pepSelectors.form,
-      wait:true
+      wait: true
     },
     selector: pepSelectors.form.nextPage.continue,
     status: {
@@ -55,7 +56,7 @@ const PAGES = {
     fixture: "flow/pages/account",
     flow: {
       selectors: accountSelectors.form,
-      wait:true
+      wait: true
     },
     selector: accountSelectors.form.nextPage.continue,
     status: {
@@ -68,7 +69,7 @@ const PAGES = {
     fixture: "flow/pages/insurance",
     flow: {
       selectors: insuranceSelectors.form,
-      wait:true
+      wait: true
     },
     selector: insuranceSelectors.form.nextPage.continue,
     status: {
@@ -81,7 +82,7 @@ const PAGES = {
     fixture: "flow/pages/otp",
     flow: {
       selectors: otpSelectors.form,
-      wait:true
+      wait: true
     },
     selector: otpSelectors.form.nextPage.continue,
     status: {
@@ -94,7 +95,7 @@ const PAGES = {
     fixture: "flow/pages/card",
     flow: {
       selectors: cardSelectors.form,
-      wait:false
+      wait: false
     },
     selector: cardSelectors.form.nextPage.continue,
     status: {
@@ -107,7 +108,7 @@ const PAGES = {
     fixture: "flow/pages/card",
     flow: {
       selectors: confirmDevileryAddressPopupSelectors.form,
-      wait:false
+      wait: false
     },
     selector: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     status: {
@@ -120,7 +121,7 @@ const PAGES = {
     fixture: "flow/pages/declaring",
     flow: {
       selectors: declaringSelectors.form,
-      wait:false
+      wait: false
     },
     selector: declaringSelectors.form.nextPage.continue,
     status: {
@@ -133,7 +134,7 @@ const PAGES = {
     fixture: "flow/pages/signature",
     flow: {
       selectors: signatureSelectors.form,
-      wait:true
+      wait: true
     },
     selector: signatureSelectors.form.nextPage.continue,
     status: {
@@ -146,9 +147,22 @@ const PAGES = {
     fixture: "flow/pages/tips",
     flow: {
       selectors: tipsSelectors.form,
-      wait:false
+      wait: false
     },
     selector: tipsSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  CDT_HOME: {
+    name: "cdtHome",
+    fixture: "flow/pages/cdt/home",
+    flow: {
+      selectors: cdtHomeSelectors.form,
+      wait: false
+    },
+    selector: cdtHomeSelectors.form.nextPage.continue,
     status: {
       pause: false,
       screenshot: false
