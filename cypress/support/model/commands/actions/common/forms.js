@@ -1,13 +1,12 @@
-import {backend} from "../../../../../../a.cypress.ll/selectors/common/backend";
 
-Cypress.Commands.add("datePickToday", (automationId, trigger) => {
-  cy.get(automationId).should("be.visible").click();
-  cy.get(trigger).within(() => {
-    cy.get(backend.datePìcker.day).within(() => {
-      cy.get(backend.datePìcker.today).click();
-    });
-  });
-});
+// Cypress.Commands.add("datePickToday", (automationId, trigger) => {
+//   cy.get(automationId).should("be.visible").click();
+//   cy.get(trigger).within(() => {
+//     cy.get(backend.datePìcker.day).within(() => {
+//       cy.get(backend.datePìcker.today).click();
+//     });
+//   });
+// });
 
 Cypress.Commands.add("ddPick", (automationId, typeOption, row) => {
   cy.get(automationId).find(typeOption).focus();
@@ -118,18 +117,6 @@ Cypress.Commands.add("fillForm",
           });
       }
     });
-
-Cypress.Commands.add("selectFirstRowInTable", () => {
-  cy.get(backend.table.checkbox).first().click();
-});
-
-Cypress.Commands.add("tableIsNotEmpty", () => {
-  cy.get(backend.table.tableBody).should("not.be.empty");
-});
-
-Cypress.Commands.add("mainLoaderIsNotVisible", () => {
-  cy.get(backend.loader.mainLoader).should("not.exist");
-});
 
 //receives the div.row where the datePicker is on it and then you can send a number
 //that will correspond with a calendar day inside the current month, and the second number
