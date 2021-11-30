@@ -1,3 +1,16 @@
+Cypress.Commands.add("interceptService", (service) => {
+  cy.route({
+    method: service.METHOD,
+    url: service.URL
+  }).as(getAlias(service))
+})
+Cypress.Commands.add("waitService", (service) => {
+  cy.wait('@' + getAlias(service),{
+    requestTimeout:30000,
+    responseTimeout: 30000,
+  })
+})
+
 Cypress.Commands.add("mockService", (service, response) => {
   // let endpoint = {
   //   method: service.METHOD,

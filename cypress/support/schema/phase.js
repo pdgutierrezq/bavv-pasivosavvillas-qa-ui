@@ -19,9 +19,9 @@ let PHASE = {
   CDT: {
     INITIAL: [
       PAGES.CDT_HOME,
-      PAGES.BASIC_INFORMATION,
+      PAGES.CDT_BASIC_INFORMATION,
       PAGES.PEP,
-      PAGES.ACCOUNT,
+      PAGES.CDT_CONFIG,
     ],
     FINAL: [
       PAGES.OTP,

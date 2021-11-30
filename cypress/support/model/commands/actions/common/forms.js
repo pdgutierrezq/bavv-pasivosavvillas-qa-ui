@@ -1,4 +1,3 @@
-
 // Cypress.Commands.add("datePickToday", (automationId, trigger) => {
 //   cy.get(automationId).should("be.visible").click();
 //   cy.get(trigger).within(() => {
@@ -32,14 +31,24 @@ Cypress.Commands.add(
 
 Cypress.Commands.add(
     "fieldOperation",
-    (operation, id, typeOption, setValue) => {
-      if (setValue != undefined) {
+    (operation, id, typeOption, value) => {
+      let selector = id
+      let interceptors
+      if (typeof selector !== 'string') {
+        selector = id.selector
+        interceptors = id.interceptors
+        // cy.interceptService(interceptors)
+      }
+      if (value != undefined) {
         if (operation == "fill") {
-          cy.fillForm(id, typeOption, setValue);
+          cy.fillForm(selector, typeOption, value);
+          if (interceptors !== undefined) {
+            // cy.waitService(interceptors)
+          }
         }
         if (operation == "validate") {
-          cy.ValidateFields(id, typeOption,
-              setValue);
+          cy.ValidateFields(selector, typeOption,
+              value);
         }
       }
     }
@@ -47,7 +56,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("formOperation", (operation, selectors, data) => {
   const types = ["input", "select", "textarea", "inputRaw", "selectRaw", "div",
-    "checkbox",'nextPage','radio','inputsContainer'];
+    "checkbox", 'nextPage', 'radio', 'inputsContainer'];
   if (data != undefined) {
     if (`${selectors.tab}` != "undefined") {
       cy.get(`${selectors.tab}`).click();
@@ -60,7 +69,7 @@ Cypress.Commands.add("formOperation", (operation, selectors, data) => {
         ) {
           cy.fieldOperation(
               operation,
-              `${selectors[type][property]}`,
+              selectors[type][property],
               type,
               `${data[property]}`
           );
@@ -96,10 +105,13 @@ Cypress.Commands.add("fillForm",
           }
           break;
         case 'nextPage':
-            cy.nextPage(automationId,setValue)
+          cy.nextPage(automationId, setValue)
           break;
         case 'inputsContainer':
           cy.get(automationId).first().type(setValue);
+          break;
+        case 'button':
+          cy.clickWithTimeout(automationId, setValue)
           break;
         default:
           cy.get(automationId).within(() => {

@@ -1,6 +1,6 @@
 const RECAPTCHA_SERVICE = {
   METHOD: 'POST',
-  URL: '**/recaptchaV3',
+  URL: '**/recaptchaV3**',
   RESPONSE: {
     KO: {
       STATUS: 500,

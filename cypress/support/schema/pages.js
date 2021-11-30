@@ -11,6 +11,7 @@ const {signatureSelectors} = require("../../selectors/pages/signature");
 const {tipsSelectors} = require("../../selectors/pages/tips");
 const {insuranceSelectors} = require("../../selectors/pages/insurance");
 const {cdtHomeSelectors} = require("../../selectors/pages/cdt/home");
+const {cdtConfigSelectors} = require("../../selectors/pages/cdt/config");
 const PAGES = {
   HOME: {
     name: "home",
@@ -34,7 +35,7 @@ const PAGES = {
     },
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -47,7 +48,7 @@ const PAGES = {
     },
     selector: pepSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -167,7 +168,33 @@ const PAGES = {
       pause: false,
       screenshot: false
     }
-  }
+  },
+  CDT_BASIC_INFORMATION: {
+    name: "cdtBasicInformation",
+    fixture: "flow/pages/cdt/information_basic",
+    flow: {
+      selectors: basicInformationSelectors.form,
+      wait: true
+    },
+    selector: basicInformationSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  CDT_CONFIG: {
+    name: "cdtConfig",
+    fixture: "flow/pages/cdt/config",
+    flow: {
+      selectors: cdtConfigSelectors.form,
+      wait: true
+    },
+    selector: cdtConfigSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
 }
 
 module.exports = {

@@ -14,10 +14,16 @@ Cypress.Commands.add("nextPage",
         let selector = PAGES[page].selector
         if (selector === automationId) {
           cy.pauseAndScreenshot(PAGES[page].status)
-          cy.get(automationId, {timeout: timeout}).should('be.enabled')
-          cy.get(automationId).click()
+          cy.clickWithTimeout(automationId, timeout)
+          break
         }
       }
+    })
+
+Cypress.Commands.add("clickWithTimeout",
+    (automationId, timeout) => {
+      cy.get(automationId, {timeout: timeout}).should('be.enabled')
+      cy.get(automationId).click()
     })
 
 Cypress.Commands.add("waitLoader", () => {
