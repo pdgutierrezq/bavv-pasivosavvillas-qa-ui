@@ -1,7 +1,6 @@
 Cypress.Commands.add("interceptService", (service) => {
-  cy.route({
-    method: service.METHOD,
-    url: service.URL
+  cy.route2({
+    url: service.URL,response:{status:200}
   }).as(getAlias(service))
 })
 Cypress.Commands.add("waitService", (service) => {

@@ -1,5 +1,6 @@
 {
-  "amount": 500000,
-  "term": 365,
-  "continue": 2000
+    "amount": 500000,
+    "term": 365,
+    "waitLoader": 1000,
+    "continue": 0
 }

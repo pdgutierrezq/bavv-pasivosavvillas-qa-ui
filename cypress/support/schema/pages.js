@@ -35,7 +35,7 @@ const PAGES = {
     },
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
-      pause: true,
+      pause: false,
       screenshot: false
     }
   },
@@ -48,7 +48,7 @@ const PAGES = {
     },
     selector: pepSelectors.form.nextPage.continue,
     status: {
-      pause: true,
+      pause: false,
       screenshot: false
     }
   },

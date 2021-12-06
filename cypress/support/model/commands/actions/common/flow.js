@@ -26,10 +26,8 @@ Cypress.Commands.add("clickWithTimeout",
       cy.get(automationId).click()
     })
 
-Cypress.Commands.add("waitLoader", () => {
-  // cy.get('.blobs').should('be.visible')
-  // cy.get('.blobs',{timeout:60000}).should('not.exist')
-
+Cypress.Commands.add("waitLoader", (sleep=0) => {
+  cy.wait(sleep)
   cy.get("body").then($body => {
     if ($body.find(".blobs").length > 0) {
       //evaluates as true if button exists at all
