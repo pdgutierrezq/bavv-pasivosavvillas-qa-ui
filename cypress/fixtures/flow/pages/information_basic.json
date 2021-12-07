@@ -8,5 +8,6 @@
   "secondLastName": "Spider-Man",
   "monthlyIncome": 2000000,
   "authorization": true,
+  "recaptcha": 0,
   "continue": 0
 }

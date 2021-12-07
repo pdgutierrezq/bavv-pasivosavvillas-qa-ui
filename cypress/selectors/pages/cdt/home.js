@@ -9,8 +9,8 @@ var cdtHomeSelectors = {
         interceptors: RECAPTCHA_SERVICE
       }
     },
-    loader: {
-      waitLoader: ''
+    waitEvent: {
+      loader: '.blobs'
     },
     nextPage: {
       continue: '.avv-btn-primary'

@@ -40,6 +40,22 @@ Cypress.Commands.add("waitLoader", (sleep=0) => {
       //you get here if the button DOESN'T EXIST
       assert.isOk('everything', 'everything is OK');
     }
-  });
+  })
+})
 
+Cypress.Commands.add("waitEvent", (selector = null, sleep = 0) => {
+  cy.wait(Number(sleep))
+  if (selector !== null) {
+    cy.get("body").then($body => {
+      if ($body.find(selector).length > 0) {
+        cy.get(selector).then(($el) => {
+          if (Cypress.dom.isVisible($el)) {
+            cy.get(selector, {timeout: 60000}).should('not.exist')
+          }
+        })
+      } else {
+        assert.isOk('OK', 'Component: ' + selector + ' loaded correctly');
+      }
+    });
+  }
 })

@@ -13,6 +13,9 @@ var basicInformationSelectors = {
     checkbox: {
       authorization: '#CheckHabeasData'
     },
+    waitEvent: {
+      recaptcha: '.div.rc-anchor-logo-large'
+    },
     nextPage: {
       continue: '#SubmitFormUserIdentification'
     }
