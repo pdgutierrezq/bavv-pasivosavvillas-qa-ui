@@ -27,7 +27,7 @@ let PHASE = {
       PAGES.OTP,
       PAGES.CDT_ACCOUNT_CONFIG,
       PAGES.DECLARING,
-      PAGES.SIGNATURE,
+      PAGES.CDT_SIGNATURE,
       PAGES.TIPS,
     ]
   },

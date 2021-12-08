@@ -12,6 +12,8 @@ const {tipsSelectors} = require("../../selectors/pages/tips");
 const {insuranceSelectors} = require("../../selectors/pages/insurance");
 const {cdtHomeSelectors} = require("../../selectors/pages/cdt/home");
 const {cdtConfigSelectors} = require("../../selectors/pages/cdt/config");
+const {cdtAccountConfigSelectors} = require(
+    "../../selectors/pages/cdt/accountConfig");
 const PAGES = {
   HOME: {
     name: "home",
@@ -195,6 +197,32 @@ const PAGES = {
       screenshot: false
     }
   },
+  CDT_ACCOUNT_CONFIG: {
+    name: "cdtAccountConfig",
+    fixture: "flow/pages/cdt/accountConfig",
+    flow: {
+      selectors: cdtAccountConfigSelectors.form,
+      wait: true
+    },
+    selector: cdtAccountConfigSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  CDT_SIGNATURE: {
+    name: "cdtSignature",
+    fixture: "flow/pages/cdt/signature",
+    flow: {
+      selectors: signatureSelectors.form,
+      wait: true
+    },
+    selector: signatureSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  }
 }
 
 module.exports = {
