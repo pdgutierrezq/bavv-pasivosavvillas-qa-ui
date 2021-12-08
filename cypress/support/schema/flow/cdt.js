@@ -48,7 +48,7 @@ let CDT = {
       otpValidate: OTP.VALIDATE.OK,
       channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
       crm: CRM.OK,
-      sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.KO,
+      sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.OK,
       saveSummaryTransaction: SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK,
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
       createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,
@@ -63,28 +63,60 @@ let CDT = {
     }
   },
   CLIENT: {
-    UPDATED: {
-      INSURANCE: {
-        YES: {
-          name: 'Cliente actualizado enrolado CON seguro',
-          phases: [
-            PHASE.CDT.INITIAL,
-            PHASE.CDT.FINAL
-          ],
-          mocks: {}
-        },
-        NO: {
-          name: 'Cliente actualizado enrolado SIN seguro',
-          phases: [
-            PHASE.CDT.INITIAL,
-            PHASE.INSURANCE,
-            PHASE.CDT.FINAL
-          ],
-          mocks: {
-            insurance: INSURANCE.NO,
+    YES: {
+      UPDATED: {
+        YES:{
+          ENROLLED: {
+            YES: {
+              name: 'Cliente actualizado enrolado',
+              phases: [
+                PHASE.CDT.INITIAL,
+                PHASE.CDT.FINAL
+              ],
+              mocks: {}
+            },
+            NO: {
+              name: 'Cliente actualizado enrolado NO enrolado',
+              phases: [
+                PHASE.CDT.INITIAL,
+                PHASE.CDT.FINAL,
+                PHASE.ENROLLMENT
+              ],
+              mocks: {
+                channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.FALSE,
+                sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.OK,
+              }
+            }
           }
         }
       }
+    },
+    NO: {
+      UPDATED: {
+        NO: {
+          INSURANCE: {
+            YES: {
+              name: 'NO Cliente NO actualizado NO enrolado SIN seguro',
+              phases: [
+                PHASE.CDT.INITIAL,
+                PHASE.CDT.FINAL
+              ],
+              mocks: {}
+            },
+            NO: {
+              name: 'NO Cliente NO actualizado NO enrolado SIN seguro',
+              phases: [
+                PHASE.CDT.INITIAL,
+                PHASE.INSURANCE,
+                PHASE.CDT.FINAL
+              ],
+              mocks: {
+                insurance: INSURANCE.NO,
+              }
+            }
+          }
+        }
+      },
     }
   },
 }

@@ -2,5 +2,5 @@
   "productConditions": true,
   "digitalSignature": true,
   "underConsent": true,
-  "continue": 0
+  "continue": 1000
 }

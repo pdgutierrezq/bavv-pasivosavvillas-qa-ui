@@ -28,11 +28,16 @@ let PHASE = {
       PAGES.CDT_ACCOUNT_CONFIG,
       PAGES.DECLARING,
       PAGES.CDT_SIGNATURE,
-      PAGES.TIPS,
+    ],
+    SUMMARY: [
+      PAGES.TIPS
     ]
   },
   INSURANCE: [
     PAGES.INSURANCE,
+  ],
+  ENROLLMENT: [
+    PAGES.ENROLLMENT
   ],
   CUSTOMER: {},
   UPDATED: {},

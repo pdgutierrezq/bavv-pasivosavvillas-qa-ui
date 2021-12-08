@@ -14,6 +14,7 @@ const {cdtHomeSelectors} = require("../../selectors/pages/cdt/home");
 const {cdtConfigSelectors} = require("../../selectors/pages/cdt/config");
 const {cdtAccountConfigSelectors} = require(
     "../../selectors/pages/cdt/accountConfig");
+const {enrollmentSelectors} = require("../../selectors/pages/enrollment");
 const PAGES = {
   HOME: {
     name: "home",
@@ -140,6 +141,19 @@ const PAGES = {
       wait: true
     },
     selector: signatureSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  ENROLLMENT: {
+    name: "enrollment",
+    fixture: "flow/pages/enrollment",
+    flow: {
+      selectors: enrollmentSelectors.form,
+      wait: true
+    },
+    selector: enrollmentSelectors.form.nextPage.continue,
     status: {
       pause: false,
       screenshot: false
