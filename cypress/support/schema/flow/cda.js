@@ -71,6 +71,7 @@ let CDA = {
               name: 'Cliente actualizado enrolado CON seguro',
               phases: [
                 PHASE.CDA.INITIAL,
+                PHASE.IDENTIFICATION,
                 PHASE.CDA.FINAL
               ],
               mocks: {}
@@ -80,6 +81,7 @@ let CDA = {
               phases: [
                 PHASE.CDA.INITIAL,
                 PHASE.INSURANCE,
+                PHASE.IDENTIFICATION,
                 PHASE.CDA.FINAL
               ],
               mocks: {
@@ -111,6 +113,7 @@ let CDA = {
               phases: [
                 PHASE.CDA.INITIAL,
                 PHASE.INSURANCE,
+                PHASE.IDENTIFICATION,
                 PHASE.CDA.FINAL
               ],
               mocks: {

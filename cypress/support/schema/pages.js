@@ -23,6 +23,8 @@ const {contactInformationSelectors} = require(
     "../../selectors/pages/contactInformation");
 const {foreignInformationSelectors} = require(
     "../../selectors/pages/foreignInformation");
+const {financialInformationSelectors} = require(
+    "../../selectors/pages/financialnInformation");
 const PAGES = {
   HOME: {
     name: "home",
@@ -149,6 +151,19 @@ const PAGES = {
       wait: true
     },
     selector: foreignInformationSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  FINANCIAL_INFORMATION: {
+    name: "financialInformation",
+    fixture: "flow/pages/financial_information",
+    flow: {
+      selectors: financialInformationSelectors.form,
+      wait: true
+    },
+    selector: financialInformationSelectors.form.nextPage.continue,
     status: {
       pause: false,
       screenshot: false

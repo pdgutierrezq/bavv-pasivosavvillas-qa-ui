@@ -71,6 +71,7 @@ let CDT = {
               name: 'Cliente actualizado enrolado',
               phases: [
                 PHASE.CDT.INITIAL,
+                PHASE.IDENTIFICATION,
                 PHASE.CDT.FINAL
               ],
               mocks: {}
@@ -79,6 +80,7 @@ let CDT = {
               name: 'Cliente actualizado enrolado NO enrolado',
               phases: [
                 PHASE.CDT.INITIAL,
+                PHASE.IDENTIFICATION,
                 PHASE.CDT.FINAL,
                 PHASE.ENROLLMENT
               ],
@@ -111,6 +113,7 @@ let CDT = {
               name: 'NO Cliente actualizado enrolado NO enrolado',
               phases: [
                 PHASE.CDT.INITIAL,
+                PHASE.IDENTIFICATION,
                 PHASE.CDT.FINAL,
                 PHASE.ENROLLMENT
               ],
@@ -127,6 +130,7 @@ let CDT = {
               name: 'NO Cliente NO actualizado NO enrolado SIN seguro',
               phases: [
                 PHASE.CDT.INITIAL,
+                PHASE.IDENTIFICATION,
                 PHASE.CDT.FINAL
               ],
               mocks: {}
@@ -136,6 +140,7 @@ let CDT = {
               phases: [
                 PHASE.CDT.INITIAL,
                 PHASE.INSURANCE,
+                PHASE.IDENTIFICATION,
                 PHASE.CDT.FINAL
               ],
               mocks: {
