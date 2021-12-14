@@ -17,6 +17,8 @@ const {cdtAccountConfigSelectors} = require(
 const {enrollmentSelectors} = require("../../selectors/pages/enrollment");
 const {personalInformationSelectors} = require(
     "../../selectors/pages/personalInformation");
+const {economicActivitySelectors} = require(
+    "../../selectors/pages/economicActivity");
 const PAGES = {
   HOME: {
     name: "home",
@@ -104,6 +106,19 @@ const PAGES = {
       wait: true
     },
     selector: personalInformationSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  ECONOMIC_ACTIVITY: {
+    name: "economicActivity",
+    fixture: "flow/pages/economic_activity",
+    flow: {
+      selectors: economicActivitySelectors.form,
+      wait: true
+    },
+    selector: economicActivitySelectors.form.nextPage.continue,
     status: {
       pause: false,
       screenshot: false

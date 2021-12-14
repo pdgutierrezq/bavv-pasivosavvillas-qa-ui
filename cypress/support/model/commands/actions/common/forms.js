@@ -57,7 +57,7 @@ Cypress.Commands.add(
 Cypress.Commands.add("formOperation", (operation, selectors, data) => {
   const types = ["input", "select", "textarea", "inputRaw", "selectRaw", "div",
     "checkbox", 'nextPage', 'radio', 'inputsContainer', "waitEvent",
-    'calendar'];
+    'calendar', 'radioOption'];
   if (data != undefined) {
     if (`${selectors.tab}` != "undefined") {
       cy.get(`${selectors.tab}`).click();
@@ -119,6 +119,9 @@ Cypress.Commands.add("fillForm",
           break;
         case 'calendar':
           cy.calendar(automationId, setValue)
+          break;
+        case 'radioOption':
+          cy.get(automationId+':contains("'+setValue+'")').click();
           break;
         default:
           cy.get(automationId).within(() => {
