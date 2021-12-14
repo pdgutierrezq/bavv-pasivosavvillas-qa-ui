@@ -19,6 +19,8 @@ const {personalInformationSelectors} = require(
     "../../selectors/pages/personalInformation");
 const {economicActivitySelectors} = require(
     "../../selectors/pages/economicActivity");
+const {contactInformationSelectors} = require(
+    "../../selectors/pages/contactInformation");
 const PAGES = {
   HOME: {
     name: "home",
@@ -119,6 +121,19 @@ const PAGES = {
       wait: true
     },
     selector: economicActivitySelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  CONTACT_INFORMATION: {
+    name: "contactInformation",
+    fixture: "flow/pages/contact_information",
+    flow: {
+      selectors: contactInformationSelectors.form,
+      wait: true
+    },
+    selector: contactInformationSelectors.form.nextPage.continue,
     status: {
       pause: false,
       screenshot: false

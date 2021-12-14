@@ -1,0 +1,13 @@
+{
+  "email": "mail@mail.com",
+  "emailConfirmation": "mail@mail.com",
+  "mobileNumber": "6776655",
+  "homeAddress": "direccion de envio de tarjeta",
+  "neighborhood": "adlBarriotest",
+  "city": "bogo{downarrow}{enter}",
+  "companyName": "adltestpasivo",
+  "workPhone": "6677990",
+  "workAddress": "direccion de prueba empresa",
+  "workCity": "bogo{downarrow}{enter}",
+  "continue": 0
+}
