@@ -52,7 +52,7 @@ let CDA = {
       saveSummaryTransaction: SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK,
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
       createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,
-      getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC,
+      getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.ALL,
       generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
       sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
       uploadDocument: UPLOAD_DOCUMENT.RESPONSE.OK,
@@ -99,7 +99,7 @@ let CDA = {
               phases: [
                 PHASE.CDA.INITIAL,
                 PHASE.IDENTIFICATION,
-                PHASE.NO_CLIENT,
+                PHASE.CDA.NO_CLIENT,
                 PHASE.CDA.FINAL
               ],
               mocks: {

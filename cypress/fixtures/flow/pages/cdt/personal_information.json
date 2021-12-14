@@ -1,0 +1,12 @@
+{
+  "birthDateDay": "14",
+  "birthDateMonth": "F{downarrow}{enter}",
+  "birthDateYear": "1989",
+  "birthCity": "Bogota",
+  "expeditionCity": "Bogota",
+  "expeditionDateDay": "10",
+  "expeditionDateMonth": "F{downarrow}{enter}",
+  "expeditionDateYear": "2019",
+  "male": true,
+  "continue": 0
+}

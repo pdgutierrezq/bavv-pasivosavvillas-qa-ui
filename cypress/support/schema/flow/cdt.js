@@ -52,7 +52,7 @@ let CDT = {
       saveSummaryTransaction: SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK,
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
       createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,
-      getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.NO_CC,
+      getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.ALL,
       generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
       sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
       uploadDocument: UPLOAD_DOCUMENT.RESPONSE.OK,
@@ -65,7 +65,7 @@ let CDT = {
   CLIENT: {
     YES: {
       UPDATED: {
-        YES:{
+        YES: {
           ENROLLED: {
             YES: {
               name: 'Cliente actualizado enrolado',
@@ -93,6 +93,34 @@ let CDT = {
     },
     NO: {
       UPDATED: {
+        YES: {
+          ENROLLED: {
+            YES: {
+              name: 'NO Cliente actualizado enrolado',
+              phases: [
+                PHASE.CDT.INITIAL,
+                PHASE.IDENTIFICATION,
+                PHASE.CDT.NO_CLIENT,
+                PHASE.CDT.FINAL
+              ],
+              mocks: {
+                condition: CONDITION.NO_CLIENT.UPDATED,
+              }
+            },
+            NO: {
+              name: 'NO Cliente actualizado enrolado NO enrolado',
+              phases: [
+                PHASE.CDT.INITIAL,
+                PHASE.CDT.FINAL,
+                PHASE.ENROLLMENT
+              ],
+              mocks: {
+                channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.FALSE,
+                sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.OK,
+              }
+            }
+          }
+        },
         NO: {
           INSURANCE: {
             YES: {

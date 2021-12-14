@@ -21,6 +21,8 @@ const {economicActivitySelectors} = require(
     "../../selectors/pages/economicActivity");
 const {contactInformationSelectors} = require(
     "../../selectors/pages/contactInformation");
+const {foreignInformationSelectors} = require(
+    "../../selectors/pages/foreignInformation");
 const PAGES = {
   HOME: {
     name: "home",
@@ -134,6 +136,19 @@ const PAGES = {
       wait: true
     },
     selector: contactInformationSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
+  FOREIGN_INFORMATION: {
+    name: "foreignInformation",
+    fixture: "flow/pages/foreign_information",
+    flow: {
+      selectors: foreignInformationSelectors.form,
+      wait: true
+    },
+    selector: foreignInformationSelectors.form.nextPage.continue,
     status: {
       pause: false,
       screenshot: false
@@ -281,7 +296,20 @@ const PAGES = {
       pause: false,
       screenshot: false
     }
-  }
+  },
+  CDT_PERSONAL_INFORMATION: {
+    name: "cdtPersonalInformation",
+    fixture: "flow/pages/cdt/personal_information",
+    flow: {
+      selectors: personalInformationSelectors.form,
+      wait: true
+    },
+    selector: personalInformationSelectors.form.nextPage.continue,
+    status: {
+      pause: false,
+      screenshot: false
+    }
+  },
 }
 
 module.exports = {
