@@ -56,7 +56,8 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("formOperation", (operation, selectors, data) => {
   const types = ["input", "select", "textarea", "inputRaw", "selectRaw", "div",
-    "checkbox", 'nextPage', 'radio', 'inputsContainer', "waitEvent"];
+    "checkbox", 'nextPage', 'radio', 'inputsContainer', "waitEvent",
+    'calendar'];
   if (data != undefined) {
     if (`${selectors.tab}` != "undefined") {
       cy.get(`${selectors.tab}`).click();
@@ -116,6 +117,9 @@ Cypress.Commands.add("fillForm",
         case 'button':
           cy.clickWithTimeout(automationId, setValue)
           break;
+        case 'calendar':
+          cy.calendar(automationId, setValue)
+          break;
         default:
           cy.get(automationId).within(() => {
             if (typeOption == "input" || typeOption == "textarea") {
@@ -132,6 +136,24 @@ Cypress.Commands.add("fillForm",
           });
       }
     });
+
+Cypress.Commands.add("calendar", (automationId, pastDate) => {
+  cy.get(automationId).click()
+  if (pastDate === 'true') {
+    cy.get(
+        '#mat-datepicker-0 > mat-calendar-header > div > div > button.mat-focus-indicator.mat-calendar-period-button.mat-button.mat-button-base').click()
+    cy.get(
+        '#mat-datepicker-0 > mat-calendar-header > div > div > button.mat-focus-indicator.mat-calendar-previous-button.mat-icon-button.mat-button-base').click()
+    cy.get(
+        '#mat-datepicker-0 > div > mat-multi-year-view > table > tbody > tr:nth-child(1) > td:nth-child(1) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+    cy.get(
+        '#mat-datepicker-0 > div > mat-year-view > table > tbody > tr:nth-child(2) > td:nth-child(1) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+    cy.get(
+        '#mat-datepicker-0 > div > mat-month-view > table > tbody > tr:nth-child(1) > td:nth-child(2) > div.mat-calendar-body-cell-content.mat-focus-indicator').click()
+  } else{
+    cy.get('.mat-focus-indicator').eq(7).click()
+  }
+});
 
 //receives the div.row where the datePicker is on it and then you can send a number
 //that will correspond with a calendar day inside the current month, and the second number

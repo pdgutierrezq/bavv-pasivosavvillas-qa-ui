@@ -1,24 +1,23 @@
-import ENUM from '../../../../support/schema/user'
+import ENUM from '../../../../../support/schema/user'
 import {User} from "../../../../support/model/entities/user";
-import {CONDITION} from "../../../../support/model/entities/properties/customer/conditions";
-import {ACCOUNTS} from "../../../../support/model/entities/properties/customer/accounts";
-import {INSURANCE} from "../../../../support/model/entities/properties/customer/insurance";
-import {READE_ACTIVE_CHANNELS_SERVICE} from "../../../../support/model/services/customer/channels/read";
+import {CONDITION} from "../../../../../support/model/entities/properties/customer/conditions";
+import {ACCOUNTS} from "../../../../../support/model/entities/properties/customer/accounts";
+import {INSURANCE} from "../../../../../support/model/entities/properties/customer/insurance";
+import {READE_ACTIVE_CHANNELS_SERVICE} from "../../../../../support/model/services/customer/channels/read";
 import {Flow} from "../../../../support/model/entities/flow";
-import {RECAPTCHA} from "../../../../support/model/entities/properties/security/recaptcha";
-import {OTP} from "../../../../support/model/entities/properties/security/user/identity/otp";
-import {CRM} from "../../../../support/model/entities/properties/customer/crm/update";
+import {RECAPTCHA} from "../../../../../support/model/entities/properties/security/recaptcha";
+import {OTP} from "../../../../../support/model/entities/properties/security/user/identity/otp";
+import {CRM} from "../../../../../support/model/entities/properties/customer/crm/update";
 
 describe('CDA', function () {
   beforeEach(function () {
     cy.server()
   })
-  it('NO Cliente NO Actualizado NO Enrolado', function () {
-    var pause = false;
+  it('NO Cliente,NO Actualizado,NO Enrolado,No Seguro,Deposito', function () {
     var app = ENUM.APP.CDA
     var flowConditions = {
       scr: false,
-      accountType: 'DIGITAL',
+      accountType: ENUM.ACCOUNT_TYPE.DEPOSIT,
       insurance: 'Si',
       gmf: false,
       activity:ENUM.ECONOMIC_ACTIVITY.EMPLEADO,

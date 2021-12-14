@@ -39,10 +39,15 @@ let PHASE = {
   ENROLLMENT: [
     PAGES.ENROLLMENT
   ],
+  NO_CLIENT: [
+    PAGES.PERSONAL_INFORMATION
+  ],
+  IDENTIFICATION: [
+    PAGES.OTP,
+  ],
   CUSTOMER: {},
   UPDATED: {},
   NO_UPDATED: {},
-  NO_CUSTOMER: {},
 }
 
 module.exports = {

@@ -63,25 +63,61 @@ let CDA = {
     }
   },
   CLIENT: {
-    UPDATED: {
-      INSURANCE: {
+    YES: {
+      UPDATED: {
         YES: {
-          name: 'Cliente actualizado enrolado CON seguro',
-          phases: [
-            PHASE.CDA.INITIAL,
-            PHASE.CDA.FINAL
-          ],
-          mocks: {}
-        },
-        NO: {
-          name: 'Cliente actualizado enrolado SIN seguro',
-          phases: [
-            PHASE.CDA.INITIAL,
-            PHASE.INSURANCE,
-            PHASE.CDA.FINAL
-          ],
-          mocks: {
-            insurance: INSURANCE.NO,
+          INSURANCE: {
+            YES: {
+              name: 'Cliente actualizado enrolado CON seguro',
+              phases: [
+                PHASE.CDA.INITIAL,
+                PHASE.CDA.FINAL
+              ],
+              mocks: {}
+            },
+            NO: {
+              name: 'Cliente actualizado enrolado SIN seguro',
+              phases: [
+                PHASE.CDA.INITIAL,
+                PHASE.INSURANCE,
+                PHASE.CDA.FINAL
+              ],
+              mocks: {
+                insurance: INSURANCE.NO,
+              }
+            }
+          }
+        }
+      }
+    },
+    NO: {
+      UPDATED: {
+        YES: {
+          INSURANCE: {
+            YES: {
+              name: 'NO Cliente actualizado enrolado CON seguro',
+              phases: [
+                PHASE.CDA.INITIAL,
+                PHASE.IDENTIFICATION,
+                PHASE.NO_CLIENT,
+                PHASE.CDA.FINAL
+              ],
+              mocks: {
+                condition: CONDITION.NO_CLIENT.UPDATED,
+              }
+            },
+            NO: {
+              name: 'NO Cliente actualizado enrolado SIN seguro',
+              phases: [
+                PHASE.CDA.INITIAL,
+                PHASE.INSURANCE,
+                PHASE.CDA.FINAL
+              ],
+              mocks: {
+                condition: CONDITION.NO_CLIENT.UPDATED,
+                insurance: INSURANCE.NO,
+              }
+            }
           }
         }
       }
