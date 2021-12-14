@@ -11,6 +11,10 @@ const CONDITION = {
     STATUS: 200,
     BODY: 'mock/customer/conditions/cust-cond-restlist.json'
   },
+  RETAKE: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/retake.json'
+  },
   CLIENT: {
     UPDATED: {
       STATUS: 200,
