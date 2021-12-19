@@ -1,4 +1,3 @@
-const {PHASE} = require("../phase");
 const {RECAPTCHA} = require(
     "../../model/entities/properties/security/recaptcha");
 const {CONDITION} = require(
@@ -15,19 +14,6 @@ const {GET_PDF_SERVICE} = require(
     "../../model/services/customer/documents/pdf");
 const {GET_DOCUMENTS_TO_CHARGE} = require(
     "../../model/services/customer/documents/get-documents-to-charge");
-const {GENERATE_PRESIGNED_URL} = require(
-    "../../model/services/customer/documents/generate-presigned-url");
-const {SQS_CDA_DOCUMENTS} = require(
-    "../../model/services/customer/documents/sqs-cda-documents");
-const {UPLOAD_DOCUMENT} = require(
-    "../../model/services/customer/documents/upload-document");
-const {PSE_BANK_LIST_SERVICE} = require("../../model/services/pse/bank/list");
-const {PSE_CREATE_TRANSACTION} = require(
-    "../../model/services/pse/transaction/create");
-const {SAVE_RESUMES_CDT} = require(
-    "../../model/services/transaction/summary/save-resumes-cdt");
-const {PSE_CDT_REFUND_MONEY} = require(
-    "../../model/services/pse/transaction/refund");
 const {CREATE_SDS_USER_SERVICE} = require(
     "../../model/services/customer/sds/create");
 const {SAVE_SUMMARY_TRANSACTION_SERVICE} = require(
@@ -53,79 +39,15 @@ let CDA = {
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
       createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,
       getDocumentsToCharge: GET_DOCUMENTS_TO_CHARGE.RESPONSE.ALL,
-      generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
-      sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
-      uploadDocument: UPLOAD_DOCUMENT.RESPONSE.OK,
-      pseBankList: PSE_BANK_LIST_SERVICE.RESPONSE.OK,
-      pseCreateTransaction: PSE_CREATE_TRANSACTION.RESPONSE.OK,
-      saveResumesCdt: SAVE_RESUMES_CDT.RESPONSE.OK,
-      pseCdtRefundMoney: PSE_CDT_REFUND_MONEY.RESPONSE.KO
+      // generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
+      // sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
+      // uploadDocument: UPLOAD_DOCUMENT.RESPONSE.OK,
+      // pseBankList: PSE_BANK_LIST_SERVICE.RESPONSE.OK,
+      // pseCreateTransaction: PSE_CREATE_TRANSACTION.RESPONSE.OK,
+      // saveResumesCdt: SAVE_RESUMES_CDT.RESPONSE.OK,
+      // pseCdtRefundMoney: PSE_CDT_REFUND_MONEY.RESPONSE.KO
     }
-  },
-  CLIENT: {
-    YES: {
-      UPDATED: {
-        YES: {
-          INSURANCE: {
-            YES: {
-              name: 'Cliente actualizado enrolado CON seguro',
-              phases: [
-                PHASE.CDA.INITIAL,
-                PHASE.IDENTIFICATION,
-                PHASE.CDA.FINAL
-              ],
-              mocks: {}
-            },
-            NO: {
-              name: 'Cliente actualizado enrolado SIN seguro',
-              phases: [
-                PHASE.CDA.INITIAL,
-                PHASE.INSURANCE,
-                PHASE.IDENTIFICATION,
-                PHASE.CDA.FINAL
-              ],
-              mocks: {
-                insurance: INSURANCE.NO,
-              }
-            }
-          }
-        }
-      }
-    },
-    NO: {
-      UPDATED: {
-        YES: {
-          INSURANCE: {
-            YES: {
-              name: 'NO Cliente actualizado enrolado CON seguro',
-              phases: [
-                PHASE.CDA.INITIAL,
-                PHASE.IDENTIFICATION,
-                PHASE.CDA.NO_CLIENT,
-                PHASE.CDA.FINAL
-              ],
-              mocks: {
-                condition: CONDITION.NO_CLIENT.UPDATED,
-              }
-            },
-            NO: {
-              name: 'NO Cliente actualizado enrolado SIN seguro',
-              phases: [
-                PHASE.CDA.INITIAL,
-                PHASE.INSURANCE,
-                PHASE.IDENTIFICATION,
-                PHASE.CDA.FINAL
-              ],
-              mocks: {
-                condition: CONDITION.NO_CLIENT.UPDATED,
-                insurance: INSURANCE.NO,
-              }
-            }
-          }
-        }
-      }
-    }
-  },
+  }
 }
 
 module.exports = {
