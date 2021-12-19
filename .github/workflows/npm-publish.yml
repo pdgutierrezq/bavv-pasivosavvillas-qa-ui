@@ -29,7 +29,7 @@ jobs:
         run: npm run cypress:run:spec
         env:
           environment: ${{ steps.environment.outputs.environment }}
-          spec: 'cypress/integration/test/flows/CDA/**/*'
+          spec: 'cypress/integration/features/flows/**/*'
       - name: Publishing results
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
