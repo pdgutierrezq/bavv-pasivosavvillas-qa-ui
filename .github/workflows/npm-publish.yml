@@ -32,6 +32,7 @@ jobs:
         run: npm run cypress:run:spec
         env:
           environment: ${{ steps.environment.outputs.environment }}
+          browser: ${{ steps.environment.outputs.browser }}
           spec: 'cypress/integration/features/flows/**/*'
       - name: Publishing results
         if: always()
