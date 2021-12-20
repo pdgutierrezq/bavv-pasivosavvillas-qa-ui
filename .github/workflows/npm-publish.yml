@@ -19,6 +19,9 @@ jobs:
       - name: Environment
         id: environment
         run: echo "::set-output name=environment::dev"
+      - name: Browser
+        id: browser
+        run: echo "::set-output name=browser::chrome"
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
