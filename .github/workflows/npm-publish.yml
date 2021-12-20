@@ -19,7 +19,7 @@ jobs:
       - name: Environment
         id: environment
         run: echo "::set-output name=environment::dev"
-      - name: Browser
+      - name: browser
         id: browser
         run: echo "::set-output name=browser::chrome"
       - uses: actions/checkout@v2
@@ -32,7 +32,7 @@ jobs:
         run: npm run cypress:run:spec
         env:
           environment: ${{ steps.environment.outputs.environment }}
-          browser: ${{ steps.environment.outputs.browser }}
+          browser: ${{ steps.browser.outputs.browser }}
           spec: 'cypress/integration/features/flows/**/*'
       - name: Publishing results
         if: always()
