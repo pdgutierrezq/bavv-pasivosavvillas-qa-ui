@@ -28,12 +28,18 @@ jobs:
           node-version: 14
       - name: Installing dependencies
         run: npm ci
-      - name: Running tests
+      - name: Running CDA tests
         run: npm run cypress:run:spec
         env:
           environment: ${{ steps.environment.outputs.environment }}
           browser: ${{ steps.browser.outputs.browser }}
-          spec: 'cypress/integration/features/flows/**/*'
+          spec: "cypress/integration/features/flows/CDA/**/*"
+      - name: Running CDT tests
+        run: npm run cypress:run:spec
+        env:
+          environment: ${{ steps.environment.outputs.environment }}
+          browser: ${{ steps.browser.outputs.browser }}
+          spec: "cypress/integration/features/flows/CDT/**/*"
       - name: Publishing results
         if: always()
         uses: stefanzweifel/git-auto-commit-action@v4
