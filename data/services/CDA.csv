@@ -16,8 +16,8 @@ PRO https://digital-api.avaldigitallabs.com/securityManagement/v1/User_Identity"
 ,authorization-token,Node14,rb-pasivo-[stack]-authorization-token,Authorizer API-Gateway,"Esta lambda es llamada por el api-gateway cuando recibe una petición hacia algún servicio seguro que requiere autorización para ser consumido. En ella se valida que el token recibido en la solicitud, corresponda a la transacción y celular con los que fue creado. Si los datos son válidos se autoriza el consumo del servicio que se esté invocando, en caso contrario se retorna un error 401 de no autorizado.",*ES TRANSVERSAL,No Aplica,No Aplica,
 2,read-customer-data,Java8,rb-pasivo-[stack]-read-customer-data,WSS. Ruta: crm-rp-cc,"Consume el servicio ConsultarDatosCliente del DataPower del banco, el cual retorna la información que el usuario tiene en CRM. La información obtenida se inserta en la tabla rb-pasivo-crm-customer-data y se retorna como parte de la respuesta.",WSS RUTA: crm-rp-cc,"STG https://192.168.135.28:442/PFBA_Crm32/sca/WSBA_Crm_consultarDatosClienteV03
 PRO https://aliaslambda.avvillaspasivo.net:442/PFBA_Crm32/sca/WSBA_Crm_consultarDatosClienteV03",https://rb-dev-alb-ecs-ext-525169194.us-east-2.elb.amazonaws.com/castlemock/mock/soap/project/szT8NH/CustomerDataInqSvcPort,
-2,create-product,Java8,rb-pasivo-[stack]-create-passive-product,"WSS RUTA: 
-Llamado 1: crm-rp-cc-cdt 
+2,create-product,Java8,rb-pasivo-[stack]-create-passive-product,"WSS RUTA:
+Llamado 1: crm-rp-cc-cdt
 Llamado 2: cpp2-ci-es
 
 REST: Llamado 1.5","Consume el servicio RadicarSolicitudPasivo del DataPower del banco. Cuando lo hace por primera vez, el banco crea una solicitud de creación de cuenta, la segunda vez que se consume se envía el id de la solicitud previamente generada, para que con base en ella el banco cree la cuenta de ahorros.","WSS RUTA: crm-rp-cc(primer llamado) y cpp2-ci-es(segundo llamado)
@@ -46,3 +46,5 @@ PRO https://apicapi-gateway-qa.appsptqa.ath.com.co/org-qa/ath-api-calidad/securi
 ,read-summary-transaction,Node14,rb-pasivo-[stack]-read-summary-transaction,REST,Lee el resumen de la transacción almacenado en la tabla rb-pasivo-summary-transaction-data.,GET: /read-summary-transaction,No Aplica,No Aplica,
 ,notify-account-creation,Node14,rb-pasivo-[stack]-notify-account-creation,WSS. Ruta: cpp2-ci-es," Basicamente este servicio se consume para que el banco genre el proceso de envío del mail de bienvenida y actualice la fecha sipla, la cual nos permite saber si el usuario está actualizado o no.",WSS RUTA: cpp2-ci-es,"STG https://192.168.135.28:542/PFBA_CanalOtros296/WRBA_CanalOtros_notificaAperturaCuenta
 PRO https://aliaslambda.avvillaspasivo.net:542/PFBA_CanalOtros296/WRBA_CanalOtros_notificaAperturaCuenta",https://rb-dev-alb-ecs-ext-525169194.us-east-2.elb.amazonaws.com/castlemock/mock/rest/project/xu0A4d/application/3ugtaH/notify-accont-creation,
+bc-credit-card-sandbox-initiate,Node14,rb-pasivo-[stack]-bc-credit-card-sandbox-initiate,REST,,https://10.130.2.131:5033/cargueonline/api/integracion/,https://rb-dev-alb-ecs-ext-525169194.us-east-2.elb.amazonaws.com/castlemock/mock/rest/project/SNmMCD/application/J936w4/
+

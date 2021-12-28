@@ -4,15 +4,13 @@ const {CONDITION} = require(
     "../../../../support/model/entities/properties/customer/conditions");
 
 let flow = {
-  name: 'NO Cliente actualizado enrolado',
+  name: 'Cliente actualizado enrolado',
   phases: [
     PHASE.CDT.INITIAL,
     PHASE.IDENTIFICATION,
-    PHASE.CDT.NO_CLIENT,
     PHASE.CDT.FINAL
   ],
   mocks: {
-    condition: CONDITION.NO_CLIENT.UPDATED,
   }
 }
 
