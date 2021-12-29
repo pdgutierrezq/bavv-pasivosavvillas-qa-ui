@@ -124,7 +124,7 @@ Cypress.Commands.add("fillForm",
           cy.calendar(automationId, setValue)
           break;
         case 'radioOption':
-          cy.get(automationId+':contains("'+setValue+'")').click();
+          cy.get(automationId+':contains("'+setValue+'"):last').click();
           break;
         case 'radioValue':
           cy.get(automationId+'[value="'+setValue+'"]').click();
