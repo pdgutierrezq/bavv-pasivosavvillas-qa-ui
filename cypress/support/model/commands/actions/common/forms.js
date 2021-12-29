@@ -66,7 +66,8 @@ Cypress.Commands.add("formOperation", (operation, selectors, data) => {
       for (const type of types) {
         if (
             `${selectors[type]}` != "undefined" &&
-            `${selectors[type][property]}` != "undefined"
+            `${selectors[type][property]}` != "undefined" &&
+            `${data[property]}` !== "undefined"
         ) {
           cy.fieldOperation(
               operation,

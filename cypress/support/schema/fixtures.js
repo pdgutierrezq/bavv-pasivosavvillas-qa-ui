@@ -28,8 +28,7 @@ let Fixtures = class Fixtures {
 
   static mergeDataInPage(pageName,data) {
     let page = this.getPage(pageName)
-    let dataBase = page.data
-    page.data = Object.assign(dataBase, data)
+    page.data = data
   }
 
   static getInstance() {
