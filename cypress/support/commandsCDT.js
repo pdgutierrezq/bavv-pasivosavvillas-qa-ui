@@ -438,3 +438,67 @@ Cypress.Commands.add("ValidateNotCleanedFieldsCDT", () => {
   })
   cy.get('mat-error').should('have.text', ' Por favor inténtalo de nuevo ')
 })
+
+Cypress.Commands.add("UserIdentityValidate", (option) => {
+  if (option == 'PASS') {
+    cy.route('POST', '**/user-identity', 'fixture:user-identity-validate.json')
+  } else if (option == 'FAIL') {
+    cy.route({
+      method: 'POST',
+      url: '**/user-identity',
+      status: 500,
+      response: 'fixture:user-identity-validate-fail.json'
+    })
+  } else if (option == 'WRONG_PASS') {
+    cy.route({
+      method: 'POST',
+      url: '**/user-identity',
+      status: 206,
+      response: 'fixture:user-identity-wrong-pass.json'
+    })
+  } else if (option == 'NO_REGISTRA') {
+    cy.route('POST', '**/user-identity',
+        'fixture:user-identity-validate-200-error.json')
+  } else if (option == 'UTILIZADA') {
+    cy.route({
+      method: 'POST',
+      url: '**/user-identity',
+      status: 206,
+      response: 'fixture:user-identity-validate-utilizada.json'
+    })
+  } else if (option == 'ANULADA') {
+    cy.route({
+      method: 'POST',
+      url: '**/user-identity',
+      status: 206,
+      response: 'fixture:user-identity-validate-anulada.json'
+    })
+  } else if (option == 'VENCIDA') {
+    cy.route({
+      method: 'POST',
+      url: '**/user-identity',
+      status: 206,
+      response: 'fixture:user-identity-vencida.json'
+    })
+  }
+
+})
+
+Cypress.Commands.add("UploadCc", () => {
+  cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
+  cy.get('.mat-radio-outer-circle').first().click({force: true})
+  const fileName = 'pasivodocs/cc1.jpg';
+  const fileName2 = 'files/SampleFile.pdf';
+
+  // if(side=='frontal'){
+  //     fileName = 'pasivodocs/cc1.jpg';
+
+  // }else{
+  //     fileName = 'pasivodocs/cc2.jpg';
+  // }
+  cy.get('[type="file"]').attachFile(fileName, {force: true});
+  cy.get('#FrontIDPic').attachFile(fileName, {force: true});
+  cy.get('[type="file"]').attachFile(fileName2, {force: true});
+  cy.get('#FrontIDPic').attachFile(fileName2, {force: true});
+
+})

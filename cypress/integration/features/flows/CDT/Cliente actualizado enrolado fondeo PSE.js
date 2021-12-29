@@ -1,7 +1,6 @@
 const {CDT} = require("../../../../support/schema/flow/cdt");
 const {PHASE} = require("../../../../support/schema/phase");
-const {CONDITION} = require(
-    "../../../../support/model/entities/properties/customer/conditions");
+const {PAGES} = require("../../../../support/schema/pages");
 
 let flow = {
   name: 'Cliente actualizado enrolado',
@@ -10,8 +9,13 @@ let flow = {
     PHASE.IDENTIFICATION,
     PHASE.CDT.FINAL
   ],
-  mocks: {
-  }
+  mocks: {},
+  pages: [
+    {
+      page: PAGES.CDT_ACCOUNT_CONFIG,
+      data: {source: "Desde otro banco"}
+    }
+  ]
 }
 
 describe(CDT.NAME, function () {
