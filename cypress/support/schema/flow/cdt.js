@@ -28,7 +28,7 @@ let CDT = {
     mocks: {
       recaptcha: RECAPTCHA.OK,
       condition: CONDITION.CLIENT.UPDATED,
-      account: ACCOUNTS.CAT.YES,
+      account: ACCOUNTS.CAT.NO,
       insurance: INSURANCE.YES,
       otpCreate: OTP.CREATE.OK,
       otpValidate: OTP.VALIDATE.OK,
