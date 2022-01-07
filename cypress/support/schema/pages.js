@@ -35,7 +35,7 @@ const PAGES = {
     },
     selector: homeSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -48,7 +48,7 @@ const PAGES = {
     },
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -61,7 +61,7 @@ const PAGES = {
     },
     selector: pepSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -74,7 +74,7 @@ const PAGES = {
     },
     selector: accountSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -87,7 +87,7 @@ const PAGES = {
     },
     selector: insuranceSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -100,7 +100,7 @@ const PAGES = {
     },
     selector: otpSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -113,7 +113,7 @@ const PAGES = {
     },
     selector: personalInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -126,7 +126,7 @@ const PAGES = {
     },
     selector: economicActivitySelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -139,7 +139,7 @@ const PAGES = {
     },
     selector: contactInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -152,7 +152,7 @@ const PAGES = {
     },
     selector: foreignInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -165,7 +165,7 @@ const PAGES = {
     },
     selector: financialInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -178,7 +178,7 @@ const PAGES = {
     },
     selector: cardSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -191,7 +191,7 @@ const PAGES = {
     },
     selector: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -204,7 +204,7 @@ const PAGES = {
     },
     selector: declaringSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -217,7 +217,7 @@ const PAGES = {
     },
     selector: signatureSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -230,7 +230,7 @@ const PAGES = {
     },
     selector: enrollmentSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -243,7 +243,7 @@ const PAGES = {
     },
     selector: tipsSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -256,7 +256,7 @@ const PAGES = {
     },
     selector: cdtHomeSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -269,7 +269,7 @@ const PAGES = {
     },
     selector: basicInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -282,7 +282,7 @@ const PAGES = {
     },
     selector: cdtConfigSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -295,7 +295,7 @@ const PAGES = {
     },
     selector: cdtAccountConfigSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -308,7 +308,7 @@ const PAGES = {
     },
     selector: signatureSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
@@ -321,7 +321,7 @@ const PAGES = {
     },
     selector: personalInformationSelectors.form.nextPage.continue,
     status: {
-      pause: false,
+      pause: true,
       screenshot: false
     }
   },
