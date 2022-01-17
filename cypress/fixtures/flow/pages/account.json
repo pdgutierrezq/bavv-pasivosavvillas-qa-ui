@@ -1,5 +1,5 @@
 {
-  "account": false,
-  "deposit": true,
+  "account": true,
+  "deposit": false,
   "continue": 0
 }

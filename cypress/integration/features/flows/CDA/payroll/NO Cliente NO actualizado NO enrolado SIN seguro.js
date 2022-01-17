@@ -18,18 +18,7 @@ let flow = {
     condition: CONDITION.NO_CLIENT.UPDATED,
     insurance: INSURANCE.NO,
     channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.FALSE
-  },
-  pages: [
-    {
-      page: PAGES.ACCOUNT,
-      data: {
-        account: true,
-        deposit: false,
-        continue: 0
-      }
-
-    }
-  ]
+  }
 }
 
 describe(CDA_PAYROLL.NAME, function () {

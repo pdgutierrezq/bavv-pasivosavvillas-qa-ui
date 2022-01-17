@@ -9,18 +9,7 @@ let flow = {
     PHASE.IDENTIFICATION,
     PHASE.CDA.FINAL
   ],
-  mocks: {},
-  pages: [
-    {
-      page: PAGES.ACCOUNT,
-      data: {
-        account: true,
-        deposit: false,
-        continue: 0
-      }
-
-    }
-  ]
+  mocks: {}
 }
 
 describe(CDA_PAYROLL.NAME, function () {
