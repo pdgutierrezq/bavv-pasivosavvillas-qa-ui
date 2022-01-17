@@ -3,6 +3,7 @@ const {PHASE} = require("../../../../../support/schema/phase");
 const {INSURANCE} = require(
     "../../../../../support/model/entities/properties/customer/insurance");
 const {CDA_PAYROLL} = require("../../../../../support/schema/flow/cdaPayroll");
+const {PAGES} = require("../../../../../support/schema/pages");
 
 let flow = {
   name: 'Cliente actualizado enrolado SIN seguro',
@@ -14,7 +15,18 @@ let flow = {
   ],
   mocks: {
     insurance: INSURANCE.NO,
-  }
+  },
+  pages: [
+    {
+      page: PAGES.ACCOUNT,
+      data: {
+        account: true,
+        deposit: false,
+        continue: 0
+      }
+
+    }
+  ]
 }
 
 describe(CDA_PAYROLL.NAME, function () {
