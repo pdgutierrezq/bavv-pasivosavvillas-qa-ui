@@ -182,6 +182,19 @@ const PAGES = {
       screenshot: false
     }
   },
+  CARD_DEPOSIT: {
+    name: "card",
+    fixture: "flow/pages/deposit/card",
+    flow: {
+      selectors: cardSelectors.form,
+      wait: false
+    },
+    selector: cardSelectors.form.nextPage.continue,
+    status: {
+      pause: true,
+      screenshot: false
+    }
+  },
   CARD_CONFIRM_DELIVERY_ADDRESS_POPUP: {
     name: "confirmDeliveryAddressPopup",
     fixture: "flow/pages/card",

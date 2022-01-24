@@ -17,6 +17,8 @@ import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
+import {USER_IDENTITY_CREATE_SERVICE} from "../services/security/user/identity/create";
+import {USER_IDENTITY_VALIDATE_SERVICE} from "../services/security/user/identity/validate";
 
 let data
 before(() => {
@@ -47,8 +49,8 @@ Cypress.Commands.add("setMocks", (mocks) => {
   cy.setMock(CUSTOMER_CONDITION_SERVICE, mocks.condition)
   cy.setMock(CUSTOMER_ACCOUNTS_SERVICE, mocks.account)
   cy.setMock(CUSTOMER_INSURANCE_SERVICE, mocks.insurance)
-  // cy.setMock(USER_IDENTITY_VALIDATE_SERVICE, flow.otpValidate)
-  // cy.setMock(USER_IDENTITY_CREATE_SERVICE, mocks.otpCreate)
+  //cy.setMock(USER_IDENTITY_VALIDATE_SERVICE, mocks.otpValidate)
+  //cy.setMock(USER_IDENTITY_CREATE_SERVICE, mocks.otpCreate)
   cy.setMock(UPDATE_DATA_CRM_SERVICE, mocks.crm)
   cy.setMock(CREATE_SDS_USER_SERVICE, mocks.sdsUserService)
   cy.setMock(SAVE_SUMMARY_TRANSACTION_SERVICE, mocks.saveSummaryTransaction)

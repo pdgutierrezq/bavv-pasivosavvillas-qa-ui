@@ -7,6 +7,11 @@
 //   });
 // });
 
+const {USER_IDENTITY_VALIDATE_SERVICE} = require(
+    "../../../services/security/user/identity/validate");
+const {OTP} = require(
+    "../../../entities/properties/security/user/identity/otp");
+
 Cypress.Commands.add("ddPick", (automationId, typeOption, row) => {
   cy.get(automationId).find(typeOption).focus();
   cy.get(automationId).find(row).click();
@@ -57,7 +62,7 @@ Cypress.Commands.add(
 Cypress.Commands.add("formOperation", (operation, selectors, data) => {
   const types = ["input", "select", "textarea", "inputRaw", "selectRaw", "div",
     "checkbox", 'nextPage', 'radio', 'inputsContainer', "waitEvent",
-    'calendar', 'radioOption','radioValue','type'];
+    'calendar', 'radioOption','radioValue','type','validateOtp'];
   if (data != undefined) {
     if (`${selectors.tab}` != "undefined") {
       cy.get(`${selectors.tab}`).click();
@@ -110,6 +115,10 @@ Cypress.Commands.add("fillForm",
           }
           break;
         case 'nextPage':
+          cy.nextPage(automationId, setValue)
+          break;
+        case 'validateOtp':
+          cy.setMock(USER_IDENTITY_VALIDATE_SERVICE, OTP.VALIDATE.OK)
           cy.nextPage(automationId, setValue)
           break;
         case 'waitEvent':

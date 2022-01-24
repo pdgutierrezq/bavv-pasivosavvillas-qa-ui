@@ -8,7 +8,7 @@ let flow = {
   phases: [
     PHASE.CDA.INITIAL,
     PHASE.IDENTIFICATION,
-    PHASE.CDA.FINAL
+    PHASE.CDA.FINAL_DEPOSIT
   ],
   mocks: {
     condition: CONDITION.CLIENT.NO_UPDATED

@@ -10,7 +10,7 @@ let flow = {
     PHASE.CDA.INITIAL,
     PHASE.INSURANCE,
     PHASE.IDENTIFICATION,
-    PHASE.CDA.FINAL
+    PHASE.CDA.FINAL_DEPOSIT
   ],
   mocks: {
     insurance: INSURANCE.NO,
