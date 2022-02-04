@@ -17,8 +17,6 @@ import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
-import {USER_IDENTITY_CREATE_SERVICE} from "../services/security/user/identity/create";
-import {USER_IDENTITY_VALIDATE_SERVICE} from "../services/security/user/identity/validate";
 
 let data
 before(() => {
@@ -28,8 +26,8 @@ before(() => {
 
 Cypress.Commands.add("executeFlow",
     (app, flow) => {
-      cy.setMocks(app.DEFAULT.mocks)
-      cy.setMocks(flow.mocks)
+      let mocks = Object.assign({}, app.DEFAULT.mocks, flow.mocks);
+      cy.setMocks(mocks)
       cy.setData(flow.pages)
       cy.visit(app.URL)
       cy.runPagesList(flow.phases)
