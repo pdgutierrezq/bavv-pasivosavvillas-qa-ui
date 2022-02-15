@@ -21,6 +21,8 @@ const {SAVE_SUMMARY_TRANSACTION_SERVICE} = require(
 const {CREATE_PRODUCT_PASIVE_SERVICE} = require(
     "../../model/services/product/create");
 const user = require("../user");
+const {VALIDATE_DOCUMENT} = require(
+    "../../model/services/customer/documents/validate-document");
 let CDT = {
   NAME: user.APP.CDT,
   URL: Cypress.env().list[0].cdt.baseUrl,
@@ -42,6 +44,7 @@ let CDT = {
       // generatePresignedUrl: GENERATE_PRESIGNED_URL.RESPONSE.OK,
       // sqsCdaDocuments: SQS_CDA_DOCUMENTS.RESPONSE.OK,
       // uploadDocument: UPLOAD_DOCUMENT.RESPONSE.OK,
+      validateDocument: VALIDATE_DOCUMENT.RESPONSE.OK,
       // pseBankList: PSE_BANK_LIST_SERVICE.RESPONSE.OK,
       // pseCreateTransaction: PSE_CREATE_TRANSACTION.RESPONSE.OK,
       // saveResumesCdt: SAVE_RESUMES_CDT.RESPONSE.OK,

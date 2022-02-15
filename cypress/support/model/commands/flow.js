@@ -13,6 +13,7 @@ import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-docume
 import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
 import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
 import {UPLOAD_DOCUMENT} from "../services/customer/documents/upload-document";
+import {VALIDATE_DOCUMENT} from "../services/customer/documents/validate-document";
 import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
@@ -59,6 +60,7 @@ Cypress.Commands.add("setMocks", (mocks) => {
   cy.setMock(GENERATE_PRESIGNED_URL, mocks.generatePresignedUrl)
   cy.setMock(SQS_CDA_DOCUMENTS, mocks.sqsCdaDocuments)
   cy.setMock(UPLOAD_DOCUMENT, mocks.uploadDocument)
+  cy.setMock(VALIDATE_DOCUMENT, mocks.validateDocument)
   cy.setMock(PSE_BANK_LIST_SERVICE, mocks.pseBankList)
   cy.setMock(PSE_CREATE_TRANSACTION, mocks.pseCreateTransaction)
   cy.setMock(SAVE_RESUMES_CDT, mocks.saveResumesCdt)
