@@ -1,7 +1,6 @@
 import {CDA} from "../../../../../support/schema/flow/cda";
 import {PHASE} from "../../../../../support/schema/phase";
 import {CONDITION} from "../../../../../support/model/entities/properties/customer/conditions";
-import {PAGES} from "../../../../../support/schema/pages";
 
 let flow = {
   name: 'NO Cliente actualizado enrolado CON seguro',
@@ -9,22 +8,11 @@ let flow = {
     PHASE.CDA.INITIAL,
     PHASE.IDENTIFICATION,
     PHASE.CDA.NO_CLIENT,
-    PHASE.CDA.FINAL_DEPOSIT
+    PHASE.CDA.FINAL
   ],
   mocks: {
-    condition: CONDITION.NO_CLIENT.UPDATED,
-  },
-  pages: [
-    {
-      page: PAGES.ACCOUNT,
-      data: {
-        account: false,
-        deposit: true,
-        continue: 0
-      }
-
-    }
-  ]
+    condition: CONDITION.NO_CLIENT.NO_UPDATED,
+  }
 }
 
 describe(CDA.NAME, function () {

@@ -12,7 +12,7 @@ let flow = {
     PHASE.CDA.FINAL_DEPOSIT
   ],
   mocks: {
-    condition: CONDITION.NO_CLIENT.UPDATED,
+    condition: CONDITION.NO_CLIENT.NO_UPDATED,
   },
   pages: [
     {

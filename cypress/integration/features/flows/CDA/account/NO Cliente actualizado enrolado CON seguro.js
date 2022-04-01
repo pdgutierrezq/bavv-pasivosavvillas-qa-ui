@@ -11,7 +11,7 @@ let flow = {
     PHASE.CDA.FINAL
   ],
   mocks: {
-    condition: CONDITION.NO_CLIENT.NO_UPDATED,
+    condition: CONDITION.NO_CLIENT.UPDATED,
   }
 }
 
