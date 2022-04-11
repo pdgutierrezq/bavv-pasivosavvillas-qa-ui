@@ -15,14 +15,27 @@
 
 // Import commands.js using ES2015 syntax:
 import './commandsCDT'
+import './schema/user'
 import './commands'
-import './mocks'
+import './model/commands/mock'
+import './model/commands/flow'
+import './model/commands/actions/common/forms.js'
+import './model/commands/actions/pages/common'
+import './model/commands/actions/common/flow.js'
+import addContext from "mochawesome/addContext";
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test
-    return false
-  })
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+})
 // Alternatively you can use CommonJS syntax:
 require('cypress-plugin-tab')
 require('cypress-xpath')
+
+Cypress.on("test:after:run", (test, runnable) => {
+  if (test.state === "failed") {
+    const screenshot = `../screenshots/${Cypress.spec.name}/${runnable.parent.title} -- ${test.title} (failed).png`;
+    addContext({test}, screenshot);
+  }
+});

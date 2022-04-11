@@ -1,8 +1,0 @@
-{
-    "preSignedUrl": [
-        {
-            "fileName": "CL-1095798406-0.pdf",
-            "preSignedUrl": "https://rb-pasivo-dev-documents-client-bkt.s3.us-east-2.amazonaws.com/CDA/DocumentoDigital/1095798406/CL-1095798406-0.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA6KFJQTVGXIUS5QWS%2F20200728%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20200728T171348Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDkaCXVzLWVhc3QtMiJHMEUCIQCv9LgaEdZqoXyjDU0m19lWV3FODfjqUJ%2BcCu148CZm6QIgaUBQkjsjYyatfntkJrC%2BjXW7%2B4UGaZqrsqj3NrLyEG8q7AEI8v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw5ODM5MDMwMTgzMTciDM7Yk3uJKaU09P3VuirAAe6wL57ZplQ8s3oJd9nnFkTDsVFvt%2B%2FSRMxGHdaSElT%2BaNS61YOxBrtaXOEIALP%2BdGuGKzHQ5OPZWZ%2BV7Itf%2BAhE2FiHv0fyw8pLryu5EjDyA8rPjvjHHOzs7ewIjSDUZY7HMsNC4Izqx4Xthk5DqmNre2xlMIPELq0UdTmEZ0j6ZumtErX%2BZ4KKn%2FTPRer3Qv3VIOMddu7eBSlhb6aDxCMDlxk03MWnvZk2sHq%2BCtR7K%2BKc%2B0DMGHnCUXie0j91rjC3qoH5BTrgAWD%2FRk13cVRz%2FE6d3NOA2rfnBorGjshL1YfPK3GOK8EGlJ9Ja1atksdlvkYevgSJd4qgcHu%2FKVwEr7GgA7J5N3eQMYqNxSgw3nmihXyEh7iByh8NU%2BZr8tc7%2BQ0DzZO%2FBec3E3aHnPesOB0j%2B33ECH7Qh52I8RhjVqmQCgdUi55WliZx1V816nQS1mHTbo1Uij9TKkt1P0fJo7Ur1WU3KX2fYlZTGIgf7k2NYavH0LwYnzsI0kdw9q5TjNKOCaLnXuibfKyngKBw1YEgCgDzWnIlytptDl29zWbRQmK9PakI&X-Amz-Signature=dbd83437014a017720fab63652da6fa18daaa8ef7d20884ccec34fb1f9aa2cd3&X-Amz-SignedHeaders=host"
-        }
-    ]
-}

@@ -8,7 +8,7 @@ describe('Sprint 40', function () {
     it.only('PBA-1294 calculo 500K 9.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         //var amount = 10000000
         var amount = 500000
@@ -30,7 +30,7 @@ describe('Sprint 40', function () {
         var userConditions = { client: true, updated: true }
         cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/')
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 9999999
         var term = 90
@@ -50,7 +50,7 @@ describe('Sprint 40', function () {
         var userConditions = { client: true, updated: true }
         cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/')
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 20000000
         var term = 90
@@ -69,7 +69,7 @@ describe('Sprint 40', function () {
     it('PBA-1294 calculo 100M-249.9M', function () {
         var userConditions = { client: true, updated: true }
         cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/')
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 100000000
         var term = 90
@@ -89,7 +89,7 @@ describe('Sprint 40', function () {
         var userConditions = { client: true, updated: true }
         cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/')
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 250000000
         var term = 90
@@ -109,7 +109,7 @@ describe('Sprint 40', function () {
         var userConditions = { client: true, updated: true }
         cy.visit('https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/')
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 500000000
         var term = 90

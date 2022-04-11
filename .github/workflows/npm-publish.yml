@@ -1,0 +1,52 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: Running Cypress Tests
+
+on:
+  release:
+    types: [created]
+  push:
+    branches:
+      - 'develop'
+jobs:
+  running-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d_%H-%M')"
+      - name: Environment
+        id: environment
+        run: echo "::set-output name=environment::dev"
+      - name: browser
+        id: browser
+        run: echo "::set-output name=browser::chrome"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Installing dependencies
+        run: npm ci
+      - name: Running CDA tests
+        run: npm run cypress:run:spec
+        env:
+          environment: ${{ steps.environment.outputs.environment }}
+          browser: ${{ steps.browser.outputs.browser }}
+          spec: "cypress/integration/features/flows/CDA/**/**/*"
+      - name: Running CDT tests
+        run: npm run cypress:run:spec
+        env:
+          environment: ${{ steps.environment.outputs.environment }}
+          browser: ${{ steps.browser.outputs.browser }}
+          spec: "cypress/integration/features/flows/CDT/**/**/*"
+      - name: Publishing results
+        if: always()
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: build
+          commit_message: ":chart_with_upwards_trend:Automated Change:Report - ${{ steps.date.outputs.date }}"
+          file_pattern: reports/*
+          tagging_message: 'build_${{ steps.date.outputs.date }}'
+
+

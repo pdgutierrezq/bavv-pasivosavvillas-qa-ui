@@ -18,9 +18,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -29,7 +29,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -54,9 +54,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -65,7 +65,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -98,9 +98,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -109,7 +109,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -144,9 +144,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -155,7 +155,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -191,9 +191,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -202,7 +202,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -232,9 +232,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -243,7 +243,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -266,9 +266,9 @@ describe('Sprint 62', function () {
         var pause = false;
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('90000').tab()
@@ -277,7 +277,7 @@ describe('Sprint 62', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -291,7 +291,7 @@ describe('Sprint 62', function () {
         cy.DeclaringOption(flowConditions.declaring)
         cy.ElectronicSignature()
 
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#Bank').click()
         cy.get('.mat-option').first().click()
         cy.get('.mat-radio-button:contains("Natural")').click()

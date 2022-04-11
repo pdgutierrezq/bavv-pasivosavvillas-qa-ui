@@ -1,0 +1,6 @@
+{
+  "yes": true,
+  "no": false,
+  "waitWebService": 5000,
+  "continue": 0
+}

@@ -12,9 +12,9 @@ describe('test pasivo', function () {
     it('PBA-1288 Integrar redux a la aplicación', function () {
         var userConditions = {client: true,updated: false,cat: true,channles: true,docs: 'Empleado',sqs: 'success',generateUrl: 'two docs',loadPresigned: 'any'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm('stg')
+        cy.fillBasicInformationPage('stg')
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
@@ -23,23 +23,23 @@ describe('test pasivo', function () {
             cy.OtpAuthentication()
             cy.get('.error > .ng-star-inserted').should('be.visible')
             cy.get('#OtpButton',{timeout:20000}).click()
-            cy.WaitLoader()
+            cy.waitLoader()
             cy.get('.error').should('contain', 'La clave que ingresaste no corresponde a la enviada')
             cy.get('#OtpButton',{timeout:20000}).click()
-            cy.WaitLoader()
+            cy.waitLoader()
             cy.get('.mat-input-element',{timeout:20000}).first().should('be.disabled')
             cy.get('.error',{timeout:20000}).should('contain', 'Excediste el número de intentos, solicita un nuevo código')
             cy.get('#GenerateNewOtpButton',{timeout:20000}).click()
-            cy.WaitLoader()
+            cy.waitLoader()
          }    
 
         cy.get('#GenerateNewOtpButton').should('not.exist')
         cy.OtpAuthentication()
         cy.get('#OtpButton',{timeout:20000}).click()
-            cy.WaitLoader()
+            cy.waitLoader()
             cy.get('.error').should('contain', 'La clave que ingresaste no corresponde a la enviada')
             cy.get('#OtpButton',{timeout:20000}).click()
-            cy.WaitLoader()
+            cy.waitLoader()
         cy.url().should('include','general-error')
 
     })
@@ -47,8 +47,8 @@ describe('test pasivo', function () {
     it('PBA-1233 Redireccion actualizado a PEP', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
 
-        cy.MockWs(userConditions)
-        cy.FillForm()
+        cy.setMocks(userConditions)
+        cy.fillBasicInformationPage()
         cy.get('#SubmitFormPEP', { timeout: 120000 }).should('be.visible')
 
     })
@@ -57,19 +57,19 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channles: true, docs: 'cc', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('.btn-card').click()
         cy.get('#mat-dialog-0').as('popup')
@@ -101,21 +101,21 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.SelectForeignData()
         cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('.btn-card').click()
         cy.get('#mat-dialog-0').as('popup')
@@ -148,21 +148,21 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.SelectForeignData()
         cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('.btn-card').click()
         cy.get('#mat-dialog-0').as('popup')

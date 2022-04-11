@@ -11,7 +11,7 @@ describe('Sprint 58', function () {
         var userConditions = { channels:'FALSE',updateCrm:'pass',client: false, updated: true, cat: false, docs: 'Pensionado',insurance:'fail'/*, generateUrl: 'fail'*/, sqs: 'fail' };
         var flowConditions = { accountType: 'DIGITAL', insurance: 'fail', gmf: false, declaring: false,environment:'prod'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
     
@@ -23,9 +23,9 @@ describe('Sprint 58', function () {
         var pause = false;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('10000')
@@ -34,14 +34,14 @@ describe('Sprint 58', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
 
         // cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.Pause(pause)
         // cy.FillContactForm('Empleado')
         // cy.Pause(pause)

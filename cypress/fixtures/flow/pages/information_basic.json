@@ -1,0 +1,13 @@
+{
+  "identification": "1016020757",
+  "mobileNumber": "3132858735",
+  "mobileNumberConfirmation": "3132858735",
+  "firstName": "Peter",
+  "secondName": "Benjamin",
+  "lastName": "Parker",
+  "secondLastName": "Spider-Man",
+  "monthlyIncome": 2000000,
+  "authorization": true,
+  "recaptcha": 0,
+  "continue": 0
+}

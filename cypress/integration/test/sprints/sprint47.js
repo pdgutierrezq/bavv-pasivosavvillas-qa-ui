@@ -12,9 +12,9 @@ describe('Sprint 47', function () {
         var time = 4000;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -23,7 +23,7 @@ describe('Sprint 47', function () {
         cy.wait(time)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         // cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -34,7 +34,7 @@ describe('Sprint 47', function () {
         cy.wait(time)
 
         cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         cy.wait(time)
 
         cy.FillContactForm('Empleado')
@@ -67,14 +67,14 @@ describe('Sprint 47', function () {
         var time = 5000;
 
         var flowConditions = { accountType: 'PRO', insurance: 'false', gmf: false, declaring: false, environment: 'stg' };
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm('dev')
-        cy.WaitLoader()
+        cy.fillBasicInformationPage('dev')
+        cy.waitLoader()
         cy.wait(time)
 
         cy.AcceptPep()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -84,7 +84,7 @@ describe('Sprint 47', function () {
         cy.AcceptInsurance('Si')
         }
 
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
          cy.OtpAuthentication()
@@ -93,7 +93,7 @@ describe('Sprint 47', function () {
             cy.wait(time)
 
             cy.SelectActivity('Empleado')
-            cy.WaitLoader()
+            cy.waitLoader()
             cy.wait(time)
 
             cy.FillContactForm('Empleado')

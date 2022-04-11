@@ -8,7 +8,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo 500K 9.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 500000
         var term = 90
@@ -26,7 +26,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo 10M-19.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 10000000
         var term = 90
@@ -45,7 +45,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo 20M-49.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 20000000
         var term = 90
@@ -63,7 +63,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo 50M-99.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 50000000
         var term = 90
@@ -80,7 +80,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo 100M-249.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 100000000
         var term = 90
@@ -99,7 +99,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo 250-499.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 250000000
         var term = 90
@@ -118,7 +118,7 @@ describe('Sprint 50', function () {
     it('PBA-1294 calculo >499.9M', function () {
         var userConditions = { client: true, updated: true }
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         //Dado que el usuario esta en la pantalla de configuración de CDT
         var amount = 500000000
         var term = 90

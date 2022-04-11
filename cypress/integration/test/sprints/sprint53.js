@@ -15,9 +15,9 @@ describe('Sprint 53', function () {
         var pause=false;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
@@ -26,7 +26,7 @@ describe('Sprint 53', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
           cy.OtpAuthentication()
@@ -64,9 +64,9 @@ describe('Sprint 53', function () {
         var pause = false;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(time)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         // cy.wait(time)
         cy.AcceptPep()
@@ -82,7 +82,7 @@ describe('Sprint 53', function () {
          cy.Pause(pause)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.wait(time)
         cy.Pause(pause)
 

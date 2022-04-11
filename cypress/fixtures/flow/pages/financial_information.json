@@ -1,0 +1,9 @@
+{
+  "activeExpensesInput": "2000000",
+  "passiveExpensesInput": "2000000",
+  "monthlyExpensesInput": "2000000",
+  "monthlyIncomeInput": "2000000",
+  "operation": "N{downarrow}{enter}",
+  "fiscalManager": false,
+  "continue": 0
+}

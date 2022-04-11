@@ -1,4 +1,0 @@
-{
-    "hasChannels": false,
-    "information": "{ \"MsgRsHdr\":{ \"Status\":{ \"EndDt\":\"2020-05-13T21:33:47\", \"StatusCode\":\"117\", \"Severity\":\"Error\", \"StatusDesc\":\"Usuario no esta registrado\", \"AdditionalStatus\":{ \"StatusCode\":\"117\", \"StatusDesc\":\"Usuario no esta registrado\" } }, \"EndDt\":\"2020-05-13T21:33:47\" } }"
-}

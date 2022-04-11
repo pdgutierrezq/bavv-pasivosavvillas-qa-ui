@@ -8,7 +8,7 @@ describe('Sprint 83', function () {
         var pause = false;
         var flowConditions = { environment: 'dev', declaring: true, funding:'PSE',rend:'ACCOUNT',status:'RECHAZAR' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PseFlow(flowConditions,pause)
     })
     it.only('pse fallido', function () {
@@ -16,7 +16,7 @@ describe('Sprint 83', function () {
         var pause = false;
         var flowConditions = { environment: 'dev', declaring: true, funding:'PSE',rend:'ACCOUNT',status:'FALLIDA' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PseFlow(flowConditions,pause)
     })
 
@@ -25,7 +25,7 @@ describe('Sprint 83', function () {
         var pause = false;
         var flowConditions = { environment: 'dev', declaring: true, funding:'PSE',rend:'ACCOUNT',status:'APROBAR' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PseFlow(flowConditions,pause)
     })
     
@@ -34,7 +34,7 @@ describe('Sprint 83', function () {
         var pause = false;
         var flowConditions = { environment: 'dev', declaring: true, funding:'PSE',rend:'ACCOUNT',status:'PENDIENTE' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PseFlow(flowConditions,pause)
     })
 

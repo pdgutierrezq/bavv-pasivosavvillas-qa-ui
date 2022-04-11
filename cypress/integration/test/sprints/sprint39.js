@@ -7,9 +7,9 @@ describe('Sprint 39', function () {
 
     // it('PBA-1290 otp errada', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -25,9 +25,9 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 otp anulada', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -43,13 +43,13 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 otp habilitar boton', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('#OtpButton').should('be.disabled')
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
     //     cy.get('#OtpButton').should('be.enabled')
 
@@ -57,9 +57,9 @@ describe('Sprint 39', function () {
 
     // it('PBA-1290 limite validacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     cy.get('.mat-input-element', { timeout: 20000 }).first().type('12345678')
@@ -79,9 +79,9 @@ describe('Sprint 39', function () {
 
     // it('PBA-1290 limite generacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     // cuando el cliente seleccione la opción de “solicitar nuevo código” por tercera vez
@@ -97,9 +97,9 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 limite generacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     // Dado que el usuario esta la pantalla de autenticación 
@@ -120,9 +120,9 @@ describe('Sprint 39', function () {
     // })
     // it('PBA-1290 restablecer validacion otp', function () {
     //     var userConditions = { client: true, updated: true }
-    //     cy.MockWs(userConditions)
+    //     cy.setMocks(userConditions)
     //     cy.FillFormCDT()
-    //     cy.WaitLoader()
+    //     cy.waitLoader()
 
     //     cy.AcceptPep()
     //     // Dado que el usuario esta la pantalla de autenticación 

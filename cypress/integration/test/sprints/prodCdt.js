@@ -14,9 +14,9 @@ describe('Sprint 56 prod', function () {
         var pause = true;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
@@ -25,14 +25,14 @@ describe('Sprint 56 prod', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
 
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
         cy.FillContactForm('Empleado')
         cy.Pause(pause)

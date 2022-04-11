@@ -1,0 +1,9 @@
+{
+  "cda": {
+    "baseUrl": "http://localhost:4200/abrir-cuenta-ahorro"
+  },
+  "cdt": {
+    "baseUrl": "http://localhost:4200/abrir-cdt-avvillas"
+  }
+}
+

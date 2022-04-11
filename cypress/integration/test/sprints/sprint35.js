@@ -9,19 +9,19 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channles: true, docs: 'cc', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('.btn-card').click()
         cy.get('#mat-dialog-0').as('popup')
@@ -53,21 +53,21 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.SelectForeignData()
         cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('.btn-card').click()
         cy.get('#mat-dialog-0').as('popup')
@@ -100,21 +100,21 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente con negocio')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.SelectForeignData()
         cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('.btn-card').click()
         cy.get('#mat-dialog-0').as('popup')

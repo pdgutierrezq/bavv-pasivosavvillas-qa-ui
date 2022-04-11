@@ -11,7 +11,7 @@ describe('Sprint 44', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true,insurance: 'false'};
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false,environment:'stg'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions,flowConditions)
 
@@ -33,7 +33,7 @@ describe('Sprint 44', function () {
         //     cy.wait(2000)
         //     cy.get('#SubmitFormUserIdentification').click()
         // })
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.AcceptPep()
     
         // cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -41,7 +41,7 @@ describe('Sprint 44', function () {
         // if (userConditions.insurance == 'false') {
         //     cy.AcceptInsurance(flowConditions.insurance)
         // }
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.OtpAuthentication()
         // cy.FillSendAddress()
 
@@ -49,7 +49,7 @@ describe('Sprint 44', function () {
     it('Pantalla de configuración de cuentas CDT', function () {
 
         // var userConditions = { client: true, updated: true, cat: false, channels: true,insurance: 'true',updateCrm:'127'};
-        // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};        //cy.MockWs(userConditions)
+        // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};        //cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         //cy.PerformFlow(userConditions,flowConditions)
          cy.FillFormCDT()
@@ -72,12 +72,12 @@ describe('Sprint 44', function () {
         //     cy.wait(2000)
         //     cy.get('#SubmitFormUserIdentification').click()
         // })
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
      })
 

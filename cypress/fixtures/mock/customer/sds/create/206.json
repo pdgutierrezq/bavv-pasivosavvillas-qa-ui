@@ -1,0 +1,15 @@
+{
+  "MsgRsHdr": {
+    "Status": {
+      "StatusCode": "130",
+      "Severity": "Error",
+      "StatusDesc": "No fue posible conectar con EntidadAVVILLAS",
+      "EndDt": "2021-11-16T15:30:11",
+      "AdditionalStatus": {
+        "StatusCode": "130",
+        "StatusDesc": "No fue posible conectar con EntidadAVVILLAS"
+      }
+    },
+    "EndDt": "2021-11-16T15:30:11"
+  }
+}

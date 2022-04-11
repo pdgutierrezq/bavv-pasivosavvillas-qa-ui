@@ -1,0 +1,9 @@
+{
+  "cda": {
+    "baseUrl": "https://rb-pasivo-dev-front.avaldigitallabs.com/abrir-cuenta-ahorro/"
+  },
+  "cdt": {
+    "baseUrl": "https://rb-pasivo-dev-cdt-front.avaldigitallabs.com/abrir-cdt-avvillas/"
+  }
+}
+

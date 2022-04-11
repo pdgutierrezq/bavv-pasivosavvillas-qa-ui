@@ -10,22 +10,22 @@ describe('test pasivo', function () {
         var userConditions = { client: false, updated: false, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount(flowConditions.accountType)
         //cy.SelectGmf(true)
         cy.AcceptInsurance(flowConditions.insurance)
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         // cy.SelectForeignData()
         // cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('#SubmitUploadDocumentsForm', { timeout: 120000 }).should('be.enabled')
         cy.get('#SubmitUploadDocumentsForm').click()
@@ -38,9 +38,9 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channles: false, docs: 'Empleado', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.get('#SubmitFormPEP', { timeout: 120000 }).should('be.visible')
 
         //cy.AcceptPep()
@@ -49,13 +49,13 @@ describe('test pasivo', function () {
         // cy.AcceptInsurance(flowConditions.insurance)
         // cy.OtpAuthentication()
         // cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.FillContactForm('Empleado')
         // // cy.SelectForeignData()
         // // cy.SelectFinancialInformation(false)
         // cy.FillSendAddress()
         // cy.DeclaringOption(true)
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         // cy.get('#SubmitUploadDocumentsForm', { timeout: 120000 }).should('be.enabled')
         // cy.get('#SubmitUploadDocumentsForm').click()
@@ -89,22 +89,22 @@ describe('test pasivo', function () {
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
         cy.Sqs('success')
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         //cy.SelectGmf(true)
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         // cy.SelectForeignData()
         // cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('#SubmitUploadDocumentsForm', { timeout: 120000 }).should('be.enabled')
         cy.get('#SubmitUploadDocumentsForm').click()
@@ -127,21 +127,21 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.SelectForeignData()
         cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('#SubmitUploadDocumentsForm', { timeout: 120000 }).should('be.enabled')
         cy.get('#SubmitUploadDocumentsForm').click()
@@ -162,21 +162,21 @@ describe('test pasivo', function () {
             loadPresigned: 'any'
         };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('PRO')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.SelectForeignData()
         cy.SelectFinancialInformation(false)
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
         cy.get('#SubmitUploadDocumentsForm', { timeout: 120000 }).should('be.enabled')
         cy.get('#SubmitUploadDocumentsForm').click()
@@ -187,7 +187,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success', updateCrm:true };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'No', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -195,7 +195,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: false, docs: 'skip', sqs: 'success', updateCrm:true };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'No', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 /*
@@ -203,7 +203,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -211,7 +211,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: true, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -219,7 +219,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'No', gmf: false, declaring: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -227,7 +227,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'No', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -235,7 +235,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'SIMPLE', insurance: 'Si', gmf: false, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -243,7 +243,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'Si', gmf: true, declaring: true };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     })
 
@@ -251,7 +251,7 @@ describe('test pasivo', function () {
         var userConditions = { client: true, updated: false, cat: false, channels: true, docs: 'skip', sqs: 'success' };
         var flowConditions = { accountType: 'PRO', insurance: 'No', gmf: false, declaring: false };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.PerformFlow(userConditions,flowConditions)
     }) */
 
@@ -263,19 +263,19 @@ describe('test pasivo', function () {
         const fileName = 'cc2.jpeg';
         //const fileName = 'files/cc1.jpeg';
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm()
+        cy.fillBasicInformationPage()
         cy.AcceptPep()
         cy.SelectAccount('SIMPLE')
         cy.AcceptInsurance('Si')
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         cy.FillSendAddress()
         cy.DeclaringOption(true)
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.get('#SubmitUploadDocumentsForm').should('be.disabled')
 
         // cy.fixture('cc2.jpeg').as('cc')

@@ -10,14 +10,14 @@ describe('Sprint 52', function () {
     it('control  otp cda', function () {
         var userConditions = { client: false, updated: false, cat: false,docs: 'Empleado'};
         var time = 0;
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm('stg')
-        cy.WaitLoader()
+        cy.fillBasicInformationPage('stg')
+        cy.waitLoader()
         cy.wait(time)
 
         cy.AcceptPep()
-        //cy.WaitLoader()
+        //cy.waitLoader()
 
         cy.SelectAccount('Digital',true)
        
@@ -28,10 +28,10 @@ describe('Sprint 52', function () {
         var flowConditions = { accountType: 'Digital', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
         var time = 0;
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -39,7 +39,7 @@ describe('Sprint 52', function () {
         cy.get('#Term').type('365')
         cy.get('.mat-radio-label').contains('Si').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
         cy.OtpAuthentication()
@@ -60,9 +60,9 @@ describe('Sprint 52', function () {
         var time = 0;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -72,7 +72,7 @@ describe('Sprint 52', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
           cy.OtpAuthentication()
@@ -100,9 +100,9 @@ describe('Sprint 52', function () {
         var pause = true;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(time)
-        cy.WaitLoader()
+        cy.waitLoader()
 cy.Pause(pause)
         // cy.wait(time)
         cy.AcceptPep()
@@ -119,7 +119,7 @@ cy.Pause(pause)
          cy.pause()
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         // cy.wait(time)
         cy.pause()
 

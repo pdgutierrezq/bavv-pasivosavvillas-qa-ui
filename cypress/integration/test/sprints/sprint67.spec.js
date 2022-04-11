@@ -12,21 +12,21 @@ describe('Sprint 67', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
         // cy.SelectForeignData()
         // cy.SelectFinancialInformation(false)
@@ -55,22 +55,22 @@ describe('Sprint 67', function () {
         var flowConditions = { scr:false,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         var userConditions = { captcha:'ok',client: true, updated: false };
 
-        cy.MockWs(userConditions)
-        cy.FillForm(flowConditions.environment,userConditions.scr,pause)
-        cy.WaitLoader()
+        cy.setMocks(userConditions)
+        cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
+        cy.waitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,userConditions.scr)
         cy.Pause(userConditions.pause)
     
         //cy.AcceptInsurance(flowConditions.insurance,userConditions.scr)
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.OtpAuthentication(userConditions.scr)
     
          cy.SelectActivity('Empleado',userConditions.scr)
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.FillContactForm('Empleado',userConditions.scr)
          if (flowConditions.accountType == 'DIGITAL') {
              cy.SelectForeignData(userConditions.scr)

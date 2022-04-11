@@ -12,9 +12,9 @@ describe('Sprint 51', function () {
         var time = 0;
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -24,7 +24,7 @@ describe('Sprint 51', function () {
 
         cy.get('#mat-radio-5').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
 
           cy.OtpAuthentication()
@@ -48,9 +48,9 @@ describe('Sprint 51', function () {
         var userConditions = { channels:'true',client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -59,7 +59,7 @@ describe('Sprint 51', function () {
         cy.wait(time)
         cy.get('#mat-radio-5 > .mat-radio-label').click()
         cy.get('.avv-btn-primary').click()
-        //cy.WaitLoader()
+        //cy.waitLoader()
         
         cy.get('.time-copy').should('contain','5:00')
         cy.wait(30000000)
@@ -69,9 +69,9 @@ describe('Sprint 51', function () {
         var userConditions = { otp:"PASS",client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(time)
         cy.AcceptPep()
         cy.wait(time)
@@ -80,7 +80,7 @@ describe('Sprint 51', function () {
         cy.wait(time)
         cy.get('#mat-radio-5 > .mat-radio-label').click()
         cy.get('.avv-btn-primary').click()
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.get('.time-copy').should('contain','5:00')
        
     })
@@ -88,14 +88,14 @@ describe('Sprint 51', function () {
     it('control  otp cda', function () {
         var userConditions = { client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm('dev')
-        cy.WaitLoader()
+        cy.fillBasicInformationPage('dev')
+        cy.waitLoader()
         cy.wait(time)
 
         cy.AcceptPep()
-        //cy.WaitLoader()
+        //cy.waitLoader()
 
         cy.SelectAccount('Digital',true)
         cy.wait(time)
@@ -104,10 +104,10 @@ describe('Sprint 51', function () {
         cy.AcceptInsurance('Si')
         }
 
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.wait(time)
 
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.get('.time-copy').should('contain','5:00')
        
     })
@@ -115,14 +115,14 @@ describe('Sprint 51', function () {
     it('contador cda', function () {
         var userConditions = { otp:"PASS",client: true, updated: true, cat: false, summary: "x", insurance: 'false', docs: 'Empleado'/*, generateUrl: 'fail'*/ };
         var time = 0;
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
 
-        cy.FillForm('dev')
-        cy.WaitLoader()
+        cy.fillBasicInformationPage('dev')
+        cy.waitLoader()
         cy.wait(time)
 
         cy.AcceptPep()
-        //cy.WaitLoader()
+        //cy.waitLoader()
 
         cy.SelectAccount('Digital',true)
         cy.wait(time)
@@ -131,10 +131,10 @@ describe('Sprint 51', function () {
         cy.AcceptInsurance('Si')
         }
 
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.wait(time)
 
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.get('.time-copy').should('contain','5:00')
         cy.get('.time-copy').should('contain','4:59')
        

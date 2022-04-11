@@ -11,16 +11,16 @@ describe('Sprint 73', function () {
         var pause = true;
         var flowConditions = {  environment: 'stg' ,declaring:true,userType:'sin cuentas'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
 
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -39,10 +39,10 @@ describe('Sprint 73', function () {
 
 
         cy.DeclaringOption(flowConditions.declaring)
-        cy.WaitLoader()
+        cy.waitLoader()
 
          cy.ElectronicSignature()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SavingTips()
         // cy.get('[formcontrolname="bank"]').click()
@@ -59,15 +59,15 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true,userType:'sin cuentas'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause,flowConditions.userType)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -82,10 +82,10 @@ describe('Sprint 73', function () {
 
 
         cy.DeclaringOption(flowConditions.declaring)
-        cy.WaitLoader()
+        cy.waitLoader()
 
          cy.ElectronicSignature()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SavingTips()
         // cy.get('[formcontrolname="bank"]').click()
@@ -102,15 +102,15 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
@@ -121,7 +121,7 @@ describe('Sprint 73', function () {
         // cy.Pause(pause)
         cy.get('#SubmitAccountSettingsForm').click()
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
 
 
         cy.FillSendAddress()
@@ -130,10 +130,10 @@ describe('Sprint 73', function () {
 
 
         cy.DeclaringOption(flowConditions.declaring)
-        cy.WaitLoader()
+        cy.waitLoader()
 
          cy.ElectronicSignature()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SavingTips()
         // cy.get('[formcontrolname="bank"]').click()
@@ -150,21 +150,21 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
         // cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.FillContactForm('Empleado')
         // cy.SelectForeignData()
         // cy.SelectFinancialInformation(false)
@@ -177,15 +177,15 @@ describe('Sprint 73', function () {
         cy.get('#SubmitAccountSettingsForm').click()
         //cy.FillSendAddress()
                  cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#CdtFeaturesButton').click()
 
 
         cy.DeclaringOption(flowConditions.declaring)
-        cy.WaitLoader()
+        cy.waitLoader()
 
          cy.ElectronicSignature()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SavingTips()
         // cy.get('[formcontrolname="bank"]').click()
@@ -203,21 +203,21 @@ describe('Sprint 73', function () {
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
          cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.Pause(pause)
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.Pause(pause)
 
         cy.OtpAuthentication()
         cy.Pause(pause)
         // cy.SelectActivity('Empleado')
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.FillContactForm('Empleado')
         // cy.SelectForeignData()
         // cy.SelectFinancialInformation(false)
@@ -230,15 +230,15 @@ describe('Sprint 73', function () {
         cy.get('#SubmitAccountSettingsForm').click()
        // cy.FillSendAddress()
         //         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.get('#CdtFeaturesButton').click()
 
 
         cy.DeclaringOption(flowConditions.declaring)
-        cy.WaitLoader()
+        cy.waitLoader()
 
          cy.ElectronicSignature()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.get('[formcontrolname="bank"]').click()
         cy.get('mat-option[role="option"]').first().click()
@@ -254,22 +254,22 @@ describe('Sprint 73', function () {
         var flowConditions = { scr:false,accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false, environment: 'stg' };
         var userConditions = { docs:'Empleado',captcha:'ok',client: true, updated: false };
 
-        cy.MockWs(userConditions)
-        cy.FillForm(flowConditions.environment,userConditions.scr,pause)
-        cy.WaitLoader()
+        cy.setMocks(userConditions)
+        cy.fillBasicInformationPage(flowConditions.environment,userConditions.scr,pause)
+        cy.waitLoader()
         cy.AcceptPep()
         //cy.ScreenShot(userConditions.scr)
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.SelectAccount(flowConditions.accountType, flowConditions.gmf,userConditions.scr)
         cy.Pause(userConditions.pause)
     
         //cy.AcceptInsurance(flowConditions.insurance,userConditions.scr)
-        //cy.WaitLoader()
+        //cy.waitLoader()
         cy.OtpAuthentication(userConditions.scr)
     
          cy.SelectActivity('Empleado',userConditions.scr)
-         cy.WaitLoader()
+         cy.waitLoader()
          cy.FillContactForm('Empleado',userConditions.scr)
          if (flowConditions.accountType == 'DIGITAL') {
              cy.SelectForeignData(userConditions.scr)

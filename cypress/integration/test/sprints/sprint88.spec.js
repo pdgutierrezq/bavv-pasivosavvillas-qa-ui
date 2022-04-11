@@ -6,45 +6,45 @@ describe('Sprint 88', function () {
         var userConditions = { docs:'no cc',captcha:'ok',client: true, updated: true };
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
     })
     it('otp fail', function () {
         var userConditions = { docs:'no cc',captcha:'ok',client: true, updated: true };
         var pause = false;
         var flowConditions = {  environment: 'dev' ,declaring:true};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
     })
     it.only('Cdt cargue con cedula', function () {
         var userConditions = { docs:'Empleado',captcha:'ok',client: true, updated: true };
         var pause = false;
         var flowConditions = {  environment: 'stg' ,declaring:true};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT(flowConditions.environment, pause)
         cy.Pause(true)
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Term').type('365')
         cy.get('#mat-radio-8 > .mat-radio-label').click()
         cy.get('#SubmitCDTForm').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.Pause(pause)
         //  cy.SelectActivity('Empleado')
-        //  cy.WaitLoader()
+        //  cy.waitLoader()
         //  cy.Pause(pause)
         //  cy.FillContactForm('Empleado')
         //  cy.Pause(pause)
@@ -58,7 +58,7 @@ describe('Sprint 88', function () {
         // cy.xpath('//mat-radio-button[@id="mat-radio-13"]').click()
         cy.xpath('(//*[@formcontrolname="accountSettingFirstGroup"]//mat-radio-button[contains(*,"Cuenta")])[1]').click()
         cy.xpath('(//*[@formcontrolname="accountSettingSecondGroup"]//mat-radio-button[contains(*,"Cuenta")])[1]').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.xpath('//div[@class="box-btn-submit"]').click()
         cy.Pause(false)
         //  cy.get('#SubmitAccountSettingsForm').click()

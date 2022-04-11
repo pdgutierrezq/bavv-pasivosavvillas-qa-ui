@@ -11,7 +11,7 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: true, cat: false, channels: true, insurance: 'true', updateCrm: '127' };
         var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false, environment: 'dev' };
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         // Dado  el cliente está en la pantalla de PEP 
         cy.PerformFlow(userConditions, flowConditions)
 
@@ -33,7 +33,7 @@ describe('Sprint 46', function () {
         //     cy.wait(2000)
         //     cy.get('#SubmitFormUserIdentification').click()
         // })
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.AcceptPep()
 
         // cy.SelectAccount(flowConditions.accountType, flowConditions.gmf)
@@ -41,7 +41,7 @@ describe('Sprint 46', function () {
         // if (userConditions.insurance == 'false') {
         //     cy.AcceptInsurance(flowConditions.insurance)
         // }
-        // cy.WaitLoader()
+        // cy.waitLoader()
         // cy.OtpAuthentication()
         // cy.FillSendAddress()
 
@@ -51,9 +51,9 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: true, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(3000)
 
         cy.AcceptPep()
@@ -63,7 +63,7 @@ describe('Sprint 46', function () {
         cy.wait(3000)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(3000)
 
         cy.OtpAuthentication()
@@ -73,9 +73,9 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.wait(3000)
         cy.AcceptPep()
@@ -84,14 +84,14 @@ describe('Sprint 46', function () {
         cy.wait(3000)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(3000)
 
         cy.OtpAuthentication()
         cy.wait(3000)
 
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(3000)
 
         cy.FillContactForm('Empleado')
@@ -120,9 +120,9 @@ describe('Sprint 46', function () {
     it.only('Pantalla cargue documentos CDT Empleado- Sprint 87', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         var flowConditions = { accountType: 'DIGITAL', insurance: 'Si', gmf: false, declaring: false,environment:'stg'};
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
 
         cy.wait(3000)
         cy.AcceptPep()
@@ -131,14 +131,14 @@ describe('Sprint 46', function () {
         cy.wait(3000)
 
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(3000)
 
         cy.OtpAuthentication()
         cy.wait(3000)
 
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.wait(3000)
 
         cy.FillContactForm('Empleado')
@@ -167,17 +167,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'no docs'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -198,17 +198,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'cc'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -230,17 +230,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Pensionado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Pensionado')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -261,17 +261,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Hogar')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Estudiante')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -292,17 +292,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente con negocio')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente con negocio')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -324,17 +324,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Empleado')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Empleado')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -356,14 +356,14 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: true, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
       
         cy.get('.mat-radio-label').first().click()
@@ -378,17 +378,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'Empleado'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente con negocio')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente con negocio')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -409,17 +409,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'fail'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente con negocio')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente con negocio')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -440,17 +440,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,docs: 'no docs'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente con negocio')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente con negocio')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)
@@ -471,17 +471,17 @@ describe('Sprint 46', function () {
         var userConditions = { client: true, updated: false, cat: false ,updateCrm: '127'};
         // var flowConditions = { accountType: 'PRO', insurance: 'fail', gmf: false, declaring: false,environment:'dev'};
 
-        cy.MockWs(userConditions)
+        cy.setMocks(userConditions)
         cy.FillFormCDT()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.AcceptPep()
         cy.get('#Amount').type('1000000')
         cy.get('#Term').type('365')
         cy.get('.avv-btn-primary').click()
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.OtpAuthentication()
         cy.SelectActivity('Independiente con negocio')
-        cy.WaitLoader()
+        cy.waitLoader()
         cy.FillContactForm('Independiente con negocio')
             cy.SelectForeignData()
             cy.SelectFinancialInformation(false)

@@ -1,15 +1,21 @@
 {
   "baseUrl": "https://rb-pasivo-dev-front.avaldigitallabs.com",
   "reporter": "cypress-multi-reporters",
-  "reporterOptions": {
-    "reporterEnabled": "mochawesome",
-    "mochawesomeReporterOptions": {
-      "reportDir": "cypress/reports/mocha",
-      "quite": true,
-      "overwrite": false,
-      "html": false,
-      "json": true
-    }
+  "reporterEnabled": "mochawesome, mocha-junit-reporter,cypress-serenity-reporter",
+  "mochaJunitReporterReporterOptions": {
+    "mochaFile": "reports/junit/test-results.[hash].xml",
+    "testsuitesTitle": false
+  },
+  "mochawesomeReporterOptions": {
+    "reportDir": "reports/wesome",
+    "reportFilename": "mochawesomeReport_[hash].json",
+    "overwrite": false,
+    "html": false,
+    "json": true
+  },
+  "cypressSerenityReporterOptions": {
+    "reportDir": "reports/serenity",
+    "html": true
   },
   "projectId": "fqvc7y",
   "env": {
@@ -18,11 +24,15 @@
     "CAPCTHA_OK": "ok",
     "CAPCTHA_500": "500"
   },
-  
+  "video": true,
   "failOnStatusCode": false,
   "supportFile": "./cypress/support/index.js",
+  "screenshotsFolder": "./reports/screenshots",
+  "videosFolder": "./reports/videos",
   "chromeWebSecurity": false,
-  "modifyObstructiveCode":false
-
+  "modifyObstructiveCode": false,
+  "viewportWidth": 1100,
+  "viewportHeight": 1000,
+  "experimentalNetworkStubbing": false
 }
 
