@@ -18,6 +18,9 @@ import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
 import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
+import {
+  PRODUCT_CONFIGURATION_SERVICE
+} from "../services/configuration/configuration";
 
 let data
 before(() => {
@@ -44,6 +47,7 @@ Cypress.Commands.add("runPagesList",
     })
 
 Cypress.Commands.add("setMocks", (mocks) => {
+  cy.setMock(PRODUCT_CONFIGURATION_SERVICE, mocks.configuration)
   cy.setMock(RECAPTCHA_SERVICE, mocks.recaptcha)
   cy.setMock(CUSTOMER_CONDITION_SERVICE, mocks.condition)
   cy.setMock(CUSTOMER_ACCOUNTS_SERVICE, mocks.account)
