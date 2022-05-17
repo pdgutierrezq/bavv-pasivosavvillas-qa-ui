@@ -1,7 +1,7 @@
 var homeSelectors = {
   form: {
     nextPage: {
-      continue: '.btn'
+      continue: '*[class="btn btn-degraded blue"]'
     }
   }
 }
