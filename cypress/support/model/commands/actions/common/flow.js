@@ -23,7 +23,7 @@ Cypress.Commands.add("nextPage",
 Cypress.Commands.add("clickWithTimeout",
     (automationId, timeout) => {
       cy.get(automationId, {timeout: timeout}).should('be.enabled')
-      cy.get(automationId).click()
+      cy.get(automationId).eq(0).click()
     })
 
 Cypress.Commands.add("waitLoader", (sleep=0) => {
