@@ -3,5 +3,6 @@
   "var2": false,
   "var3": true,
   "var4": false,
-  "var5": true
+  "var5": true,
+  "var6": "OK"
 }

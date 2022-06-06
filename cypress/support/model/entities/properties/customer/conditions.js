@@ -3,9 +3,29 @@ const CONDITION = {
     STATUS: 200,
     BODY: 'mock/customer/conditions/cust-cond-client-pep.json'
   },
-  CODE_99: {
+  USER_ERROR_CODE_90002: {
     STATUS: 200,
-    BODY: 'mock/customer/conditions/99-error.json'
+    BODY: 'mock/customer/conditions/ko/user/ko-90002.json'
+  },
+  USER_ERROR_CODE_90003: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/ko/user/ko-90003.json'
+  },
+  TECH_ERROR_CODE_61: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/ko/tech/ko-61.json'
+  },
+  TECH_ERROR_CODE_500: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/ko/tech/ko-500.json'
+  },
+  TECH_ERROR_CODE_UNKNOWN: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/ko/tech/ko-unknown.json'
+  },
+  TECH_ERROR_CODE_999: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/ko/tech/ko-999.json'
   },
   RESTRICTED: {
     STATUS: 200,

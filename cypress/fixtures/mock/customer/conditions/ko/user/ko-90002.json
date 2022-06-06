@@ -1,8 +1,8 @@
 {
-  "var1": 0,
+  "var1": 90002,
   "var2": true,
   "var3": false,
   "var4": false,
   "var5": false,
-  "var6": "OK"
+  "var6": "User_Error"
 }
