@@ -47,7 +47,7 @@ Cypress.Commands.add("executeFlow",
     (app, flow) => {
       let mocks = Object.assign({}, app.DEFAULT.mocks, flow.mocks);
       cy.setMocks(mocks)
-      cy.setData(flow.pages)
+      cy.setBranches(flow.braches)
       cy.visit(app.URL)
       cy.runPagesList(flow.phases)
     })
@@ -92,31 +92,25 @@ Cypress.Commands.add("setMock", (service, mock) => {
   }
 })
 
-Cypress.Commands.add("setData", (pagesLists) => {
-  if (typeof pagesLists !== 'undefined') {
-    for (let page of pagesLists) {
-      Fixtures.mergeDataInPage(page.page.name, page.branch)
+Cypress.Commands.add("setBranches", (branchesLists) => {
+  if (typeof branchesLists !== 'undefined') {
+    for (let branchDef of branchesLists) {
+      Fixtures.mergeDataInPage(branchDef.page.name, branchDef.branch)
     }
   }
 })
 
 Cypress.Commands.add("nextPage",
     (automationId, timeout) => {
-      // console.log(automationId)
       for (let page in PAGES) {
         let selector = PAGES[page].branch.trigger
-        let mergePage = PAGES[page]
         let fixturePage = Fixtures.getPage(PAGES[page].name)
         selector = fixturePage.branch.trigger
         console.log('--------------------------')
         console.log(PAGES[page].name)
-        // console.log(mergePage)
         console.log(fixturePage)
         console.log('automationId:'+automationId)
         console.log('selector:'+selector)
-        // Object.assign(mergePage, fixturePage)
-        // console.log(mergePage)
-
         if (selector === automationId) {
           cy.pauseAndScreenshot(PAGES[page].status)
           cy.clickWithTimeout(automationId, timeout)
