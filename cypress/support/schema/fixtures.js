@@ -8,27 +8,29 @@ let Fixtures = class Fixtures {
   loadData() {
     for (let page in PAGES) {
       let name = PAGES[page].name
-      let flow = PAGES[page].flow
-      let fixture = PAGES[page].fixture
+      let selectors = PAGES[page].selectors
+      let branch = PAGES[page].branch
+      let fixture = PAGES[page].branch.fixture
       cy.fixture(fixture).then((data) => {
-        this.setPage(name, data, flow)
+        this.setPage(name, data, branch,selectors)
       })
     }
   }
 
-  setPage(name, data, flow) {
+  setPage(name, data, branch,selectors) {
     this[name] = {}
-    this[name].data = data
-    this[name].flow = flow
+    this[name].selectors = selectors
+    this[name].branch = branch
+    this[name].branch.data = data
   }
 
   static getPage(pageName) {
     return this.getInstance()[pageName]
   }
 
-  static mergeDataInPage(pageName,data) {
+  static mergeDataInPage(pageName,branch) {
     let page = this.getPage(pageName)
-    page.data = data
+    Object.assign(page.branch, branch)
   }
 
   static getInstance() {

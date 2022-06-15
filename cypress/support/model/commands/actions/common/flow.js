@@ -8,18 +8,6 @@ Cypress.Commands.add("pauseAndScreenshot",
       }
     })
 
-Cypress.Commands.add("nextPage",
-    (automationId, timeout) => {
-      for (let page in PAGES) {
-        let selector = PAGES[page].selector
-        if (selector === automationId) {
-          cy.pauseAndScreenshot(PAGES[page].status)
-          cy.clickWithTimeout(automationId, timeout)
-          break
-        }
-      }
-    })
-
 Cypress.Commands.add("clickWithTimeout",
     (automationId, timeout) => {
       cy.get(automationId, {timeout: timeout}).should('be.enabled')

@@ -5,22 +5,37 @@ import {CUSTOMER_ACCOUNTS_SERVICE} from "../services/customer/accounts";
 import {CUSTOMER_INSURANCE_SERVICE} from "../services/customer/insurance";
 import {UPDATE_DATA_CRM_SERVICE} from "../services/customer/crm/update";
 import {CREATE_SDS_USER_SERVICE} from "../services/customer/sds/create";
-import {SAVE_SUMMARY_TRANSACTION_SERVICE} from "../services/transaction/summary/save";
-import {READE_ACTIVE_CHANNELS_SERVICE} from "../services/customer/channels/read";
+import {
+  SAVE_SUMMARY_TRANSACTION_SERVICE
+} from "../services/transaction/summary/save";
+import {
+  READE_ACTIVE_CHANNELS_SERVICE
+} from "../services/customer/channels/read";
 import {GET_PDF_SERVICE} from "../services/customer/documents/pdf";
 import {CREATE_PRODUCT_PASIVE_SERVICE} from "../services/product/create";
-import {GET_DOCUMENTS_TO_CHARGE} from "../services/customer/documents/get-documents-to-charge";
-import {GENERATE_PRESIGNED_URL} from "../services/customer/documents/generate-presigned-url";
-import {SQS_CDA_DOCUMENTS} from "../services/customer/documents/sqs-cda-documents";
+import {
+  GET_DOCUMENTS_TO_CHARGE
+} from "../services/customer/documents/get-documents-to-charge";
+import {
+  GENERATE_PRESIGNED_URL
+} from "../services/customer/documents/generate-presigned-url";
+import {
+  SQS_CDA_DOCUMENTS
+} from "../services/customer/documents/sqs-cda-documents";
 import {UPLOAD_DOCUMENT} from "../services/customer/documents/upload-document";
-import {VALIDATE_DOCUMENT} from "../services/customer/documents/validate-document";
+import {
+  VALIDATE_DOCUMENT
+} from "../services/customer/documents/validate-document";
 import {PSE_BANK_LIST_SERVICE} from "../services/pse/bank/list";
 import {PSE_CREATE_TRANSACTION} from "../services/pse/transaction/create";
-import {SAVE_RESUMES_CDT} from "../services/transaction/summary/save-resumes-cdt";
+import {
+  SAVE_RESUMES_CDT
+} from "../services/transaction/summary/save-resumes-cdt";
 import {PSE_CDT_REFUND_MONEY} from "../services/pse/transaction/refund";
 import {
   PRODUCT_CONFIGURATION_SERVICE
 } from "../services/configuration/configuration";
+import {PAGES} from "../../schema/pages";
 
 let data
 before(() => {
@@ -80,10 +95,35 @@ Cypress.Commands.add("setMock", (service, mock) => {
 Cypress.Commands.add("setData", (pagesLists) => {
   if (typeof pagesLists !== 'undefined') {
     for (let page of pagesLists) {
-      Fixtures.mergeDataInPage(page.page.name, page.data)
+      Fixtures.mergeDataInPage(page.page.name, page.branch)
     }
   }
 })
+
+Cypress.Commands.add("nextPage",
+    (automationId, timeout) => {
+      // console.log(automationId)
+      for (let page in PAGES) {
+        let selector = PAGES[page].branch.trigger
+        let mergePage = PAGES[page]
+        let fixturePage = Fixtures.getPage(PAGES[page].name)
+        selector = fixturePage.branch.trigger
+        console.log('--------------------------')
+        console.log(PAGES[page].name)
+        // console.log(mergePage)
+        console.log(fixturePage)
+        console.log('automationId:'+automationId)
+        console.log('selector:'+selector)
+        // Object.assign(mergePage, fixturePage)
+        // console.log(mergePage)
+
+        if (selector === automationId) {
+          cy.pauseAndScreenshot(PAGES[page].status)
+          cy.clickWithTimeout(automationId, timeout)
+          break
+        }
+      }
+    })
 
 module.exports = {
   data

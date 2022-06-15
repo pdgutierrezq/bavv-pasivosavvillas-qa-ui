@@ -1,7 +1,8 @@
 Cypress.Commands.add("fillPage",
     (page) => {
-      cy.formOperation("fill", page.flow.selectors, page.data)
-      if (page.flow.wait) {
+      console.log(page)
+      cy.formOperation("fill", page.selectors, page.branch.data)
+      if (page.wait) {
         cy.waitLoader()
       }
     })

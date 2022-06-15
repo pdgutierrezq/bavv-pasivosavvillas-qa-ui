@@ -28,12 +28,12 @@ const {financialInformationSelectors} = require(
 const PAGES = {
   HOME: {
     name: "home",
-    fixture: "flow/pages/home",
-    flow: {
-      selectors: homeSelectors.form,
-      wait: false
+    selectors: homeSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/home",
+      trigger: homeSelectors.form.nextPage.continue,
     },
-    selector: homeSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -41,12 +41,12 @@ const PAGES = {
   },
   BASIC_INFORMATION: {
     name: "basicInformation",
-    fixture: "flow/pages/information_basic",
-    flow: {
-      selectors: basicInformationSelectors.form,
-      wait: true
+    selectors: basicInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/information_basic",
+      trigger: basicInformationSelectors.form.nextPage.continue,
     },
-    selector: basicInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -54,12 +54,12 @@ const PAGES = {
   },
   PEP: {
     name: "pep",
-    fixture: "flow/pages/pep",
-    flow: {
-      selectors: pepSelectors.form,
-      wait: true
+    selectors: pepSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/pep",
+      trigger: pepSelectors.form.nextPage.continue,
     },
-    selector: pepSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -67,12 +67,12 @@ const PAGES = {
   },
   ACCOUNT: {
     name: "account",
-    fixture: "flow/pages/account",
-    flow: {
-      selectors: accountSelectors.form,
-      wait: true
+    selectors: accountSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/account",
+      trigger: accountSelectors.form.nextPage.account,
     },
-    selector: accountSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -80,12 +80,12 @@ const PAGES = {
   },
   INSURANCE: {
     name: "insurance",
-    fixture: "flow/pages/insurance",
-    flow: {
-      selectors: insuranceSelectors.form,
-      wait: true
+    selectors: insuranceSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/insurance",
+      trigger: insuranceSelectors.form.nextPage.continue,
     },
-    selector: insuranceSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -93,12 +93,12 @@ const PAGES = {
   },
   OTP: {
     name: "otp",
-    fixture: "flow/pages/otp",
-    flow: {
-      selectors: otpSelectors.form,
-      wait: true
+    selectors: otpSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/otp",
+      trigger: otpSelectors.form.nextPage.continue,
     },
-    selector: otpSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -106,12 +106,12 @@ const PAGES = {
   },
   PERSONAL_INFORMATION: {
     name: "personalInformation",
-    fixture: "flow/pages/personal_information",
-    flow: {
-      selectors: personalInformationSelectors.form,
-      wait: true
+    selectors: personalInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/personal_information",
+      trigger: personalInformationSelectors.form.nextPage.continue,
     },
-    selector: personalInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -119,12 +119,12 @@ const PAGES = {
   },
   ECONOMIC_ACTIVITY: {
     name: "economicActivity",
-    fixture: "flow/pages/economic_activity",
-    flow: {
-      selectors: economicActivitySelectors.form,
-      wait: true
+    selectors: economicActivitySelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/economic_activity",
+      trigger: economicActivitySelectors.form.nextPage.continue,
     },
-    selector: economicActivitySelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -132,12 +132,12 @@ const PAGES = {
   },
   CONTACT_INFORMATION: {
     name: "contactInformation",
-    fixture: "flow/pages/contact_information",
-    flow: {
-      selectors: contactInformationSelectors.form,
-      wait: true
+    selectors: contactInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/contact_information",
+      trigger: contactInformationSelectors.form.nextPage.continue,
     },
-    selector: contactInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -145,12 +145,12 @@ const PAGES = {
   },
   FOREIGN_INFORMATION: {
     name: "foreignInformation",
-    fixture: "flow/pages/foreign_information",
-    flow: {
-      selectors: foreignInformationSelectors.form,
-      wait: true
+    selectors: foreignInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/foreign_information",
+      trigger: foreignInformationSelectors.form.nextPage.continue,
     },
-    selector: foreignInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -158,12 +158,12 @@ const PAGES = {
   },
   FINANCIAL_INFORMATION: {
     name: "financialInformation",
-    fixture: "flow/pages/financial_information",
-    flow: {
-      selectors: financialInformationSelectors.form,
-      wait: true
+    selectors: financialInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/financial_information",
+      trigger: financialInformationSelectors.form.nextPage.continue,
     },
-    selector: financialInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -171,12 +171,12 @@ const PAGES = {
   },
   CARD: {
     name: "card",
-    fixture: "flow/pages/card",
-    flow: {
-      selectors: cardSelectors.form,
-      wait: false
+    selectors: cardSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/card",
+      trigger: cardSelectors.form.nextPage.continue,
     },
-    selector: cardSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -184,12 +184,12 @@ const PAGES = {
   },
   CARD_DEPOSIT: {
     name: "card",
-    fixture: "flow/pages/deposit/card",
-    flow: {
-      selectors: cardSelectors.form,
-      wait: false
+    selectors: cardSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/deposit/card",
+      trigger: cardSelectors.form.nextPage.continue,
     },
-    selector: cardSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -197,12 +197,12 @@ const PAGES = {
   },
   CARD_CONFIRM_DELIVERY_ADDRESS_POPUP: {
     name: "confirmDeliveryAddressPopup",
-    fixture: "flow/pages/card",
-    flow: {
-      selectors: confirmDevileryAddressPopupSelectors.form,
-      wait: false
+    selectors: confirmDevileryAddressPopupSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/card",
+      trigger: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     },
-    selector: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
     status: {
       pause: true,
       screenshot: false
@@ -210,12 +210,12 @@ const PAGES = {
   },
   DECLARING: {
     name: "declaring",
-    fixture: "flow/pages/declaring",
-    flow: {
-      selectors: declaringSelectors.form,
-      wait: false
+    selectors: declaringSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/declaring",
+      trigger: declaringSelectors.form.nextPage.continue,
     },
-    selector: declaringSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -223,12 +223,12 @@ const PAGES = {
   },
   SIGNATURE: {
     name: "signature",
-    fixture: "flow/pages/signature",
-    flow: {
-      selectors: signatureSelectors.form,
-      wait: true
+    selectors: signatureSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/signature",
+      trigger: signatureSelectors.form.nextPage.continue,
     },
-    selector: signatureSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -236,12 +236,12 @@ const PAGES = {
   },
   ENROLLMENT: {
     name: "enrollment",
-    fixture: "flow/pages/enrollment",
-    flow: {
-      selectors: enrollmentSelectors.form,
-      wait: true
+    selectors: enrollmentSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/enrollment",
+      trigger: enrollmentSelectors.form.nextPage.continue,
     },
-    selector: enrollmentSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -249,12 +249,12 @@ const PAGES = {
   },
   TIPS: {
     name: "tips",
-    fixture: "flow/pages/tips",
-    flow: {
-      selectors: tipsSelectors.form,
-      wait: false
+    selectors: tipsSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/tips",
+      trigger: tipsSelectors.form.nextPage.continue,
     },
-    selector: tipsSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -262,12 +262,12 @@ const PAGES = {
   },
   CDT_HOME: {
     name: "cdtHome",
-    fixture: "flow/pages/cdt/home",
-    flow: {
-      selectors: cdtHomeSelectors.form,
-      wait: false
+    selectors: cdtHomeSelectors.form,
+    wait: false,
+    branch: {
+      fixture: "flow/pages/cdt/home",
+      trigger: cdtHomeSelectors.form.nextPage.continue,
     },
-    selector: cdtHomeSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -275,12 +275,12 @@ const PAGES = {
   },
   CDT_BASIC_INFORMATION: {
     name: "cdtBasicInformation",
-    fixture: "flow/pages/cdt/information_basic",
-    flow: {
-      selectors: basicInformationSelectors.form,
-      wait: true
+    selectors: basicInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/cdt/information_basic",
+      trigger: basicInformationSelectors.form.nextPage.continue,
     },
-    selector: basicInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -288,12 +288,12 @@ const PAGES = {
   },
   CDT_CONFIG: {
     name: "cdtConfig",
-    fixture: "flow/pages/cdt/config",
-    flow: {
-      selectors: cdtConfigSelectors.form,
-      wait: true
+    selectors: cdtConfigSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/cdt/config",
+      trigger: cdtConfigSelectors.form.nextPage.continue,
     },
-    selector: cdtConfigSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -301,12 +301,12 @@ const PAGES = {
   },
   CDT_ACCOUNT_CONFIG: {
     name: "cdtAccountConfig",
-    fixture: "flow/pages/cdt/accountConfig",
-    flow: {
-      selectors: cdtAccountConfigSelectors.form,
-      wait: true
+    selectors: cdtAccountConfigSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/cdt/accountConfig",
+      trigger: cdtAccountConfigSelectors.form.nextPage.continue,
     },
-    selector: cdtAccountConfigSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -314,12 +314,12 @@ const PAGES = {
   },
   CDT_SIGNATURE: {
     name: "cdtSignature",
-    fixture: "flow/pages/cdt/signature",
-    flow: {
-      selectors: signatureSelectors.form,
-      wait: true
+    selectors: signatureSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/cdt/signature",
+      trigger: signatureSelectors.form.nextPage.continue,
     },
-    selector: signatureSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
@@ -327,12 +327,12 @@ const PAGES = {
   },
   CDT_PERSONAL_INFORMATION: {
     name: "cdtPersonalInformation",
-    fixture: "flow/pages/cdt/personal_information",
-    flow: {
-      selectors: personalInformationSelectors.form,
-      wait: true
+    selectors: personalInformationSelectors.form,
+    wait: true,
+    branch: {
+      fixture: "flow/pages/cdt/personal_information",
+      trigger: personalInformationSelectors.form.nextPage.continue,
     },
-    selector: personalInformationSelectors.form.nextPage.continue,
     status: {
       pause: true,
       screenshot: false
