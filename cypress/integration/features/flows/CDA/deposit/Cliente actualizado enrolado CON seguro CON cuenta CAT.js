@@ -1,30 +1,24 @@
 import {CDA} from "../../../../../support/schema/flow/cda";
 import {PHASE} from "../../../../../support/schema/phase";
-import {PAGES} from "../../../../../support/schema/pages";
 import {
   ACCOUNTS
 } from "../../../../../support/model/entities/properties/customer/accounts";
+import {BRANCH} from "../../../../../support/schema/branch";
 
 let flow = {
   name: 'Cliente actualizado enrolado CON seguro',
   phases: [
-    PHASE.CDA.INITIAL,
+    PHASE.CDA.PRODUCT.DEFAULT,
     PHASE.IDENTIFICATION,
-    PHASE.CDA.FINAL_DEPOSIT
+    PHASE.CDA.SETUP.CLIENT.YES,
+    PHASE.CDA.SUMMARY
   ],
   mocks: {
     account: ACCOUNTS.CAT.YES
   },
-  pages: [
-    {
-      page: PAGES.ACCOUNT,
-      data: {
-        account: false,
-        deposit: true,
-        continue: 0
-      }
-
-    }
+  braches: [
+    BRANCH.PRODUCT.DEPOSIT,
+    BRANCH.CARD.CLIENT.YES.DEPOSIT
   ]
 }
 

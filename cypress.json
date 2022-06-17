@@ -1,5 +1,6 @@
 {
   "baseUrl": "https://rb-pasivo-dev-front.avaldigitallabs.com",
+  "defaultCommandTimeout": 40000,
   "reporter": "cypress-multi-reporters",
   "reporterEnabled": "mochawesome, mocha-junit-reporter,cypress-serenity-reporter",
   "mochaJunitReporterReporterOptions": {

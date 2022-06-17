@@ -5,7 +5,6 @@ const {CONDITION} = require(
 const {PRODUCT_CONFIGURATION_SERVICE} = require(
     "../../../../support/model/services/configuration/configuration");
 
-
 let flow = {
   name: 'Cliente con retoma',
   phases: [

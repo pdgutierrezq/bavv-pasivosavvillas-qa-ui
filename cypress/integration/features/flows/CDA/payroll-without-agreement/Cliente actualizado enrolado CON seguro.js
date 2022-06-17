@@ -1,19 +1,27 @@
+import {CDA} from "../../../../../support/schema/flow/cda";
 import {PHASE} from "../../../../../support/schema/phase";
-import {CDA_PAYROLL} from "../../../../../support/schema/flow/cdaPayroll";
+import {BRANCH} from "../../../../../support/schema/branch";
 
 let flow = {
   name: 'Cliente actualizado enrolado CON seguro',
   phases: [
-    PHASE.CDA.INITIAL_PAYROLL,
+    PHASE.CDA.PRODUCT.DEFAULT,
     PHASE.IDENTIFICATION,
-    PHASE.CDA.FINAL
+    PHASE.CDA.INFO.PAYROLL.CLIENT.YES.UPDATED.YES,
+    PHASE.CDA.SETUP.CLIENT.YES,
+    PHASE.CDA.SUMMARY
   ],
-  mocks: {}
+  mocks: {},
+  braches: [
+    BRANCH.PRODUCT.PAYROLL_WITHOUT_AGREEMENT,
+    BRANCH.CONTACT_INFORMATION.PAYROLL.CLIENT.YES,
+    BRANCH.CARD.CLIENT.YES.ACCOUNT
+  ]
 }
 
-describe(CDA_PAYROLL.NAME, function () {
+describe(CDA.NAME, function () {
   it(flow.name, function () {
-    cy.executeFlow(CDA_PAYROLL, flow)
+    cy.executeFlow(CDA, flow)
   })
 })
 

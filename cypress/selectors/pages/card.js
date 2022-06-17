@@ -1,13 +1,13 @@
 var cardSelectors = {
   form: {
-    input:{
-      city:'#DeliveryCity',
-      neighborhood:'#DeliveryNeighborhood',
-      address:'#DeliveryAddress',
+    input: {
+      city: '#DeliveryCity',
+      neighborhood: '#DeliveryNeighborhood',
+      address: '#DeliveryAddress',
     },
     checkbox: {
       authTransport: '#CheckMassiveTransport',
-      authFourByMil: '#ExemptAccountCheck'
+      authFourByMil: '#ExemptAccountCheck > label'
     },
     nextPage: {
       continue: '#DeliveryAddressButton'
@@ -24,4 +24,4 @@ var confirmDevileryAddressPopupSelectors = {
   }
 }
 
-export {cardSelectors,confirmDevileryAddressPopupSelectors};
+export {cardSelectors, confirmDevileryAddressPopupSelectors};

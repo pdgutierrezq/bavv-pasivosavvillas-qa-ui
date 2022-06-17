@@ -3,7 +3,6 @@ const {PHASE} = require("../../../../support/schema/phase");
 const {CONDITION} = require(
     "../../../../support/model/entities/properties/customer/conditions");
 
-
 let flow = {
   name: 'Cliente con retoma',
   phases: [

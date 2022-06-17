@@ -1,5 +1,5 @@
 import 'cypress-file-upload';
-import ContactDataForm from '../integration/pageObjects/ContactDataForm'
+import ContactDataForm from '../integration/old/pageObjects/ContactDataForm'
 import ENUM from './schema/user'
 
 Cypress.Commands.add("Pause", (option) => {

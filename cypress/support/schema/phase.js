@@ -1,49 +1,101 @@
 const {PAGES} = require("./pages");
 let PHASE = {
   CDA: {
-    INITIAL: [
-      PAGES.HOME,
-      PAGES.BASIC_INFORMATION,
-      PAGES.PEP,
-      PAGES.ACCOUNT,
-    ],
-    FINAL: [
-      PAGES.CARD,
-      PAGES.CARD_CONFIRM_DELIVERY_ADDRESS_POPUP,
-      PAGES.DECLARING,
-      PAGES.SIGNATURE,
+    PRODUCT: {
+      DEFAULT: [
+        PAGES.HOME,
+        PAGES.BASIC_INFORMATION,
+        PAGES.PEP,
+        PAGES.ACCOUNT,
+      ],
+      PAYROLL: [
+        PAGES.BASIC_INFORMATION,
+        PAGES.PEP,
+        PAGES.ACCOUNT,
+      ]
+    },
+    SETUP: {
+      CLIENT: {
+        YES: [
+          PAGES.CARD,
+          PAGES.DECLARING,
+          PAGES.SIGNATURE,
+        ],
+        NO: [
+          PAGES.CARD,
+          PAGES.CARD_CONFIRM_DELIVERY_ADDRESS_POPUP,
+          PAGES.DECLARING,
+          PAGES.SIGNATURE,
+        ]
+      }
+    },
+    SUMMARY: [
       PAGES.TIPS,
     ],
-    FINAL_DEPOSIT: [
-      PAGES.CARD_DEPOSIT,
-      PAGES.CARD_CONFIRM_DELIVERY_ADDRESS_POPUP,
-      PAGES.DECLARING,
-      PAGES.SIGNATURE,
-      PAGES.TIPS,
-    ],
-    NO_CLIENT: [
-      PAGES.PERSONAL_INFORMATION,
-      PAGES.ECONOMIC_ACTIVITY,
-      PAGES.CONTACT_INFORMATION,
-      PAGES.FOREIGN_INFORMATION,
-      PAGES.FINANCIAL_INFORMATION,
-    ],
-    INITIAL_PAYROLL: [
-      PAGES.BASIC_INFORMATION,
-      PAGES.PEP,
-      PAGES.ACCOUNT,
-    ],
-    NO_CLIENT_PAYROLL: [
-      PAGES.PERSONAL_INFORMATION,
-      PAGES.CONTACT_INFORMATION,
-      PAGES.FOREIGN_INFORMATION,
-      PAGES.FINANCIAL_INFORMATION,
-    ],
-    CLIENT_NO_UPDATED_PAYROLL: [
-      PAGES.CONTACT_INFORMATION,
-      PAGES.FOREIGN_INFORMATION,
-      PAGES.FINANCIAL_INFORMATION,
-    ],
+    INFO: {
+      DEFAULT: {
+        CLIENT: {
+          NO: [
+            PAGES.PERSONAL_INFORMATION,
+            PAGES.ECONOMIC_ACTIVITY,
+            PAGES.CONTACT_INFORMATION,
+            PAGES.FOREIGN_INFORMATION,
+            PAGES.FINANCIAL_INFORMATION,
+          ],
+          YES: {
+            UPDATED: {
+              NO: [
+                PAGES.ECONOMIC_ACTIVITY,
+                PAGES.CONTACT_INFORMATION,
+                PAGES.FOREIGN_INFORMATION,
+                PAGES.FINANCIAL_INFORMATION,
+              ]
+            }
+          }
+        }
+      },
+      PAYROLL: {
+        CLIENT: {
+          NO: [
+            PAGES.PERSONAL_INFORMATION,
+            PAGES.CONTACT_INFORMATION,
+            PAGES.FOREIGN_INFORMATION,
+            PAGES.FINANCIAL_INFORMATION,
+          ],
+          YES: {
+            UPDATED: {
+              NO: [
+                PAGES.CONTACT_INFORMATION,
+                PAGES.FOREIGN_INFORMATION,
+                PAGES.FINANCIAL_INFORMATION,
+              ],
+              YES: [
+                PAGES.CONTACT_INFORMATION
+              ]
+            }
+          }
+        }
+      },
+      DEPOSIT: {
+        CLIENT: {
+          NO: [
+            PAGES.PERSONAL_INFORMATION,
+            PAGES.ECONOMIC_ACTIVITY,
+            PAGES.CONTACT_INFORMATION,
+          ],
+          YES: {
+            UPDATED: {
+              NO: [
+                PAGES.ECONOMIC_ACTIVITY,
+                PAGES.CONTACT_INFORMATION,
+                PAGES.FOREIGN_INFORMATION,
+                PAGES.FINANCIAL_INFORMATION,
+              ]
+            }
+          }
+        }
+      }
+    },
   },
   CDT: {
     INITIAL: [
@@ -74,18 +126,9 @@ let PHASE = {
   ENROLLMENT: [
     PAGES.ENROLLMENT
   ],
-  NO_CLIENT: [
-    PAGES.PERSONAL_INFORMATION,
-    PAGES.ECONOMIC_ACTIVITY,
-    PAGES.CONTACT_INFORMATION,
-    PAGES.FOREIGN_INFORMATION,
-  ],
   IDENTIFICATION: [
     PAGES.OTP,
-  ],
-  CUSTOMER: {},
-  UPDATED: {},
-  NO_UPDATED: {},
+  ]
 }
 
 module.exports = {

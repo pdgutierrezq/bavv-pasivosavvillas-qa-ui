@@ -6,20 +6,20 @@ import {
 import {BRANCH} from "../../../../../support/schema/branch";
 
 let flow = {
-  name: 'Cliente NO actualizado enrolado CON seguro',
+  name: 'NO Cliente actualizado enrolado CON seguro',
   phases: [
     PHASE.CDA.PRODUCT.DEFAULT,
     PHASE.IDENTIFICATION,
-    PHASE.CDA.INFO.DEFAULT.CLIENT.YES.UPDATED.NO,
-    PHASE.CDA.SETUP.CLIENT.YES,
+    PHASE.CDA.INFO.PAYROLL.CLIENT.NO,
+    PHASE.CDA.SETUP.CLIENT.NO,
     PHASE.CDA.SUMMARY
   ],
   mocks: {
-    condition: CONDITION.CLIENT.NO_UPDATED
+    condition: CONDITION.NO_CLIENT.NO_UPDATED,
   },
-  braches: [
-    BRANCH.CONTACT_INFORMATION.CLIENT.YES.UPDATED.NO,
-    BRANCH.CARD.CLIENT.YES.ACCOUNT
+  braches:[
+    BRANCH.PRODUCT.PAYROLL_WITHOUT_AGREEMENT,
+    BRANCH.CONTACT_INFORMATION.PAYROLL.CLIENT.NO,
   ]
 }
 

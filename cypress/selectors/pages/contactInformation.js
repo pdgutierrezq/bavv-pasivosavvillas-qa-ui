@@ -8,6 +8,7 @@ var contactInformationSelectors = {
       neighborhood: '#HomeDistrict',
       city: '#HomeCity',
       companyName: '#CompanyName',
+      companyNit: '#nit',
       workPhone: '#WorkPhone',
       workAddress: '#WorkAddress',
       workCity: '#WorkCity',

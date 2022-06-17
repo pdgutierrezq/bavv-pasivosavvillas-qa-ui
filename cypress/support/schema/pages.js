@@ -29,7 +29,6 @@ const PAGES = {
   HOME: {
     name: "home",
     selectors: homeSelectors.form,
-    wait: false,
     branch: {
       fixture: "flow/pages/home",
       trigger: homeSelectors.form.nextPage.continue,
@@ -42,7 +41,6 @@ const PAGES = {
   BASIC_INFORMATION: {
     name: "basicInformation",
     selectors: basicInformationSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/information_basic",
       trigger: basicInformationSelectors.form.nextPage.continue,
@@ -55,7 +53,6 @@ const PAGES = {
   PEP: {
     name: "pep",
     selectors: pepSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/pep",
       trigger: pepSelectors.form.nextPage.continue,
@@ -68,7 +65,6 @@ const PAGES = {
   ACCOUNT: {
     name: "account",
     selectors: accountSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/account",
       trigger: accountSelectors.form.nextPage.account,
@@ -81,7 +77,6 @@ const PAGES = {
   INSURANCE: {
     name: "insurance",
     selectors: insuranceSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/insurance",
       trigger: insuranceSelectors.form.nextPage.continue,
@@ -94,7 +89,6 @@ const PAGES = {
   OTP: {
     name: "otp",
     selectors: otpSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/otp",
       trigger: otpSelectors.form.nextPage.continue,
@@ -106,11 +100,10 @@ const PAGES = {
   },
   PERSONAL_INFORMATION: {
     name: "personalInformation",
-    selectors: personalInformationSelectors.form,
-    wait: true,
+    selectors: personalInformationSelectors.form.cda,
     branch: {
       fixture: "flow/pages/personal_information",
-      trigger: personalInformationSelectors.form.nextPage.continue,
+      trigger: personalInformationSelectors.form.cda.nextPage.continue,
     },
     status: {
       pause: true,
@@ -120,7 +113,6 @@ const PAGES = {
   ECONOMIC_ACTIVITY: {
     name: "economicActivity",
     selectors: economicActivitySelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/economic_activity",
       trigger: economicActivitySelectors.form.nextPage.continue,
@@ -133,7 +125,6 @@ const PAGES = {
   CONTACT_INFORMATION: {
     name: "contactInformation",
     selectors: contactInformationSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/contact_information",
       trigger: contactInformationSelectors.form.nextPage.continue,
@@ -146,7 +137,6 @@ const PAGES = {
   FOREIGN_INFORMATION: {
     name: "foreignInformation",
     selectors: foreignInformationSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/foreign_information",
       trigger: foreignInformationSelectors.form.nextPage.continue,
@@ -159,7 +149,6 @@ const PAGES = {
   FINANCIAL_INFORMATION: {
     name: "financialInformation",
     selectors: financialInformationSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/financial_information",
       trigger: financialInformationSelectors.form.nextPage.continue,
@@ -172,22 +161,8 @@ const PAGES = {
   CARD: {
     name: "card",
     selectors: cardSelectors.form,
-    wait: false,
     branch: {
       fixture: "flow/pages/card",
-      trigger: cardSelectors.form.nextPage.continue,
-    },
-    status: {
-      pause: true,
-      screenshot: false
-    }
-  },
-  CARD_DEPOSIT: {
-    name: "card",
-    selectors: cardSelectors.form,
-    wait: false,
-    branch: {
-      fixture: "flow/pages/deposit/card",
       trigger: cardSelectors.form.nextPage.continue,
     },
     status: {
@@ -198,7 +173,6 @@ const PAGES = {
   CARD_CONFIRM_DELIVERY_ADDRESS_POPUP: {
     name: "confirmDeliveryAddressPopup",
     selectors: confirmDevileryAddressPopupSelectors.form,
-    wait: false,
     branch: {
       fixture: "flow/pages/card",
       trigger: confirmDevileryAddressPopupSelectors.form.nextPage.acceptChangeDelivery,
@@ -211,7 +185,6 @@ const PAGES = {
   DECLARING: {
     name: "declaring",
     selectors: declaringSelectors.form,
-    wait: false,
     branch: {
       fixture: "flow/pages/declaring",
       trigger: declaringSelectors.form.nextPage.continue,
@@ -224,7 +197,6 @@ const PAGES = {
   SIGNATURE: {
     name: "signature",
     selectors: signatureSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/signature",
       trigger: signatureSelectors.form.nextPage.continue,
@@ -237,7 +209,6 @@ const PAGES = {
   ENROLLMENT: {
     name: "enrollment",
     selectors: enrollmentSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/enrollment",
       trigger: enrollmentSelectors.form.nextPage.continue,
@@ -250,7 +221,6 @@ const PAGES = {
   TIPS: {
     name: "tips",
     selectors: tipsSelectors.form,
-    wait: false,
     branch: {
       fixture: "flow/pages/tips",
       trigger: tipsSelectors.form.nextPage.continue,
@@ -263,7 +233,6 @@ const PAGES = {
   CDT_HOME: {
     name: "cdtHome",
     selectors: cdtHomeSelectors.form,
-    wait: false,
     branch: {
       fixture: "flow/pages/cdt/home",
       trigger: cdtHomeSelectors.form.nextPage.continue,
@@ -276,7 +245,6 @@ const PAGES = {
   CDT_BASIC_INFORMATION: {
     name: "cdtBasicInformation",
     selectors: basicInformationSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/cdt/information_basic",
       trigger: basicInformationSelectors.form.nextPage.continue,
@@ -289,7 +257,6 @@ const PAGES = {
   CDT_CONFIG: {
     name: "cdtConfig",
     selectors: cdtConfigSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/cdt/config",
       trigger: cdtConfigSelectors.form.nextPage.continue,
@@ -302,7 +269,6 @@ const PAGES = {
   CDT_ACCOUNT_CONFIG: {
     name: "cdtAccountConfig",
     selectors: cdtAccountConfigSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/cdt/accountConfig",
       trigger: cdtAccountConfigSelectors.form.nextPage.continue,
@@ -315,7 +281,6 @@ const PAGES = {
   CDT_SIGNATURE: {
     name: "cdtSignature",
     selectors: signatureSelectors.form,
-    wait: true,
     branch: {
       fixture: "flow/pages/cdt/signature",
       trigger: signatureSelectors.form.nextPage.continue,
@@ -327,11 +292,10 @@ const PAGES = {
   },
   CDT_PERSONAL_INFORMATION: {
     name: "cdtPersonalInformation",
-    selectors: personalInformationSelectors.form,
-    wait: true,
+    selectors: personalInformationSelectors.form.cdt,
     branch: {
-      fixture: "flow/pages/cdt/personal_information",
-      trigger: personalInformationSelectors.form.nextPage.continue,
+      fixture: "flow/pages/personal_information",
+      trigger: personalInformationSelectors.form.cdt.nextPage.continue,
     },
     status: {
       pause: true,

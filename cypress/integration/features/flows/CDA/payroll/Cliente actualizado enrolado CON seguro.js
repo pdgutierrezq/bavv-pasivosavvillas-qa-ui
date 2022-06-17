@@ -1,15 +1,20 @@
 import {PHASE} from "../../../../../support/schema/phase";
 import {CDA_PAYROLL} from "../../../../../support/schema/flow/cdaPayroll";
-import {PAGES} from "../../../../../support/schema/pages";
+import {BRANCH} from "../../../../../support/schema/branch";
 
 let flow = {
   name: 'Cliente actualizado enrolado CON seguro',
   phases: [
-    PHASE.CDA.INITIAL_PAYROLL,
+    PHASE.CDA.PRODUCT.PAYROLL,
     PHASE.IDENTIFICATION,
-    PHASE.CDA.FINAL
+    PHASE.CDA.SETUP.CLIENT.YES,
+    PHASE.CDA.SUMMARY
   ],
-  mocks: {}
+  mocks: {},
+  braches: [
+    BRANCH.PRODUCT.PAYROLL,
+    BRANCH.CARD.CLIENT.YES.ACCOUNT
+  ]
 }
 
 describe(CDA_PAYROLL.NAME, function () {
