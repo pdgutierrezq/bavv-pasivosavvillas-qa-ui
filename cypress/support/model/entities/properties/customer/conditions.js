@@ -1,7 +1,11 @@
 const CONDITION = {
   PEP: {
     STATUS: 200,
-    BODY: 'mock/customer/conditions/cust-cond-client-pep.json'
+    BODY: 'mock/customer/conditions/ko/user/cust-cond-client-pep.json'
+  },
+  CODE_3: {
+    STATUS: 200,
+    BODY: 'mock/customer/conditions/ok/ok-3.json'
   },
   USER_ERROR_CODE_90002: {
     STATUS: 200,
@@ -29,30 +33,30 @@ const CONDITION = {
   },
   RESTRICTED: {
     STATUS: 200,
-    BODY: 'mock/customer/conditions/cust-cond-restlist.json'
+    BODY: 'mock/customer/conditions/ok/cust-cond-restlist.json'
   },
   RETAKE: {
     STATUS: 200,
-    BODY: 'mock/customer/conditions/retake.json'
+    BODY: 'mock/customer/conditions/ok/retake.json'
   },
   CLIENT: {
     UPDATED: {
       STATUS: 200,
-      BODY: 'mock/customer/conditions/cust-cond-client-updated-no-return.json'
+      BODY: 'mock/customer/conditions/ok/cust-cond-client-updated-no-return.json'
     },
     NO_UPDATED: {
       STATUS: 200,
-      BODY: 'mock/customer/conditions/cust-cond-client-not-updated.json'
+      BODY: 'mock/customer/conditions/ok/cust-cond-client-not-updated.json'
     }
   },
   NO_CLIENT: {
     UPDATED: {
       STATUS: 200,
-      BODY: 'mock/customer/conditions/cust-cond-not-client-updated.json'
+      BODY: 'mock/customer/conditions/ok/cust-cond-not-client-updated.json'
     },
     NO_UPDATED: {
       STATUS: 200,
-      BODY: 'mock/customer/conditions/cust-cond-not-client-not-updated.json'
+      BODY: 'mock/customer/conditions/ok/cust-cond-not-client-not-updated.json'
     }
   }
 }
