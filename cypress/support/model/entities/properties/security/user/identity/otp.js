@@ -6,7 +6,15 @@ const OTP = {
     },
     RETRIES_OVERCOME: {
       STATUS: 201,
-      BODY: 'mock/security/user/identity/create/ko-retries-overcome.json'
+      BODY: 'mock/security/user/identity/create/ko/tech/ko-retries-overcome.json'
+    },
+    TECH_ERROR_CODE_41: {
+      STATUS: 201,
+      BODY: 'mock/security/user/identity/create/ko/tech/ko-41.json'
+    },
+    TECH_ERROR_CODE_40: {
+      STATUS: 201,
+      BODY: 'mock/security/user/identity/create/ko/tech/ko-40.json'
     }
   },
   VALIDATE: {

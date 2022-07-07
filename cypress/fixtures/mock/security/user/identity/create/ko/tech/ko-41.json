@@ -1,0 +1,10 @@
+{
+  "RqUID": "219528305",
+  "Status": {
+    "StatusCode": "41",
+    "StatusDesc": "Error asignacion semilla"
+  },
+  "statusResponse": 206,
+  "isOtpVoiceActive": true,
+  "sentVoiceOtp": false
+}
