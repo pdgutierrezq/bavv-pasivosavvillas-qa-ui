@@ -23,6 +23,8 @@ const {CREATE_PRODUCT_PASIVE_SERVICE} = require(
 const user = require("../user");
 const {VALIDATE_DOCUMENT} = require(
     "../../model/services/customer/documents/validate-document");
+const {CREATE_DIGITAL_DEBIT_CARD} = require(
+    "../../model/services/customer/card/create-digital-card");
 let CDT = {
   NAME: user.APP.CDT,
   URL: Cypress.env().list[0].cdt.baseUrl,
@@ -37,6 +39,7 @@ let CDT = {
       channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
       crm: CRM.OK,
       sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.OK,
+      createDigitalDebitCard: CREATE_DIGITAL_DEBIT_CARD.RESPONSE.OK,
       saveSummaryTransaction: SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK,
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
       createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,

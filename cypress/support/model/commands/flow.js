@@ -36,6 +36,9 @@ import {
   PRODUCT_CONFIGURATION_SERVICE
 } from "../services/configuration/configuration";
 import {PAGES} from "../../schema/pages";
+import {
+  CREATE_DIGITAL_DEBIT_CARD
+} from "../services/customer/card/create-digital-card";
 
 let data
 before(() => {
@@ -84,6 +87,7 @@ Cypress.Commands.add("setMocks", (mocks) => {
   cy.setMock(PSE_CREATE_TRANSACTION, mocks.pseCreateTransaction)
   cy.setMock(SAVE_RESUMES_CDT, mocks.saveResumesCdt)
   cy.setMock(PSE_CDT_REFUND_MONEY, mocks.pseCdtRefundMoney)
+  cy.setMock(CREATE_DIGITAL_DEBIT_CARD, mocks.createDigitalDebitCard)
 })
 
 Cypress.Commands.add("setMock", (service, mock) => {

@@ -1,0 +1,16 @@
+{
+  "DepAcctId": {
+    "AcctType": "SDA",
+    "AcctId": "8819182"
+  },
+  "CardAcctId": {
+    "AcctId": "7423F3AF2066B5625461735BA0AA964E",
+    "CCMotoAcct": {
+      "ExpDt": "6159D811F61EAFEB436BBFE0585C6B19",
+      "CardVrfyData": "E3BCEBD4A64790E653B85D7449895E20",
+      "Name": "Peter Parker"
+    }
+  },
+  "statusCode": 201,
+  "result": "OK"
+}

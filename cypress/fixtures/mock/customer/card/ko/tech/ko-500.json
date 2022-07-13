@@ -1,0 +1,5 @@
+{
+  "httpCode": "500",
+  "httpMessage": "Internal Server Error",
+  "moreInformation": "Cannot read property 'toString' of null"
+}

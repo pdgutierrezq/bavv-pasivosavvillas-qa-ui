@@ -21,6 +21,8 @@ const {SAVE_SUMMARY_TRANSACTION_SERVICE} = require(
 const {CREATE_PRODUCT_PASIVE_SERVICE} = require(
     "../../model/services/product/create");
 const user = require("../user");
+const {CREATE_DIGITAL_DEBIT_CARD} = require(
+    "../../model/services/customer/card/create-digital-card");
 let CDA = {
   NAME: user.APP.CDA,
   URL: Cypress.env().list[0].cda.baseUrl,
@@ -35,6 +37,7 @@ let CDA = {
       channels: READE_ACTIVE_CHANNELS_SERVICE.RESPONSE.TRUE,
       crm: CRM.OK,
       sdsUserService: CREATE_SDS_USER_SERVICE.RESPONSE.OK,
+      createDigitalDebitCard: CREATE_DIGITAL_DEBIT_CARD.RESPONSE.OK,
       saveSummaryTransaction: SAVE_SUMMARY_TRANSACTION_SERVICE.RESPONSE.OK,
       pdf: GET_PDF_SERVICE.RESPONSE.OK,
       createProductPasive: CREATE_PRODUCT_PASIVE_SERVICE.RESPONSE.OK,

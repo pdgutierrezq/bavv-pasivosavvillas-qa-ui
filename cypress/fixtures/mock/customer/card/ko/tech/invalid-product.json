@@ -1,0 +1,18 @@
+{
+  "MsgRsHdr": {
+    "Status": {
+      "StatusCode": "90006",
+      "ServerStatusCode": "90006",
+      "StatusDesc": "TIPO DE PRODUCTO INVALIDO",
+      "Severity": "Error",
+      "AdditionalStatus": {
+        "StatusCode": "100",
+        "ServerStatusCode": "100",
+        "StatusDesc": "TIPO DE PRODUCTO INVALIDO",
+        "Severity": "Error"
+      },
+      "EndDt": "2022-07-12T08:55:58"
+    },
+    "EndDt": "2022-07-12T08:55:58"
+  }
+}
