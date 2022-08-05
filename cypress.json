@@ -3,18 +3,18 @@
   "reporter": "cypress-multi-reporters",
   "reporterEnabled": "mochawesome, mocha-junit-reporter,cypress-serenity-reporter",
   "mochaJunitReporterReporterOptions": {
-    "mochaFile": "reports/junit/test-results.[hash].xml",
+    "mochaFile": "target/junit/test-results.[hash].xml",
     "testsuitesTitle": false
   },
   "mochawesomeReporterOptions": {
-    "reportDir": "reports/wesome",
+    "reportDir": "target/wesome",
     "reportFilename": "mochawesomeReport_[hash].json",
     "overwrite": false,
     "html": false,
     "json": true
   },
   "cypressSerenityReporterOptions": {
-    "reportDir": "reports/serenity",
+    "reportDir": "target/serenity",
     "html": true
   },
   "projectId": "fqvc7y",
@@ -27,8 +27,8 @@
   "video": true,
   "failOnStatusCode": false,
   "supportFile": "./cypress/support/index.js",
-  "screenshotsFolder": "./reports/screenshots",
-  "videosFolder": "./reports/videos",
+  "screenshotsFolder": "target/site/cypress/screenshots",
+  "videosFolder": "target/site/cypress/videos",
   "chromeWebSecurity": false,
   "modifyObstructiveCode": false,
   "viewportWidth": 1100,

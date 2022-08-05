@@ -33,9 +33,14 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 require('cypress-plugin-tab')
 require('cypress-xpath')
 
-Cypress.on("test:after:run", (test, runnable) => {
-  if (test.state === "failed") {
-    const screenshot = `../screenshots/${Cypress.spec.name}/${runnable.parent.title} -- ${test.title} (failed).png`;
-    addContext({test}, screenshot);
+const titleToFileName = (title) => title.replace(/[:\/]/g, '');
+const basePath = '.'
+
+Cypress.on('test:after:run', (test, runnable) => {
+  if (test.state === 'failed') {
+    const filename = `${titleToFileName(runnable.parent.title)} -- ${titleToFileName(test.title)} (failed).png`;
+    addContext({ test }, `${basePath}/screenshots/${Cypress.spec.name}/${filename}`);
+    addContext({ test }, `${basePath}/videos/${Cypress.spec.name}.mp4`);
   }
 });
+
